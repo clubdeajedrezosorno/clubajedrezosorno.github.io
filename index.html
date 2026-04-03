@@ -3,53 +3,663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club de Ajedrez Osorno | 102 Años</title>
+    <title>Club de Ajedrez Osorno — 102 años de historia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f8f9fa; }
-        header { background: #000; color: #fff; padding: 2rem; text-align: center; border-bottom: 4px solid #c5a059; }
-        .nav-bar { background: #c5a059; padding: 0.8rem; text-align: center; }
-        .nav-bar a { color: #000; text-decoration: none; font-weight: bold; margin: 0 20px; text-transform: uppercase; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #000000; 
+            font-family: 'Inter', sans-serif; 
+            color: #e5e5e5; 
+            line-height: 1.45;
+        }
+        .site-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #050505;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            border-radius: 0 0 24px 24px;
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         
-        .container { display: grid; grid-template-columns: 2fr 1fr; max-width: 1200px; margin: 20px auto; gap: 20px; padding: 0 15px; }
-        section { background: white; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        /* HEADER AZUL */
+        .top-header { background: #1e2f3a; color: white; padding: 1rem 2rem; border-bottom: 4px solid #d4af37; border-radius: 0 0 12px 12px; }
+        .header-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .left-brand { font-family: 'PT Serif', serif; font-size: 1.6rem; font-weight: 700; color: #f9e7c2; }
+        .center-logo { display: flex; align-items: center; justify-content: center; }
+        .center-logo img { max-height: 70px; width: auto; filter: brightness(0) invert(1); }
+        .center-logo .logo-text { display: none; font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; }
+        .right-rubrics { display: flex; gap: 1.8rem; font-size: 0.9rem; font-weight: 500; color: #e9dcb0; }
+        .right-rubrics .dropdown { position: relative; display: inline-block; cursor: pointer; }
+        .right-rubrics .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #1a1a1a;
+            min-width: 250px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            z-index: 100;
+            right: 0;
+            top: 100%;
+            border: 1px solid #d4af37;
+        }
+        .right-rubrics .dropdown-content a {
+            color: #eee;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #333;
+            transition: 0.2s;
+        }
+        .right-rubrics .dropdown-content a:hover { background: #2c2c2c; color: #d4af37; }
+        .right-rubrics .dropdown:hover .dropdown-content { display: block; }
         
-        h2 { border-bottom: 2px solid #c5a059; padding-bottom: 10px; color: #333; }
-        aside { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        footer { text-align: center; padding: 2rem; background: #333; color: white; margin-top: 20px; }
+        .main-title { margin-top: 1.2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1rem; }
+        .main-title h1 { 
+            font-family: 'PT Serif', serif; 
+            font-size: 2.2rem; 
+            font-weight: 700; 
+            color: #f9e7c2; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 8px; 
+            flex-wrap: wrap; 
+            justify-content: center;
+            animation: titleGlow 1.5s ease-in-out infinite;
+        }
+        @keyframes titleGlow {
+            0% { text-shadow: 0 0 0px rgba(212,175,55,0); }
+            50% { text-shadow: 0 0 20px rgba(212,175,55,0.9), 0 0 5px rgba(212,175,55,0.5); }
+            100% { text-shadow: 0 0 0px rgba(212,175,55,0); }
+        }
+        .main-title h1 i { font-size: 1.8rem; color: #d4af37; }
+        .subtitle { text-align: center; font-size: 0.9rem; margin-top: 0.3rem; color: #cbdbe6; }
+        
+        /* MAIN GRID */
+        .main-grid { display: grid; grid-template-columns: 260px 1fr 300px; gap: 2rem; padding: 2rem 2rem 2.5rem 2rem; animation: fadeIn 0.8s ease-out 0.2s both; }
+        
+        /* MENÚ LATERAL */
+        .sidebar-left { background: #0a0a0a; border-radius: 20px; padding: 0.2rem 0; border: 1px solid #222; }
+        .main-menu { list-style: none; }
+        .main-menu li { border-bottom: 1px solid #222; }
+        .main-menu a { display: flex; align-items: center; gap: 12px; padding: 0.8rem 0.8rem 0.8rem 0; font-weight: 500; color: #ccc; text-decoration: none; transition: 0.2s; font-size: 0.95rem; cursor: pointer; }
+        .main-menu a i { width: 1.6rem; color: #d4af37; font-size: 1.1rem; }
+        .main-menu a:hover { color: #d4af37; padding-left: 6px; }
+        .main-menu li.active a { color: #d4af37; border-right: 3px solid #d4af37; background: linear-gradient(90deg, rgba(212,175,55,0.1), transparent); }
+        .support-btn { margin-top: 2rem; background: #111; border-radius: 40px; text-align: center; padding: 0.8rem; font-weight: 700; border: 1px solid #2c2c2c; }
+        .support-btn a { color: #d4af37; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        
+        /* BLOG Y TARJETAS */
+        .blog-section { margin-bottom: 2rem; }
+        .section-title { font-family: 'PT Serif', serif; font-size: 1.7rem; font-weight: 700; border-left: 5px solid #d4af37; padding-left: 1rem; margin-bottom: 1.2rem; color: #f0e6c5; }
+        .blog-card { background: #0a0a0a; border-radius: 24px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #222; transition: all 0.25s ease; cursor: pointer; animation: fadeInUp 0.5s ease-out both; }
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgba(0,0,0,0.3); border-color: #d4af37; }
+        .blog-date { font-size: 0.75rem; color: #d4af37; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600; }
+        .blog-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: #f0e6c5; }
+        .blog-text { color: #bbbbbb; line-height: 1.5; }
+        .highlight { background: #1a1a1a; color: #d4af37; padding: 0.2rem 0.4rem; border-radius: 8px; font-weight: 500; }
+        
+        /* ACTIVIDADES */
+        .actividades-block {
+            background: linear-gradient(145deg, #111, #0c0c0c);
+            border-radius: 28px;
+            padding: 1.5rem;
+            margin: 1.5rem 0 2rem 0;
+            border: 1px solid #2a2a2a;
+            animation: fadeInUp 0.5s ease-out 0.4s both;
+        }
+        .actividades-block h3 {
+            font-size: 1.4rem;
+            font-family: 'PT Serif', serif;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .actividad-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #2a2a2a;
+            display: flex;
+            gap: 1rem;
+            align-items: baseline;
+        }
+        .actividad-fecha { font-weight: 700; color: #d4af37; min-width: 90px; }
+        .actividad-texto { color: #ccc; }
+        
+        /* CAMPEONES */
+        .champions-block { background: linear-gradient(145deg, #111, #0c0c0c); border-radius: 28px; padding: 1.5rem 1.8rem; border: 1px solid #2a2a2a; cursor: pointer; transition: all 0.25s ease; margin-bottom: 2rem; animation: fadeInUp 0.5s ease-out 0.5s both; }
+        .champions-block:hover { transform: translateY(-3px); border-color: #d4af37; }
+        .champions-name { font-weight: 800; font-size: 1.6rem; color: #f0e6c5; }
+        .champions-name i { color: #d4af37; margin-right: 8px; }
+        .click-hint { font-size: 0.8rem; background: #1a1a1a; padding: 0.3rem 1rem; border-radius: 40px; font-weight: 500; color: #ccc; }
+        .champions-desc { margin-top: 1rem; color: #bbbbbb; border-left: 3px solid #d4af37; padding-left: 1rem; }
+        
+        /* JUGADOR DESTACADO */
+        .jugador-destacado {
+            width: 180px;
+            margin: -30px auto 1rem auto;
+            cursor: pointer;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 0 0 3px #d4af37;
+            animation: activeGlow 1.8s infinite ease-in-out;
+        }
+        @keyframes activeGlow {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); border-color: #d4af37; }
+            50% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0.2); border-color: #f3d572; }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); border-color: #d4af37; }
+        }
+        .jugador-destacado:hover { transform: scale(1.02); animation: none; box-shadow: 0 0 0 4px #d4af37; }
+        .jugador-destacado img { width: 100%; height: auto; display: block; border-radius: 20px; }
+        .destacado-caption { background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); padding: 0.5rem; text-align: center; font-size: 0.75rem; font-weight: 600; color: #d4af37; border-top: 1px solid #d4af37; }
+        
+        /* MODALES GENERALES */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; visibility: hidden; opacity: 0; transition: 0.2s; }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        .modal-container { background: #0f0f0f; max-width: 1000px; width: 90%; max-height: 85vh; border-radius: 32px; overflow-y: auto; padding: 2rem; position: relative; border: 1px solid #3a3a3a; }
+        .modal-container h2 { font-family: 'PT Serif', serif; font-size: 1.8rem; border-left: 5px solid #d4af37; padding-left: 1rem; margin-bottom: 1.5rem; color: #f0e6c5; }
+        .close-modal { position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; cursor: pointer; background: none; border: none; color: #ccc; transition: 0.2s; }
+        .close-modal:hover { color: #d4af37; }
+        .modal-container img { max-width: 100%; height: auto; border-radius: 20px; }
+        
+        /* GRIDS */
+        .grid-3cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .grid-4cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+        .gallery-card { background: #111; border-radius: 24px; padding: 1rem; border: 1px solid #2c2c2c; transition: 0.2s; text-align: center; cursor: pointer; }
+        .gallery-card:hover { border-color: #d4af37; transform: translateY(-3px); }
+        .gallery-img { width: 100%; height: 180px; background: #1a1a1a; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.8rem; }
+        .gallery-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+        .gallery-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: #f0e6c5; }
+        .gallery-card p { font-size: 0.85rem; color: #bbb; }
+        
+        /* ARCHIVO HISTÓRICO */
+        .archivo-evento { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; border: 1px solid #2c2c2c; }
+        .archivo-evento img { width: 100px; height: 100px; object-fit: cover; border-radius: 16px; background: #1a1a1a; }
+        .archivo-info { flex: 1; }
+        .archivo-info h4 { font-size: 1.2rem; color: #d4af37; margin-bottom: 0.3rem; }
+        .archivo-info p { font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; }
+        .archivo-fecha { font-size: 0.7rem; color: #888; }
+        .paginacion { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+        .paginacion button { background: #222; color: #d4af37; border: none; padding: 0.5rem 1rem; border-radius: 30px; cursor: pointer; transition: 0.2s; }
+        .paginacion button:hover { background: #d4af37; color: #111; }
+        
+        /* TORNEOS Y FORO */
+        .tournament-block { background: #0a0a0a; border-radius: 24px; padding: 1.2rem 1.8rem; border: 1px solid #222; margin-bottom: 1rem; transition: 0.2s; }
+        .tournament-block:hover { border-color: #d4af37; }
+        .tournament-name a { color: #f0e6c5; text-decoration: none; font-weight: 800; }
+        .tournament-name a:hover { color: #d4af37; }
+        .sidebar-right { display: flex; flex-direction: column; gap: 2rem; }
+        .online-panel { background: #0a0a0a; border-radius: 24px; padding: 1.2rem; border: 1px solid #222; }
+        .online-header { font-weight: 800; font-size: 1.2rem; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 4px; margin-bottom: 1rem; color: #f0e6c5; }
+        
+        /* ENCUESTA */
+        .encuesta { margin-top: 1rem; background: #111; padding: 1rem; border-radius: 20px; }
+        .encuesta p { margin-bottom: 0.5rem; font-weight: 500; }
+        .encuesta label { margin-right: 1rem; cursor: pointer; }
+        .encuesta button { background: #d4af37; border: none; padding: 0.3rem 1rem; border-radius: 30px; margin-top: 0.5rem; cursor: pointer; font-weight: bold; color: #111; }
+        .barra-container { margin-top: 1rem; }
+        .barra-item { margin-bottom: 0.5rem; }
+        .barra-label { display: inline-block; width: 100px; }
+        .barra-fondo { display: inline-block; width: 150px; background: #2c2c2c; height: 12px; border-radius: 6px; overflow: hidden; vertical-align: middle; margin-left: 0.5rem; }
+        .barra-porcentaje { height: 100%; background: #d4af37; width: 0%; transition: width 0.3s; }
+        .porcentaje-texto { margin-left: 0.5rem; font-size: 0.8rem; }
+        
+        /* MAPA */
+        .mapa-container { margin: 1rem 0; border-radius: 20px; overflow: hidden; border: 1px solid #2c2c2c; }
+        .mapa-container iframe { width: 100%; height: 250px; border: 0; }
+        
+        /* FOOTER */
+        footer { background: #030303; text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #aaa; border-top: 1px solid #222; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+        .footer-links a { color: #d4af37; text-decoration: none; transition: 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+        .footer-links a:hover { color: #f3d572; text-decoration: underline; }
+        
+        /* BOTÓN FLOTANTE */
+        .float-contact { position: fixed; bottom: 2rem; right: 2rem; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: 0.2s; z-index: 999; text-decoration: none; animation: fadeInUp 0.5s ease-out 0.2s both; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .float-contact:hover { transform: scale(1.1); background: #128C7E; }
+        .float-contact::after { content: "Escríbenos"; position: absolute; bottom: 70px; right: 0; background: #1e2f3a; color: #d4af37; padding: 6px 12px; border-radius: 30px; font-size: 0.75rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; font-weight: 500; }
+        .float-contact:hover::after { opacity: 1; }
+        
+        @media (max-width: 1000px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .header-row { flex-direction: column; text-align: center; }
+            .jugador-destacado { margin: 0 auto 1rem auto; width: 200px; }
+            .archivo-evento { flex-direction: column; text-align: center; }
+            .right-rubrics .dropdown-content { left: 0; right: auto; }
+        }
     </style>
 </head>
 <body>
+<div class="site-container">
+    <!-- CABECERA -->
+    <div class="top-header">
+        <div class="header-row">
+            <div class="left-brand">Ajedrez Osorno</div>
+            <div class="center-logo">
+                <img src="logoclub.jpg" alt="Logo Club" onerror="this.style.display='none'; this.parentElement.querySelector('.logo-text').style.display='block';">
+                <span class="logo-text">♞ CAO</span>
+            </div>
+            <div class="right-rubrics">
+                <span id="directivaSuperior" style="cursor:pointer;">Directiva</span>
+                <div class="dropdown">
+                    <span>Campeones del Mundo</span>
+                    <div class="dropdown-content" id="campeonesDropdown"></div>
+                </div>
+                <span>Arte</span>
+            </div>
+        </div>
+        <div class="main-title">
+            <h1>Club de Ajedrez <i class="fas fa-flag-chile"></i> Osorno</h1>
+            <div class="subtitle"><i class="fas fa-flag-chile"></i> Chile · Fundado en 1924 · 102 años de historia</div>
+        </div>
+    </div>
 
-<header>
-    <h1>CLUB DE AJEDREZ OSORNO</h1>
-    <p>FUNDADO EN 1924 | 102 AÑOS DE HISTORIA Y ESTRATEGIA</p>
-</header>
+    <div class="main-grid">
+        <!-- MENÚ LATERAL -->
+        <aside class="sidebar-left">
+            <ul class="main-menu">
+                <li class="active"><a href="#"><i class="fas fa-chess-board"></i> Inicio</a></li>
+                <li><a href="#"><i class="fas fa-newspaper"></i> Noticias / Blog</a></li>
+                <li><a href="#"><i class="fas fa-medal"></i> Torneos</a></li>
+                <li><a id="galeriaLink"><i class="fas fa-images"></i> Galería</a></li>
+                <li><a id="escuelaLink"><i class="fas fa-chalkboard-user"></i> Escuela</a></li>
+                <li><a id="jovenesPromesasLink"><i class="fas fa-seedling"></i> Jóvenes Promesas</a></li>
+                <li><a href="#"><i class="fas fa-ranking-star"></i> Ranking local</a></li>
+                <li><a id="archivoLink"><i class="fas fa-archive"></i> Archivo histórico</a></li>
+                <li><a id="foroLink"><i class="fas fa-comments"></i> Foro social</a></li>
+                <li><a id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
+            </ul>
+            <div class="support-btn"><a href="#"><i class="fas fa-hand-holding-heart"></i> Colabora con el club</a></div>
+        </aside>
 
-<div class="nav-bar">
-    <a href="#">Inicio</a>
-    <a href="#">Torneos</a>
-    <a href="#">Historia</a>
-    <a href="#">Sede</a>
+        <!-- CONTENIDO CENTRAL -->
+        <main class="main-content">
+            <div class="blog-section">
+                <h2 class="section-title">📖 Blog del Club</h2>
+                <div class="blog-card">
+                    <div class="blog-date">24 de agosto de 1924 — 102 años de legado</div>
+                    <div class="blog-title">Fundación y primeros pasos</div>
+                    <div class="blog-text">El Club de Ajedrez Osorno nació oficialmente el <span class="highlight">24 de agosto de 1924</span>, siendo uno de los más antiguos de Chile. En 2026 celebramos <strong>102 años</strong> de vida institucional, y nos preparamos para un gran IRT en nuestro aniversario. Durante estas décadas, el club ha sido <strong>campeón de la Zona Sur</strong> en múltiples ocasiones y <strong>finalista nacional</strong> en torneos por equipos.</div>
+                </div>
+                <div class="blog-card" id="campeonesBlogCard">
+                    <div class="blog-date">Campeones y maestros</div>
+                    <div class="blog-title">Nuestra galería de estrellas</div>
+                    <div class="blog-text">Grandes figuras han pasado por nuestras filas: <strong>Gustavo Sommer</strong>, <strong>Hugo López</strong>, <strong>Sergio Vera</strong>, <strong>Andrés Carrasco</strong> dejaron su huella con títulos regionales y nacionales. También por las aulas del club transitaron figuras como <strong>Germán Troncoso</strong> y <strong>Fredy</strong>, quienes impulsaron el ajedrez educativo. Somos un semillero inagotable que potencia el ajedrez desde la niñez hasta la alta competencia.</div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-date">Proyección 2026</div>
+                    <div class="blog-title">Un futuro con más torneos IRT</div>
+                    <div class="blog-text">Este año seremos sede del <strong>IRT 102° Aniversario</strong> (válido para rating FIDE) y continuaremos con el <strong>Circuito Nacional de Clubes</strong>. Nuestro objetivo es seguir formando talentos y llevar el nombre de Osorno a lo más alto del ajedrez chileno.</div>
+                </div>
+            </div>
+
+            <!-- PRÓXIMAS ACTIVIDADES -->
+            <div class="actividades-block">
+                <h3><i class="fas fa-calendar-alt"></i> Próximas actividades</h3>
+                <div class="actividad-item"><div class="actividad-fecha">5 de abril</div><div class="actividad-texto">Simultánea con Juanito Pérez · 18:00 hrs · Sede club</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">12-15 abril</div><div class="actividad-texto">Torneo Relámpago de Otoño · Inscripciones abiertas</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">Gala 102° Aniversario · IRT y premiaciones</div></div>
+            </div>
+
+            <!-- CAMPEONES DE OSORNO -->
+            <div class="champions-block" id="championsTrigger">
+                <div class="champions-header" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <div class="champions-name"><i class="fas fa-crown"></i> Campeones de Osorno</div>
+                    <div class="click-hint"><i class="fas fa-images"></i> Haz clic para ver galería histórica</div>
+                </div>
+                <div class="champions-desc">René Muñoz, Laura Soto, Mauricio Tapia, Ignacio Ríos y muchos más. Descubre a los grandes maestros que nacieron en nuestro club.</div>
+            </div>
+        </main>
+
+        <!-- BARRA DERECHA -->
+        <aside class="sidebar-right">
+            <div class="jugador-destacado" id="calderonTrigger">
+                <img src="calderon.jpg" alt="Eriberto Calderón" onerror="this.src='https://placehold.co/400x300?text=calderon.jpg'">
+                <div class="destacado-caption"><i class="fas fa-star"></i> Eriberto Calderón — Jugador destacado, campeón I Blitz marzo 2026</div>
+            </div>
+            <div class="online-panel">
+                <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
+                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">🏆 Open Semana Osornina</a></div><div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div><div class="msg-date">25 mar - 22 abr, 18:30</div></div>
+                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2882" target="_blank">⚡ II Blitz 2026</a></div><div style="color:#aaa;">6 rondas · 3+2 · Viernes 18:30</div><div class="msg-date">Premios generales</div></div>
+                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">🎂 IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div><div class="msg-date">Próximamente</div></div>
+            </div>
+            <div class="online-panel" id="foroPanel">
+                <div class="online-header"><i class="fas fa-comments"></i> Foro del Club</div>
+                <div class="encuesta">
+                    <p>¿Quién es tu favorito?</p>
+                    <label><input type="radio" name="favorito" value="Carlsen"> Magnus Carlsen</label>
+                    <label><input type="radio" name="favorito" value="Ding"> Ding Liren</label>
+                    <div><button id="votarBtn">Votar</button></div>
+                    <div class="barra-container">
+                        <div class="barra-item"><span class="barra-label">Carlsen</span><span class="barra-fondo"><span id="barraCarlsen" class="barra-porcentaje"></span></span><span id="porcCarlsen" class="porcentaje-texto">0%</span></div>
+                        <div class="barra-item"><span class="barra-label">Ding Liren</span><span class="barra-fondo"><span id="barraDing" class="barra-porcentaje"></span></span><span id="porcDing" class="porcentaje-texto">0%</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.989812134735!2d-73.14168968460772!3d-40.57567697934592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9616a7c3e57f0995%3A0x4c3e5b2e5b2e5b2e!2sMatta%20809%2C%20Osorno%2C%20Chile!5e0!3m2!1ses!2scl!4v1617223456789!5m2!1ses!2scl" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://maps.google.com/?q=Matta+809+Osorno" target="_blank"><i class="fas fa-map-marker-alt"></i> Matta 809, Osorno</a>
+            <a href="mailto:contacto@ajedrezosorno.cl"><i class="fas fa-envelope"></i> clubdeajedrezosorno@gmail.com</a>
+            <a href="tel:+56642123456"><i class="fas fa-phone-alt"></i> +56 64 2 123456</a>
+        </div>
+        <div><i class="fas fa-chess-knight"></i> Club de Ajedrez Osorno — 102 años de tradición. Fundado el 24 de agosto de 1924.</div>
+    </footer>
 </div>
 
-<div class="container">
-    <main>
-        <section>
-            <h2>Bienvenidos al Club</h2>
-            <p>El Club de Ajedrez Osorno abre sus puertas a toda la comunidad. Somos la institución más antigua de la región, dedicada a la enseñanza y práctica del deporte ciencia...</p>
-        </section>
-    </main>
+<!-- BOTÓN FLOTANTE -->
+<a href="https://wa.me/56912345678?text=Hola%20Club%20de%20Ajedrez%20Osorno" class="float-contact" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-    <aside>
-        <h3>Información Importante</h3>
-        <p><strong>Dirección:</strong> Calle Matta, Osorno.</p>
-        <p><strong>Horarios:</strong> Lunes a Viernes.</p>
-        <p><strong>102 Años:</strong> Celebrando nuestra historia.</p>
-    </aside>
+<!-- ==================== MODALES ==================== -->
+<div id="championsModal" class="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal" id="closeModalBtn">&times;</button>
+        <h2><i class="fas fa-crown"></i> Galería de Campeones de Osorno</h2>
+        <div class="grid-3cols" id="campeonesGrid"></div>
+    </div>
+</div>
+<div id="directivaModal" class="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal" id="closeDirectivaModalBtn">&times;</button>
+        <h2><i class="fas fa-users"></i> Directiva 2026</h2>
+        <div class="grid-4cols" id="directivaGrid"></div>
+    </div>
+</div>
+<div id="campeonMundialModal" class="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal" id="closeCampeonMundialBtn">&times;</button>
+        <h2 id="campeonMundialTitulo"></h2>
+        <img id="campeonMundialImagen" style="width:100%; max-width:400px; margin:1rem auto; display:block;">
+        <p id="campeonMundialDescripcion"></p>
+    </div>
+</div>
+<div id="galeriaModal" class="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal" id="closeGaleriaModalBtn">&times;</button>
+        <h2><i class="fas fa-images"></i> Galería de Actividades</h2>
+        <div class="grid-4cols" id="galeriaGrid"></div>
+    </div>
+</div>
+<div id="promesasModal" class="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal" id="closePromesasModalBtn">&times;</button>
+        <h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2>
+        <div class="grid-4cols" id="promesasGrid"></div>
+    </div>
+</div>
+<div id="escuelaModal" class="modal-overlay">
+    <div class="modal-container" style="max-width: 700px; text-align: center;">
+        <button class="close-modal" id="closeEscuelaModalBtn">&times;</button>
+        <h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2>
+        <img src="escuela-club.jpg" alt="Escuela Club" style="max-width:100%; border-radius:20px; margin:1rem 0;" onerror="this.src='https://placehold.co/700x400?text=escuela-club.jpg'">
+        <p>Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p>
+    </div>
+</div>
+<div id="calderonModal" class="modal-overlay">
+    <div class="modal-container" style="max-width: 800px; text-align: center;">
+        <button class="close-modal" id="closeCalderonModalBtn">&times;</button>
+        <h2><i class="fas fa-star"></i> Eriberto Calderón</h2>
+        <img src="calderon.jpg" alt="Eriberto Calderón" onerror="this.src='https://placehold.co/800x500?text=calderon.jpg'">
+        <p>Jugador destacado del Club de Ajedrez Osorno. Campeón I Blitz Marzo 2026.</p>
+    </div>
+</div>
+<div id="archivoModal" class="modal-overlay">
+    <div class="modal-container">
+        <button class="close-modal" id="closeArchivoModalBtn">&times;</button>
+        <h2><i class="fas fa-archive"></i> Archivo Histórico</h2>
+        <div id="archivoContent"></div>
+        <div class="paginacion" id="archivoPaginacion"></div>
+    </div>
+</div>
+<div id="imagenMaxModal" class="modal-overlay">
+    <div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;">
+        <button class="close-modal" id="closeImagenMaxModalBtn">&times;</button>
+        <img id="imagenMaxSrc" style="max-width: 100%; max-height: 80vh; border-radius: 20px;">
+    </div>
 </div>
 
-<footer>
-    <p>&copy; 2026 Club de Ajedrez Osorno - Región de Los Lagos, Chile</p>
-</footer>
+<script>
+    // ==================== DATOS ====================
+    const directiva = [
+        { nombre: "Presidente", imagen: "presidente.jpg", desc: "Juan Pérez" },
+        { nombre: "Vicepresidente", imagen: "vicepresidente.jpg", desc: "María González" },
+        { nombre: "Secretario", imagen: "secretario.jpg", desc: "Carlos Rodríguez" },
+        { nombre: "Tesorero", imagen: "tesorero.jpg", desc: "Ana Martínez" },
+        { nombre: "1° Director", imagen: "director1.jpg", desc: "Luis Fernández" },
+        { nombre: "2° Director", imagen: "director2.jpg", desc: "Claudia Silva" },
+        { nombre: "3° Director", imagen: "director3.jpg", desc: "Roberto Soto" },
+        { nombre: "Comisión Finanzas 1", imagen: "finanzas1.jpg", desc: "Patricio Mardones" },
+        { nombre: "Comisión Finanzas 2", imagen: "finanzas2.jpg", desc: "Verónica Muñoz" }
+    ];
+    
+    const campeonesMundiales = [
+        { nombre: "Wilhelm Steinitz", periodo: "1886-1894", imagen: "Wilhelm-Steinitz-516x315.jpg", desc: "Primer campeón oficial. Dominó el ajedrez con su estilo posicional." },
+        { nombre: "Emanuel Lasker", periodo: "1894-1921", imagen: "112 lasker.jpg", desc: "Récord de permanencia (27 años). Filósofo y matemático." },
+        { nombre: "José Raúl Capablanca", periodo: "1921-1927", imagen: "109 capablanca.jpg", desc: "Genio natural, conocido como 'la máquina de ajedrez'." },
+        { nombre: "Alexander Alekhine", periodo: "1927-1935, 1937-1946", imagen: "alekhine.jpg", desc: "Estilo agresivo y combinativo." },
+        { nombre: "Max Euwe", periodo: "1935-1937", imagen: "max-euwe-ca-1945.jpg", desc: "Matemático holandés, venció a Alekhine." },
+        { nombre: "Mikhail Botvinnik", periodo: "1948-1957, 1958-1960, 1961-1963", imagen: "107-botvinnik.jpg", desc: "Pionero de la escuela soviética." },
+        { nombre: "Vasily Smyslov", periodo: "1957-1958", imagen: "106-Vasili-Smyslov.jpg", desc: "Finalista excepcional, gran finalista." },
+        { nombre: "Mikhail Tal", periodo: "1960-1961", imagen: "120Tahl-ajedrez-osorno.jpg", desc: "El mago de Riga, atacante genial." },
+        { nombre: "Tigran Petrosian", periodo: "1963-1969", imagen: "petrosian.jpg", desc: "Defensa impenetrable." },
+        { nombre: "Boris Spassky", periodo: "1969-1972", imagen: "115spassky.jpg", desc: "Universal, versátil." },
+        { nombre: "Bobby Fischer", periodo: "1972-1975", imagen: "101fischer.jpg", desc: "Genio estadounidense, rompió la hegemonía soviética." },
+        { nombre: "Anatoly Karpov", periodo: "1975-1985", imagen: "karpov.jpg", desc: "Estilo posicional implacable." },
+        { nombre: "Garry Kasparov", periodo: "1985-2000", imagen: "kasparov.jpg", desc: "Considerado por muchos el mejor de la historia." },
+        { nombre: "Vladimir Kramnik", periodo: "2000-2007", imagen: "108-kramnnik.jpg", desc: "Venciendo a Kasparov, unificador del título." },
+        { nombre: "Viswanathan Anand", periodo: "2007-2013", imagen: "104-annand.jpg", desc: "Rapidez y creatividad." },
+        { nombre: "Magnus Carlsen", periodo: "2013-2023", imagen: "102-magnus-carlsen.jpg", desc: "Reinado absoluto, el más fuerte en rating." },
+        { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding.jpg", desc: "Primer campeón chino, gran estabilidad." }
+    ];
+    
+    const actividadesList = [
+    { nombre: "Felipe", img: "felipe-ajedrez-osorno.jpg" },
+    { nombre: "Fredy", img: "Fredy-ajedrez-osorno.jpg" },
+    { nombre: "Gálvez Papá", img: "galvez-papa-ajedrez-osorno.jpg" },      
+    { nombre: "Arturo", img: "arturo-ajedrez-osorno.jpg" },
+    { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg" },
+    { nombre: "Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg" },
+    { nombre: "Nelson", img: "nelson-club-ajedrez-osorno-anticucho.jpg" }
+];
+
+	
+       
+
+    
+    const promesasList = [
+        { nombre: "Agustín", img: "agustin-club.jpg" },
+        { nombre: "Josefa", img: "jjosefa.JPG" },
+        { nombre: "Julián", img: "julian-osorno.jpeg" },
+        { nombre: "Tomy", img: "tomy-osorno.jpg" },
+        { nombre: "Santi", img: "santi-osorno.jpg" },
+        { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg" },
+        { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg" },
+        { nombre: "Vicente", img: "vicente22-ajedrez-osorno.jpg" },
+        { nombre: "Promesa 9", img: "angel-ruiz-ajedrez-osorno.jpg" },
+        { nombre: "Promesa 10", img: "bastian-osorno-ajedrez.jpg" },
+        { nombre: "Promesa 11", img: "mateo.jpg"},
+        { nombre: "Promesa 12", img: "maxi-ajedrez-osorno.jpg" }
+    ];
+    
+    const eventosArchivo = [
+        { fecha: "24 ago 1924", titulo: "Fundación del Club", descripcion: "Se funda el Club de Ajedrez Osorno en la casa de los primeros socios.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "15 mar 1950", titulo: "Primer Campeonato Regional", descripcion: "El club organiza su primer torneo abierto, ganado por Gustavo Sommer.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "10 oct 1975", titulo: "Inauguración de la sede", descripcion: "Se abre la sede en Matta 809, punto de encuentro actual.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "5 jun 2001", titulo: "Laura Soto WIM", descripcion: "Laura Soto obtiene el título de Maestra Internacional Femenina.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "22 nov 2014", titulo: "Abierto Internacional", descripcion: "Mauricio Tapia gana el Abierto Internacional Ciudad de Osorno.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" }
+    ];
+    
+    // ==================== FUNCIONES ====================
+    function openImageModal(imgSrc) {
+        document.getElementById('imagenMaxSrc').src = imgSrc;
+        document.getElementById('imagenMaxModal').classList.add('active');
+    }
+    
+    function generarGaleria(containerId, items) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        items.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'gallery-card';
+            const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
+            div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${item.nombre}</h4><p>${item.desc || ''}</p>`;
+            if (item.img) {
+                const imgEl = div.querySelector('.gallery-img img');
+                if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(item.img); });
+            }
+            container.appendChild(div);
+        });
+    }
+    
+    // Llenar dropdown
+    const dropdown = document.querySelector('#campeonesDropdown');
+    campeonesMundiales.forEach(c => {
+        const a = document.createElement('a');
+        a.href = '#';
+        a.textContent = `${c.nombre} (${c.periodo})`;
+        a.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('campeonMundialTitulo').innerHTML = `${c.nombre} (${c.periodo})`;
+            document.getElementById('campeonMundialImagen').src = c.imagen;
+            document.getElementById('campeonMundialDescripcion').innerHTML = c.desc;
+            document.getElementById('campeonMundialModal').classList.add('active');
+        });
+        dropdown.appendChild(a);
+    });
+    
+    // Galerías
+    const campeonesOsorno = [
+        { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Campeón regional en los años 80, referente histórico del club." },
+        { nombre: "Elleberg", img: "2-ellemberg.jpg", desc: "Gran maestro, múltiples títulos nacionales." },
+        { nombre: "Bilelefeldt", img: "bielefeldt-ajedrez-osorno.jpg", desc: "Campeón de torneos internacionales." },
+        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Fundador de la escuela de ajedrez del club." },
+        { nombre: "Germán Troncoso", img: "troncoso-ajedrez-osorno.jpg", desc: "Impulsor del ajedrez educativo en Osorno." },
+        { nombre: "Hugo López", img: "lopez-ajedrez-osorno.jpeg", desc: "Campeón nacional en los años 90." }
+    ];
+    generarGaleria('campeonesGrid', campeonesOsorno);
+    generarGaleria('directivaGrid', directiva.map(d => ({ nombre: d.nombre, img: d.imagen, desc: d.desc })));
+    generarGaleria('promesasGrid', promesasList);
+    
+    // Galería de actividades
+    const galeriaGrid = document.getElementById('galeriaGrid');
+    for (let i = 1; i <= 20; i++) {
+        const div = document.createElement('div');
+        div.className = 'gallery-card';
+        if (i <= actividadesList.length) {
+            const act = actividadesList[i-1];
+            div.innerHTML = `<div class="gallery-img"><img src="${act.img}" alt="${act.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-flower\' style=\'font-size:3rem; color:#d4af37;\'></i>'"></div><h4>${act.nombre}</h4><p>Actividad destacada</p>`;
+            const imgEl = div.querySelector('.gallery-img img');
+            if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(act.img); });
+        } else {
+            div.innerHTML = `<div class="gallery-img"><i class="fas fa-flower" style="font-size:3rem; color:#d4af37;"></i></div><h4>Actividad ${i}</h4><p>Próximamente imagen</p>`;
+        }
+        galeriaGrid.appendChild(div);
+    }
+    
+    // Archivo histórico
+    let paginaActual = 0;
+    const eventosPorPagina = 3;
+    function mostrarArchivo() {
+        const inicio = paginaActual * eventosPorPagina;
+        const fin = inicio + eventosPorPagina;
+        const eventosPagina = eventosArchivo.slice(inicio, fin);
+        const container = document.getElementById('archivoContent');
+        container.innerHTML = '';
+        eventosPagina.forEach(ev => {
+            const div = document.createElement('div');
+            div.className = 'archivo-evento';
+            div.innerHTML = `<img src="${ev.imagen}" alt="${ev.titulo}" onerror="this.src='https://placehold.co/100x100?text=Evento'"><div class="archivo-info"><h4>${ev.titulo}</h4><div class="archivo-fecha">${ev.fecha}</div><p>${ev.descripcion}</p></div>`;
+            container.appendChild(div);
+        });
+        const paginacionDiv = document.getElementById('archivoPaginacion');
+        paginacionDiv.innerHTML = `<button ${paginaActual === 0 ? 'disabled' : ''} id="btnAnterior">← Anteriores</button><span style="margin:0 1rem;">Página ${paginaActual+1} de ${Math.ceil(eventosArchivo.length/eventosPorPagina)}</span><button ${paginaActual >= Math.ceil(eventosArchivo.length/eventosPorPagina)-1 ? 'disabled' : ''} id="btnSiguiente">Siguientes →</button>`;
+        document.getElementById('btnAnterior')?.addEventListener('click', () => { if(paginaActual > 0) { paginaActual--; mostrarArchivo(); } });
+        document.getElementById('btnSiguiente')?.addEventListener('click', () => { if(paginaActual < Math.ceil(eventosArchivo.length/eventosPorPagina)-1) { paginaActual++; mostrarArchivo(); } });
+    }
+    mostrarArchivo();
+    
+    // Encuesta
+    let votos = JSON.parse(localStorage.getItem('votosFavorito')) || { Carlsen: 0, Ding: 0 };
+    function actualizarBarras() {
+        const total = votos.Carlsen + votos.Ding;
+        const porcCarlsen = total === 0 ? 0 : (votos.Carlsen / total) * 100;
+        const porcDing = total === 0 ? 0 : (votos.Ding / total) * 100;
+        document.getElementById('barraCarlsen').style.width = porcCarlsen + '%';
+        document.getElementById('barraDing').style.width = porcDing + '%';
+        document.getElementById('porcCarlsen').innerText = Math.round(porcCarlsen) + '%';
+        document.getElementById('porcDing').innerText = Math.round(porcDing) + '%';
+    }
+    actualizarBarras();
+    document.getElementById('votarBtn').addEventListener('click', () => {
+        const seleccion = document.querySelector('input[name="favorito"]:checked');
+        if (!seleccion) return;
+        const valor = seleccion.value;
+        if (valor === 'Carlsen') votos.Carlsen++;
+        else if (valor === 'Ding') votos.Ding++;
+        localStorage.setItem('votosFavorito', JSON.stringify(votos));
+        actualizarBarras();
+        alert('¡Gracias por tu voto!');
+    });
+    
+    // ==================== MODALES ====================
+    function setupModal(triggerId, modalId, closeId) {
+        const trigger = document.getElementById(triggerId);
+        const modal = document.getElementById(modalId);
+        const closeBtn = document.getElementById(closeId);
+        if (trigger && modal && closeBtn) {
+            trigger.addEventListener('click', () => modal.classList.add('active'));
+            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+        }
+    }
+    setupModal('championsTrigger', 'championsModal', 'closeModalBtn');
+    setupModal('campeonesBlogCard', 'championsModal', 'closeModalBtn');
+    setupModal('directivaLink', 'directivaModal', 'closeDirectivaModalBtn');
+    setupModal('directivaSuperior', 'directivaModal', 'closeDirectivaModalBtn');
+    setupModal('galeriaLink', 'galeriaModal', 'closeGaleriaModalBtn');
+    setupModal('jovenesPromesasLink', 'promesasModal', 'closePromesasModalBtn');
+    setupModal('escuelaLink', 'escuelaModal', 'closeEscuelaModalBtn');
+    setupModal('calderonTrigger', 'calderonModal', 'closeCalderonModalBtn');
+    setupModal('archivoLink', 'archivoModal', 'closeArchivoModalBtn');
+    
+    const closeImagenMax = document.getElementById('closeImagenMaxModalBtn');
+    const imagenMaxModal = document.getElementById('imagenMaxModal');
+    closeImagenMax.addEventListener('click', () => imagenMaxModal.classList.remove('active'));
+    imagenMaxModal.addEventListener('click', (e) => { if(e.target === imagenMaxModal) imagenMaxModal.classList.remove('active'); });
+    
+    const closeCampeonMundial = document.getElementById('closeCampeonMundialBtn');
+    const campeonMundialModal = document.getElementById('campeonMundialModal');
+    closeCampeonMundial.addEventListener('click', () => campeonMundialModal.classList.remove('active'));
+    campeonMundialModal.addEventListener('click', (e) => { if(e.target === campeonMundialModal) campeonMundialModal.classList.remove('active'); });
+    
+    document.getElementById('foroLink').addEventListener('click', () => {
+        document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>
