@@ -32,8 +32,8 @@
         .header-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
         .left-brand { font-family: 'PT Serif', serif; font-size: 1.6rem; font-weight: 700; color: #f9e7c2; }
         .center-logo { display: flex; align-items: center; justify-content: center; }
-        .center-logo img { max-height: 70px; width: auto; filter: brightness(0) invert(1); }
-        .center-logo .logo-text { display: none; font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; }
+        .center-logo img { max-height: 70px; width: auto; }
+        .center-logo .logo-fallback { display: none; font-size: 2rem; color: #d4af37; }
         .right-rubrics { display: flex; gap: 1.8rem; font-size: 0.9rem; font-weight: 500; color: #e9dcb0; }
         .right-rubrics .dropdown { position: relative; display: inline-block; cursor: pointer; }
         .right-rubrics .dropdown-content {
@@ -254,8 +254,8 @@
         <div class="header-row">
             <div class="left-brand">Ajedrez Osorno</div>
             <div class="center-logo">
-                <img src="logoclub.jpg" alt="Logo Club" onerror="this.style.display='none'; this.parentElement.querySelector('.logo-text').style.display='block';">
-                <span class="logo-text">♞ CAO</span>
+                <img src="logoclub.jpg" alt="Logo Club" onerror="this.onerror=null; this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='block';">
+                <span class="logo-fallback">♞ CAO</span>
             </div>
             <div class="right-rubrics">
                 <span id="directivaSuperior" style="cursor:pointer;">Directiva</span>
@@ -443,17 +443,17 @@
 </div>
 
 <script>
-    // ==================== DATOS ====================
+    // ==================== DATOS CORREGIDOS ====================
     const directiva = [
-        { nombre: "Presidente", imagen: "presidente.jpg", desc: "Claudia Fernandez" },
-        { nombre: "Vicepresidente", imagen: "vicepresidente.jpg", desc: "María González" },
-        { nombre: "Secretario", imagen: "secretario.jpg", desc: "Carola Moraga" },
-        { nombre: "Tesorero", imagen: "tesorero.jpg", desc: "Ana Martínez" },
-        { nombre: "1° Director", imagen: "director1.jpg", desc: "Luis Fernández" },
-        { nombre: "2° Director", imagen: "director2.jpg", desc: "Claudia Silva" },
-        { nombre: "3° Director", imagen: "director3.jpg", desc: "Roberto Soto" },
-        { nombre: "Comisión Finanzas 1", imagen: "finanzas1.jpg", desc: "Patricio Mardones" },
-        { nombre: "Comisión Finanzas 2", imagen: "finanzas2.jpg", desc: "Verónica Muñoz" }
+        { nombre: "Claudia Fernández", imagen: "presidente.jpg", desc: "Presidenta" },
+        { nombre: "María González", imagen: "vicepresidente.jpg", desc: "Vicepresidenta" },
+        { nombre: "Carola Moraga", imagen: "secretario.jpg", desc: "Secretaria" },
+        { nombre: "Ana Martínez", imagen: "tesorero.jpg", desc: "Tesorera" },
+        { nombre: "Luis Fernández", imagen: "director1.jpg", desc: "1° Director" },
+        { nombre: "Claudia Silva", imagen: "director2.jpg", desc: "2° Directora" },
+        { nombre: "Roberto Soto", imagen: "director3.jpg", desc: "3° Director" },
+        { nombre: "Patricio Mardones", imagen: "finanzas1.jpg", desc: "Comisión Finanzas" },
+        { nombre: "Verónica Muñoz", imagen: "finanzas2.jpg", desc: "Comisión Finanzas" }
     ];
     
     const campeonesMundiales = [
@@ -468,7 +468,7 @@
         { nombre: "Tigran Petrosian", periodo: "1963-1969", imagen: "petrosian.jpg", desc: "Defensa impenetrable." },
         { nombre: "Boris Spassky", periodo: "1969-1972", imagen: "115spassky.jpg", desc: "Universal, versátil." },
         { nombre: "Bobby Fischer", periodo: "1972-1975", imagen: "101fischer.jpg", desc: "Genio estadounidense, rompió la hegemonía soviética." },
-        { nombre: "Anatoly Karpov", periodo: "1975-1985", imagen: "karpop-4.jpg", desc: "Estilo posicional implacable." },
+        { nombre: "Anatoly Karpov", periodo: "1975-1985", imagen: "karpov.jpg", desc: "Estilo posicional implacable." },  // ← corregido
         { nombre: "Garry Kasparov", periodo: "1985-2000", imagen: "kasparov.jpg", desc: "Considerado por muchos el mejor de la historia." },
         { nombre: "Vladimir Kramnik", periodo: "2000-2007", imagen: "108-kramnnik.jpg", desc: "Venciendo a Kasparov, unificador del título." },
         { nombre: "Viswanathan Anand", periodo: "2007-2013", imagen: "104-annand.jpg", desc: "Rapidez y creatividad." },
@@ -477,18 +477,14 @@
     ];
     
     const actividadesList = [
-    { nombre: "Felipe", img: "felipe-ajedrez-osorno.jpg" },
-    { nombre: "Fredy", img: "Fredy-ajedrez-osorno.jpg" },
-    { nombre: "Gálvez Papá", img: "galvez-papa-ajedrez-osorno.jpg" },      
-    { nombre: "Arturo", img: "arturo-ajedrez-osorno.jpg" },
-    { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg" },
-    { nombre: "Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg" },
-    { nombre: "Nelson", img: "nelson-club-ajedrez-osorno-anticucho.jpg" }
-];
-
-	
-       
-
+        { nombre: "Felipe", img: "felipe-ajedrez-osorno.jpg" },
+        { nombre: "Fredy", img: "Fredy-ajedrez-osorno.jpg" },
+        { nombre: "Gálvez Papá", img: "galvez-papa-ajedrez-osorno.jpg" },      
+        { nombre: "Arturo", img: "arturo-ajedrez-osorno.jpg" },
+        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg" },
+        { nombre: "Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg" },
+        { nombre: "Nelson", img: "nelson-club-ajedrez-osorno-anticucho.jpg" }
+    ];
     
     const promesasList = [
         { nombre: "Agustín", img: "agustin-club.jpg" },
@@ -499,11 +495,11 @@
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg" },
         { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg" },
         { nombre: "Vicente", img: "vicente22-ajedrez-osorno.jpg" },
-        { nombre: "Promesa 9", img: "angel-ruiz-ajedrez-osorno.jpg" },
-        { nombre: "Promesa 10", img: "bastian-osorno-ajedrez.jpg" },
-        { nombre: "Promesa 11", img: "mateo.jpg"},
-		{ nombre: "Promesa 11", img: "mateo.jpg"}
-        { nombre: "Promesa 12", img: "maxi-ajedrez-osorno.jpg" }
+        { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg" },
+        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg" },
+        { nombre: "Mateo", img: "mateo.jpg" },
+        { nombre: "Maxi", img: "maxi-ajedrez-osorno.jpg" },
+        { nombre: "Alonso", img: "alonso.jpg" }   // ← añadido como solicitaste
     ];
     
     const eventosArchivo = [
