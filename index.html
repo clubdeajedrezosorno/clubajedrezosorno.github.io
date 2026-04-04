@@ -416,7 +416,6 @@
             </div>
             <div class="online-panel">
                 <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
-                <!-- TORNEO DESTACADO PRIMERO CON BANNER -->
                 <div class="tournament-block" style="position:relative;">
                     <div class="active-banner">⚡ ¡ACTIVO!</div>
                     <div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2882" target="_blank">⚡ II Blitz 2026</a></div>
@@ -494,7 +493,7 @@
 <div id="rankingModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeRankingModalBtn">&times;</button>
-        <h2><i class="fas fa-chart-line"></i> Ranking de Actividades</h2>
+        <h2><i class="fas fa-chart-line"></i> Ranking de Jugadores</h2>
         <div class="grid-4cols" id="rankingGrid"></div>
     </div>
 </div>
@@ -593,7 +592,7 @@
 </div>
 
 <script>
-    // ==================== DATOS (CORREGIDOS Y COMPLETOS) ====================
+    // ==================== DATOS COMPLETOS Y CORREGIDOS ====================
     const directiva = [
         { nombre: "Presidente", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "vicepresidente.jpg", desc: "María González" },
@@ -608,6 +607,7 @@
         { nombre: "Comisión Finanzas 4", imagen: "fredy-ajedrez-osorno (2).jpg", desc: "Fredy Wompner" }
     ];
     
+    // Campeones del mundo (incluyendo Gukesh)
     const campeonesMundiales = [
         { nombre: "Wilhelm Steinitz", periodo: "1886-1894", imagen: "Wilhelm-Steinitz-516x315.jpg", desc: "Primer campeón oficial. Dominó el ajedrez con su estilo posicional." },
         { nombre: "Emanuel Lasker", periodo: "1894-1921", imagen: "112 lasker.jpg", desc: "Récord de permanencia (27 años). Filósofo y matemático." },
@@ -620,83 +620,53 @@
         { nombre: "Tigran Petrosian", periodo: "1963-1969", imagen: "petrosian.jpg", desc: "Defensa impenetrable." },
         { nombre: "Boris Spassky", periodo: "1969-1972", imagen: "115spassky.jpg", desc: "Universal, versátil." },
         { nombre: "Bobby Fischer", periodo: "1972-1975", imagen: "101fischer.jpg", desc: "Genio estadounidense, rompió la hegemonía soviética." },
-        { nombre: "Anatoly Karpov", periodo: "1975-1985", imagen: "karpov.jpg", desc: "Estilo posicional implacable." },  // CORREGIDO
+        { nombre: "Anatoly Karpov", periodo: "1975-1985", imagen: "karpov.jpg", desc: "Estilo posicional implacable." },
         { nombre: "Garry Kasparov", periodo: "1985-2000", imagen: "kasparov.jpg", desc: "Considerado por muchos el mejor de la historia." },
         { nombre: "Vladimir Kramnik", periodo: "2000-2007", imagen: "108-kramnnik.jpg", desc: "Venciendo a Kasparov, unificador del título." },
         { nombre: "Viswanathan Anand", periodo: "2007-2013", imagen: "104-annand.jpg", desc: "Rapidez y creatividad." },
         { nombre: "Magnus Carlsen", periodo: "2013-2023", imagen: "102-magnus-carlsen.jpg", desc: "Reinado absoluto, el más fuerte en rating." },
-        { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding-2.jpg", desc: "Primer campeón chino, gran estabilidad." }
+        { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding-2.jpg", desc: "Primer campeón chino, gran estabilidad." },
+        { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia, prodigio indio." }
     ];
     
+    // Actividades / Jugadores destacados (con enlaces)
     const actividadesList = [
-      
-    { 
-        nombre: "Felipe Vera", 
-        img: "felipe-ajedrez-osorno.jpg",
-        desc: "5° de Chile sub 10, 4° de Chile Sub 12, Ranking Internacional 1906",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/20003"
-    },
-    { 
-        nombre: "Fredy Wompner", 
-        img: "fredy-jugador-club-ajedrez-osorno.jpg",
-        desc: "Ranking Internacional máximo 2160, actualmente 2076",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/14299"
-    },
-    { 
-        nombre: "Carlos Gálvez Giordano", 
-        img: "galvez-papa-ajedrez-osorno.jpg",
-        desc: "Ranking Internacional 1573",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/18877"
-    },
-    { 
-        nombre: "Arturo Cárdenas", 
-        img: "arturo-ajedrez-osorno.jpg",
-        desc: "Un jugador emblemático del club. Ranking Internacional 1756",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/272"
-    },
-    { 
-        nombre: "Sergio Vera", 
-        img: "sergio-vera-ajedrez-osorno.jpg",
-        desc: "4° (1999) y 11° (2005) de Chile Absoluto, 8 veces Campeón de Osorno. Ranking Internacional actual 1953",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/200832"
-    },
-    { 
-        nombre: "Carlos Gálvez Araya", 
-        img: "galvezaraya-ajedrez-osorno.jpg",
-        desc: "Ranking Internacional (dato pendiente)",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/18874"
-    },
-    { 
-        nombre: "Nelson Coronado", 
-        img: "nelson-club-ajedrez-osorno-anticucho.jpg",
-        desc: "Destacado jugador, último título Campeón Torneo Anticucho. Ranking Internacional 1671",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/328"
-    },
-    { 
-        nombre: "Miguel Pacheco", 
-        img: "pacheco-ajedrez.jpg",
-        desc: "Destacado y emblemático jugador del club",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/16058"
-    },
-    { 
-        nombre: "Matías Andrade", 
-        img: "matias-ajedrez-osorno.jpg",
-        desc: "Jugador ganador de varios eventos del club",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/5001"
-    },
-    { 
-        nombre: "Connni", 
-        img: "connni-ajedez-osorno.jpg",
-        desc: "Destacada jugadora con 3 comunales, 2 provinciales, 3 regionales como campeona. Ranking Internacional 1550",
-        enlace: "https://www.federacionchilenadeajedrez.cl/player/19911"
-    }
-];
-}
+        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "5° de Chile sub 10, 4° de Chile Sub 12, Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
+        { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional máximo 2160, actualmente 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
+        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
+        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "Un jugador emblemático del club. Ranking Internacional 1756", enlace: "https://www.federacionchilenadeajedrez.cl/player/272" },
+        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "4° (1999) y 11° (2005) de Chile Absoluto, 8 veces Campeón de Osorno. Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
+        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Ranking Internacional (dato pendiente)", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
+        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Destacado jugador, último título Campeón Torneo Anticucho. Ranking Internacional 1671", enlace: "https://www.federacionchilenadeajedrez.cl/player/328" },
+        { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Destacado y emblemático jugador del club", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
+        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Jugador ganador de varios eventos del club", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
+        { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Destacada jugadora con 3 comunales, 2 provinciales, 3 regionales como campeona. Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" }
     ];
+    // Agregar actividades extra hasta 20 (como tenías originalmente)
     for (let i = 1; i <= 10; i++) {
-        actividadesList.push({ nombre: `Actividad ${actividadesList.length+1}`, img: `actividad_extra_${i}.jpg` });
+        actividadesList.push({ nombre: `Actividad ${actividadesList.length+1}`, img: `actividad_extra_${i}.jpg`, desc: "Próximamente" });
     }
     
+    // NUEVA LISTA PARA RANKING (con los jugadores solicitados)
+    const rankingList = [
+        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
+        { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
+        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
+        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "Ranking Internacional 1756", enlace: "https://www.federacionchilenadeajedrez.cl/player/272" },
+        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
+        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Ranking pendiente", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
+        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Ranking Internacional 1671", enlace: "https://www.federacionchilenadeajedrez.cl/player/328" },
+        { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Ranking no disponible", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
+        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Ranking 5001", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
+        { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
+        { nombre: "Jorge Castilla", img: "castilla-ajedrez-osorno.jpg", desc: "Ranking Internacional 1722", enlace: "https://www.federacionchilenadeajedrez.cl/player/285" },
+        { nombre: "Alejandro Alvarado", img: "alvarado-ajedrez-osorno.jpg", desc: "Ranking Internacional 1894", enlace: "https://www.federacionchilenadeajedrez.cl/player/18342" },
+        { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
+        { nombre: "Marcelo Rodríguez", img: "marcelo-rodriguez.jpg", desc: "Ranking no disponible", enlace: "https://www.federacionchilenadeajedrez.cl/player/32308" },
+        { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "3° de Chile sub12, 4° de Chile sub8. Ranking 1582", enlace: "https://www.federacionchilenadeajedrez.cl/player/418" }
+    ];
+    
+    // Promesas (agregados Fernando Villegas y Renato Conejeros)
     const promesasList = [
         { nombre: "Agustín", img: "agustin-club.jpg", flag: "chile" },
         { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
@@ -711,9 +681,11 @@
         { nombre: "Mateo", img: "mateo.jpg", flag: "usa" },
         { nombre: "Maxi", img: "maxi-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", flag: "chile" }   // AÑADIDO
+        { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" }
     ];
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 5; i++) {
         promesasList.push({ nombre: `Promesa ${promesasList.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     }
     
@@ -721,7 +693,7 @@
     for (let i = 1; i <= 10; i++) {
         eventosList.push({ nombre: `Evento ${i}`, img: `evento_${i}.jpg`, desc: "Próximamente imagen" });
     }
-
+    
     const galeriaImagenesList = [];
     for (let i = 1; i <= 12; i++) {
         galeriaImagenesList.push({ nombre: `Imagen ${i}`, img: `galeria_${i}.jpg`, desc: "Inserta tu foto" });
@@ -742,6 +714,7 @@
         document.getElementById('imagenMaxModal').classList.add('active');
     }
     
+    // Función generarGaleria con soporte para enlaces clickeables
     function generarGaleria(containerId, items, conFlag = false) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -754,7 +727,11 @@
                 nombreHtml = `<span>${item.nombre}</span> <img class="flag-img" src="${item.flag}.png" alt="bandera" onerror="this.style.display='none'">`;
             }
             const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
-            div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4><p>${item.desc || ''}</p>`;
+            let descHtml = item.desc ? `<p>${item.desc}</p>` : '';
+            if (item.enlace) {
+                descHtml += `<p><a href="${item.enlace}" target="_blank" style="color:#d4af37; text-decoration:underline; font-weight:500;"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
+            }
+            div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}`;
             if (item.img) {
                 const imgEl = div.querySelector('.gallery-img img');
                 if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(item.img); });
@@ -763,7 +740,7 @@
         });
     }
     
-    // Llenar dropdown
+    // Llenar dropdown de campeones del mundo
     const dropdown = document.querySelector('#campeonesDropdown');
     campeonesMundiales.forEach(c => {
         const a = document.createElement('a');
@@ -779,7 +756,7 @@
         dropdown.appendChild(a);
     });
     
-    // Galerías
+    // Generar todas las galerías
     const campeonesOsorno = [
         { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Campeón regional en los años 80, referente histórico del club." },
         { nombre: "Elleberg", img: "2-ellemberg.jpg", desc: "Gran maestro, múltiples títulos nacionales." },
@@ -791,12 +768,12 @@
     ];
     generarGaleria('campeonesGrid', campeonesOsorno);
     generarGaleria('directivaGrid', directiva.map(d => ({ nombre: d.nombre, img: d.imagen, desc: d.desc })));
-    generarGaleria('promesasGrid', promesasList, true);  // con banderas
+    generarGaleria('promesasGrid', promesasList, true);
     generarGaleria('eventosGrid', eventosList);
     generarGaleria('galeriaImagenesGrid', galeriaImagenesList);
-    generarGaleria('rankingGrid', actividadesList);
+    generarGaleria('rankingGrid', rankingList);  // Aquí usamos rankingList, NO actividadesList
     
-    // Archivo histórico
+    // Archivo histórico con paginación
     let paginaActual = 0;
     const eventosPorPagina = 3;
     function mostrarArchivo() {
