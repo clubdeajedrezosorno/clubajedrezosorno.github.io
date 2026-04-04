@@ -493,7 +493,7 @@
 <div id="rankingModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeRankingModalBtn">&times;</button>
-        <h2><i class="fas fa-chart-line"></i> Ranking de Jugadores</h2>
+        <h2><i class="fas fa-chart-line"></i> Ranking de Actividades</h2>
         <div class="grid-4cols" id="rankingGrid"></div>
     </div>
 </div>
@@ -592,7 +592,7 @@
 </div>
 
 <script>
-    // ==================== DATOS COMPLETOS Y CORREGIDOS ====================
+    // ==================== DATOS ====================
     const directiva = [
         { nombre: "Presidente", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "vicepresidente.jpg", desc: "María González" },
@@ -607,7 +607,6 @@
         { nombre: "Comisión Finanzas 4", imagen: "fredy-ajedrez-osorno (2).jpg", desc: "Fredy Wompner" }
     ];
     
-    // Campeones del mundo (incluyendo Gukesh)
     const campeonesMundiales = [
         { nombre: "Wilhelm Steinitz", periodo: "1886-1894", imagen: "Wilhelm-Steinitz-516x315.jpg", desc: "Primer campeón oficial. Dominó el ajedrez con su estilo posicional." },
         { nombre: "Emanuel Lasker", periodo: "1894-1921", imagen: "112 lasker.jpg", desc: "Récord de permanencia (27 años). Filósofo y matemático." },
@@ -626,10 +625,9 @@
         { nombre: "Viswanathan Anand", periodo: "2007-2013", imagen: "104-annand.jpg", desc: "Rapidez y creatividad." },
         { nombre: "Magnus Carlsen", periodo: "2013-2023", imagen: "102-magnus-carlsen.jpg", desc: "Reinado absoluto, el más fuerte en rating." },
         { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding-2.jpg", desc: "Primer campeón chino, gran estabilidad." },
-        { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia, prodigio indio." }
+        { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // Actividades / Jugadores destacados (con enlaces)
     const actividadesList = [
         { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "5° de Chile sub 10, 4° de Chile Sub 12, Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional máximo 2160, actualmente 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
@@ -642,13 +640,12 @@
         { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Jugador ganador de varios eventos del club", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
         { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Destacada jugadora con 3 comunales, 2 provinciales, 3 regionales como campeona. Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" }
     ];
-    // Agregar actividades extra hasta 20 (como tenías originalmente)
     for (let i = 1; i <= 10; i++) {
-        actividadesList.push({ nombre: `Actividad ${actividadesList.length+1}`, img: `actividad_extra_${i}.jpg`, desc: "Próximamente" });
+        actividadesList.push({ nombre: `Actividad ${actividadesList.length+1}`, img: `actividad_extra_${i}.jpg` });
     }
     
-    // NUEVA LISTA PARA RANKING (con los jugadores solicitados)
-    const rankingList = [
+    // NUEVA LISTA DE RANKING (se ordenará de mayor a menor)
+    let rankingList = [
         { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
@@ -666,7 +663,15 @@
         { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "3° de Chile sub12, 4° de Chile sub8. Ranking 1582", enlace: "https://www.federacionchilenadeajedrez.cl/player/418" }
     ];
     
-    // Promesas (agregados Fernando Villegas y Renato Conejeros)
+    // Función para extraer el número ELO de la descripción
+    function extraerElo(desc) {
+        const match = desc.match(/\d{3,4}/);
+        return match ? parseInt(match[0]) : 0;
+    }
+    
+    // Ordenar rankingList de mayor a menor según el ELO
+    rankingList.sort((a, b) => extraerElo(b.desc) - extraerElo(a.desc));
+    
     const promesasList = [
         { nombre: "Agustín", img: "agustin-club.jpg", flag: "chile" },
         { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
@@ -694,10 +699,31 @@
         eventosList.push({ nombre: `Evento ${i}`, img: `evento_${i}.jpg`, desc: "Próximamente imagen" });
     }
     
-    const galeriaImagenesList = [];
-    for (let i = 1; i <= 12; i++) {
-        galeriaImagenesList.push({ nombre: `Imagen ${i}`, img: `galeria_${i}.jpg`, desc: "Inserta tu foto" });
-    }
+    // NUEVA GALERÍA DE IMÁGENES HISTÓRICAS (con todas las que me diste)
+    const galeriaImagenesList = [
+        { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
+        { nombre: "Match Osorno vs Valdivia 2019", img: "match osorno valdivia 2019.jpg", desc: "Encuentro amistoso" },
+        { nombre: "Torneo Mayor 2009", img: "mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
+        { nombre: "Sergio Vera en Trevelyn 2010", img: "trevelyn-ajedrez-ajedrez-osorno.jpg", desc: "Participación destacada" },
+        { nombre: "Osorno campeón torneo equipos Valdivia", img: "osorno-club-equipos.jpg", desc: "Equipo campeón" },
+        { nombre: "Club imagen 2009", img: "pipe.jpg", desc: "Actividad social" },
+        { nombre: "Katherine Velásquez en Sudamericano Paraguay", img: "IMG_20171201_170747.jpg", desc: "Representación internacional" },
+        { nombre: "Sala club 2008", img: "club-sala-ajedrez.jpg", desc: "Nuestra sede" },
+        { nombre: "Constanza Treumun y Sarita Álvarez", img: "IMG_20160824_164712 - copia.jpg", desc: "Jóvenes talentos" },
+        { nombre: "Matías Andrade Campeón Torneo Invierno 2025", img: "campeon-torneo-de-invierno.jpg", desc: "Campeón absoluto" },
+        { nombre: "Claudio Briones Torneo equipos 2014", img: "briones-ajedrez-osorno.jpg", desc: "Campeones" },
+        { nombre: "Benjamín López", img: "benjamin-lopez-ajedrez-osorno - copia.jpg", desc: "Mirando la partida" },
+        { nombre: "Encuentro Osorno-Bariloche", img: "bariloche-osorno-ajedrez-osorno.jpg", desc: "Hermandad ajedrecística" },
+        { nombre: "Tomás Gebauer 4° Chile Sub 8", img: "aleman 2018.jpg", desc: "Logro infantil" },
+        { nombre: "Osorno vs Bariloche club", img: "ajedrez-osorno-bariloche-club.jpg", desc: "Encuentro de locales" },
+        { nombre: "Agustín Campeón Hamburgo Alemania", img: "a46a8cb6-8001-426a-a899-96f9d926714d.jpeg", desc: "Título internacional" },
+        { nombre: "Torneo Paseo Patrimonial", img: "429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Evento callejero" },
+        { nombre: "Cena Osorno y Bariloche", img: "43617994_10215469277501695_2334973736567963648_n - copia.jpg", desc: "Confraternidad" },
+        { nombre: "Cena Osorno vs Bariloche 2", img: "43500627_10215469278941731_6898799358163025920_n.jpg", desc: "Celebración" },
+        { nombre: "Match Osorno vs Puerto Montt", img: "33575997_10216082477477426_1559030616861704192_n.jpg", desc: "Encuentro regional" },
+        { nombre: "Visitas Larraín y Vergara", img: "15-ajedrez osorno-larrain-vergara.jpg", desc: "Grandes maestros invitados" },
+        { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" }
+    ];
     
     const eventosArchivo = [
         { fecha: "24 ago 1924", titulo: "Fundación del Club", descripcion: "Se funda el Club de Ajedrez Osorno en la casa de los primeros socios.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
@@ -714,7 +740,6 @@
         document.getElementById('imagenMaxModal').classList.add('active');
     }
     
-    // Función generarGaleria con soporte para enlaces clickeables
     function generarGaleria(containerId, items, conFlag = false) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -740,7 +765,7 @@
         });
     }
     
-    // Llenar dropdown de campeones del mundo
+    // Llenar dropdown
     const dropdown = document.querySelector('#campeonesDropdown');
     campeonesMundiales.forEach(c => {
         const a = document.createElement('a');
@@ -756,7 +781,7 @@
         dropdown.appendChild(a);
     });
     
-    // Generar todas las galerías
+    // Galerías
     const campeonesOsorno = [
         { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Campeón regional en los años 80, referente histórico del club." },
         { nombre: "Elleberg", img: "2-ellemberg.jpg", desc: "Gran maestro, múltiples títulos nacionales." },
@@ -771,9 +796,9 @@
     generarGaleria('promesasGrid', promesasList, true);
     generarGaleria('eventosGrid', eventosList);
     generarGaleria('galeriaImagenesGrid', galeriaImagenesList);
-    generarGaleria('rankingGrid', rankingList);  // Aquí usamos rankingList, NO actividadesList
+    generarGaleria('rankingGrid', rankingList);
     
-    // Archivo histórico con paginación
+    // Archivo histórico
     let paginaActual = 0;
     const eventosPorPagina = 3;
     function mostrarArchivo() {
