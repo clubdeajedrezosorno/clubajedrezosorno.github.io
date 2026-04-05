@@ -95,8 +95,41 @@
         .main-menu a i { width: 1.6rem; color: #d4af37; font-size: 1.1rem; }
         .main-menu a:hover { color: #d4af37; padding-left: 6px; }
         .main-menu li.active a { color: #d4af37; border-right: 3px solid #d4af37; background: linear-gradient(90deg, rgba(212,175,55,0.1), transparent); }
-        .support-btn { margin-top: 2rem; background: #111; border-radius: 40px; text-align: center; padding: 0.8rem; font-weight: 700; border: 1px solid #2c2c2c; }
-        .support-btn a { color: #d4af37; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        
+        /* Sección Colabora - 4 boxes */
+        .colabora-boxes {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            background: #0a0a0a;
+            border-radius: 20px;
+            padding: 1rem;
+            border: 1px solid #222;
+        }
+        .colabora-item {
+            background: #111;
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            border: 1px solid #2c2c2c;
+            transition: 0.2s;
+        }
+        .colabora-item:hover { transform: translateY(-3px); border-color: #d4af37; }
+        .colabora-item img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            background: #1a1a1a;
+        }
+        .colabora-caption {
+            padding: 0.6rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #d4af37;
+            background: #0a0a0a;
+            border-top: 1px solid #2c2c2c;
+        }
         
         /* BLOG Y TARJETAS */
         .blog-section { margin-bottom: 2rem; }
@@ -224,6 +257,39 @@
         .online-panel { background: #0a0a0a; border-radius: 24px; padding: 1.2rem; border: 1px solid #222; }
         .online-header { font-weight: 800; font-size: 1.2rem; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 4px; margin-bottom: 1rem; color: #f0e6c5; }
         
+        /* Nueva lista de torneos (fechas circuito) */
+        .torneo-fecha-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #2a2a2a;
+            font-size: 0.85rem;
+        }
+        .torneo-fecha-fecha { font-weight: 700; color: #d4af37; }
+        .torneo-fecha-lugar { color: #bbb; }
+        .btn-agregar-actividad {
+            background: #d4af37;
+            color: #111;
+            border: none;
+            border-radius: 30px;
+            padding: 0.4rem 1rem;
+            margin-top: 0.8rem;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-agregar-actividad:hover { background: #f3d572; }
+        .input-nueva-actividad {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 20px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            color: white;
+            font-size: 0.8rem;
+            display: none;
+        }
+        
         /* ENCUESTA */
         .encuesta { margin-top: 1rem; background: #111; padding: 1rem; border-radius: 20px; }
         .encuesta p { margin-bottom: 0.5rem; font-weight: 500; }
@@ -321,6 +387,7 @@
             .right-rubrics .dropdown-content { left: 0; right: auto; }
             .float-contact-left { bottom: 1rem; left: 1rem; width: 50px; height: 50px; font-size: 1.5rem; }
             .float-contact-right { bottom: 1rem; right: 1rem; width: 50px; height: 50px; font-size: 1.5rem; }
+            .colabora-boxes { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -337,7 +404,7 @@
             <div class="right-rubrics">
                 <span id="directivaSuperior" style="cursor:pointer;">Directiva</span>
                 <span id="personalidadJuridica" style="cursor:pointer;">Personalidad Jurídica</span>
-                <span id="rankingSuperior" style="cursor:pointer;">Ranking</span>
+                <span id="rankingSuperior" style="cursor:pointer;">Ranking club</span>
                 <div class="dropdown">
                     <span>Campeones del Mundo</span>
                     <div class="dropdown-content" id="campeonesDropdown"></div>
@@ -366,10 +433,28 @@
                 <li><a id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
                 <li><a id="tesoreriaLink"><i class="fas fa-money-bill-wave"></i> Tesorería</a></li>
             </ul>
-            <div class="support-btn"><a href="#"><i class="fas fa-hand-holding-heart"></i> Colabora con el club</a></div>
+            <!-- NUEVA SECCIÓN COLABORA CON 4 BOXES -->
+            <div class="colabora-boxes">
+                <div class="colabora-item">
+                    <img src="colabora1.jpg" alt="Apóyanos" onerror="this.src='https://placehold.co/300x150?text=Imagen+1'">
+                    <div class="colabora-caption">Hazte socio mensual</div>
+                </div>
+                <div class="colabora-item">
+                    <img src="colabora2.jpg" alt="Donaciones" onerror="this.src='https://placehold.co/300x150?text=Imagen+2'">
+                    <div class="colabora-caption">Donaciones en efectivo</div>
+                </div>
+                <div class="colabora-item">
+                    <img src="colabora3.jpg" alt="Voluntariado" onerror="this.src='https://placehold.co/300x150?text=Imagen+3'">
+                    <div class="colabora-caption">Sé voluntario</div>
+                </div>
+                <div class="colabora-item">
+                    <img src="colabora4.jpg" alt="Apadrina un talento" onerror="this.src='https://placehold.co/300x150?text=Imagen+4'">
+                    <div class="colabora-caption">Apadrina un niño</div>
+                </div>
+            </div>
+            <div class="support-btn"><a href="#"><i class="fas fa-hand-holding-heart"></i> Más formas de colaborar</a></div>
         </aside>
-
-        <!-- CONTENIDO CENTRAL -->
+                <!-- CONTENIDO CENTRAL -->
         <main class="main-content">
             <div class="blog-section">
                 <h2 class="section-title">📖 Blog del Club</h2>
@@ -416,21 +501,25 @@
             </div>
             <div class="online-panel">
                 <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
-                <div class="tournament-block" style="position:relative;">
-                    <div class="active-banner">⚡ ¡ACTIVO!</div>
-                    <div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2882" target="_blank">⚡ II Blitz 2026</a></div>
-                    <div style="color:#aaa;">6 rondas · 3+2 · Viernes 10-04 · 18:30</div>
-                    <div class="msg-date">Premios generales</div>
+                <!-- Aquí va la lista de 7 fechas + botón agregar -->
+                <div id="listaTorneosContainer">
+                    <div class="tournament-block" style="position:relative;">
+                        <div class="active-banner">⚡ ¡ACTIVO!</div>
+                        <div class="tournament-name"><a href="#">Circuito Escolar Zona Sur</a></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">11 de abril 2026:</span> <span class="torneo-fecha-lugar">La Unión (Colegio Alemán de La Unión)</span></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">16 de mayo 2026:</span> <span class="torneo-fecha-lugar">Osorno (Colegio Alemán de Osorno)</span></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">13 de junio 2026:</span> <span class="torneo-fecha-lugar">Paillaco (Colegio Olegario Morales)</span></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">8 de agosto 2026:</span> <span class="torneo-fecha-lugar">Osorno (Liceo Osorno College)</span></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">12 de septiembre 2026:</span> <span class="torneo-fecha-lugar">Río Negro (lugar por confirmar)</span></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">3 de octubre 2026:</span> <span class="torneo-fecha-lugar">San Pablo (Gimnasio Municipal)</span></div>
+                        <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">14 de noviembre 2026:</span> <span class="torneo-fecha-lugar">La Unión (Salón Consistorial Municipalidad de La Unión) - Torneos escolares</span></div>
+                    </div>
                 </div>
-                <div class="tournament-block">
-                    <div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">🏆 Open Semana Osornina</a></div>
-                    <div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div>
-                    <div class="msg-date">25 mar - 22 abr, 18:30</div>
-                </div>
-                <div class="tournament-block">
-                    <div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">🎂 IRT 102 Años Club Osorno</a></div>
-                    <div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div>
-                    <div class="msg-date">Próximamente</div>
+                <button class="btn-agregar-actividad" id="btnMostrarInputActividad">+ Agregar nueva fecha</button>
+                <div class="input-nueva-actividad" id="nuevaActividadInput">
+                    <input type="text" id="nuevaFecha" placeholder="Ej: 20 de diciembre 2026" style="width:100%; background:#1a1a1a; border:1px solid #333; padding:0.4rem; margin-bottom:0.5rem; color:white;">
+                    <input type="text" id="nuevaLugar" placeholder="Lugar" style="width:100%; background:#1a1a1a; border:1px solid #333; padding:0.4rem; margin-bottom:0.5rem; color:white;">
+                    <button id="confirmarAgregarActividad" style="background:#d4af37; border:none; border-radius:20px; padding:0.3rem; width:100%; font-weight:bold;">Agregar</button>
                 </div>
             </div>
             <div class="online-panel" id="foroPanel">
@@ -493,7 +582,7 @@
 <div id="rankingModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeRankingModalBtn">&times;</button>
-        <h2><i class="fas fa-chart-line"></i> Ranking de Actividades</h2>
+        <h2><i class="fas fa-chart-line"></i> Ranking club</h2>
         <div class="grid-4cols" id="rankingGrid"></div>
     </div>
 </div>
@@ -628,23 +717,7 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    const actividadesList = [
-        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "5° de Chile sub 10, 4° de Chile Sub 12, Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
-        { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional máximo 2160, actualmente 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
-        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
-        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "Un jugador emblemático del club. Ranking Internacional 1756", enlace: "https://www.federacionchilenadeajedrez.cl/player/272" },
-        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "4° (1999) y 11° (2005) de Chile Absoluto, 8 veces Campeón de Osorno. Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
-        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Ranking Internacional (dato pendiente)", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
-        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Destacado jugador, último título Campeón Torneo Anticucho. Ranking Internacional 1671", enlace: "https://www.federacionchilenadeajedrez.cl/player/328" },
-        { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Destacado y emblemático jugador del club", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
-        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Jugador ganador de varios eventos del club", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
-        { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Destacada jugadora con 3 comunales, 2 provinciales, 3 regionales como campeona. Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" }
-    ];
-    for (let i = 1; i <= 10; i++) {
-        actividadesList.push({ nombre: `Actividad ${actividadesList.length+1}`, img: `actividad_extra_${i}.jpg` });
-    }
-    
-    // NUEVA LISTA DE RANKING (se ordenará de mayor a menor)
+    // RANKING CLUB: lista con 35 jugadores (los 15 originales + 20 nuevos)
     let rankingList = [
         { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
@@ -662,6 +735,16 @@
         { nombre: "Marcelo Rodríguez", img: "marcelo-rodriguez.jpg", desc: "Ranking no disponible", enlace: "https://www.federacionchilenadeajedrez.cl/player/32308" },
         { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "3° de Chile sub12, 4° de Chile sub8. Ranking 1582", enlace: "https://www.federacionchilenadeajedrez.cl/player/418" }
     ];
+    // Añadir 20 jugadores nuevos (del 16 al 35) con ELOs simulados para que el orden funcione
+    for (let i = 16; i <= 35; i++) {
+        let eloSimulado = 1400 + Math.floor(Math.random() * 700); // entre 1400 y 2100
+        rankingList.push({
+            nombre: `Jugador ${i}`,
+            img: `jugador_${i}.jpg`,
+            desc: `Ranking Internacional ${eloSimulado}`,
+            enlace: "#"
+        });
+    }
     
     // Función para extraer el número ELO de la descripción
     function extraerElo(desc) {
@@ -699,7 +782,6 @@
         eventosList.push({ nombre: `Evento ${i}`, img: `evento_${i}.jpg`, desc: "Próximamente imagen" });
     }
     
-    // NUEVA GALERÍA DE IMÁGENES HISTÓRICAS (con todas las que me diste)
     const galeriaImagenesList = [
         { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
         { nombre: "Match Osorno vs Valdivia 2019", img: "match osorno valdivia 2019.jpg", desc: "Encuentro amistoso" },
@@ -796,7 +878,7 @@
     generarGaleria('promesasGrid', promesasList, true);
     generarGaleria('eventosGrid', eventosList);
     generarGaleria('galeriaImagenesGrid', galeriaImagenesList);
-    generarGaleria('rankingGrid', rankingList);
+    generarGaleria('rankingGrid', rankingList); // Ranking club actualizado y ordenado
     
     // Archivo histórico
     let paginaActual = 0;
@@ -852,6 +934,38 @@
             alert('¡Gracias por tu voto!');
         });
     }
+    
+    // Funcionalidad para agregar nuevas fechas al listado de torneos (sin perder las originales)
+    const btnMostrarInput = document.getElementById('btnMostrarInputActividad');
+    const inputDiv = document.getElementById('nuevaActividadInput');
+    const confirmarBtn = document.getElementById('confirmarAgregarActividad');
+    const listaContainer = document.getElementById('listaTorneosContainer');
+    
+    btnMostrarInput.addEventListener('click', () => {
+        inputDiv.style.display = (inputDiv.style.display === 'none' || inputDiv.style.display === '') ? 'block' : 'none';
+    });
+    
+    confirmarBtn.addEventListener('click', () => {
+        const nuevaFecha = document.getElementById('nuevaFecha').value.trim();
+        const nuevoLugar = document.getElementById('nuevaLugar').value.trim();
+        if (nuevaFecha === "" || nuevoLugar === "") {
+            alert("Completa ambos campos");
+            return;
+        }
+        // Crear un nuevo bloque de torneo (similar a los existentes pero sin el banner activo)
+        const nuevoBloque = document.createElement('div');
+        nuevoBloque.className = 'tournament-block';
+        nuevoBloque.innerHTML = `
+            <div class="tournament-name"><a href="#">Circuito Escolar - Fecha agregada</a></div>
+            <div class="torneo-fecha-item"><span class="torneo-fecha-fecha">${nuevaFecha}:</span> <span class="torneo-fecha-lugar">${nuevoLugar}</span></div>
+        `;
+        listaContainer.appendChild(nuevoBloque);
+        // Limpiar inputs y ocultar el campo
+        document.getElementById('nuevaFecha').value = "";
+        document.getElementById('nuevaLugar').value = "";
+        inputDiv.style.display = 'none';
+        alert("¡Nueva fecha agregada al calendario!");
+    });
     
     // ==================== MODALES ====================
     function setupModal(triggerId, modalId, closeId) {
