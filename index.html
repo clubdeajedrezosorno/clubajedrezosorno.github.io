@@ -422,7 +422,14 @@
             border-top: 1px solid #2c2c2c;
         }
         
-        /* ESTILOS PARA TESORERÍA (consultas y admin) */
+        /* ESTILOS PARA TESORERÍA (datos bancarios + consultas) */
+        .datos-bancarios {
+            background: #111;
+            border-radius: 20px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #2c2c2c;
+        }
         .tesoreria-panel {
             background: #0a0a0a;
             border-radius: 20px;
@@ -456,7 +463,7 @@
             padding: 0.5rem;
             border-radius: 20px;
             color: white;
-            width: 150px;
+            width: 200px;
             margin-right: 0.5rem;
         }
         .admin-panel {
@@ -470,6 +477,7 @@
             width: 100%;
             border-collapse: collapse;
             color: #ccc;
+            font-size: 0.8rem;
         }
         .admin-panel th, .admin-panel td {
             border: 1px solid #333;
@@ -497,6 +505,7 @@
             display: flex;
             gap: 1rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         @media (max-width: 1000px) {
@@ -508,6 +517,8 @@
             .float-contact-left { bottom: 1rem; left: 1rem; width: 50px; height: 50px; font-size: 1.5rem; }
             .float-contact-right { bottom: 1rem; right: 1rem; width: 50px; height: 50px; font-size: 1.5rem; }
             .colabora-boxes-modal { grid-template-columns: 1fr; }
+            .admin-panel table { font-size: 0.7rem; }
+            .admin-panel input { width: 60px; }
         }
     </style>
 </head>
@@ -688,6 +699,16 @@
     <div class="modal-container">
         <button class="close-modal" id="closeTesoreriaModalBtn">&times;</button>
         <h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2>
+        <!-- Datos bancarios (siempre visibles) -->
+        <div class="datos-bancarios">
+            <p><strong>Banco:</strong> Scotiabank</p>
+            <p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p>
+            <p><strong>Cuenta Corriente Nº:</strong> 989752898</p>
+            <p><strong>RUT:</strong> 65.533.360-6</p>
+            <p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p>
+            <p><strong>Tesorero:</strong> Nelson</p>
+        </div>
+        <!-- Aquí se inyectará el panel de consulta y admin -->
         <div id="tesoreriaContent"></div>
     </div>
 </div>
@@ -823,9 +844,10 @@
 </div>
 
 <script>
-    // ==================== DATOS ESTÁTICOS (ranking, promesas, etc.) ====================
+    // ==================== DATOS ESTÁTICOS ====================
+    // DIRECTIVA ACTUALIZADA CON TODAS LAS IMÁGENES QUE DISTE
     const directiva = [
-        { nombre: "Presidente", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
+        { nombre: "Presidenta", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "vicepresidente.jpg", desc: "María González" },
         { nombre: "Secretaria", imagen: "carol-secretaria-club-osorno-ajedrez.jpg", desc: "Carol Moraga" },
         { nombre: "Tesorero", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Nelson Coronado" },
@@ -835,7 +857,12 @@
         { nombre: "Comisión Finanzas 1", imagen: "finanzas1.jpg", desc: "Patricio Mardones" },
         { nombre: "Comisión Finanzas 2", imagen: "finanzas2.jpg", desc: "Verónica Muñoz" },
         { nombre: "Comisión Finanzas 3", imagen: "claudia-ajedrez.jpg", desc: "Claudia" },
-        { nombre: "Comisión Finanzas 4", imagen: "fredy-ajedrez-osorno (2).jpg", desc: "Fredy Wompner" }
+        { nombre: "Comisión Finanzas 4", imagen: "fredy-ajedrez-osorno (2).jpg", desc: "Fredy Wompner" },
+        { nombre: "Pipe Finanzas", imagen: "pipe-finanza-club-ajedrez-osorno.jpg", desc: "Pipe" },
+        { nombre: "Franco", imagen: "franco-ajedrez-osorno.jpg", desc: "Franco Troncoso" },
+        { nombre: "Connni", imagen: "connni-ajedez-osorno.jpg", desc: "Connni" },
+        { nombre: "Matías Andrade", imagen: "matias-ajedrez-osorno.jpg", desc: "Matías Andrade" },
+        { nombre: "Sergio Vera", imagen: "sergio-vera-ajedrez-osorno.jpg", desc: "Sergio Vera" }
     ];
     
     const campeonesMundiales = [
@@ -859,7 +886,7 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB (15 con ELO + otros sin ELO)
+    // RANKING CLUB (ya ordenado)
     let rankingList = [
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
@@ -1004,7 +1031,7 @@
         });
     }
     
-    // Llenar dropdown
+    // Llenar dropdown de campeones mundiales
     const dropdown = document.querySelector('#campeonesDropdown');
     campeonesMundiales.forEach(c => {
         const a = document.createElement('a');
@@ -1051,7 +1078,7 @@
         });
     }
     
-    // Colabora modal
+    // Colabora modal (con Oscar Gebauer en segundo box)
     const colaboraContainer = document.getElementById('colaboraBoxesContainer');
     if (colaboraContainer) {
         const boxes = [
@@ -1157,17 +1184,21 @@
         }
     });
     
-    // ==================== TESORERÍA (JSON + contraseña) ====================
+    // ==================== TESORERÍA (datos bancarios + consulta + admin) ====================
     let datosCuotas = { socios: [] };
     
-    // Cargar datos desde data/cuotas.json (fetch)
+    // Función para normalizar RUT (eliminar puntos, guiones, espacios, convertir a minúsculas)
+    function normalizarRUT(rut) {
+        if (!rut) return '';
+        return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, '');
+    }
+    
     async function cargarCuotas() {
         try {
             const response = await fetch('data/cuotas.json');
             if (!response.ok) throw new Error('No se pudo cargar cuotas.json');
             const data = await response.json();
             datosCuotas = data;
-            // Guardar también en localStorage para persistencia temporal
             localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
         } catch (error) {
             console.warn('Error cargando cuotas.json, usando localStorage o datos por defecto');
@@ -1175,11 +1206,10 @@
             if (local) {
                 datosCuotas = JSON.parse(local);
             } else {
+                // Datos de ejemplo por si falla todo
                 datosCuotas = {
                     socios: [
-                        { id: 1, nombre: "Juan Pérez", cuotaMensual: 10000, pagado: 45000, deuda: 5000 },
-                        { id: 2, nombre: "María López", cuotaMensual: 10000, pagado: 30000, deuda: 20000 },
-                        { id: 3, nombre: "Carlos Soto", cuotaMensual: 8000, pagado: 24000, deuda: 0 }
+                        { id: "11668130-7", nombre: "Sergio Hernan Vera Soto", cuotaMensual: 3000, pagado: 0, deuda: 30000 }
                     ]
                 };
                 localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
@@ -1191,7 +1221,6 @@
         localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
     }
     
-    // Renderizar el modal de tesorería
     function renderTesoreriaModal() {
         const container = document.getElementById('tesoreriaContent');
         if (!container) return;
@@ -1203,7 +1232,7 @@
                 </div>
                 <div id="consultaSocio" class="tesoreria-consulta" style="display:none;">
                     <h3>Consultar mi estado</h3>
-                    <input type="number" id="numSocio" placeholder="Número de socio (1,2,3...)" min="1">
+                    <input type="text" id="numSocio" placeholder="Ej: 11668130-7">
                     <button id="btnConsultar">Consultar</button>
                     <div id="resultadoConsulta" style="margin-top:1rem;"></div>
                 </div>
@@ -1220,7 +1249,6 @@
             </div>
         `;
         
-        // Botones
         const btnSocio = document.getElementById('btnSocioConsulta');
         const btnAdmin = document.getElementById('btnAdminAcceso');
         const divConsulta = document.getElementById('consultaSocio');
@@ -1245,15 +1273,19 @@
             }
         });
         
-        // Consulta socio
+        // Consulta socio con normalización de RUT
         const btnConsultar = document.getElementById('btnConsultar');
         const resultadoDiv = document.getElementById('resultadoConsulta');
         btnConsultar.addEventListener('click', () => {
-            const num = parseInt(document.getElementById('numSocio').value);
-            if (isNaN(num)) { resultadoDiv.innerHTML = "<p>Ingrese un número válido</p>"; return; }
-            const socio = datosCuotas.socios.find(s => s.id === num);
+            const rutIngresado = document.getElementById('numSocio').value.trim();
+            if (rutIngresado === "") {
+                resultadoDiv.innerHTML = "<p>Ingrese un RUT válido</p>";
+                return;
+            }
+            const rutNormalizado = normalizarRUT(rutIngresado);
+            const socio = datosCuotas.socios.find(s => normalizarRUT(s.id) === rutNormalizado);
             if (!socio) {
-                resultadoDiv.innerHTML = "<p>⚠️ Socio no encontrado</p>";
+                resultadoDiv.innerHTML = "<p>⚠️ Socio no encontrado. Verifique su RUT.</p>";
                 return;
             }
             resultadoDiv.innerHTML = `
@@ -1267,35 +1299,37 @@
         function renderTablaAdmin() {
             const tablaDiv = document.getElementById('tablaSociosAdmin');
             if (!tablaDiv) return;
-            let html = '<table><tr><th>ID</th><th>Nombre</th><th>Cuota mensual</th><th>Pagado</th><th>Deuda</th><th>Acciones</th></tr>';
+            let html = `<table><tr><th>RUT</th><th>Nombre</th><th>Cuota mensual</th><th>Pagado</th><th>Deuda</th><th>Acciones</th></tr>`;
             datosCuotas.socios.forEach(socio => {
                 html += `
                     <tr>
-                        <td>${socio.id}</td>
-                        <td><input type="text" id="nombre_${socio.id}" value="${socio.nombre}"></td>
-                        <td><input type="number" id="cuota_${socio.id}" value="${socio.cuotaMensual}"></td>
-                        <td><input type="number" id="pagado_${socio.id}" value="${socio.pagado}"></td>
-                        <td><input type="number" id="deuda_${socio.id}" value="${socio.deuda}"></td>
-                        <td><button class="guardarSocio" data-id="${socio.id}">Guardar</button></td>
+                        <td><input type="text" id="id_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.id}" style="width:100px;"></td>
+                        <td><input type="text" id="nombre_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.nombre}" style="width:150px;"></td>
+                        <td><input type="number" id="cuota_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.cuotaMensual}" style="width:80px;"></td>
+                        <td><input type="number" id="pagado_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.pagado}" style="width:80px;"></td>
+                        <td><input type="number" id="deuda_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.deuda}" style="width:80px;"></td>
+                        <td><button class="guardarSocio" data-id="${socio.id.replace(/[^a-z0-9]/gi, '')}" data-original="${socio.id}">Guardar</button></td>
                     </tr>
                 `;
             });
             html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td></tr></table>`;
             tablaDiv.innerHTML = html;
             
-            // Eventos guardar
             document.querySelectorAll('.guardarSocio').forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    const id = parseInt(btn.getAttribute('data-id'));
-                    const socio = datosCuotas.socios.find(s => s.id === id);
+                    const originalId = btn.getAttribute('data-original');
+                    const safeId = btn.getAttribute('data-id');
+                    const socio = datosCuotas.socios.find(s => s.id === originalId);
                     if (socio) {
-                        socio.nombre = document.getElementById(`nombre_${id}`).value;
-                        socio.cuotaMensual = parseInt(document.getElementById(`cuota_${id}`).value);
-                        socio.pagado = parseInt(document.getElementById(`pagado_${id}`).value);
-                        socio.deuda = parseInt(document.getElementById(`deuda_${id}`).value);
+                        const newId = document.getElementById(`id_${safeId}`).value.trim();
+                        socio.id = newId;
+                        socio.nombre = document.getElementById(`nombre_${safeId}`).value;
+                        socio.cuotaMensual = parseInt(document.getElementById(`cuota_${safeId}`).value);
+                        socio.pagado = parseInt(document.getElementById(`pagado_${safeId}`).value);
+                        socio.deuda = parseInt(document.getElementById(`deuda_${safeId}`).value);
                         guardarCuotasLocal();
                         alert("Datos actualizados localmente");
-                        renderTablaAdmin(); // refrescar
+                        renderTablaAdmin();
                     }
                 });
             });
@@ -1303,13 +1337,13 @@
             const agregarBtn = document.getElementById('agregarSocio');
             if (agregarBtn) {
                 agregarBtn.addEventListener('click', () => {
-                    const newId = datosCuotas.socios.length > 0 ? Math.max(...datosCuotas.socios.map(s => s.id)) + 1 : 4;
+                    const newId = "nuevo" + (Date.now());
                     datosCuotas.socios.push({
                         id: newId,
                         nombre: "Nuevo socio",
-                        cuotaMensual: 10000,
+                        cuotaMensual: 3000,
                         pagado: 0,
-                        deuda: 0
+                        deuda: 30000
                     });
                     guardarCuotasLocal();
                     renderTablaAdmin();
@@ -1317,7 +1351,6 @@
             }
         }
         
-        // Exportar JSON
         const exportarBtn = document.getElementById('exportarJSON');
         exportarBtn.addEventListener('click', () => {
             const dataStr = JSON.stringify(datosCuotas, null, 2);
@@ -1330,7 +1363,6 @@
             URL.revokeObjectURL(url);
         });
         
-        // Importar JSON
         const importInput = document.getElementById('importarArchivo');
         const importLabel = document.querySelector('label[for="importarArchivo"]');
         importLabel.addEventListener('click', () => importInput.click());
@@ -1396,7 +1428,6 @@
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
     setupModal('torneosEscolaresLink', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
     
-    // Colabora modal
     const colaboraBtn = document.getElementById('colaboraBtn');
     const colaboraModal = document.getElementById('colaboraModal');
     const closeColaboraModal = document.getElementById('closeColaboraModalBtn');
@@ -1430,7 +1461,6 @@
         });
     }
     
-    // Precargar cuotas al inicio para que estén disponibles
     cargarCuotas();
 </script>
 </body>
