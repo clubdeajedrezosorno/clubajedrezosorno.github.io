@@ -189,6 +189,14 @@
         .gallery-card p { font-size: 0.85rem; color: #bbb; }
         .flag-img { width: 20px; height: auto; vertical-align: middle; }
         
+        /* Estilo para jugadores sin ranking (más tenue) */
+        .gallery-card.sin-ranking {
+            opacity: 0.7;
+            background: #0a0a0a;
+            border-color: #444;
+        }
+        .gallery-card.sin-ranking:hover { opacity: 1; background: #111; }
+        
         /* ESTILO PARA LISTADO DE TORNEOS ESCOLARES */
         .torneo-escolar-item {
             background: #111;
@@ -324,6 +332,11 @@
         }
         .form-contact button:hover { background: #f3d572; }
         
+        /* BOTÓN COLABORA */
+        .support-btn { margin-top: 2rem; background: #111; border-radius: 40px; text-align: center; padding: 0.8rem; font-weight: 700; border: 1px solid #2c2c2c; }
+        .support-btn a { color: #ffea80; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; text-shadow: 0 0 4px rgba(0,0,0,0.5); transition: 0.2s; }
+        .support-btn a:hover { color: #ffffff; text-shadow: 0 0 6px rgba(212,175,55,0.8); }
+        
         /* BOXES COLABORA (dentro del modal) */
         .colabora-boxes-modal {
             display: grid;
@@ -350,7 +363,7 @@
             padding: 0.8rem;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #d4af37;
+            color: #ffea80;
             background: #0a0a0a;
             border-top: 1px solid #2c2c2c;
         }
@@ -451,7 +464,7 @@
             </div>
         </main>
 
-        <!-- BARRA DERECHA (TORNEOS OFICIALES RESTAURADOS) -->
+        <!-- BARRA DERECHA (TORNEOS OFICIALES) -->
         <aside class="sidebar-right">
             <div class="jugador-destacado" id="calderonTrigger">
                 <img src="calderon.jpg" alt="Eriberto Calderón" onerror="this.src='https://placehold.co/400x300?text=calderon.jpg'">
@@ -648,24 +661,7 @@
     <div class="modal-container" style="max-width: 800px;">
         <button class="close-modal" id="closeColaboraModalBtn">&times;</button>
         <h2><i class="fas fa-hand-holding-heart"></i> Colabora con el Club</h2>
-        <div class="colabora-boxes-modal">
-            <div class="colabora-item-modal">
-                <img src="colabora1.jpg" alt="Apóyanos" onerror="this.src='https://placehold.co/400x300?text=Imagen+1'">
-                <div class="colabora-caption-modal">Hazte socio mensual</div>
-            </div>
-            <div class="colabora-item-modal">
-                <img src="colabora2.jpg" alt="Donaciones" onerror="this.src='https://placehold.co/400x300?text=Imagen+2'">
-                <div class="colabora-caption-modal">Donaciones en efectivo</div>
-            </div>
-            <div class="colabora-item-modal">
-                <img src="colabora3.jpg" alt="Voluntariado" onerror="this.src='https://placehold.co/400x300?text=Imagen+3'">
-                <div class="colabora-caption-modal">Sé voluntario</div>
-            </div>
-            <div class="colabora-item-modal">
-                <img src="colabora4.jpg" alt="Apadrina un talento" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'">
-                <div class="colabora-caption-modal">Apadrina un niño</div>
-            </div>
-        </div>
+        <div class="colabora-boxes-modal" id="colaboraBoxesContainer"></div>
         <p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Tu apoyo hace posible nuestra tradición ajedrecística!</p>
     </div>
 </div>
@@ -707,34 +703,34 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB: 15 originales (con ELO) + 20 nuevos (ELO = 0)
+    // RANKING CLUB: 15 originales + 8 nuevos (sin genéricos)
     let rankingList = [
-        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
+        // Originales con ELO (se ordenarán automáticamente)
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
-        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
-        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "Ranking Internacional 1756", enlace: "https://www.federacionchilenadeajedrez.cl/player/272" },
-        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
-        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Ranking pendiente", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
-        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Ranking Internacional 1671", enlace: "https://www.federacionchilenadeajedrez.cl/player/328" },
-        { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Ranking no disponible", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
-        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Ranking no disponible", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
-        { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
-        { nombre: "Jorge Castilla", img: "castilla-ajedrez-osorno.jpg", desc: "Ranking Internacional 1722", enlace: "https://www.federacionchilenadeajedrez.cl/player/285" },
-        { nombre: "Alejandro Alvarado", img: "alvarado-ajedrez-osorno.jpg", desc: "Ranking Internacional 1894", enlace: "https://www.federacionchilenadeajedrez.cl/player/18342" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
-        { nombre: "Marcelo Rodríguez", img: "marcelo-rodriguez.jpg", desc: "Ranking no disponible", enlace: "https://www.federacionchilenadeajedrez.cl/player/32308" },
-        { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "3° de Chile sub12, 4° de Chile sub8. Ranking 1582", enlace: "https://www.federacionchilenadeajedrez.cl/player/418" }
+        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
+        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
+        { nombre: "Alejandro Alvarado", img: "alvarado-ajedrez-osorno.jpg", desc: "Ranking Internacional 1894", enlace: "https://www.federacionchilenadeajedrez.cl/player/18342" },
+        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "Ranking Internacional 1756", enlace: "https://www.federacionchilenadeajedrez.cl/player/272" },
+        { nombre: "Jorge Castilla", img: "castilla-ajedrez-osorno.jpg", desc: "Ranking Internacional 1722", enlace: "https://www.federacionchilenadeajedrez.cl/player/285" },
+        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Ranking Internacional 1671", enlace: "https://www.federacionchilenadeajedrez.cl/player/328" },
+        { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "Ranking Internacional 1582", enlace: "https://www.federacionchilenadeajedrez.cl/player/418" },
+        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
+        { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
+        { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "Ranking Internacional 1543", enlace: "https://www.federacionchilenadeajedrez.cl/player/684" },
+        { nombre: "Franco", img: "franco-ajedrez-osorno.jpg", desc: "Ranking Internacional 1429", enlace: "https://www.federacionchilenadeajedrez.cl/player/151" },
+        // Los que no tienen ELO (se irán al final)
+        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
+        { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
+        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
+        { nombre: "Marcelo Rodríguez", img: "marcelo-rodriguez.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32308" },
+        { nombre: "Josefa Clerc Saldivia", img: "josefita-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/313" },
+        { nombre: "Juan Clerc", img: "juan-ajedrez-osorno-club.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/7793" },
+        { nombre: "Soraya Espinoza", img: "soraya-espinoza-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/11888" },
+        { nombre: "Mario Sepulveda Avello", img: "jjjllll.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/10817" },
+        { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32096" },
+        { nombre: "Jose Soto", img: "hjjhhjj.jpg", desc: "Sin ranking", enlace: "#" }
     ];
-    
-    // Añadir 20 nuevos jugadores con ELO = 0
-    for (let i = 16; i <= 35; i++) {
-        rankingList.push({
-            nombre: `Jugador ${i}`,
-            img: `jugador_${i}.jpg`,
-            desc: "Sin ranking",
-            enlace: "#"
-        });
-    }
     
     // Función para extraer número ELO de la descripción (devuelve 0 si no encuentra)
     function extraerElo(desc) {
@@ -742,7 +738,7 @@
         return match ? parseInt(match[0]) : 0;
     }
     
-    // Ordenar: primero los que tienen ELO > 0 (descendente), luego los que tienen ELO == 0
+    // Ordenar: primero los que tienen ELO > 0 (descendente), luego los sin ELO
     rankingList.sort((a, b) => {
         const eloA = extraerElo(a.desc);
         const eloB = extraerElo(b.desc);
@@ -752,11 +748,10 @@
         return eloB - eloA;
     });
     
-    const promesasList = [
-        { nombre: "Agustín", img: "agustin-club.jpg", flag: "chile" },
+    // Lista de promesas (21 elementos, se reordenará para que Tomy y Agustín estén en la mitad)
+    let promesasList = [
         { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
         { nombre: "Julián", img: "julian-osorno.jpeg", flag: "chile" },
-        { nombre: "Tomy", img: "tomy-osorno.jpg", flag: "chile" },
         { nombre: "Santi", img: "sssanti-osorno.jpg", flag: "chile" },
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
         { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg", flag: "chile" },
@@ -770,9 +765,38 @@
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" }
     ];
-    for (let i = 1; i <= 5; i++) {
+    // Añadir 5 promesas extra (totales 14+5=19, pero necesitamos 21, añadimos 2 más)
+    for (let i = 1; i <= 7; i++) {
         promesasList.push({ nombre: `Promesa ${promesasList.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     }
+    // Ahora promesasList tiene 21 elementos. Queremos que Tomy y Agustín estén en las posiciones 10 y 11 (aprox mitad)
+    // Primero extraemos a Tomy y Agustín de donde estén (actualmente están al inicio por los originales)
+    // En la lista original, Tomy y Agustín no están incluidos porque los borré sin querer. Voy a agregarlos manualmente.
+    // Mejor rehago la lista completa con los nombres que me diste al principio, incluyendo a Tomy y Agustín.
+    // Para no complicar, voy a crear la lista final con 21 elementos, asegurando que Tomy y Agustín estén en las posiciones 10 y 11.
+    let promesasFinal = [
+        { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
+        { nombre: "Julián", img: "julian-osorno.jpeg", flag: "chile" },
+        { nombre: "Santi", img: "sssanti-osorno.jpg", flag: "chile" },
+        { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
+        { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Vicente", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", flag: "chile" },
+        { nombre: "Mateo", img: "mateo.jpg", flag: "usa" },
+        { nombre: "Tomy", img: "tomy-osorno.jpg", flag: "chile" },      // posición 10
+        { nombre: "Agustín", img: "agustin-club.jpg", flag: "chile" }, // posición 11
+        { nombre: "Maxi", img: "maxi-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" }
+    ];
+    // Añadir 5 más para llegar a 21
+    for (let i = 1; i <= 5; i++) {
+        promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
+    }
+    // Ahora promesasFinal tiene 21 elementos y Tomy/Agustín están en índices 9 y 10 (décimo y undécimo)
     
     const eventosList = [];
     for (let i = 1; i <= 10; i++) {
@@ -830,20 +854,23 @@
         document.getElementById('imagenMaxModal').classList.add('active');
     }
     
-    function generarGaleria(containerId, items, conFlag = false) {
+    function generarGaleria(containerId, items, conFlag = false, sinRankingClass = false) {
         const container = document.getElementById(containerId);
         if (!container) return;
         container.innerHTML = '';
         items.forEach(item => {
             const div = document.createElement('div');
             div.className = 'gallery-card';
+            if (sinRankingClass && item.desc === "Sin ranking") {
+                div.classList.add('sin-ranking');
+            }
             let nombreHtml = item.nombre;
             if (conFlag && item.flag) {
                 nombreHtml = `<span>${item.nombre}</span> <img class="flag-img" src="${item.flag}.png" alt="bandera" onerror="this.style.display='none'">`;
             }
             const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
             let descHtml = item.desc ? `<p>${item.desc}</p>` : '';
-            if (item.enlace) {
+            if (item.enlace && item.enlace !== "#") {
                 descHtml += `<p><a href="${item.enlace}" target="_blank" style="color:#d4af37; text-decoration:underline; font-weight:500;"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
             }
             div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}`;
@@ -889,10 +916,10 @@
     ];
     generarGaleria('campeonesGrid', campeonesOsorno);
     generarGaleria('directivaGrid', directiva.map(d => ({ nombre: d.nombre, img: d.imagen, desc: d.desc })));
-    generarGaleria('promesasGrid', promesasList, true);
+    generarGaleria('promesasGrid', promesasFinal, true);
     generarGaleria('eventosGrid', eventosList);
     generarGaleria('galeriaImagenesGrid', galeriaImagenesList);
-    generarGaleria('rankingGrid', rankingList);
+    generarGaleria('rankingGrid', rankingList, false, true); // aplicar clase sin-ranking a los que tengan desc "Sin ranking"
     
     // Cargar lista de torneos escolares en el modal
     const contenedorTorneos = document.getElementById('listaTorneosEscolares');
@@ -902,6 +929,26 @@
             div.className = 'torneo-escolar-item';
             div.innerHTML = `<div class="torneo-escolar-fecha">📅 ${t.fecha}</div><div class="torneo-escolar-lugar">📍 ${t.lugar}</div>`;
             contenedorTorneos.appendChild(div);
+        });
+    }
+    
+    // Cargar modal de colabora con los 4 boxes (Mario Sepulveda en box1, Oscar Gebauer en box2)
+    const colaboraContainer = document.getElementById('colaboraBoxesContainer');
+    if (colaboraContainer) {
+        const boxes = [
+            { img: "jjjllll.jpg", caption: "Mario Sepulveda Avello - Apoya al club" },
+            { img: "oscar-club-ajedrez-osorno.jpg", caption: "Oscar Gebauer - Colaborador destacado" },
+            { img: "colabora3.jpg", caption: "Sé voluntario", fallback: "https://placehold.co/400x300?text=Voluntariado" },
+            { img: "colabora4.jpg", caption: "Apadrina un niño", fallback: "https://placehold.co/400x300?text=Apadrina" }
+        ];
+        boxes.forEach(b => {
+            const div = document.createElement('div');
+            div.className = 'colabora-item-modal';
+            const imgSrc = b.img;
+            div.innerHTML = `<img src="${imgSrc}" alt="${b.caption}" onerror="this.src='${b.fallback || 'https://placehold.co/400x300?text=Imagen'}'"><div class="colabora-caption-modal">${b.caption}</div>`;
+            const imgEl = div.querySelector('img');
+            if (imgEl) imgEl.addEventListener('click', () => openImageModal(imgEl.src));
+            colaboraContainer.appendChild(div);
         });
     }
     
@@ -962,7 +1009,7 @@
         });
     }
     
-    // Zoom a todas las imágenes dentro de los modales que tengan clase 'gallery-img img' y otras
+    // Zoom a todas las imágenes dentro de los modales que tengan clase 'modal-container img'
     document.querySelectorAll('.modal-container img').forEach(img => {
         if (img.id !== 'imagenMaxSrc') {
             img.addEventListener('click', (e) => {
