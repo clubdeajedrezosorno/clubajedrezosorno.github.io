@@ -1,0 +1,7 @@
+{
+  "socios": [
+    { "id": 1, "nombre": "Juan Pérez", "cuotaMensual": 10000, "pagado": 45000, "deuda": 5000 },
+    { "id": 2, "nombre": "María López", "cuotaMensual": 10000, "pagado": 30000, "deuda": 20000 },
+    { "id": 3, "nombre": "Carlos Soto", "cuotaMensual": 8000, "pagado": 24000, "deuda": 0 }
+  ]
+}
