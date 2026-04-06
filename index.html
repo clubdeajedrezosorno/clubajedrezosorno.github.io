@@ -210,7 +210,7 @@
         .torneo-escolar-fecha { font-weight: 800; color: #d4af37; font-size: 1.1rem; }
         .torneo-escolar-lugar { color: #ccc; margin-top: 0.3rem; }
         
-        /* ARCHIVO HISTÓRICO */
+        /* ARCHIVO HISTÓRICO + DESCARGAS */
         .archivo-evento { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; border: 1px solid #2c2c2c; }
         .archivo-evento img { width: 100px; height: 100px; object-fit: cover; border-radius: 16px; background: #1a1a1a; cursor: pointer; }
         .archivo-info { flex: 1; }
@@ -220,6 +220,60 @@
         .paginacion { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
         .paginacion button { background: #222; color: #d4af37; border: none; padding: 0.5rem 1rem; border-radius: 30px; cursor: pointer; transition: 0.2s; }
         .paginacion button:hover { background: #d4af37; color: #111; }
+        
+        /* Pestañas para Histórico y Descargas */
+        .tab-container {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid #2c2c2c;
+            margin-bottom: 1.5rem;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .tab-btn.active {
+            color: #d4af37;
+            border-bottom: 2px solid #d4af37;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .descarga-item {
+            background: #111;
+            border-radius: 20px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid #2c2c2c;
+            transition: 0.2s;
+        }
+        .descarga-item:hover { border-color: #d4af37; }
+        .descarga-item i { font-size: 2rem; color: #d4af37; }
+        .descarga-info { flex: 1; }
+        .descarga-info h4 { font-size: 1.1rem; color: #f0e6c5; }
+        .descarga-info p { font-size: 0.8rem; color: #aaa; }
+        .btn-descargar {
+            background: #d4af37;
+            color: #111;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .btn-descargar:hover { background: #f3d572; }
         
         /* TORNEOS Y FORO */
         .tournament-block { background: #0a0a0a; border-radius: 24px; padding: 1.2rem 1.8rem; border: 1px solid #222; margin-bottom: 1rem; transition: 0.2s; position: relative; }
@@ -368,6 +422,83 @@
             border-top: 1px solid #2c2c2c;
         }
         
+        /* ESTILOS PARA TESORERÍA (consultas y admin) */
+        .tesoreria-panel {
+            background: #0a0a0a;
+            border-radius: 20px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .tesoreria-botones {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .tesoreria-botones button {
+            background: #d4af37;
+            color: #111;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .tesoreria-consulta {
+            background: #111;
+            padding: 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+        }
+        .tesoreria-consulta input {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 0.5rem;
+            border-radius: 20px;
+            color: white;
+            width: 150px;
+            margin-right: 0.5rem;
+        }
+        .admin-panel {
+            background: #111;
+            padding: 1rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            display: none;
+        }
+        .admin-panel table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #ccc;
+        }
+        .admin-panel th, .admin-panel td {
+            border: 1px solid #333;
+            padding: 0.5rem;
+            text-align: left;
+        }
+        .admin-panel input {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: white;
+            padding: 0.2rem;
+            width: 80px;
+        }
+        .admin-panel button {
+            background: #d4af37;
+            border: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        .export-import {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
         @media (max-width: 1000px) {
             .main-grid { grid-template-columns: 1fr; }
             .header-row { flex-direction: column; text-align: center; }
@@ -417,7 +548,7 @@
                 <li><a id="escuelaLink"><i class="fas fa-chalkboard-user"></i> Escuela</a></li>
                 <li><a id="jovenesPromesasLink"><i class="fas fa-seedling"></i> Jóvenes Promesas</a></li>
                 <li><a id="galeriaImagenesLink"><i class="fas fa-images"></i> Galería de Imágenes</a></li>
-                <li><a id="archivoLink"><i class="fas fa-archive"></i> Archivo histórico</a></li>
+                <li><a id="archivoLink"><i class="fas fa-archive"></i> Histórico y descargas</a></li>
                 <li><a id="foroLink"><i class="fas fa-comments"></i> Foro social</a></li>
                 <li><a id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
                 <li><a id="tesoreriaLink"><i class="fas fa-money-bill-wave"></i> Tesorería</a></li>
@@ -556,15 +687,8 @@
 <div id="tesoreriaModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeTesoreriaModalBtn">&times;</button>
-        <h2><i class="fas fa-money-bill-wave"></i> Datos Tesorería</h2>
-        <div style="background:#111; padding:1.5rem; border-radius:20px; margin-top:1rem;">
-            <p><strong>Banco:</strong> Scotiabank</p>
-            <p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p>
-            <p><strong>Cuenta Corriente Nº:</strong> 989752898</p>
-            <p><strong>RUT:</strong> 65.533.360-6</p>
-            <p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p>
-            <p><strong>Tesorero:</strong> Nelson</p>
-        </div>
+        <h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2>
+        <div id="tesoreriaContent"></div>
     </div>
 </div>
 <div id="campeonMundialModal" class="modal-overlay">
@@ -615,9 +739,41 @@
 <div id="archivoModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeArchivoModalBtn">&times;</button>
-        <h2><i class="fas fa-archive"></i> Archivo Histórico</h2>
-        <div id="archivoContent"></div>
-        <div class="paginacion" id="archivoPaginacion"></div>
+        <h2><i class="fas fa-archive"></i> Histórico y descargas</h2>
+        <div class="tab-container">
+            <button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button>
+            <button class="tab-btn" data-tab="descargas">📥 Descargas</button>
+        </div>
+        <div id="tabEventos" class="tab-content active">
+            <div id="archivoContent"></div>
+            <div class="paginacion" id="archivoPaginacion"></div>
+        </div>
+        <div id="tabDescargas" class="tab-content">
+            <div class="descarga-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="descarga-info">
+                    <h4>Reglamento interno del club</h4>
+                    <p>Actualizado 2026</p>
+                </div>
+                <a href="descargas/reglamento.pdf" class="btn-descargar" download>Descargar</a>
+            </div>
+            <div class="descarga-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="descarga-info">
+                    <h4>Planilla de inscripción de socios</h4>
+                    <p>Formulario de afiliación</p>
+                </div>
+                <a href="descargas/planilla_socios.pdf" class="btn-descargar" download>Descargar</a>
+            </div>
+            <div class="descarga-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="descarga-info">
+                    <h4>Estatutos del Club de Ajedrez Osorno</h4>
+                    <p>Documento fundacional</p>
+                </div>
+                <a href="descargas/estatutos.pdf" class="btn-descargar" download>Descargar</a>
+            </div>
+        </div>
     </div>
 </div>
 <div id="galeriaImagenesModal" class="modal-overlay">
@@ -667,7 +823,7 @@
 </div>
 
 <script>
-    // ==================== DATOS ====================
+    // ==================== DATOS ESTÁTICOS (ranking, promesas, etc.) ====================
     const directiva = [
         { nombre: "Presidente", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "vicepresidente.jpg", desc: "María González" },
@@ -703,9 +859,8 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB: 15 originales + 8 nuevos (sin genéricos)
+    // RANKING CLUB (15 con ELO + otros sin ELO)
     let rankingList = [
-        // Originales con ELO (se ordenarán automáticamente)
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
         { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
@@ -719,7 +874,6 @@
         { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
         { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "Ranking Internacional 1543", enlace: "https://www.federacionchilenadeajedrez.cl/player/684" },
         { nombre: "Franco", img: "franco-ajedrez-osorno.jpg", desc: "Ranking Internacional 1429", enlace: "https://www.federacionchilenadeajedrez.cl/player/151" },
-        // Los que no tienen ELO (se irán al final)
         { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
         { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
         { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
@@ -732,13 +886,10 @@
         { nombre: "Jose Soto", img: "hjjhhjj.jpg", desc: "Sin ranking", enlace: "#" }
     ];
     
-    // Función para extraer número ELO de la descripción (devuelve 0 si no encuentra)
     function extraerElo(desc) {
         const match = desc.match(/\d{3,4}/);
         return match ? parseInt(match[0]) : 0;
     }
-    
-    // Ordenar: primero los que tienen ELO > 0 (descendente), luego los sin ELO
     rankingList.sort((a, b) => {
         const eloA = extraerElo(a.desc);
         const eloB = extraerElo(b.desc);
@@ -748,32 +899,6 @@
         return eloB - eloA;
     });
     
-    // Lista de promesas (21 elementos, se reordenará para que Tomy y Agustín estén en la mitad)
-    let promesasList = [
-        { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
-        { nombre: "Julián", img: "julian-osorno.jpeg", flag: "chile" },
-        { nombre: "Santi", img: "sssanti-osorno.jpg", flag: "chile" },
-        { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
-        { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Vicente", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", flag: "chile" },
-        { nombre: "Mateo", img: "mateo.jpg", flag: "usa" },
-        { nombre: "Maxi", img: "maxi-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" }
-    ];
-    // Añadir 5 promesas extra (totales 14+5=19, pero necesitamos 21, añadimos 2 más)
-    for (let i = 1; i <= 7; i++) {
-        promesasList.push({ nombre: `Promesa ${promesasList.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
-    }
-    // Ahora promesasList tiene 21 elementos. Queremos que Tomy y Agustín estén en las posiciones 10 y 11 (aprox mitad)
-    // Primero extraemos a Tomy y Agustín de donde estén (actualmente están al inicio por los originales)
-    // En la lista original, Tomy y Agustín no están incluidos porque los borré sin querer. Voy a agregarlos manualmente.
-    // Mejor rehago la lista completa con los nombres que me diste al principio, incluyendo a Tomy y Agustín.
-    // Para no complicar, voy a crear la lista final con 21 elementos, asegurando que Tomy y Agustín estén en las posiciones 10 y 11.
     let promesasFinal = [
         { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
         { nombre: "Julián", img: "julian-osorno.jpeg", flag: "chile" },
@@ -784,19 +909,17 @@
         { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", flag: "chile" },
         { nombre: "Mateo", img: "mateo.jpg", flag: "usa" },
-        { nombre: "Tomy", img: "tomy-osorno.jpg", flag: "chile" },      // posición 10
-        { nombre: "Agustín", img: "agustin-club.jpg", flag: "chile" }, // posición 11
+        { nombre: "Tomy", img: "tomy-osorno.jpg", flag: "chile" },
+        { nombre: "Agustín", img: "agustin-club.jpg", flag: "chile" },
         { nombre: "Maxi", img: "maxi-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" }
     ];
-    // Añadir 5 más para llegar a 21
     for (let i = 1; i <= 5; i++) {
         promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     }
-    // Ahora promesasFinal tiene 21 elementos y Tomy/Agustín están en índices 9 y 10 (décimo y undécimo)
     
     const eventosList = [];
     for (let i = 1; i <= 10; i++) {
@@ -837,7 +960,6 @@
         { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" }
     ];
     
-    // Datos de torneos escolares (7 fechas)
     const torneosEscolares = [
         { fecha: "11 de abril de 2026", lugar: "La Unión (Colegio Alemán de La Unión)" },
         { fecha: "16 de mayo de 2026", lugar: "Osorno (Colegio Alemán de Osorno)" },
@@ -848,7 +970,7 @@
         { fecha: "14 de noviembre de 2026", lugar: "La Unión (Salón Consistorial Municipalidad de La Unión) - Torneos escolares" }
     ];
     
-    // ==================== FUNCIONES ====================
+    // ==================== FUNCIONES COMUNES ====================
     function openImageModal(imgSrc) {
         document.getElementById('imagenMaxSrc').src = imgSrc;
         document.getElementById('imagenMaxModal').classList.add('active');
@@ -882,7 +1004,7 @@
         });
     }
     
-    // Llenar dropdown de campeones mundiales
+    // Llenar dropdown
     const dropdown = document.querySelector('#campeonesDropdown');
     campeonesMundiales.forEach(c => {
         const a = document.createElement('a');
@@ -898,13 +1020,10 @@
         dropdown.appendChild(a);
     });
     
-    // Agregar zoom a la imagen del modal de campeón mundial
     const imgCampeon = document.getElementById('campeonMundialImagen');
-    if (imgCampeon) {
-        imgCampeon.addEventListener('click', () => openImageModal(imgCampeon.src));
-    }
+    if (imgCampeon) imgCampeon.addEventListener('click', () => openImageModal(imgCampeon.src));
     
-    // Galerías
+    // Galerías estáticas
     const campeonesOsorno = [
         { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Campeón regional en los años 80, referente histórico del club." },
         { nombre: "Elleberg", img: "2-ellemberg.jpg", desc: "Gran maestro, múltiples títulos nacionales." },
@@ -919,9 +1038,9 @@
     generarGaleria('promesasGrid', promesasFinal, true);
     generarGaleria('eventosGrid', eventosList);
     generarGaleria('galeriaImagenesGrid', galeriaImagenesList);
-    generarGaleria('rankingGrid', rankingList, false, true); // aplicar clase sin-ranking a los que tengan desc "Sin ranking"
+    generarGaleria('rankingGrid', rankingList, false, true);
     
-    // Cargar lista de torneos escolares en el modal
+    // Torneos escolares
     const contenedorTorneos = document.getElementById('listaTorneosEscolares');
     if (contenedorTorneos) {
         torneosEscolares.forEach(t => {
@@ -932,7 +1051,7 @@
         });
     }
     
-    // Cargar modal de colabora con los 4 boxes (Mario Sepulveda en box1, Oscar Gebauer en box2)
+    // Colabora modal
     const colaboraContainer = document.getElementById('colaboraBoxesContainer');
     if (colaboraContainer) {
         const boxes = [
@@ -952,7 +1071,7 @@
         });
     }
     
-    // Archivo histórico
+    // Archivo histórico paginado
     let paginaActual = 0;
     const eventosPorPagina = 3;
     function mostrarArchivo() {
@@ -978,6 +1097,25 @@
         }
     }
     mostrarArchivo();
+    
+    // Pestañas en histórico y descargas
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabEventos = document.getElementById('tabEventos');
+    const tabDescargas = document.getElementById('tabDescargas');
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const tab = btn.getAttribute('data-tab');
+            if (tab === 'eventos') {
+                tabEventos.classList.add('active');
+                tabDescargas.classList.remove('active');
+            } else {
+                tabEventos.classList.remove('active');
+                tabDescargas.classList.add('active');
+            }
+        });
+    });
     
     // Encuesta
     let votos = JSON.parse(localStorage.getItem('votosFavorito')) || { Carlsen: 0, Ding: 0 };
@@ -1009,7 +1147,7 @@
         });
     }
     
-    // Zoom a todas las imágenes dentro de los modales que tengan clase 'modal-container img'
+    // Zoom a todas las imágenes de modales
     document.querySelectorAll('.modal-container img').forEach(img => {
         if (img.id !== 'imagenMaxSrc') {
             img.addEventListener('click', (e) => {
@@ -1019,7 +1157,220 @@
         }
     });
     
-    // ==================== MODALES ====================
+    // ==================== TESORERÍA (JSON + contraseña) ====================
+    let datosCuotas = { socios: [] };
+    
+    // Cargar datos desde data/cuotas.json (fetch)
+    async function cargarCuotas() {
+        try {
+            const response = await fetch('data/cuotas.json');
+            if (!response.ok) throw new Error('No se pudo cargar cuotas.json');
+            const data = await response.json();
+            datosCuotas = data;
+            // Guardar también en localStorage para persistencia temporal
+            localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
+        } catch (error) {
+            console.warn('Error cargando cuotas.json, usando localStorage o datos por defecto');
+            const local = localStorage.getItem('cuotasClub');
+            if (local) {
+                datosCuotas = JSON.parse(local);
+            } else {
+                datosCuotas = {
+                    socios: [
+                        { id: 1, nombre: "Juan Pérez", cuotaMensual: 10000, pagado: 45000, deuda: 5000 },
+                        { id: 2, nombre: "María López", cuotaMensual: 10000, pagado: 30000, deuda: 20000 },
+                        { id: 3, nombre: "Carlos Soto", cuotaMensual: 8000, pagado: 24000, deuda: 0 }
+                    ]
+                };
+                localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
+            }
+        }
+    }
+    
+    function guardarCuotasLocal() {
+        localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
+    }
+    
+    // Renderizar el modal de tesorería
+    function renderTesoreriaModal() {
+        const container = document.getElementById('tesoreriaContent');
+        if (!container) return;
+        container.innerHTML = `
+            <div class="tesoreria-panel">
+                <div class="tesoreria-botones">
+                    <button id="btnSocioConsulta">🔍 Soy socio (consultar estado)</button>
+                    <button id="btnAdminAcceso">🔐 Tesorería (solo administrador)</button>
+                </div>
+                <div id="consultaSocio" class="tesoreria-consulta" style="display:none;">
+                    <h3>Consultar mi estado</h3>
+                    <input type="number" id="numSocio" placeholder="Número de socio (1,2,3...)" min="1">
+                    <button id="btnConsultar">Consultar</button>
+                    <div id="resultadoConsulta" style="margin-top:1rem;"></div>
+                </div>
+                <div id="adminPanel" class="admin-panel">
+                    <h3>Panel de administración (editar cuotas)</h3>
+                    <div id="tablaSociosAdmin"></div>
+                    <div class="export-import">
+                        <button id="exportarJSON">📤 Exportar JSON</button>
+                        <label for="importarArchivo" style="background:#d4af37; color:#111; padding:0.3rem 0.6rem; border-radius:20px; cursor:pointer;">📥 Importar JSON</label>
+                        <input type="file" id="importarArchivo" accept=".json" style="display:none;">
+                    </div>
+                    <p style="font-size:0.7rem; margin-top:1rem;">* Los cambios se guardan localmente. Para actualizar el archivo del servidor, exporta y reemplaza manualmente el cuotas.json.</p>
+                </div>
+            </div>
+        `;
+        
+        // Botones
+        const btnSocio = document.getElementById('btnSocioConsulta');
+        const btnAdmin = document.getElementById('btnAdminAcceso');
+        const divConsulta = document.getElementById('consultaSocio');
+        const divAdmin = document.getElementById('adminPanel');
+        let adminVisible = false;
+        
+        btnSocio.addEventListener('click', () => {
+            divConsulta.style.display = 'block';
+            divAdmin.style.display = 'none';
+            adminVisible = false;
+        });
+        
+        btnAdmin.addEventListener('click', () => {
+            const pass = prompt("Contraseña de administrador:");
+            if (pass === "admin123") {
+                divConsulta.style.display = 'none';
+                divAdmin.style.display = 'block';
+                adminVisible = true;
+                renderTablaAdmin();
+            } else {
+                alert("Contraseña incorrecta");
+            }
+        });
+        
+        // Consulta socio
+        const btnConsultar = document.getElementById('btnConsultar');
+        const resultadoDiv = document.getElementById('resultadoConsulta');
+        btnConsultar.addEventListener('click', () => {
+            const num = parseInt(document.getElementById('numSocio').value);
+            if (isNaN(num)) { resultadoDiv.innerHTML = "<p>Ingrese un número válido</p>"; return; }
+            const socio = datosCuotas.socios.find(s => s.id === num);
+            if (!socio) {
+                resultadoDiv.innerHTML = "<p>⚠️ Socio no encontrado</p>";
+                return;
+            }
+            resultadoDiv.innerHTML = `
+                <p><strong>${socio.nombre}</strong></p>
+                <p>Cuota mensual: $${socio.cuotaMensual}</p>
+                <p>Total pagado: $${socio.pagado}</p>
+                <p>Deuda actual: $${socio.deuda}</p>
+            `;
+        });
+        
+        function renderTablaAdmin() {
+            const tablaDiv = document.getElementById('tablaSociosAdmin');
+            if (!tablaDiv) return;
+            let html = '<table><tr><th>ID</th><th>Nombre</th><th>Cuota mensual</th><th>Pagado</th><th>Deuda</th><th>Acciones</th></tr>';
+            datosCuotas.socios.forEach(socio => {
+                html += `
+                    <tr>
+                        <td>${socio.id}</td>
+                        <td><input type="text" id="nombre_${socio.id}" value="${socio.nombre}"></td>
+                        <td><input type="number" id="cuota_${socio.id}" value="${socio.cuotaMensual}"></td>
+                        <td><input type="number" id="pagado_${socio.id}" value="${socio.pagado}"></td>
+                        <td><input type="number" id="deuda_${socio.id}" value="${socio.deuda}"></td>
+                        <td><button class="guardarSocio" data-id="${socio.id}">Guardar</button></td>
+                    </tr>
+                `;
+            });
+            html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td></tr></table>`;
+            tablaDiv.innerHTML = html;
+            
+            // Eventos guardar
+            document.querySelectorAll('.guardarSocio').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const id = parseInt(btn.getAttribute('data-id'));
+                    const socio = datosCuotas.socios.find(s => s.id === id);
+                    if (socio) {
+                        socio.nombre = document.getElementById(`nombre_${id}`).value;
+                        socio.cuotaMensual = parseInt(document.getElementById(`cuota_${id}`).value);
+                        socio.pagado = parseInt(document.getElementById(`pagado_${id}`).value);
+                        socio.deuda = parseInt(document.getElementById(`deuda_${id}`).value);
+                        guardarCuotasLocal();
+                        alert("Datos actualizados localmente");
+                        renderTablaAdmin(); // refrescar
+                    }
+                });
+            });
+            
+            const agregarBtn = document.getElementById('agregarSocio');
+            if (agregarBtn) {
+                agregarBtn.addEventListener('click', () => {
+                    const newId = datosCuotas.socios.length > 0 ? Math.max(...datosCuotas.socios.map(s => s.id)) + 1 : 4;
+                    datosCuotas.socios.push({
+                        id: newId,
+                        nombre: "Nuevo socio",
+                        cuotaMensual: 10000,
+                        pagado: 0,
+                        deuda: 0
+                    });
+                    guardarCuotasLocal();
+                    renderTablaAdmin();
+                });
+            }
+        }
+        
+        // Exportar JSON
+        const exportarBtn = document.getElementById('exportarJSON');
+        exportarBtn.addEventListener('click', () => {
+            const dataStr = JSON.stringify(datosCuotas, null, 2);
+            const blob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cuotas_actualizado.json';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+        
+        // Importar JSON
+        const importInput = document.getElementById('importarArchivo');
+        const importLabel = document.querySelector('label[for="importarArchivo"]');
+        importLabel.addEventListener('click', () => importInput.click());
+        importInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                try {
+                    const imported = JSON.parse(ev.target.result);
+                    if (imported.socios && Array.isArray(imported.socios)) {
+                        datosCuotas = imported;
+                        guardarCuotasLocal();
+                        alert("Datos importados correctamente");
+                        if (adminVisible) renderTablaAdmin();
+                    } else {
+                        alert("Formato inválido");
+                    }
+                } catch (err) {
+                    alert("Error al leer el archivo");
+                }
+            };
+            reader.readAsText(file);
+        });
+    }
+    
+    // Inicializar tesorería al abrir el modal
+    const tesoreriaModal = document.getElementById('tesoreriaModal');
+    const closeTesoreria = document.getElementById('closeTesoreriaModalBtn');
+    const tesoreriaLink = document.getElementById('tesoreriaLink');
+    
+    tesoreriaLink.addEventListener('click', async () => {
+        await cargarCuotas();
+        renderTesoreriaModal();
+        tesoreriaModal.classList.add('active');
+    });
+    closeTesoreria.addEventListener('click', () => tesoreriaModal.classList.remove('active'));
+    tesoreriaModal.addEventListener('click', (e) => { if (e.target === tesoreriaModal) tesoreriaModal.classList.remove('active'); });
+    
+    // ==================== MODALES COMUNES ====================
     function setupModal(triggerId, modalId, closeId) {
         const trigger = document.getElementById(triggerId);
         const modal = document.getElementById(modalId);
@@ -1036,7 +1387,6 @@
     setupModal('directivaSuperior', 'directivaModal', 'closeDirectivaModalBtn');
     setupModal('personalidadJuridica', 'personalidadModal', 'closePersonalidadModalBtn');
     setupModal('rankingSuperior', 'rankingModal', 'closeRankingModalBtn');
-    setupModal('tesoreriaLink', 'tesoreriaModal', 'closeTesoreriaModalBtn');
     setupModal('eventosLink', 'eventosModal', 'closeEventosModalBtn');
     setupModal('jovenesPromesasLink', 'promesasModal', 'closePromesasModalBtn');
     setupModal('escuelaLink', 'escuelaModal', 'closeEscuelaModalBtn');
@@ -1046,7 +1396,7 @@
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
     setupModal('torneosEscolaresLink', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
     
-    // Modal colabora (el botón está dentro de .support-btn)
+    // Colabora modal
     const colaboraBtn = document.getElementById('colaboraBtn');
     const colaboraModal = document.getElementById('colaboraModal');
     const closeColaboraModal = document.getElementById('closeColaboraModalBtn');
@@ -1079,6 +1429,9 @@
             document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' });
         });
     }
+    
+    // Precargar cuotas al inicio para que estén disponibles
+    cargarCuotas();
 </script>
 </body>
 </html>
