@@ -699,6 +699,7 @@
     <div class="modal-container">
         <button class="close-modal" id="closeTesoreriaModalBtn">&times;</button>
         <h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2>
+        <!-- Datos bancarios (siempre visibles) -->
         <div class="datos-bancarios">
             <p><strong>Banco:</strong> Scotiabank</p>
             <p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p>
@@ -707,6 +708,7 @@
             <p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p>
             <p><strong>Tesorero:</strong> Nelson</p>
         </div>
+        <!-- Aquí se inyectará el panel de consulta y admin -->
         <div id="tesoreriaContent"></div>
     </div>
 </div>
@@ -816,6 +818,7 @@
     </div>
 </div>
 
+<!-- MODAL PARA TORNEOS ESCOLARES -->
 <div id="torneosEscolaresModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button>
@@ -824,6 +827,7 @@
     </div>
 </div>
 
+<!-- MODAL PARA COLABORA (4 BOXES) -->
 <div id="colaboraModal" class="modal-overlay">
     <div class="modal-container" style="max-width: 800px;">
         <button class="close-modal" id="closeColaboraModalBtn">&times;</button>
@@ -835,6 +839,7 @@
 
 <script>
     // ==================== DATOS ESTÁTICOS ====================
+    // DIRECTIVA ACTUALIZADA
     const directiva = [
         { nombre: "Presidenta", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "connni-ajedez-osorno.jpg", desc: "Constanza Treumun" },
@@ -870,7 +875,7 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB (jugadores con ELO + promesas al final)
+    // RANKING CLUB (con los jugadores de ranking + promesas, sin duplicados)
     let rankingList = [
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
@@ -897,11 +902,9 @@
         { nombre: "Jose Soto", img: "hjjhhjj.jpg", desc: "Sin ranking", enlace: "#" }
     ];
     
-    // Añadir todos los jóvenes promesas que no estén ya en el ranking
+    // Jóvenes promesas (las que no están ya en ranking) - se agregan al final
     const promesasParaRanking = [
-        { nombre: "Josefa", img: "jjosefa.JPG", desc: "Sin ranking", enlace: "#" },
         { nombre: "Julián", img: "julian-osorno.jpeg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Santi", img: "sssanti-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
@@ -914,7 +917,6 @@
         { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" }
     ];
     
-    // Filtrar los que ya existen para evitar duplicados (por nombre)
     const nombresExistentes = rankingList.map(j => j.nombre.toLowerCase());
     promesasParaRanking.forEach(p => {
         if (!nombresExistentes.includes(p.nombre.toLowerCase())) {
@@ -987,13 +989,15 @@
         { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" }
     ];
     
+    // Eventos históricos (incluyendo el nuevo de inauguración de nueva sede)
     const eventosArchivo = [
         { fecha: "24 ago 1924", titulo: "Fundación del Club", descripcion: "Se funda el Club de Ajedrez Osorno en la casa de los primeros socios.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
         { fecha: "15 mar 1950", titulo: "Primer Campeonato Regional", descripcion: "El club organiza su primer torneo abierto, ganado por Gustavo Sommer.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
         { fecha: "10 oct 1975", titulo: "Inauguración de la sede", descripcion: "Se abre la sede en Matta 809, punto de encuentro actual.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
         { fecha: "5 jun 2001", titulo: "Laura Soto WIM", descripcion: "Laura Soto obtiene el título de Maestra Internacional Femenina.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
         { fecha: "22 nov 2014", titulo: "Abierto Internacional", descripcion: "Mauricio Tapia gana el Abierto Internacional Ciudad de Osorno.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
-        { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" }
+        { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "15 mar 2026", titulo: "Inauguración nueva sede - Juan Pablo Varas vs Campeón del mundo", descripcion: "Evento especial con la participación de Juan Pablo Varas enfrentándose a un campeón mundial en la nueva sede del club.", imagen: "vras-eduardo-rojas-club-ajedrez.jpg" }
     ];
     
     const torneosEscolares = [
@@ -1040,7 +1044,7 @@
         });
     }
     
-    // Llenar dropdown
+    // Llenar dropdown de campeones mundiales
     const dropdown = document.querySelector('#campeonesDropdown');
     campeonesMundiales.forEach(c => {
         const a = document.createElement('a');
@@ -1059,7 +1063,7 @@
     const imgCampeon = document.getElementById('campeonMundialImagen');
     if (imgCampeon) imgCampeon.addEventListener('click', () => openImageModal(imgCampeon.src));
     
-    // Galerías
+    // Galerías estáticas
     const campeonesOsorno = [
         { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Campeón regional en los años 80, referente histórico del club." },
         { nombre: "Elleberg", img: "2-ellemberg.jpg", desc: "Gran maestro, múltiples títulos nacionales." },
@@ -1087,7 +1091,7 @@
         });
     }
     
-    // Colabora modal (imágenes corregidas)
+    // Colabora modal (con zoom en imágenes)
     const colaboraContainer = document.getElementById('colaboraBoxesContainer');
     if (colaboraContainer) {
         const boxes = [
@@ -1195,10 +1199,7 @@
     
     // ==================== TESORERÍA ====================
     let datosCuotas = { socios: [] };
-    function normalizarRUT(rut) {
-        if (!rut) return '';
-        return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, '');
-    }
+    function normalizarRUT(rut) { if (!rut) return ''; return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, ''); }
     async function cargarCuotas() {
         try {
             const response = await fetch('data/cuotas.json');
@@ -1207,23 +1208,12 @@
             datosCuotas = data;
             localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
         } catch (error) {
-            console.warn('Error cargando cuotas.json, usando localStorage o datos por defecto');
             const local = localStorage.getItem('cuotasClub');
-            if (local) {
-                datosCuotas = JSON.parse(local);
-            } else {
-                datosCuotas = {
-                    socios: [
-                        { id: "11668130-7", nombre: "Sergio Hernan Vera Soto", cuotaMensual: 3000, pagado: 0, deuda: 30000 }
-                    ]
-                };
-                localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
-            }
+            if (local) datosCuotas = JSON.parse(local);
+            else datosCuotas = { socios: [ { id: "11668130-7", nombre: "Sergio Hernan Vera Soto", cuotaMensual: 3000, pagado: 0, deuda: 30000 } ] };
         }
     }
-    function guardarCuotasLocal() {
-        localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
-    }
+    function guardarCuotasLocal() { localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas)); }
     function renderTesoreriaModal() {
         const container = document.getElementById('tesoreriaContent');
         if (!container) return;
@@ -1256,42 +1246,17 @@
         const divConsulta = document.getElementById('consultaSocio');
         const divAdmin = document.getElementById('adminPanel');
         let adminVisible = false;
-        btnSocio.addEventListener('click', () => {
-            divConsulta.style.display = 'block';
-            divAdmin.style.display = 'none';
-            adminVisible = false;
-        });
-        btnAdmin.addEventListener('click', () => {
-            const pass = prompt("Contraseña de administrador:");
-            if (pass === "admin123") {
-                divConsulta.style.display = 'none';
-                divAdmin.style.display = 'block';
-                adminVisible = true;
-                renderTablaAdmin();
-            } else {
-                alert("Contraseña incorrecta");
-            }
-        });
+        btnSocio.addEventListener('click', () => { divConsulta.style.display = 'block'; divAdmin.style.display = 'none'; adminVisible = false; });
+        btnAdmin.addEventListener('click', () => { const pass = prompt("Contraseña de administrador:"); if (pass === "admin123") { divConsulta.style.display = 'none'; divAdmin.style.display = 'block'; adminVisible = true; renderTablaAdmin(); } else alert("Contraseña incorrecta"); });
         const btnConsultar = document.getElementById('btnConsultar');
         const resultadoDiv = document.getElementById('resultadoConsulta');
         btnConsultar.addEventListener('click', () => {
             const rutIngresado = document.getElementById('numSocio').value.trim();
-            if (rutIngresado === "") {
-                resultadoDiv.innerHTML = "<p>Ingrese un RUT válido</p>";
-                return;
-            }
+            if (!rutIngresado) { resultadoDiv.innerHTML = "<p>Ingrese un RUT válido</p>"; return; }
             const rutNormalizado = normalizarRUT(rutIngresado);
             const socio = datosCuotas.socios.find(s => normalizarRUT(s.id) === rutNormalizado);
-            if (!socio) {
-                resultadoDiv.innerHTML = "<p>⚠️ Socio no encontrado. Verifique su RUT.</p>";
-                return;
-            }
-            resultadoDiv.innerHTML = `
-                <p><strong>${socio.nombre}</strong></p>
-                <p>Cuota mensual: $${socio.cuotaMensual}</p>
-                <p>Total pagado: $${socio.pagado}</p>
-                <p>Deuda actual: $${socio.deuda}</p>
-            `;
+            if (!socio) { resultadoDiv.innerHTML = "<p>⚠️ Socio no encontrado. Verifique su RUT.</p>"; return; }
+            resultadoDiv.innerHTML = `<p><strong>${socio.nombre}</strong></p><p>Cuota mensual: $${socio.cuotaMensual}</p><p>Total pagado: $${socio.pagado}</p><p>Deuda actual: $${socio.deuda}</p>`;
         });
         function renderTablaAdmin() {
             const tablaDiv = document.getElementById('tablaSociosAdmin');
@@ -1313,7 +1278,7 @@
             html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td></tr></tbody></table>`;
             tablaDiv.innerHTML = html;
             document.querySelectorAll('.guardarSocio').forEach(btn => {
-                btn.addEventListener('click', (e) => {
+                btn.addEventListener('click', () => {
                     const originalId = btn.getAttribute('data-original');
                     const safeId = btn.getAttribute('data-id');
                     const socio = datosCuotas.socios.find(s => s.id === originalId);
@@ -1330,65 +1295,20 @@
                 });
             });
             const agregarBtn = document.getElementById('agregarSocio');
-            if (agregarBtn) {
-                agregarBtn.addEventListener('click', () => {
-                    datosCuotas.socios.push({
-                        id: "nuevo" + Date.now(),
-                        nombre: "Nuevo socio",
-                        cuotaMensual: 3000,
-                        pagado: 0,
-                        deuda: 30000
-                    });
-                    guardarCuotasLocal();
-                    renderTablaAdmin();
-                });
-            }
+            if (agregarBtn) agregarBtn.addEventListener('click', () => { datosCuotas.socios.push({ id: "nuevo" + Date.now(), nombre: "Nuevo socio", cuotaMensual: 3000, pagado: 0, deuda: 30000 }); guardarCuotasLocal(); renderTablaAdmin(); });
         }
         const exportarBtn = document.getElementById('exportarJSON');
-        exportarBtn.addEventListener('click', () => {
-            const dataStr = JSON.stringify(datosCuotas, null, 2);
-            const blob = new Blob([dataStr], {type: 'application/json'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'cuotas_actualizado.json';
-            a.click();
-            URL.revokeObjectURL(url);
-        });
+        exportarBtn.addEventListener('click', () => { const dataStr = JSON.stringify(datosCuotas, null, 2); const blob = new Blob([dataStr], {type: 'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'cuotas_actualizado.json'; a.click(); URL.revokeObjectURL(url); });
         const importInput = document.getElementById('importarArchivo');
         const importLabel = document.querySelector('label[for="importarArchivo"]');
         importLabel.addEventListener('click', () => importInput.click());
-        importInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-                try {
-                    const imported = JSON.parse(ev.target.result);
-                    if (imported.socios && Array.isArray(imported.socios)) {
-                        datosCuotas = imported;
-                        guardarCuotasLocal();
-                        alert("Datos importados correctamente");
-                        if (adminVisible) renderTablaAdmin();
-                    } else {
-                        alert("Formato inválido");
-                    }
-                } catch (err) {
-                    alert("Error al leer el archivo");
-                }
-            };
-            reader.readAsText(file);
-        });
+        importInput.addEventListener('change', (e) => { const file = e.target.files[0]; if (!file) return; const reader = new FileReader(); reader.onload = (ev) => { try { const imported = JSON.parse(ev.target.result); if (imported.socios && Array.isArray(imported.socios)) { datosCuotas = imported; guardarCuotasLocal(); alert("Datos importados correctamente"); if (adminVisible) renderTablaAdmin(); } else alert("Formato inválido"); } catch (err) { alert("Error al leer el archivo"); } }; reader.readAsText(file); });
     }
     
     const tesoreriaModal = document.getElementById('tesoreriaModal');
     const closeTesoreria = document.getElementById('closeTesoreriaModalBtn');
     const tesoreriaLink = document.getElementById('tesoreriaLink');
-    tesoreriaLink.addEventListener('click', async () => {
-        await cargarCuotas();
-        renderTesoreriaModal();
-        tesoreriaModal.classList.add('active');
-    });
+    tesoreriaLink.addEventListener('click', async () => { await cargarCuotas(); renderTesoreriaModal(); tesoreriaModal.classList.add('active'); });
     closeTesoreria.addEventListener('click', () => tesoreriaModal.classList.remove('active'));
     tesoreriaModal.addEventListener('click', (e) => { if (e.target === tesoreriaModal) tesoreriaModal.classList.remove('active'); });
     
@@ -1422,10 +1342,7 @@
     const colaboraModal = document.getElementById('colaboraModal');
     const closeColaboraModal = document.getElementById('closeColaboraModalBtn');
     if (colaboraBtn && colaboraModal && closeColaboraModal) {
-        colaboraBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            colaboraModal.classList.add('active');
-        });
+        colaboraBtn.addEventListener('click', (e) => { e.preventDefault(); colaboraModal.classList.add('active'); });
         closeColaboraModal.addEventListener('click', () => colaboraModal.classList.remove('active'));
         colaboraModal.addEventListener('click', (e) => { if (e.target === colaboraModal) colaboraModal.classList.remove('active'); });
     }
@@ -1446,9 +1363,7 @@
     
     const foroLink = document.getElementById('foroLink');
     if (foroLink) {
-        foroLink.addEventListener('click', () => {
-            document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' });
-        });
+        foroLink.addEventListener('click', () => { document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' }); });
     }
     
     cargarCuotas();
