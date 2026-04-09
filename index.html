@@ -96,6 +96,9 @@
         .main-menu a:hover { color: #d4af37; padding-left: 6px; }
         .main-menu li.active a { color: #d4af37; border-right: 3px solid #d4af37; background: linear-gradient(90deg, rgba(212,175,55,0.1), transparent); }
         
+        /* Nuevo item de colaboradores en el menú */
+        .main-menu li a i.fa-hand-holding-heart { color: #ffea80; }
+        
         /* BLOG Y TARJETAS */
         .blog-section { margin-bottom: 2rem; }
         .section-title { font-family: 'PT Serif', serif; font-size: 1.7rem; font-weight: 700; border-left: 5px solid #d4af37; padding-left: 1rem; margin-bottom: 1.2rem; color: #f0e6c5; }
@@ -401,7 +404,7 @@
         }
         .form-contact button:hover { background: #f3d572; }
         
-        /* BOTÓN COLABORA */
+        /* BOTÓN COLABORA (se mantiene el estilo, pero el botón flotante se eliminará) */
         .support-btn { margin-top: 2rem; background: #111; border-radius: 40px; text-align: center; padding: 0.8rem; font-weight: 700; border: 1px solid #2c2c2c; }
         .support-btn a { color: #ffea80; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px; text-shadow: 0 0 4px rgba(0,0,0,0.5); transition: 0.2s; }
         .support-btn a:hover { color: #ffffff; text-shadow: 0 0 6px rgba(212,175,55,0.8); }
@@ -593,8 +596,10 @@
                 <li><a id="foroLink"><i class="fas fa-comments"></i> Foro social</a></li>
                 <li><a id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
                 <li><a id="tesoreriaLink"><i class="fas fa-money-bill-wave"></i> Tesorería</a></li>
+                <!-- Nuevo ítem colaboradores en menú -->
+                <li><a id="colaboraMenuLink"><i class="fas fa-hand-holding-heart"></i> Colabora con el club</a></li>
             </ul>
-            <div class="support-btn" id="colaboraBtn"><a href="#"><i class="fas fa-hand-holding-heart"></i> Colabora con el club</a></div>
+            <!-- Eliminamos el antiguo support-btn porque ahora está en el menú -->
         </aside>
 
         <!-- CONTENIDO CENTRAL -->
@@ -855,8 +860,9 @@
     </div>
 </div>
 
+<!-- Modal para colaboradores (nuevo, desde el menú lateral) -->
 <div id="colaboraModal" class="modal-overlay">
-    <div class="modal-container" style="max-width: 800px;">
+    <div class="modal-container">
         <button class="close-modal" id="closeColaboraModalBtn">&times;</button>
         <h2><i class="fas fa-hand-holding-heart"></i> Colabora con el Club</h2>
         <div class="colabora-boxes-modal" id="colaboraBoxesContainer"></div>
@@ -1026,15 +1032,15 @@
         { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" }
     ];
     
-    // Eventos históricos con imágenes genéricas (icono peón) y evento especial con foto de Varas
+    // Eventos históricos: 7 placeholders. El histórico 3 tiene la imagen de Varas.
     const eventosArchivo = [
-        { fecha: "24 ago 1924", titulo: "Fundación del Club", descripcion: "Se funda el Club de Ajedrez Osorno en la casa de los primeros socios.", icono: "fas fa-chess-pawn" },
-        { fecha: "15 mar 1950", titulo: "Primer Campeonato Regional", descripcion: "El club organiza su primer torneo abierto, ganado por Gustavo Sommer.", icono: "fas fa-trophy" },
-        { fecha: "10 oct 1975", titulo: "Inauguración de la sede", descripcion: "Se abre la sede en Matta 809, punto de encuentro actual.", icono: "fas fa-building" },
-        { fecha: "5 jun 2001", titulo: "Laura Soto WIM", descripcion: "Laura Soto obtiene el título de Maestra Internacional Femenina.", icono: "fas fa-crown" },
-        { fecha: "22 nov 2014", titulo: "Abierto Internacional", descripcion: "Mauricio Tapia gana el Abierto Internacional Ciudad de Osorno.", icono: "fas fa-globe" },
-        { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", icono: "fas fa-birthday-cake" },
-        { fecha: "15 mar 2026", titulo: "Inauguración nueva sede - Juan Pablo Varas vs Campeón del mundo", descripcion: "Evento especial con la participación de Juan Pablo Varas enfrentándose a un campeón mundial en la nueva sede del club.", imagen: "vras-eduardo-rojas-club-ajedrez.jpg" }
+        { fecha: "Por definir", titulo: "Histórico 1", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
+        { fecha: "Por definir", titulo: "Histórico 2", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
+        { fecha: "15 mar 2026", titulo: "Juan Pablo Varas vs Campeón del mundo", descripcion: "Por definir", imagen: "vras-eduardo-rojas-club-ajedrez.jpg" },
+        { fecha: "Por definir", titulo: "Histórico 4", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
+        { fecha: "Por definir", titulo: "Histórico 5", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
+        { fecha: "Por definir", titulo: "Histórico 6", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
+        { fecha: "Por definir", titulo: "Histórico 7", descripcion: "Por definir", icono: "fas fa-chess-pawn" }
     ];
     
     const torneosEscolares = [
@@ -1089,8 +1095,13 @@
         });
     }
     
-    // Función para agregar nuevo jugador al ranking
+    // Función para agregar nuevo jugador al ranking (con contraseña)
     function agregarJugadorRanking() {
+        const pass = prompt("Contraseña de administrador:");
+        if (pass !== "admin123") {
+            alert("Contraseña incorrecta");
+            return;
+        }
         const nombre = prompt("Nombre del jugador:");
         if (!nombre) return;
         const tieneElo = confirm("¿Tiene ranking ELO? (Aceptar para Sí, Cancelar para Sin ranking)");
@@ -1164,7 +1175,7 @@
         });
     }
     
-    // Colabora modal (con zoom corregido)
+    // Colabora modal (desde el menú lateral) con zoom funcional
     const colaboraContainer = document.getElementById('colaboraBoxesContainer');
     if (colaboraContainer) {
         const boxes = [
@@ -1275,7 +1286,7 @@
         }
     });
     
-    // ==================== TESORERÍA (igual que antes) ====================
+    // ==================== TESORERÍA ====================
     let datosCuotas = { socios: [] };
     function normalizarRUT(rut) { if (!rut) return ''; return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, ''); }
     async function cargarCuotas() {
@@ -1416,21 +1427,25 @@
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
     setupModal('torneosEscolaresLink', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
     
-    // Botón agregar jugador en ranking
+    // Modal de colaboradores (nuevo, desde el menú lateral)
+    const colaboraMenuLink = document.getElementById('colaboraMenuLink');
+    const colaboraModal = document.getElementById('colaboraModal');
+    const closeColaboraModal = document.getElementById('closeColaboraModalBtn');
+    if (colaboraMenuLink && colaboraModal && closeColaboraModal) {
+        colaboraMenuLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            colaboraModal.classList.add('active');
+        });
+        closeColaboraModal.addEventListener('click', () => colaboraModal.classList.remove('active'));
+        colaboraModal.addEventListener('click', (e) => { if (e.target === colaboraModal) colaboraModal.classList.remove('active'); });
+    }
+    
+    // Botón agregar jugador en ranking (con contraseña)
     const btnAgregarRanking = document.getElementById('btnAgregarJugadorRanking');
     if (btnAgregarRanking) {
         btnAgregarRanking.addEventListener('click', () => {
             agregarJugadorRanking();
         });
-    }
-    
-    const colaboraBtn = document.getElementById('colaboraBtn');
-    const colaboraModal = document.getElementById('colaboraModal');
-    const closeColaboraModal = document.getElementById('closeColaboraModalBtn');
-    if (colaboraBtn && colaboraModal && closeColaboraModal) {
-        colaboraBtn.addEventListener('click', (e) => { e.preventDefault(); colaboraModal.classList.add('active'); });
-        closeColaboraModal.addEventListener('click', () => colaboraModal.classList.remove('active'));
-        colaboraModal.addEventListener('click', (e) => { if (e.target === colaboraModal) colaboraModal.classList.remove('active'); });
     }
     
     const closeImagenMax = document.getElementById('closeImagenMaxModalBtn');
