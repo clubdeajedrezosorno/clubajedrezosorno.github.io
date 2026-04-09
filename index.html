@@ -211,7 +211,22 @@
         .torneo-escolar-lugar { color: #ccc; margin-top: 0.3rem; }
         
         /* ARCHIVO HISTÓRICO + DESCARGAS */
-        .archivo-evento { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; border: 1px solid #2c2c2c; }
+        .archivo-evento {
+            background: #111;
+            border-radius: 20px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            border: 1px solid #2c2c2c;
+        }
+        .archivo-evento .icono-ajedrez {
+            font-size: 4rem;
+            color: #d4af37;
+            width: 100px;
+            text-align: center;
+        }
         .archivo-evento img { width: 100px; height: 100px; object-fit: cover; border-radius: 16px; background: #1a1a1a; cursor: pointer; }
         .archivo-info { flex: 1; }
         .archivo-info h4 { font-size: 1.2rem; color: #d4af37; margin-bottom: 0.3rem; }
@@ -508,6 +523,21 @@
             flex-wrap: wrap;
         }
         
+        /* Botón agregar jugador en ranking */
+        .btn-agregar-jugador {
+            background: #d4af37;
+            color: #111;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            width: 100%;
+            transition: 0.2s;
+        }
+        .btn-agregar-jugador:hover { background: #f3d572; }
+        
         @media (max-width: 1000px) {
             .main-grid { grid-template-columns: 1fr; }
             .header-row { flex-direction: column; text-align: center; }
@@ -693,13 +723,13 @@
         <button class="close-modal" id="closeRankingModalBtn">&times;</button>
         <h2><i class="fas fa-chart-line"></i> Ranking club</h2>
         <div class="grid-4cols" id="rankingGrid"></div>
+        <button id="btnAgregarJugadorRanking" class="btn-agregar-jugador">+ Agregar nuevo jugador</button>
     </div>
 </div>
 <div id="tesoreriaModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeTesoreriaModalBtn">&times;</button>
         <h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2>
-        <!-- Datos bancarios (siempre visibles) -->
         <div class="datos-bancarios">
             <p><strong>Banco:</strong> Scotiabank</p>
             <p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p>
@@ -708,7 +738,6 @@
             <p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p>
             <p><strong>Tesorero:</strong> Nelson</p>
         </div>
-        <!-- Aquí se inyectará el panel de consulta y admin -->
         <div id="tesoreriaContent"></div>
     </div>
 </div>
@@ -818,7 +847,6 @@
     </div>
 </div>
 
-<!-- MODAL PARA TORNEOS ESCOLARES -->
 <div id="torneosEscolaresModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button>
@@ -827,7 +855,6 @@
     </div>
 </div>
 
-<!-- MODAL PARA COLABORA (4 BOXES) -->
 <div id="colaboraModal" class="modal-overlay">
     <div class="modal-container" style="max-width: 800px;">
         <button class="close-modal" id="closeColaboraModalBtn">&times;</button>
@@ -839,7 +866,6 @@
 
 <script>
     // ==================== DATOS ESTÁTICOS ====================
-    // DIRECTIVA ACTUALIZADA
     const directiva = [
         { nombre: "Presidenta", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "connni-ajedez-osorno.jpg", desc: "Constanza Treumun" },
@@ -875,7 +901,7 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB (con los jugadores de ranking + promesas, sin duplicados)
+    // RANKING CLUB (con Carlos Quintramán agregado)
     let rankingList = [
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
@@ -890,6 +916,7 @@
         { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
         { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "Ranking Internacional 1543", enlace: "https://www.federacionchilenadeajedrez.cl/player/684" },
         { nombre: "Franco", img: "franco-ajedrez-osorno.jpg", desc: "Ranking Internacional 1429", enlace: "https://www.federacionchilenadeajedrez.cl/player/151" },
+        { nombre: "Carlos Quintramán Fernández", img: "carlos-quintraman.jpg", desc: "Ranking Internacional 1508", enlace: "https://www.federacionchilenadeajedrez.cl/player/29146" },
         { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
         { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
         { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
@@ -902,7 +929,13 @@
         { nombre: "Jose Soto", img: "hjjhhjj.jpg", desc: "Sin ranking", enlace: "#" }
     ];
     
-    // Jóvenes promesas (las que no están ya en ranking) - se agregan al final
+    // Cargar ranking desde localStorage si existe
+    const rankingGuardado = localStorage.getItem('rankingClub');
+    if (rankingGuardado) {
+        rankingList = JSON.parse(rankingGuardado);
+    }
+    
+    // Jóvenes promesas (adicionales al ranking)
     const promesasParaRanking = [
         { nombre: "Julián", img: "julian-osorno.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
@@ -928,14 +961,18 @@
         const match = desc.match(/\d{3,4}/);
         return match ? parseInt(match[0]) : 0;
     }
-    rankingList.sort((a, b) => {
-        const eloA = extraerElo(a.desc);
-        const eloB = extraerElo(b.desc);
-        if (eloA === 0 && eloB === 0) return 0;
-        if (eloA === 0) return 1;
-        if (eloB === 0) return -1;
-        return eloB - eloA;
-    });
+    function ordenarRanking() {
+        rankingList.sort((a, b) => {
+            const eloA = extraerElo(a.desc);
+            const eloB = extraerElo(b.desc);
+            if (eloA === 0 && eloB === 0) return 0;
+            if (eloA === 0) return 1;
+            if (eloB === 0) return -1;
+            return eloB - eloA;
+        });
+        localStorage.setItem('rankingClub', JSON.stringify(rankingList));
+        generarGaleria('rankingGrid', rankingList, false, true);
+    }
     
     let promesasFinal = [
         { nombre: "Josefa", img: "jjosefa.JPG", flag: "chile" },
@@ -989,14 +1026,14 @@
         { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" }
     ];
     
-    // Eventos históricos (incluyendo el nuevo de inauguración de nueva sede)
+    // Eventos históricos con imágenes genéricas (icono peón) y evento especial con foto de Varas
     const eventosArchivo = [
-        { fecha: "24 ago 1924", titulo: "Fundación del Club", descripcion: "Se funda el Club de Ajedrez Osorno en la casa de los primeros socios.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
-        { fecha: "15 mar 1950", titulo: "Primer Campeonato Regional", descripcion: "El club organiza su primer torneo abierto, ganado por Gustavo Sommer.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
-        { fecha: "10 oct 1975", titulo: "Inauguración de la sede", descripcion: "Se abre la sede en Matta 809, punto de encuentro actual.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
-        { fecha: "5 jun 2001", titulo: "Laura Soto WIM", descripcion: "Laura Soto obtiene el título de Maestra Internacional Femenina.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
-        { fecha: "22 nov 2014", titulo: "Abierto Internacional", descripcion: "Mauricio Tapia gana el Abierto Internacional Ciudad de Osorno.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
-        { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg" },
+        { fecha: "24 ago 1924", titulo: "Fundación del Club", descripcion: "Se funda el Club de Ajedrez Osorno en la casa de los primeros socios.", icono: "fas fa-chess-pawn" },
+        { fecha: "15 mar 1950", titulo: "Primer Campeonato Regional", descripcion: "El club organiza su primer torneo abierto, ganado por Gustavo Sommer.", icono: "fas fa-trophy" },
+        { fecha: "10 oct 1975", titulo: "Inauguración de la sede", descripcion: "Se abre la sede en Matta 809, punto de encuentro actual.", icono: "fas fa-building" },
+        { fecha: "5 jun 2001", titulo: "Laura Soto WIM", descripcion: "Laura Soto obtiene el título de Maestra Internacional Femenina.", icono: "fas fa-crown" },
+        { fecha: "22 nov 2014", titulo: "Abierto Internacional", descripcion: "Mauricio Tapia gana el Abierto Internacional Ciudad de Osorno.", icono: "fas fa-globe" },
+        { fecha: "24 ago 2024", titulo: "Centenario del Club", descripcion: "Gran celebración con torneo IRT y homenajes.", icono: "fas fa-birthday-cake" },
         { fecha: "15 mar 2026", titulo: "Inauguración nueva sede - Juan Pablo Varas vs Campeón del mundo", descripcion: "Evento especial con la participación de Juan Pablo Varas enfrentándose a un campeón mundial en la nueva sede del club.", imagen: "vras-eduardo-rojas-club-ajedrez.jpg" }
     ];
     
@@ -1012,8 +1049,16 @@
     
     // ==================== FUNCIONES COMUNES ====================
     function openImageModal(imgSrc) {
-        document.getElementById('imagenMaxSrc').src = imgSrc;
-        document.getElementById('imagenMaxModal').classList.add('active');
+        const modal = document.getElementById('imagenMaxModal');
+        const img = document.getElementById('imagenMaxSrc');
+        img.src = imgSrc;
+        modal.classList.add('active');
+        // Evitar que el clic en el modal cierre y vuelva a abrir
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
     }
     
     function generarGaleria(containerId, items, conFlag = false, sinRankingClass = false) {
@@ -1042,6 +1087,34 @@
             }
             container.appendChild(div);
         });
+    }
+    
+    // Función para agregar nuevo jugador al ranking
+    function agregarJugadorRanking() {
+        const nombre = prompt("Nombre del jugador:");
+        if (!nombre) return;
+        const tieneElo = confirm("¿Tiene ranking ELO? (Aceptar para Sí, Cancelar para Sin ranking)");
+        let desc, enlace;
+        if (tieneElo) {
+            let elo = prompt("Ingrese el ELO (número de 3 o 4 cifras):");
+            if (!elo || isNaN(parseInt(elo))) elo = "0";
+            desc = `Ranking Internacional ${parseInt(elo)}`;
+            enlace = prompt("Enlace a ficha de la federación (opcional):", "#");
+            if (!enlace) enlace = "#";
+        } else {
+            desc = "Sin ranking";
+            enlace = "#";
+        }
+        const img = prompt("Nombre del archivo de imagen (ej: jugador.jpg). Si no tiene, deje vacío:", "");
+        const nuevoJugador = {
+            nombre: nombre,
+            img: img ? img : "",
+            desc: desc,
+            enlace: enlace
+        };
+        rankingList.push(nuevoJugador);
+        ordenarRanking();
+        alert(`Jugador ${nombre} agregado al ranking.`);
     }
     
     // Llenar dropdown de campeones mundiales
@@ -1091,7 +1164,7 @@
         });
     }
     
-    // Colabora modal (con zoom en imágenes)
+    // Colabora modal (con zoom corregido)
     const colaboraContainer = document.getElementById('colaboraBoxesContainer');
     if (colaboraContainer) {
         const boxes = [
@@ -1106,12 +1179,12 @@
             const imgSrc = b.img;
             div.innerHTML = `<img src="${imgSrc}" alt="${b.caption}" onerror="this.src='${b.fallback || 'https://placehold.co/400x300?text=Imagen'}'"><div class="colabora-caption-modal">${b.caption}</div>`;
             const imgEl = div.querySelector('img');
-            if (imgEl) imgEl.addEventListener('click', () => openImageModal(imgEl.src));
+            if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(imgEl.src); });
             colaboraContainer.appendChild(div);
         });
     }
     
-    // Archivo histórico paginado
+    // Archivo histórico paginado con iconos
     let paginaActual = 0;
     const eventosPorPagina = 3;
     function mostrarArchivo() {
@@ -1124,9 +1197,13 @@
         eventosPagina.forEach(ev => {
             const div = document.createElement('div');
             div.className = 'archivo-evento';
-            div.innerHTML = `<img src="${ev.imagen}" alt="${ev.titulo}" onerror="this.src='https://placehold.co/100x100?text=Evento'"><div class="archivo-info"><h4>${ev.titulo}</h4><div class="archivo-fecha">${ev.fecha}</div><p>${ev.descripcion}</p></div>`;
-            const imgEl = div.querySelector('img');
-            if (imgEl) imgEl.addEventListener('click', () => openImageModal(ev.imagen));
+            if (ev.imagen) {
+                div.innerHTML = `<img src="${ev.imagen}" alt="${ev.titulo}" onerror="this.src='https://placehold.co/100x100?text=Imagen'"><div class="archivo-info"><h4>${ev.titulo}</h4><div class="archivo-fecha">${ev.fecha}</div><p>${ev.descripcion}</p></div>`;
+                const imgEl = div.querySelector('img');
+                if (imgEl) imgEl.addEventListener('click', () => openImageModal(ev.imagen));
+            } else {
+                div.innerHTML = `<div class="icono-ajedrez"><i class="${ev.icono}"></i></div><div class="archivo-info"><h4>${ev.titulo}</h4><div class="archivo-fecha">${ev.fecha}</div><p>${ev.descripcion}</p></div>`;
+            }
             container.appendChild(div);
         });
         const paginacionDiv = document.getElementById('archivoPaginacion');
@@ -1187,9 +1264,10 @@
         });
     }
     
-    // Zoom a todas las imágenes de modales
+    // Zoom a todas las imágenes de modales (evitando duplicados)
     document.querySelectorAll('.modal-container img').forEach(img => {
         if (img.id !== 'imagenMaxSrc') {
+            img.removeEventListener('click', openImageModal);
             img.addEventListener('click', (e) => {
                 e.stopPropagation();
                 openImageModal(img.src);
@@ -1197,7 +1275,7 @@
         }
     });
     
-    // ==================== TESORERÍA ====================
+    // ==================== TESORERÍA (igual que antes) ====================
     let datosCuotas = { socios: [] };
     function normalizarRUT(rut) { if (!rut) return ''; return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, ''); }
     async function cargarCuotas() {
@@ -1337,6 +1415,14 @@
     setupModal('galeriaImagenesLink', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
     setupModal('torneosEscolaresLink', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
+    
+    // Botón agregar jugador en ranking
+    const btnAgregarRanking = document.getElementById('btnAgregarJugadorRanking');
+    if (btnAgregarRanking) {
+        btnAgregarRanking.addEventListener('click', () => {
+            agregarJugadorRanking();
+        });
+    }
     
     const colaboraBtn = document.getElementById('colaboraBtn');
     const colaboraModal = document.getElementById('colaboraModal');
