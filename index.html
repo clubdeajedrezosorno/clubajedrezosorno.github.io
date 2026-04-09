@@ -699,7 +699,6 @@
     <div class="modal-container">
         <button class="close-modal" id="closeTesoreriaModalBtn">&times;</button>
         <h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2>
-        <!-- Datos bancarios (siempre visibles) -->
         <div class="datos-bancarios">
             <p><strong>Banco:</strong> Scotiabank</p>
             <p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p>
@@ -708,7 +707,6 @@
             <p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p>
             <p><strong>Tesorero:</strong> Nelson</p>
         </div>
-        <!-- Aquí se inyectará el panel de consulta y admin -->
         <div id="tesoreriaContent"></div>
     </div>
 </div>
@@ -770,29 +768,23 @@
             <div class="paginacion" id="archivoPaginacion"></div>
         </div>
         <div id="tabDescargas" class="tab-content">
-       
-    <!-- Boletín 1990 -->
-    <div class="descarga-item">
-        <i class="fas fa-file-pdf"></i>
-        <div class="descarga-info">
-            <h4>Boletín Torneo Mayor de Ajedrez de Osorno 1990</h4>
-            <p>Campeón: Juan Pablo Varas - Partidas completas del torneo</p>
-        </div>
-        <a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a>
-        <a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a>
-    </div>
-
-    <!-- Boletín 1992 -->
-    <div class="descarga-item">
-        <i class="fas fa-file-pdf"></i>
-        <div class="descarga-info">
-            <h4>Boletín Torneo Mayor de Ajedrez de Osorno 1992</h4>
-            <p>Campeón: Sergio Vera - 45 partidas históricas</p>
-        </div>
-        <a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a>
-        <a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a>
-    </div>
-</div>
+            <div class="descarga-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="descarga-info">
+                    <h4>Boletín Torneo Mayor 1990</h4>
+                    <p>Campeón: Juan Pablo Varas - Partidas completas</p>
+                </div>
+                <a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a>
+                <a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a>
+            </div>
+            <div class="descarga-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="descarga-info">
+                    <h4>Boletín Torneo Mayor 1992</h4>
+                    <p>Campeón: Sergio Vera - 45 partidas</p>
+                </div>
+                <a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a>
+                <a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a>
             </div>
         </div>
     </div>
@@ -824,7 +816,6 @@
     </div>
 </div>
 
-<!-- MODAL PARA TORNEOS ESCOLARES -->
 <div id="torneosEscolaresModal" class="modal-overlay">
     <div class="modal-container">
         <button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button>
@@ -833,7 +824,6 @@
     </div>
 </div>
 
-<!-- MODAL PARA COLABORA (4 BOXES) -->
 <div id="colaboraModal" class="modal-overlay">
     <div class="modal-container" style="max-width: 800px;">
         <button class="close-modal" id="closeColaboraModalBtn">&times;</button>
@@ -845,20 +835,19 @@
 
 <script>
     // ==================== DATOS ESTÁTICOS ====================
-    // DIRECTIVA ACTUALIZADA CON TODAS LAS IMÁGENES QUE DISTE
-  const directiva = [
-    { nombre: "Presidenta", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
-    { nombre: "Vicepresidente", imagen: "connni-ajedez-osorno.jpg", desc: "Constanza Treumun" },
-    { nombre: "Secretaria", imagen: "carol-secretaria-club-osorno-ajedrez.jpg", desc: "Carol Moraga" },
-    { nombre: "Tesorero", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Nelson Coronado" },
-    { nombre: "1° Director", imagen: "verito-ajedrez-osorno.jpg", desc: "Verónica Ruiz" },
-    { nombre: "2° Director", imagen: "en-dubai-ajedrez-osorno-pag.jpg", desc: "Sergio Vera" },
-    { nombre: "3° Director", imagen: "matias-ajedrez-osorno.jpg", desc: "Matías Andrade" },
-    { nombre: "Finanzas 1", imagen: "claudia-ajedrez.jpg", desc: "Claudia Unión" },
-    { nombre: "Finanzas 2", imagen: "fredy-ajedrez-osorno (2).jpg", desc: "Fredy Wompner" },
-    { nombre: "Finanzas 3", imagen: "franco-ajedrez-osorno.jpg", desc: "Franco Troncoso" },
-    { nombre: "Finanzas 4", imagen: "pipe-finanza-club-ajedrez-osorno.jpg", desc: "Felipe Vera" }
-];  // ← CIERRE CORRECTO CON COMA ANTES DEL CORCHETE? NO, ESTÁ BIEN ASÍ.
+    const directiva = [
+        { nombre: "Presidenta", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
+        { nombre: "Vicepresidente", imagen: "connni-ajedez-osorno.jpg", desc: "Constanza Treumun" },
+        { nombre: "Secretaria", imagen: "carol-secretaria-club-osorno-ajedrez.jpg", desc: "Carol Moraga" },
+        { nombre: "Tesorero", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Nelson Coronado" },
+        { nombre: "1° Director", imagen: "verito-ajedrez-osorno.jpg", desc: "Verónica Ruiz" },
+        { nombre: "2° Director", imagen: "en-dubai-ajedrez-osorno-pag.jpg", desc: "Sergio Vera" },
+        { nombre: "3° Director", imagen: "matias-ajedrez-osorno.jpg", desc: "Matías Andrade" },
+        { nombre: "Finanzas 1", imagen: "claudia-ajedrez.jpg", desc: "Claudia Unión" },
+        { nombre: "Finanzas 2", imagen: "fredy-ajedrez-osorno (2).jpg", desc: "Fredy Wompner" },
+        { nombre: "Finanzas 3", imagen: "franco-ajedrez-osorno.jpg", desc: "Franco Troncoso" },
+        { nombre: "Finanzas 4", imagen: "pipe-finanza-club-ajedrez-osorno.jpg", desc: "Felipe Vera" }
+    ];
     
     const campeonesMundiales = [
         { nombre: "Wilhelm Steinitz", periodo: "1886-1894", imagen: "Wilhelm-Steinitz-516x315.jpg", desc: "Primer campeón oficial. Dominó el ajedrez con su estilo posicional." },
@@ -881,7 +870,7 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB (ya ordenado)
+    // RANKING CLUB (jugadores con ELO + promesas al final)
     let rankingList = [
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
@@ -907,6 +896,31 @@
         { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32096" },
         { nombre: "Jose Soto", img: "hjjhhjj.jpg", desc: "Sin ranking", enlace: "#" }
     ];
+    
+    // Añadir todos los jóvenes promesas que no estén ya en el ranking
+    const promesasParaRanking = [
+        { nombre: "Josefa", img: "jjosefa.JPG", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Julián", img: "julian-osorno.jpeg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Santi", img: "sssanti-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Mateo", img: "mateo.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Maxi", img: "maxi-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" }
+    ];
+    
+    // Filtrar los que ya existen para evitar duplicados (por nombre)
+    const nombresExistentes = rankingList.map(j => j.nombre.toLowerCase());
+    promesasParaRanking.forEach(p => {
+        if (!nombresExistentes.includes(p.nombre.toLowerCase())) {
+            rankingList.push(p);
+        }
+    });
     
     function extraerElo(desc) {
         const match = desc.match(/\d{3,4}/);
@@ -1026,7 +1040,7 @@
         });
     }
     
-    // Llenar dropdown de campeones mundiales
+    // Llenar dropdown
     const dropdown = document.querySelector('#campeonesDropdown');
     campeonesMundiales.forEach(c => {
         const a = document.createElement('a');
@@ -1045,7 +1059,7 @@
     const imgCampeon = document.getElementById('campeonMundialImagen');
     if (imgCampeon) imgCampeon.addEventListener('click', () => openImageModal(imgCampeon.src));
     
-    // Galerías estáticas
+    // Galerías
     const campeonesOsorno = [
         { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Campeón regional en los años 80, referente histórico del club." },
         { nombre: "Elleberg", img: "2-ellemberg.jpg", desc: "Gran maestro, múltiples títulos nacionales." },
@@ -1073,7 +1087,7 @@
         });
     }
     
-    // Colabora modal (con Oscar Gebauer en segundo box)
+    // Colabora modal (imágenes corregidas)
     const colaboraContainer = document.getElementById('colaboraBoxesContainer');
     if (colaboraContainer) {
         const boxes = [
@@ -1179,15 +1193,12 @@
         }
     });
     
-    // ==================== TESORERÍA (datos bancarios + consulta + admin) ====================
+    // ==================== TESORERÍA ====================
     let datosCuotas = { socios: [] };
-    
-    // Función para normalizar RUT (eliminar puntos, guiones, espacios, convertir a minúsculas)
     function normalizarRUT(rut) {
         if (!rut) return '';
         return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, '');
     }
-    
     async function cargarCuotas() {
         try {
             const response = await fetch('data/cuotas.json');
@@ -1201,7 +1212,6 @@
             if (local) {
                 datosCuotas = JSON.parse(local);
             } else {
-                // Datos de ejemplo por si falla todo
                 datosCuotas = {
                     socios: [
                         { id: "11668130-7", nombre: "Sergio Hernan Vera Soto", cuotaMensual: 3000, pagado: 0, deuda: 30000 }
@@ -1211,11 +1221,9 @@
             }
         }
     }
-    
     function guardarCuotasLocal() {
         localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
     }
-    
     function renderTesoreriaModal() {
         const container = document.getElementById('tesoreriaContent');
         if (!container) return;
@@ -1243,19 +1251,16 @@
                 </div>
             </div>
         `;
-        
         const btnSocio = document.getElementById('btnSocioConsulta');
         const btnAdmin = document.getElementById('btnAdminAcceso');
         const divConsulta = document.getElementById('consultaSocio');
         const divAdmin = document.getElementById('adminPanel');
         let adminVisible = false;
-        
         btnSocio.addEventListener('click', () => {
             divConsulta.style.display = 'block';
             divAdmin.style.display = 'none';
             adminVisible = false;
         });
-        
         btnAdmin.addEventListener('click', () => {
             const pass = prompt("Contraseña de administrador:");
             if (pass === "admin123") {
@@ -1267,8 +1272,6 @@
                 alert("Contraseña incorrecta");
             }
         });
-        
-        // Consulta socio con normalización de RUT
         const btnConsultar = document.getElementById('btnConsultar');
         const resultadoDiv = document.getElementById('resultadoConsulta');
         btnConsultar.addEventListener('click', () => {
@@ -1290,34 +1293,32 @@
                 <p>Deuda actual: $${socio.deuda}</p>
             `;
         });
-        
         function renderTablaAdmin() {
             const tablaDiv = document.getElementById('tablaSociosAdmin');
             if (!tablaDiv) return;
-            let html = `<table><tr><th>RUT</th><th>Nombre</th><th>Cuota mensual</th><th>Pagado</th><th>Deuda</th><th>Acciones</th></tr>`;
+            let html = `<table class="tabla"><thead><tr><th>RUT</th><th>Nombre</th><th>Cuota mensual</th><th>Pagado</th><th>Deuda</th><th>Acciones</th></tr></thead><tbody>`;
             datosCuotas.socios.forEach(socio => {
+                const safeId = socio.id.replace(/[^a-z0-9]/gi, '');
                 html += `
                     <tr>
-                        <td><input type="text" id="id_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.id}" style="width:100px;"></td>
-                        <td><input type="text" id="nombre_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.nombre}" style="width:150px;"></td>
-                        <td><input type="number" id="cuota_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.cuotaMensual}" style="width:80px;"></td>
-                        <td><input type="number" id="pagado_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.pagado}" style="width:80px;"></td>
-                        <td><input type="number" id="deuda_${socio.id.replace(/[^a-z0-9]/gi, '')}" value="${socio.deuda}" style="width:80px;"></td>
-                        <td><button class="guardarSocio" data-id="${socio.id.replace(/[^a-z0-9]/gi, '')}" data-original="${socio.id}">Guardar</button></td>
+                        <td><input type="text" id="id_${safeId}" value="${socio.id}" style="width:100px;"></td>
+                        <td><input type="text" id="nombre_${safeId}" value="${socio.nombre}" style="width:150px;"></td>
+                        <td><input type="number" id="cuota_${safeId}" value="${socio.cuotaMensual}" style="width:80px;"></td>
+                        <td><input type="number" id="pagado_${safeId}" value="${socio.pagado}" style="width:80px;"></td>
+                        <td><input type="number" id="deuda_${safeId}" value="${socio.deuda}" style="width:80px;"></td>
+                        <td><button class="guardarSocio" data-id="${safeId}" data-original="${socio.id}">Guardar</button></td>
                     </tr>
                 `;
             });
-            html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td></tr></table>`;
+            html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td></tr></tbody></table>`;
             tablaDiv.innerHTML = html;
-            
             document.querySelectorAll('.guardarSocio').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const originalId = btn.getAttribute('data-original');
                     const safeId = btn.getAttribute('data-id');
                     const socio = datosCuotas.socios.find(s => s.id === originalId);
                     if (socio) {
-                        const newId = document.getElementById(`id_${safeId}`).value.trim();
-                        socio.id = newId;
+                        socio.id = document.getElementById(`id_${safeId}`).value.trim();
                         socio.nombre = document.getElementById(`nombre_${safeId}`).value;
                         socio.cuotaMensual = parseInt(document.getElementById(`cuota_${safeId}`).value);
                         socio.pagado = parseInt(document.getElementById(`pagado_${safeId}`).value);
@@ -1328,13 +1329,11 @@
                     }
                 });
             });
-            
             const agregarBtn = document.getElementById('agregarSocio');
             if (agregarBtn) {
                 agregarBtn.addEventListener('click', () => {
-                    const newId = "nuevo" + (Date.now());
                     datosCuotas.socios.push({
-                        id: newId,
+                        id: "nuevo" + Date.now(),
                         nombre: "Nuevo socio",
                         cuotaMensual: 3000,
                         pagado: 0,
@@ -1345,7 +1344,6 @@
                 });
             }
         }
-        
         const exportarBtn = document.getElementById('exportarJSON');
         exportarBtn.addEventListener('click', () => {
             const dataStr = JSON.stringify(datosCuotas, null, 2);
@@ -1357,7 +1355,6 @@
             a.click();
             URL.revokeObjectURL(url);
         });
-        
         const importInput = document.getElementById('importarArchivo');
         const importLabel = document.querySelector('label[for="importarArchivo"]');
         importLabel.addEventListener('click', () => importInput.click());
@@ -1384,11 +1381,9 @@
         });
     }
     
-    // Inicializar tesorería al abrir el modal
     const tesoreriaModal = document.getElementById('tesoreriaModal');
     const closeTesoreria = document.getElementById('closeTesoreriaModalBtn');
     const tesoreriaLink = document.getElementById('tesoreriaLink');
-    
     tesoreriaLink.addEventListener('click', async () => {
         await cargarCuotas();
         renderTesoreriaModal();
