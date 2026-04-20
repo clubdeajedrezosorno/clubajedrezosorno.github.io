@@ -12,8 +12,14 @@
         .site-container { max-width: 1400px; margin: 0 auto; background: #050505; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border-radius: 0 0 24px 24px; animation: fadeIn 0.8s ease-out; overflow-x: hidden; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* CABECERA REDISEÑADA */
-        .top-header { background: #1e2f3a; color: white; padding: 1rem 1.5rem; border-bottom: 4px solid #d4af37; border-radius: 0 0 12px 12px; }
+        /* CABECERA REDISEÑADA CON GRADIENTE MODERNO */
+        .top-header { 
+            background: linear-gradient(135deg, #0a1f2b 0%, #0c2a3b 100%);
+            padding: 1rem 1.5rem; 
+            border-bottom: 4px solid #d4af37; 
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
         .header-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
         .logo-title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
         .logo-title img { max-height: 60px; width: auto; }
@@ -134,13 +140,25 @@
         /* GRIDS */
         .grid-3cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
         .grid-4cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
-        .gallery-card { background: #111; border-radius: 24px; padding: 1rem; border: 1px solid #2c2c2c; transition: 0.2s; text-align: center; cursor: pointer; }
+        .gallery-card { background: #111; border-radius: 24px; padding: 1rem; border: 1px solid #2c2c2c; transition: 0.2s; text-align: center; cursor: pointer; position: relative; }
         .gallery-card:hover { border-color: #d4af37; transform: translateY(-3px); }
         .gallery-img { width: 100%; height: 180px; background: #1a1a1a; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.8rem; }
         .gallery-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; cursor: pointer; }
         .gallery-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: #f0e6c5; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .gallery-card p { font-size: 0.85rem; color: #bbb; }
         .flag-img { width: 20px; height: auto; vertical-align: middle; }
+        .btn-eliminar-jugador {
+            background: #8b0000;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-eliminar-jugador:hover { background: #cc0000; transform: scale(1.05); }
         
         .gallery-card.sin-ranking { opacity: 0.7; background: #0a0a0a; border-color: #444; }
         .gallery-card.sin-ranking:hover { opacity: 1; background: #111; }
@@ -247,7 +265,7 @@
 </head>
 <body>
 <div class="site-container">
-    <!-- CABECERA REDISEÑADA -->
+    <!-- CABECERA REDISEÑADA CON GRADIENTE MODERNO -->
     <div class="top-header">
         <div class="header-row">
             <div class="logo-title">
@@ -386,7 +404,16 @@
 <div id="renatoModal" class="modal-overlay"><div class="modal-container" style="max-width: 800px; text-align: center;"><button class="close-modal" id="closeRenatoModalBtn">&times;</button><h2><i class="fas fa-star"></i> Renato Conejeros</h2><img src="renato-club-ajedrez-osorno.jpg" alt="Renato Conejeros" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=renato-club-ajedrez-osorno.jpg'"><p>Jugador destacado del Club de Ajedrez Osorno. Destacado del mes de abril.</p></div></div>
 <div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-fredy.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-fredy.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
-<div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2><form class="form-contact" id="contactForm" action="mailto:clubdeajedrezosorno@gmail.com" method="post" enctype="text/plain"><input type="text" name="Nombre" placeholder="Tu nombre" required><input type="email" name="Correo" placeholder="Tu email" required><textarea name="Mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea><button type="submit">Enviar mensaje</button></form><p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">Se abrirá tu programa de correo. Revisa que los datos estén correctos.</p></div></div>
+<div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
+<!-- FORMULARIO DE CONTACTO CORREGIDO -->
+<form id="contactFormModern">
+    <input type="text" id="contactNombre" placeholder="Tu nombre" required>
+    <input type="email" id="contactEmail" placeholder="Tu email" required>
+    <textarea id="contactMensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+    <button type="submit">Enviar mensaje</button>
+</form>
+<p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">Se abrirá tu programa de correo con los datos precargados.</p>
+</div></div>
 <div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn">&times;</button><img id="imagenMaxSrc" style="max-width: 100%; max-height: 80vh; border-radius: 20px;"></div></div>
 <div id="torneosEscolaresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Circuito Escolar Zona Sur 2026</h2><div id="listaTorneosEscolares"></div></div></div>
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
@@ -447,7 +474,7 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB (con Carlos Quintraman actualizado)
+    // RANKING CLUB - con nombre corregido y sin Manuel Núñez
     let rankingList = [
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
@@ -462,7 +489,7 @@
         { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
         { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "Ranking Internacional 1543", enlace: "https://www.federacionchilenadeajedrez.cl/player/684" },
         { nombre: "Franco", img: "franco-ajedrez-osorno.jpg", desc: "Ranking Internacional 1429", enlace: "https://www.federacionchilenadeajedrez.cl/player/151" },
-        { nombre: "Carlos Quintraman", img: "carlos-quintraman.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/29146" }, // nombre actualizado
+        { nombre: "Carlos Quintraman Fernández", img: "carlos-quintraman.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/29146" },
         { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
         { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
         { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
@@ -474,6 +501,9 @@
         { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32096" },
         { nombre: "Jose Soto", img: "hjjhhjj.jpg", desc: "Sin ranking", enlace: "#" }
     ];
+    
+    // Eliminar a Manuel Núñez si existe (por si acaso)
+    rankingList = rankingList.filter(j => !j.nombre.toLowerCase().includes('manuel núñez') && !j.nombre.toLowerCase().includes('manuel nuñez'));
     
     const rankingGuardado = localStorage.getItem('rankingClub');
     if (rankingGuardado) rankingList = JSON.parse(rankingGuardado);
@@ -513,7 +543,7 @@
         { nombre: "Josefa Clerc", img: "jjosefa.JPG", flag: "chile" },
         { nombre: "Julián Keim Hott", img: "julian-osorno.jpeg", flag: "chile" },
         { nombre: "Santiago Rosas Valdes", img: "sssanti-osorno.jpg", flag: "chile" },
-        { nombre: "Carlos Quintraman", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
+        { nombre: "Carlos Quintraman Fernández", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
         { nombre: "Ángel Prieto", img: "angel-prieto-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Vicente Pradines Zarate", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", flag: "chile" },
@@ -529,7 +559,7 @@
     ];
     for (let i = 1; i <= 5; i++) promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     
-    // Actividades club (ya incluye las imágenes solicitadas)
+    // Actividades club
     const actividadesList = [
         { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Equipo campeón en torneo de La Unión" },
         { nombre: "Sergio Vera Campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Sergio Vera celebrando su título en La Unión" },
@@ -567,7 +597,7 @@
         { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" }
     ];
     
-    // Eventos históricos (paginados, con placeholders)
+    // Eventos históricos
     const eventosArchivo = [
         { fecha: "Por definir", titulo: "Histórico 1", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
         { fecha: "Por definir", titulo: "Histórico 2", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
@@ -601,7 +631,7 @@
         const container = document.getElementById(containerId);
         if (!container) return;
         container.innerHTML = '';
-        items.forEach(item => {
+        items.forEach((item, idx) => {
             const div = document.createElement('div');
             div.className = 'gallery-card';
             if (sinRankingClass && item.desc === "Sin ranking") div.classList.add('sin-ranking');
@@ -610,13 +640,44 @@
             const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
             let descHtml = item.desc ? `<p>${item.desc}</p>` : '';
             if (item.enlace && item.enlace !== "#") descHtml += `<p><a href="${item.enlace}" target="_blank" style="color:#d4af37; text-decoration:underline; font-weight:500;"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
-            div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}`;
+            
+            // Botón eliminar solo para el ranking (si estamos en rankingModal)
+            let botonEliminar = '';
+            if (containerId === 'rankingGrid') {
+                botonEliminar = `<button class="btn-eliminar-jugador" data-index="${idx}" data-nombre="${item.nombre}">🗑️ Eliminar</button>`;
+            }
+            
+            div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}${botonEliminar}`;
             if (item.img) {
                 const imgEl = div.querySelector('.gallery-img img');
                 if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(item.img); });
             }
             container.appendChild(div);
         });
+        
+        // Agregar eventos a los botones eliminar después de renderizar
+        if (containerId === 'rankingGrid') {
+            document.querySelectorAll('.btn-eliminar-jugador').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const nombre = btn.getAttribute('data-nombre');
+                    const pass = prompt("Contraseña de administrador para eliminar:");
+                    if (pass !== "vera123") {
+                        alert("Contraseña incorrecta");
+                        return;
+                    }
+                    // Eliminar del array
+                    const index = rankingList.findIndex(j => j.nombre === nombre);
+                    if (index !== -1) {
+                        rankingList.splice(index, 1);
+                        ordenarRanking(); // reordena y guarda
+                        alert(`Jugador ${nombre} eliminado.`);
+                    } else {
+                        alert("No se pudo encontrar al jugador.");
+                    }
+                });
+            });
+        }
     }
     
     function agregarJugadorRanking() {
@@ -643,7 +704,7 @@
         alert(`Jugador ${nombre} agregado al ranking.`);
     }
     
-    // Llenar galería de campeones del mundo (estilo Netflix)
+    // Llenar galería de campeones del mundo
     function cargarCampeonesMundiales() {
         const container = document.getElementById('campeonesMundialesContainer');
         if (!container) return;
@@ -696,9 +757,7 @@
         });
     }
     
-    // Campeones del Mundo (modal)
     cargarCampeonesMundiales();
-    
     generarGaleria('promesasGrid', promesasFinal, true);
     generarGaleria('actividadesGrid', actividadesList);
     generarGaleria('rankingGrid', rankingList, false, true);
@@ -714,7 +773,7 @@
         });
     }
     
-    // Colaboradores (4 boxes con zoom)
+    // Colaboradores
     const colaboradoresContainer = document.getElementById('colaboradoresContainer');
     if (colaboradoresContainer) {
         const colaboradores = [
@@ -979,9 +1038,24 @@
     const foroLink = document.getElementById('foroLink');
     if (foroLink) foroLink.addEventListener('click', () => { document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' }); });
     
+    // Contacto mejorado
+    const contactForm = document.getElementById('contactFormModern');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('contactNombre').value;
+            const email = document.getElementById('contactEmail').value;
+            const mensaje = document.getElementById('contactMensaje').value;
+            const asunto = encodeURIComponent(`Contacto desde sitio web - ${nombre}`);
+            const cuerpo = encodeURIComponent(`Nombre: ${nombre}\nCorreo: ${email}\n\nMensaje:\n${mensaje}`);
+            window.location.href = `mailto:clubdeajedrezosorno@gmail.com?subject=${asunto}&body=${cuerpo}`;
+            alert("Se abrirá tu cliente de correo. Revisa que los datos estén correctos antes de enviar.");
+        });
+    }
+    
     cargarBlog();
     cargarCuotas();
-    ordenarRanking(); // Aseguramos el orden del ranking al cargar
+    ordenarRanking(); // ordena y guarda al inicio
 </script>
 </body>
 </html>
