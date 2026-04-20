@@ -260,7 +260,7 @@
             </div>
             <div class="jugador-destacado-header" id="calderonHeaderTrigger">
                 <img src="calderon.jpg" alt="Eriberto Calderón" onerror="this.src='https://placehold.co/400x300?text=calderon.jpg'">
-                <span>Eriberto Calderón<br><small>Jugador destacado Campeón I Blitz 2026</small></span>
+                <span>Eriberto Calderón<br><small>Campeón I Blitz 2026</small></span>
             </div>
         </div>
         <div class="right-rubrics">
@@ -443,11 +443,11 @@
         { nombre: "Vladimir Kramnik", periodo: "2000-2007", imagen: "108-kramnnik.jpg", desc: "Venciendo a Kasparov, unificador del título." },
         { nombre: "Viswanathan Anand", periodo: "2007-2013", imagen: "104-annand.jpg", desc: "Rapidez y creatividad." },
         { nombre: "Magnus Carlsen", periodo: "2013-2023", imagen: "102-magnus-carlsen.jpg", desc: "Reinado absoluto, el más fuerte en rating." },
-        { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding-2.jpg", desc: "Primer campeón chino, gran estabilidad." },
+        { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding-2.jpg", desc: "Primer campeón chino, gran stabilidad." },
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón del mundo más joven de la historia." }
     ];
     
-    // RANKING CLUB
+    // RANKING CLUB (Carlos Quintramán ahora es "Sin ranking")
     let rankingList = [
         { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
         { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
@@ -462,7 +462,7 @@
         { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
         { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "Ranking Internacional 1543", enlace: "https://www.federacionchilenadeajedrez.cl/player/684" },
         { nombre: "Franco", img: "franco-ajedrez-osorno.jpg", desc: "Ranking Internacional 1429", enlace: "https://www.federacionchilenadeajedrez.cl/player/151" },
-        { nombre: "Carlos Quintramán Fernández", img: "carlos-quintraman.jpg", desc: "Ranking Internacional 1508", enlace: "https://www.federacionchilenadeajedrez.cl/player/29146" },
+        { nombre: "Carlos Quintramán Fernández", img: "carlos-quintraman.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/29146" }, // Cambiado a Sin ranking
         { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
         { nombre: "Miguel Pacheco", img: "pacheco-ajedrez.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
         { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
@@ -529,14 +529,16 @@
     ];
     for (let i = 1; i <= 5; i++) promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     
-    // Actividades club (con las 4 imágenes nuevas y 6 placeholders)
+    // Actividades club (se añaden las dos nuevas imágenes)
     const actividadesList = [
+        { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Equipo campeón en torneo de La Unión" },
+        { nombre: "Sergio Vera Campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Sergio Vera celebrando su título en La Unión" },
         { nombre: "Premiación 2° Blitz", img: "blitz-directiva-ajedrez-osorno.jpg", desc: "Entrega de premios a los ganadores del torneo blitz" },
         { nombre: "Partida épica: Vera vs Vera", img: "vera-yvera.jpg", desc: "Duelo fratricida en el tablero" },
         { nombre: "Constanza Treumun – Ex Campeona IND", img: "Constanza treumun.jpg", desc: "Constanza, destacada ajedrecista y campeona de torneos IND" },
         { nombre: "Panorámica del Torneo Blitz", img: "panoramica-clubajedrez-osorno2°blitz.jpg", desc: "Vista general del evento celebrado en la nueva sede" }
     ];
-    for (let i = 5; i <= 10; i++) {
+    for (let i = 7; i <= 10; i++) {
         actividadesList.push({ nombre: `Actividad ${i}`, img: `actividad_${i}.jpg`, desc: "Próximamente imagen" });
     }
     
@@ -889,7 +891,7 @@
                     </tr>
                 `;
             });
-            html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td><tr></tbody></table>`;
+            html += `<tr><td colspan="6"><button id="agregarSocio">+ Agregar nuevo socio</button></td></tr></tbody></table>`;
             tablaDiv.innerHTML = html;
             document.querySelectorAll('.guardarSocio').forEach(btn => {
                 btn.addEventListener('click', () => {
