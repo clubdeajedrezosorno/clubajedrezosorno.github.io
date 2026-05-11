@@ -591,8 +591,28 @@
     ];
     for (let i = 1; i <= 5; i++) promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     
-    // Actividades club
+ 
+            // Actividades club (NUEVAS IMÁGENES AGREGADAS)
     const actividadesList = [
+        { nombre: "Campeón Tercer Blitz Mayo - Miguel Pacheco", img: "oo.jpg", desc: "Miguel Pacheco campeón del 3° Blitz 2026" },
+        { nombre: "2° Lugar Tercer Blitz", img: "marcelo.jpg", desc: "Marcelo, segundo puesto en el torneo blitz" },
+        { nombre: "Bastian Campeón Sub 14", img: "bastian-club-ajedrez-osorno.jpg", desc: "Bastian logra el título en categoría Sub 14" },
+        { nombre: "Carlos Campeón Sub 16", img: "carlos-mama-clun-mm.jpg", desc: "Carlos se corona campeón Sub 16" },
+        { nombre: "Eithan Campeón Sub 8", img: "eithan-ajedrez-osorno.jpg", desc: "Eithan, nuevo campeón en categoría Sub 8" },
+        { nombre: "Rosa Cárdenas - Destacada del Blitz de Mayo", img: "rosaan-ajedrez-osorno.jpg", desc: "Rosa tuvo una actuación sobresaliente en el torneo" },
+        { nombre: "Nelson - Tercer Lugar Tercer Blitz", img: "07780cb8-bf30-4605-a0a1-5a7313cb5990.jpg", desc: "Nelson se adjudica el tercer puesto" },
+        // Las actividades que ya tenías (las mantienes al final o donde prefieras)
+        { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Equipo campeón en torneo de La Unión" },
+        { nombre: "Sergio Vera Campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Sergio Vera celebrando su título en La Unión" },
+        { nombre: "Premiación 2° Blitz", img: "blitz-directiva-ajedrez-osorno.jpg", desc: "Entrega de premios a los ganadores del torneo blitz" },
+        { nombre: "Partida épica: Vera vs Vera", img: "vera-yvera.jpg", desc: "Duelo fratricida en el tablero" },
+        { nombre: "Constanza Treumun – Ex Campeona IND", img: "Constanza treumun.jpg", desc: "Constanza, destacada ajedrecista y campeona de torneos IND" },
+        { nombre: "Panorámica del Torneo Blitz", img: "panoramica-clubajedrez-osorno2°blitz.jpg", desc: "Vista general del evento celebrado en la nueva sede" }
+    ];
+    // (Opcional: si quieres conservar los placeholders, agrega el bucle for que tenías)
+    for (let i = (actividadesList.length + 1); i <= 15; i++) {
+        actividadesList.push({ nombre: `Actividad ${i}`, img: `actividad_${i}.jpg`, desc: "Próximamente imagen" });
+    }
         { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Equipo campeón en torneo de La Unión" },
         { nombre: "Sergio Vera Campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Sergio Vera celebrando su título en La Unión" },
         { nombre: "Premiación 2° Blitz", img: "blitz-directiva-ajedrez-osorno.jpg", desc: "Entrega de premios a los ganadores del torneo blitz" },
