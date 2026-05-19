@@ -1169,6 +1169,158 @@
                 height: 190px;
             }
         }
+
+        /* ==================== PALETA SOBRIA ==================== */
+        body {
+            background:
+                linear-gradient(135deg, rgba(31,111,88,0.16), transparent 32%),
+                linear-gradient(315deg, rgba(111,45,52,0.12), transparent 36%),
+                var(--bg);
+        }
+        .top-header {
+            background:
+                linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.88)),
+                linear-gradient(115deg, rgba(0,0,0,0.94) 0%, rgba(31,111,88,0.25) 48%, rgba(111,45,52,0.34) 100%),
+                url('2°blit-gran-asistencia.jpg') center/cover no-repeat;
+        }
+        .premium-hero-copy h2 {
+            color: var(--text);
+        }
+        .premium-hero-copy h2::after {
+            content: "";
+            display: block;
+            width: min(180px, 42vw);
+            height: 2px;
+            margin: 1rem auto 0;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .hero-kicker,
+        .premium-hero-copy .hero-subtitle,
+        .blog-date,
+        .actividad-fecha,
+        .torneo-escolar-fecha,
+        .torneo-escolar-nota {
+            color: var(--gold-bright);
+        }
+        .right-rubrics span,
+        .main-menu a,
+        .click-hint,
+        .tab-btn,
+        .hero-btn.dark {
+            border-color: rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.035);
+        }
+        .right-rubrics span:hover,
+        .main-menu a:hover,
+        .hero-btn.dark:hover {
+            background: rgba(31,111,88,0.18);
+            border-color: rgba(31,111,88,0.55);
+            color: var(--text);
+        }
+        .hero-btn.gold,
+        .encuesta button,
+        .paginacion button:hover,
+        .btn-descargar,
+        .btn-agregar-jugador,
+        .tesoreria-botones button,
+        .admin-panel button,
+        .form-contact button,
+        #contactFormModern button,
+        .btn-compartir {
+            background: var(--green);
+            color: #f4fff9;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: none;
+        }
+        .hero-btn.gold:hover,
+        .encuesta button:hover,
+        .btn-descargar:hover,
+        .btn-agregar-jugador:hover,
+        .tesoreria-botones button:hover,
+        .admin-panel button:hover,
+        .form-contact button:hover,
+        #contactFormModern button:hover,
+        .btn-compartir:hover {
+            background: #2a8067;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .hero-btn.dark {
+            color: var(--soft);
+        }
+        .main-menu li.active a {
+            background: linear-gradient(90deg, rgba(31,111,88,0.28), rgba(111,45,52,0.12));
+            box-shadow: inset 3px 0 0 var(--green);
+            color: var(--text);
+        }
+        .main-menu a i,
+        .online-header::after,
+        .modal-container h2::after {
+            color: var(--green);
+            background: var(--green);
+        }
+        .blog-card:hover,
+        .champions-block:hover,
+        .gallery-card:hover,
+        .tournament-block:hover,
+        .colaborador-box:hover,
+        .torneo-escolar-item:hover,
+        .descarga-item:hover {
+            border-color: rgba(31,111,88,0.65);
+        }
+        .section-title::after {
+            background: linear-gradient(90deg, rgba(31,111,88,0.72), transparent);
+        }
+        .highlight {
+            background: rgba(31,111,88,0.22);
+            color: #dff5ed;
+            border: 1px solid rgba(31,111,88,0.34);
+        }
+        .champions-name i,
+        .archivo-evento .icono-ajedrez,
+        .descarga-item i {
+            color: var(--gold);
+        }
+        .champions-desc {
+            border-left-color: var(--green);
+        }
+        .active-banner,
+        .torneo-escolar-item.destacado::after {
+            background: var(--wine);
+            color: #fff6f7;
+        }
+        .torneo-escolar-item.destacado {
+            border-left-color: var(--green);
+            background:
+                linear-gradient(135deg, rgba(31,111,88,0.24), rgba(111,45,52,0.18)),
+                #11110f;
+        }
+        .barra-porcentaje {
+            background: linear-gradient(90deg, var(--green), var(--wine));
+        }
+        .colaborador-box .colaborador-caption {
+            color: var(--soft);
+            background: rgba(0,0,0,0.35);
+        }
+        .footer-links a {
+            color: #9bd1bf;
+        }
+        .footer-links a:hover {
+            color: var(--gold-bright);
+        }
+        .float-contact-left {
+            background: var(--wine);
+            color: #fff;
+        }
+        .float-contact-left:hover {
+            background: #8a3a43;
+        }
+        .float-contact-right {
+            background: var(--green);
+        }
+        .float-contact-right:hover {
+            background: #2a8067;
+        }
     </style>
 </head>
 <body>
@@ -1310,7 +1462,7 @@
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
 <div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="yo-clases-osorno.jpg" alt="Clases" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="nn.jpg" alt="NN" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=NN'"></div><div><img src="escuela3.jpg" alt="Escuela 3" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+3'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
 <div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 850px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Miguel Pacheco</h2><img src="mighel.pacheco-osorno.jpg" alt="Miguel Pacheco" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=mighel.pacheco-osorno.jpg'"><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Jugador destacado de mayo 2026 · Campeón del 3° Blitz de Mayo</p><p>Reconocimiento del Club de Ajedrez Osorno por su gran actuación, constancia competitiva y desempeño en el torneo blitz.</p></div></div>
-<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-fredy.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-fredy.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div></div></div></div>
+<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
 <div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
 <form id="contactFormModern">
@@ -1484,28 +1636,28 @@
     }
     
     const galeriaImagenesList = [
-        { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
-        { nombre: "Match Osorno vs Valdivia 2019", img: "match osorno valdivia 2019.jpg", desc: "Encuentro amistoso" },
-        { nombre: "Torneo Mayor 2009", img: "mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
-        { nombre: "Sergio Vera en Trevelyn 2010", img: "trevelyn-ajedrez-ajedrez-osorno.jpg", desc: "Participación destacada" },
-        { nombre: "Osorno campeón torneo equipos Valdivia", img: "osorno-club-equipos.jpg", desc: "Equipo campeón" },
-        { nombre: "Club imagen 2009", img: "pipe.jpg", desc: "Actividad social" },
-        { nombre: "Katherine Velásquez en Sudamericano Paraguay", img: "IMG_20171201_170747.jpg", desc: "Representación internacional" },
-        { nombre: "Sala club 2008", img: "club-sala-ajedrez.jpg", desc: "Nuestra sede" },
-        { nombre: "Constanza Treumun y Sarita Álvarez", img: "IMG_20160824_164712 - copia.jpg", desc: "Jóvenes talentos" },
-        { nombre: "Matías Andrade Campeón Torneo Invierno 2025", img: "campeon-torneo-de-invierno.jpg", desc: "Campeón absoluto" },
-        { nombre: "Claudio Briones Torneo equipos 2014", img: "briones-ajedrez-osorno.jpg", desc: "Campeones" },
-        { nombre: "Benjamín López", img: "benjamin-lopez-ajedrez-osorno - copia.jpg", desc: "Mirando la partida" },
-        { nombre: "Encuentro Osorno-Bariloche", img: "bariloche-osorno-ajedrez-osorno.jpg", desc: "Hermandad ajedrecística" },
-        { nombre: "Tomás Gebauer 4° Chile Sub 8", img: "aleman 2018.jpg", desc: "Logro infantil" },
-        { nombre: "Osorno vs Bariloche club", img: "ajedrez-osorno-bariloche-club.jpg", desc: "Encuentro de locales" },
-        { nombre: "Agustín Ojeda Campeón Hamburgo Alemania", img: "a46a8cb6-8001-426a-a899-96f9d926714d.jpeg", desc: "Título internacional" },
-        { nombre: "Torneo Paseo Patrimonial", img: "429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Evento callejero" },
-        { nombre: "Cena Osorno y Bariloche", img: "43617994_10215469277501695_2334973736567963648_n - copia.jpg", desc: "Confraternidad" },
-        { nombre: "Cena Osorno vs Bariloche 2", img: "43500627_10215469278941731_6898799358163025920_n.jpg", desc: "Celebración" },
-        { nombre: "Match Osorno vs Puerto Montt", img: "33575997_10216082477477426_1559030616861704192_n.jpg", desc: "Encuentro regional" },
-        { nombre: "Visitas Larraín y Vergara", img: "15-ajedrez osorno-larrain-vergara.jpg", desc: "Grandes maestros invitados" },
-        { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" }
+        { nombre: "IRT Chess Academy", img: "historicas/irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
+        { nombre: "Match Osorno vs Valdivia 2019", img: "historicas/nacional-temuco-2019.jpg", desc: "Encuentro amistoso" },
+        { nombre: "Torneo Mayor 2009", img: "historicas/mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
+        { nombre: "Sergio Vera en Trevelyn 2010", img: "historicas/trevelyn-ajedrez-ajedrez-osorno.jpg", desc: "Participación destacada" },
+        { nombre: "Osorno campeón torneo equipos Valdivia", img: "historicas/osorno-club-equipos.jpg", desc: "Equipo campeón" },
+        { nombre: "Club imagen 2009", img: "historicas/pipe.jpg", desc: "Actividad social" },
+        { nombre: "Katherine Velásquez en Sudamericano Paraguay", img: "historicas/IMG_20171201_170747.jpg", desc: "Representación internacional" },
+        { nombre: "Sala club 2008", img: "historicas/club-sala-ajedrez.jpg", desc: "Nuestra sede" },
+        { nombre: "Constanza Treumun y Sarita Álvarez", img: "historicas/IMG_20160824_164712 - copia.jpg", desc: "Jóvenes talentos" },
+        { nombre: "Matías Andrade Campeón Torneo Invierno 2025", img: "historicas/campeon-torneo-de-invierno.jpg", desc: "Campeón absoluto" },
+        { nombre: "Claudio Briones Torneo equipos 2014", img: "historicas/briones-ajedrez-osorno.jpg", desc: "Campeones" },
+        { nombre: "Benjamín López", img: "historicas/benjamin-lopez-ajedrez-osorno - copia.jpg", desc: "Mirando la partida" },
+        { nombre: "Encuentro Osorno-Bariloche", img: "historicas/bariloche-osorno-ajedrez-osorno.jpg", desc: "Hermandad ajedrecística" },
+        { nombre: "Tomás Gebauer 4° Chile Sub 8", img: "historicas/aleman 2018.jpg", desc: "Logro infantil" },
+        { nombre: "Osorno vs Bariloche club", img: "historicas/ajedrez-osorno-bariloche-club.jpg", desc: "Encuentro de locales" },
+        { nombre: "Agustín Ojeda Campeón Hamburgo Alemania", img: "historicas/a46a8cb6-8001-426a-a899-96f9d926714d.jpeg", desc: "Título internacional" },
+        { nombre: "Torneo Paseo Patrimonial", img: "historicas/429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Evento callejero" },
+        { nombre: "Cena Osorno y Bariloche", img: "historicas/43617994_10215469277501695_2334973736567963648_n - copia.jpg", desc: "Confraternidad" },
+        { nombre: "Cena Osorno vs Bariloche 2", img: "historicas/43500627_10215469278941731_6898799358163025920_n.jpg", desc: "Celebración" },
+        { nombre: "Match Osorno vs Puerto Montt", img: "historicas/33575997_10216082477477426_1559030616861704192_n.jpg", desc: "Encuentro regional" },
+        { nombre: "Visitas Larraín y Vergara", img: "historicas/15-ajedrez osorno-larrain-vergara.jpg", desc: "Grandes maestros invitados" },
+        { nombre: "Viernes de ajedrez", img: "historicas/4gfthgf.jpg", desc: "Sesión semanal" }
     ];
     
     const eventosArchivo = [
