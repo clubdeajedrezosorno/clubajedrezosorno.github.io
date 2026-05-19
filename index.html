@@ -1321,6 +1321,136 @@
         .float-contact-right:hover {
             background: #2a8067;
         }
+
+        /* ==================== ESTRUCTURA INSTITUCIONAL ==================== */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+        .quick-action {
+            min-height: 104px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.65rem;
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
+                rgba(17,17,15,0.9);
+            color: var(--text);
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+        .quick-action:hover {
+            transform: translateY(-3px);
+            border-color: rgba(31,111,88,0.65);
+            background:
+                linear-gradient(135deg, rgba(31,111,88,0.18), rgba(111,45,52,0.08)),
+                rgba(17,17,15,0.95);
+        }
+        .quick-action i {
+            color: var(--gold-bright);
+            font-size: 1.2rem;
+        }
+        .quick-action strong {
+            display: block;
+            font-size: 0.95rem;
+        }
+        .quick-action span {
+            color: var(--muted);
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+        .content-band {
+            margin-bottom: 1.35rem;
+        }
+        .band-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.9rem;
+        }
+        .band-heading h2 {
+            font-family: 'Cinzel', 'PT Serif', serif;
+            color: var(--text);
+            font-size: clamp(1.45rem, 2.4vw, 2rem);
+            letter-spacing: 0.02em;
+        }
+        .band-heading p {
+            max-width: 360px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        .spotlight-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+        .spotlight-item {
+            min-height: 110px;
+            padding: 1rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(17,17,15,0.88);
+        }
+        .spotlight-item .label {
+            color: var(--gold-bright);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.45rem;
+        }
+        .spotlight-item strong {
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .spotlight-item span {
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+        .side-note {
+            padding: 1rem;
+            border: 1px solid rgba(111,45,52,0.35);
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(111,45,52,0.16), rgba(31,111,88,0.08));
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        @media (max-width: 760px) {
+            .quick-actions {
+                display: flex;
+                overflow-x: auto;
+                padding-inline: 0.85rem;
+                margin-inline: -0.85rem;
+                scroll-snap-type: x mandatory;
+            }
+            .quick-action {
+                flex: 0 0 72vw;
+                scroll-snap-align: start;
+            }
+            .band-heading {
+                display: block;
+            }
+            .band-heading p {
+                margin-top: 0.4rem;
+                text-align: left;
+            }
+            .spotlight-strip {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1377,17 +1507,41 @@
         </aside>
 
         <main class="main-content" id="club">
-            <div class="blog-section">
-                <h2 class="section-title">📖 Blog del Club</h2>
+            <section class="quick-actions" aria-label="Accesos rápidos">
+                <a class="quick-action" id="quickTorneosEscolares"><i class="fas fa-medal"></i><strong>Torneos escolares</strong><span>Circuito Zona Sur y próximas fechas.</span></a>
+                <a class="quick-action" id="quickEscuela"><i class="fas fa-chalkboard-user"></i><strong>Escuela</strong><span>Formación para niños, jóvenes y adultos.</span></a>
+                <a class="quick-action" id="quickRanking"><i class="fas fa-chart-line"></i><strong>Ranking club</strong><span>Jugadores, ELO y fichas oficiales.</span></a>
+                <a class="quick-action" id="quickGaleria"><i class="fas fa-images"></i><strong>Galería</strong><span>Archivo visual de torneos y comunidad.</span></a>
+                <a class="quick-action" id="quickArchivo"><i class="fas fa-archive"></i><strong>Archivo</strong><span>Boletines, documentos y libro de Fredy.</span></a>
+                <a class="quick-action" id="quickTesoreria"><i class="fas fa-money-bill-wave"></i><strong>Tesorería</strong><span>Cuotas, consulta de socio y datos bancarios.</span></a>
+            </section>
+
+            <section class="content-band">
+                <div class="band-heading">
+                    <h2>Actualidad del club</h2>
+                    <p>Lo más importante para socios, apoderados, jugadores y visitantes.</p>
+                </div>
+                <div class="spotlight-strip">
+                    <div class="spotlight-item"><div class="label">Jugador destacado</div><strong>Miguel Pacheco</strong><span>Campeón del 3° Blitz de Mayo 2026.</span></div>
+                    <div class="spotlight-item"><div class="label">Escolar destacado</div><strong>30 de mayo de 2026</strong><span>Nueva fecha especial del circuito escolar.</span></div>
+                    <div class="spotlight-item"><div class="label">Archivo</div><strong>Nuevas armas de batalla</strong><span>Libro/aporte estratégico de Fredy Wompner.</span></div>
+                </div>
+            </section>
+
+            <div class="blog-section content-band">
+                <div class="band-heading">
+                    <h2>Blog del Club</h2>
+                    <p>Historia, proyección y memoria institucional del ajedrez osornino.</p>
+                </div>
                 <div id="blogContainer"></div>
             </div>
-            <div class="actividades-block">
+            <div class="actividades-block content-band">
                 <h3><i class="fas fa-calendar-alt"></i> Próximas actividades</h3>
                 <div class="actividad-item"><div class="actividad-fecha">08 de Mayo</div><div class="actividad-texto">3° Blitz · 18:00 hrs · Sede club</div></div>
                 <div class="actividad-item"><div class="actividad-fecha">12-15 abril</div><div class="actividad-texto">Torneo Relámpago de Otoño · Inscripciones abiertas</div></div>
                 <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">Gala 102° Aniversario · IRT y premiaciones</div></div>
             </div>
-            <div class="champions-block" id="championsTrigger">
+            <div class="champions-block content-band" id="championsTrigger">
                 <div class="champions-header" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
                     <div class="champions-name"><i class="fas fa-crown"></i> Campeones de Osorno</div>
                     <div class="click-hint"><i class="fas fa-images"></i> Haz clic para ver galería histórica</div>
@@ -2057,6 +2211,11 @@
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
     setupModal('torneosEscolaresLink', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
     setupModal('colaboradoresLink', 'colaboradoresModal', 'closeColaboradoresModalBtn');
+    setupModal('quickTorneosEscolares', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
+    setupModal('quickEscuela', 'escuelaModal', 'closeEscuelaModalBtn');
+    setupModal('quickRanking', 'rankingModal', 'closeRankingModalBtn');
+    setupModal('quickGaleria', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
+    setupModal('quickArchivo', 'archivoModal', 'closeArchivoModalBtn');
     
     const campeonesLink = document.getElementById('campeonesMundialesLink');
     const campeonesModal = document.getElementById('campeonMundialModal');
@@ -2069,6 +2228,15 @@
     
     const btnAgregarRanking = document.getElementById('btnAgregarJugadorRanking');
     if (btnAgregarRanking) btnAgregarRanking.addEventListener('click', () => agregarJugadorRanking());
+
+    const quickTesoreria = document.getElementById('quickTesoreria');
+    if (quickTesoreria) {
+        quickTesoreria.addEventListener('click', async () => {
+            await cargarCuotas();
+            renderTesoreriaModal();
+            tesoreriaModal.classList.add('active');
+        });
+    }
     
     const closeImagenMax = document.getElementById('closeImagenMaxModalBtn');
     const imagenMaxModal = document.getElementById('imagenMaxModal');
