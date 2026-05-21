@@ -72,6 +72,8 @@
         .blog-text { color: #bbbbbb; line-height: 1.5; }
         .blog-photo-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 0.65rem; margin: 1rem 0; }
         .blog-photo-strip img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px; border: 1px solid rgba(240,215,122,0.22); cursor: pointer; }
+        .blog-feature-image { margin: 1rem 0; overflow: hidden; border-radius: 18px; border: 1px solid rgba(240,215,122,0.22); background: #080807; }
+        .blog-feature-image img { width: 100%; max-height: 340px; object-fit: cover; display: block; cursor: pointer; }
         .blog-action-link { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 0.35rem; color: #f0d77a; font-weight: 800; text-decoration: none; }
         .blog-action-link:hover { color: #ffffff; text-decoration: underline; }
         .highlight { background: #1a1a1a; color: #d4af37; padding: 0.2rem 0.4rem; border-radius: 8px; font-weight: 500; }
@@ -264,6 +266,133 @@
         }
         @media (max-width: 520px) {
             .escuela-grid { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
+        }
+        /* ==================== PULIDO BLOG / CALENDARIO / GALERIAS ==================== */
+        .blog-card.featured-news {
+            padding: clamp(1.15rem, 3vw, 2rem);
+            border-radius: 18px;
+            border-color: rgba(240, 215, 122, 0.52);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+        }
+        .blog-card.featured-news .blog-date {
+            display: inline-flex;
+            width: fit-content;
+            padding: 0.28rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(31, 111, 88, 0.24);
+            color: #f0d77a;
+            border: 1px solid rgba(240, 215, 122, 0.2);
+        }
+        .blog-card.featured-news .blog-title {
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            line-height: 1.08;
+            max-width: 760px;
+        }
+        .blog-card.featured-news .blog-text {
+            font-size: 1rem;
+            color: #d7d0c0;
+        }
+        .blog-card.featured-news .blog-photo-strip {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0.2rem 0 0.85rem;
+            margin-top: 1.2rem;
+        }
+        .blog-card.featured-news .blog-photo-strip img {
+            flex: 0 0 clamp(170px, 38vw, 260px);
+            aspect-ratio: 4 / 3;
+            border-radius: 16px;
+            scroll-snap-align: start;
+        }
+        .blog-feature-image img,
+        .blog-photo-strip img,
+        .gallery-card,
+        .colaborador-box,
+        .escuela-grid img {
+            transition: transform 0.22s ease, border-color 0.22s ease, filter 0.22s ease;
+        }
+        .blog-feature-image img:hover,
+        .blog-photo-strip img:hover,
+        .escuela-grid img:hover {
+            transform: scale(1.015);
+            filter: brightness(1.06);
+        }
+        #listaTorneosEscolares {
+            display: grid;
+            gap: 0.95rem;
+        }
+        .torneo-escolar-item {
+            display: grid;
+            grid-template-columns: minmax(110px, 0.34fr) 1fr;
+            gap: 0.35rem 1rem;
+            align-items: start;
+            border-radius: 16px;
+        }
+        .torneo-escolar-fecha {
+            grid-row: span 3;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            line-height: 1.15;
+        }
+        .torneo-escolar-fecha small {
+            color: #b9b2a3;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .torneo-escolar-lugar {
+            font-size: 1rem;
+            color: #f3efe4;
+            font-weight: 800;
+        }
+        .torneo-escolar-item.destacado {
+            padding: 1.25rem;
+            border-left-width: 6px;
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+        }
+        .torneo-escolar-item.destacado .torneo-escolar-fecha {
+            color: #f0d77a;
+            font-size: 1.28rem;
+        }
+        .gallery-card:focus-visible,
+        .colaborador-box:focus-visible,
+        .blog-photo-strip img:focus-visible,
+        .blog-feature-image img:focus-visible,
+        .escuela-grid img:focus-visible {
+            outline: 2px solid #f0d77a;
+            outline-offset: 3px;
+        }
+        #imagenMaxModal .modal-container {
+            background: rgba(5, 5, 5, 0.92);
+            border-color: rgba(240, 215, 122, 0.26);
+        }
+        #imagenMaxSrc {
+            object-fit: contain;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+        }
+        @media (max-width: 640px) {
+            .blog-card.featured-news .blog-photo-strip img {
+                flex-basis: 78vw;
+            }
+            .torneo-escolar-item {
+                grid-template-columns: 1fr;
+            }
+            .torneo-escolar-fecha {
+                grid-row: auto;
+            }
+            .torneo-escolar-item.destacado::after {
+                position: static;
+                width: fit-content;
+                grid-row: 1;
+                margin-bottom: 0.25rem;
+            }
+            .torneo-escolar-acciones .btn-descargar {
+                width: 100%;
+                justify-content: center;
+            }
         }
         /* ==================== REFRESH VISUAL 2026 ==================== */
         :root {
@@ -832,6 +961,36 @@
             flex-wrap: wrap;
             margin-top: 2rem;
         }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            width: min(760px, 100%);
+            margin: 1.65rem auto 0;
+        }
+        .hero-stat {
+            min-height: 78px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.2rem;
+            padding: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: var(--radius);
+            background: rgba(0,0,0,0.34);
+            backdrop-filter: blur(10px);
+        }
+        .hero-stat strong {
+            color: var(--gold-bright);
+            font-family: 'Cinzel', 'PT Serif', serif;
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+        .hero-stat span {
+            color: rgba(255,255,255,0.76);
+            font-size: 0.78rem;
+            line-height: 1.3;
+        }
         .hero-btn {
             min-width: 180px;
             padding: 0.9rem 1.35rem;
@@ -986,6 +1145,14 @@
             .hero-buttons {
                 gap: 0.7rem;
                 margin-top: 1.35rem;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+                margin-top: 1rem;
+            }
+            .hero-stat {
+                min-height: 58px;
+                padding: 0.65rem 0.8rem;
             }
             .hero-btn {
                 min-height: 46px;
@@ -1463,6 +1630,138 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* ==================== CAPA FINAL OTRO NIVEL ==================== */
+        .blog-card.featured-news {
+            padding: clamp(1.15rem, 3vw, 2rem);
+            border-radius: 18px;
+            border-color: rgba(240, 215, 122, 0.52);
+            background:
+                linear-gradient(140deg, rgba(31,111,88,0.24), rgba(111,45,52,0.16)),
+                #11110f;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+        }
+        .blog-card.featured-news .blog-date {
+            display: inline-flex;
+            width: fit-content;
+            padding: 0.28rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(31, 111, 88, 0.24);
+            color: #f0d77a;
+            border: 1px solid rgba(240, 215, 122, 0.2);
+        }
+        .blog-card.featured-news .blog-title {
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            line-height: 1.08;
+            max-width: 760px;
+        }
+        .blog-card.featured-news .blog-text {
+            font-size: 1rem;
+            color: #d7d0c0;
+        }
+        .blog-card.featured-news .blog-photo-strip {
+            display: flex;
+            grid-template-columns: none;
+            gap: 0.75rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0.2rem 0 0.85rem;
+            margin-top: 1.2rem;
+        }
+        .blog-card.featured-news .blog-photo-strip img {
+            flex: 0 0 clamp(170px, 38vw, 260px);
+            aspect-ratio: 4 / 3;
+            border-radius: 16px;
+            scroll-snap-align: start;
+        }
+        #listaTorneosEscolares {
+            display: grid;
+            gap: 0.95rem;
+        }
+        .torneo-escolar-item {
+            display: grid;
+            grid-template-columns: minmax(110px, 0.34fr) 1fr;
+            gap: 0.35rem 1rem;
+            align-items: start;
+            border-radius: 16px;
+        }
+        .torneo-escolar-fecha {
+            grid-row: span 3;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            line-height: 1.15;
+        }
+        .torneo-escolar-fecha small {
+            color: #b9b2a3;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .torneo-escolar-lugar {
+            font-size: 1rem;
+            color: #f3efe4;
+            font-weight: 800;
+        }
+        .torneo-escolar-item.destacado {
+            padding: 1.25rem;
+            border-left-width: 6px;
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+        }
+        .torneo-escolar-item.destacado .torneo-escolar-fecha {
+            color: #f0d77a;
+            font-size: 1.28rem;
+        }
+        .blog-feature-image img,
+        .blog-photo-strip img,
+        .gallery-card,
+        .colaborador-box,
+        .escuela-grid img {
+            transition: transform 0.22s ease, border-color 0.22s ease, filter 0.22s ease;
+        }
+        .blog-feature-image img:hover,
+        .blog-photo-strip img:hover,
+        .escuela-grid img:hover {
+            transform: scale(1.015);
+            filter: brightness(1.06);
+        }
+        .gallery-card:focus-visible,
+        .colaborador-box:focus-visible,
+        .blog-photo-strip img:focus-visible,
+        .blog-feature-image img:focus-visible,
+        .escuela-grid img:focus-visible {
+            outline: 2px solid #f0d77a;
+            outline-offset: 3px;
+        }
+        #imagenMaxModal .modal-container {
+            background: rgba(5, 5, 5, 0.92);
+            border-color: rgba(240, 215, 122, 0.26);
+            border-radius: 18px;
+        }
+        #imagenMaxSrc {
+            object-fit: contain;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+        }
+        @media (max-width: 640px) {
+            .blog-card.featured-news .blog-photo-strip img {
+                flex-basis: 78vw;
+            }
+            .torneo-escolar-item {
+                grid-template-columns: 1fr;
+            }
+            .torneo-escolar-fecha {
+                grid-row: auto;
+            }
+            .torneo-escolar-item.destacado::after {
+                position: static;
+                width: fit-content;
+                grid-row: 1;
+                margin-bottom: 0.25rem;
+            }
+            .torneo-escolar-acciones .btn-descargar {
+                width: 100%;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1470,7 +1769,7 @@
     <div class="top-header">
         <div class="header-row">
             <div class="logo-title">
-                <img src="logoclub.jpg" alt="Logo Club" onerror="this.onerror=null; this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='block';">
+                <img src="logoclub.jpg" alt="Logo Club" decoding="async" onerror="this.onerror=null; this.style.display='none'; this.parentElement.querySelector('.logo-fallback').style.display='block';">
                 <span class="logo-fallback">♞ CAO</span>
                 <div class="title-area">
                     <h1>Club de Ajedrez Osorno</h1>
@@ -1478,7 +1777,7 @@
                 </div>
             </div>
             <div class="jugador-destacado-header" id="miguelHeaderTrigger">
-                <img src="julian-dso-ajedrez.jpg" alt="Julián destacado" onerror="this.src='https://placehold.co/400x300?text=Julian+DSO'">
+                <img src="julian-dso-ajedrez.jpg" alt="Julián destacado" decoding="async" fetchpriority="high" onerror="this.src='https://placehold.co/400x300?text=Julian+DSO'">
                 <span>Julián<br><small>Campeón Liga del Ranco 2</small></span>
             </div>
         </div>
@@ -1493,9 +1792,14 @@
             <h2>Club de Ajedrez Osorno</h2>
             <p class="hero-subtitle">Piensa · Calcula · Conquista</p>
             <p class="hero-description">Comunidad ajedrecística del sur de Chile dedicada a torneos, formación, historia deportiva y crecimiento estratégico.</p>
+            <div class="hero-stats" aria-label="Resumen institucional">
+                <div class="hero-stat"><strong>102 años</strong><span>Historia deportiva en Osorno</span></div>
+                <div class="hero-stat"><strong>Matta 809</strong><span>Sede para socios y comunidad</span></div>
+                <div class="hero-stat"><strong>2026</strong><span>Torneos, escuela y circuito escolar</span></div>
+            </div>
             <div class="hero-buttons">
-                <a href="#torneosPanel" class="hero-btn gold">Ver torneos</a>
-                <a href="#club" class="hero-btn dark">Nuestra comunidad</a>
+                <a href="#blogContainer" class="hero-btn gold">Últimas noticias</a>
+                <a href="#torneosPanel" class="hero-btn dark">Ver torneos</a>
             </div>
         </div>
     </div>
@@ -1536,7 +1840,7 @@
                 <div class="spotlight-strip">
                     <div class="spotlight-item"><div class="label">Jugador destacado</div><strong>Julián Keim Hott</strong><span>Campeón de la Liga del Ranco 2.</span></div>
                     <div class="spotlight-item"><div class="label">Próximo escolar</div><strong>30 de mayo de 2026</strong><span>Open Escolar Osorno con bases disponibles.</span></div>
-                    <div class="spotlight-item"><div class="label">Archivo</div><strong>Nuevas armas de batalla</strong><span>Libro/aporte estratégico de Fredy Wompner.</span></div>
+                    <div class="spotlight-item"><div class="label">Aniversario</div><strong>24 de agosto de 2026</strong><span>102 años de historia institucional.</span></div>
                 </div>
             </section>
 
@@ -1549,9 +1853,9 @@
             </div>
             <div class="actividades-block content-band">
                 <h3><i class="fas fa-calendar-alt"></i> Próximas actividades</h3>
-                <div class="actividad-item"><div class="actividad-fecha">08 de Mayo</div><div class="actividad-texto">3° Blitz · 18:00 hrs · Sede club</div></div>
-                <div class="actividad-item"><div class="actividad-fecha">12-15 abril</div><div class="actividad-texto">Torneo Relámpago de Otoño · Inscripciones abiertas</div></div>
-                <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">Gala 102° Aniversario · IRT y premiaciones</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">30 de mayo</div><div class="actividad-texto">Open Escolar Osorno 2026 · Circuito Zona Sur.</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">Próximamente</div><div class="actividad-texto">3° Blitz de invierno · Sede del club.</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">102° aniversario del Club de Ajedrez Osorno.</div></div>
             </div>
             <div class="champions-block content-band" id="championsTrigger">
                 <div class="champions-header" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
@@ -1580,20 +1884,20 @@
         <aside class="sidebar-right">
             <div class="online-panel" id="torneosPanel">
                 <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
-                <div class="tournament-block" style="position:relative;"><div class="active-banner">⚡ ¡ACTIVO!</div><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2882" target="_blank">⚡ 3° Blitz 2026</a></div><div style="color:#aaa;">6 rondas · 3+2 · Viernes 08-04 · 18:30</div></div>
-                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">🏆 Open Semana Osornina</a></div><div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div></div>
-                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">🎂 IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div></div>
+                <div class="tournament-block" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="descargas/Bases_Open_Escolar_Osorno_2026.pdf" target="_blank">Open Escolar Osorno 2026</a></div><div style="color:#aaa;">30 de mayo · Circuito Escolar Zona Sur</div></div>
+                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">Open Semana Osornina</a></div><div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div></div>
+                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div></div>
             </div>
             <div class="online-panel" id="foroPanel">
                 <div class="online-header"><i class="fas fa-comments"></i> Foro del Club</div>
                 <div class="encuesta">
                     <p>¿Quién es tu favorito?</p>
                     <label><input type="radio" name="favorito" value="Carlsen"> Magnus Carlsen</label>
-                    <label><input type="radio" name="favorito" value="Ding"> Ding Liren</label>
+                    <label><input type="radio" name="favorito" value="Gukesh"> Gukesh</label>
                     <div><button id="votarBtn">Votar</button></div>
                     <div class="barra-container">
                         <div class="barra-item"><span class="barra-label">Carlsen</span><span class="barra-fondo"><span id="barraCarlsen" class="barra-porcentaje"></span></span><span id="porcCarlsen" class="porcentaje-texto">0%</span></div>
-                        <div class="barra-item"><span class="barra-label">Ding Liren</span><span class="barra-fondo"><span id="barraDing" class="barra-porcentaje"></span></span><span id="porcDing" class="porcentaje-texto">0%</span></div>
+                        <div class="barra-item"><span class="barra-label">Gukesh</span><span class="barra-fondo"><span id="barraGukesh" class="barra-porcentaje"></span></span><span id="porcGukesh" class="porcentaje-texto">0%</span></div>
                     </div>
                 </div>
             </div>
@@ -1626,9 +1930,9 @@
 <div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
 <div id="actividadesClubModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeActividadesClubModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Actividades club</h2><div class="grid-4cols" id="actividadesGrid"></div></div></div>
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
-<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="nn.jpg" alt="NN" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=NN'"></div><div><img src="escuela3.jpg" alt="Escuela 3" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+3'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
-<div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 850px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Julián Keim Hott</h2><img src="julian-dso-ajedrez.jpg" alt="Julián Keim Hott" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=Julian+DSO'"><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Jugador destacado · Campeón Liga del Ranco 2</p><p>Julián se coronó campeón de la Liga del Ranco 2, una actuación que lo instala como nuestro destacado principal. Renato también brilló con un gran 3° lugar.</p><a class="btn-compartir" href="https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver resultados oficiales</a></div></div>
-<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="https://clubdeajedrezosorno.github.io/clubajedrezosorno.github.io/descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="https://clubdeajedrezosorno.github.io/clubajedrezosorno.github.io/descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
+<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="nn.jpg" alt="NN" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=NN'"></div><div><img src="escuela3.jpg" alt="Escuela 3" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+3'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
+<div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 850px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Julián Keim Hott</h2><img src="julian-dso-ajedrez.jpg" alt="Julián Keim Hott" loading="lazy" decoding="async" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=Julian+DSO'"><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Jugador destacado · Campeón Liga del Ranco 2</p><p>Julián se coronó campeón de la Liga del Ranco 2, una actuación que lo instala como nuestro destacado principal. Renato también brilló con un gran 3° lugar.</p><a class="btn-compartir" href="https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver resultados oficiales</a></div></div>
+<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
 <div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
 <form id="contactFormModern">
@@ -1655,7 +1959,10 @@
     ];
     const ligaRancoGaleria = `<div class="blog-photo-strip">${ligaRancoFotos.map(foto => `<img src="${foto}" alt="Liga del Ranco Club de Ajedrez Osorno" loading="lazy" onclick="openImageModal('${foto}')">`).join('')}</div>`;
     const noticiasBase = [
-        { fecha: "Liga del Ranco 2 · 2026", titulo: "Julián campeón y gran actuación osornina", texto: `Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> se coronó campeón, <strong>Renato</strong> alcanzó un gran 3° lugar, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Renato Conejeros</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>. ${ligaRancoGaleria}<a class="blog-action-link" href="https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver tabla oficial en Chess-Results</a>` },
+        { fecha: "Liga del Ranco 2 · 2026", titulo: "Julián campeón y gran actuación osornina", texto: "Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> se coronó campeón, <strong>Renato</strong> alcanzó un gran 3° lugar, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Renato Conejeros</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>.", galeria: ligaRancoFotos, enlace: "https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
+        { fecha: "3° Blitz de Mayo 2026", titulo: "Miguel Pacheco se queda con el 3° Blitz", texto: "Miguel Pacheco firmó una actuación sólida y se coronó campeón del 3° Blitz de Mayo, confirmando su buen momento competitivo dentro del club.", imagen: "oo.jpg" },
+        { fecha: "La Unión 2026", titulo: "Sergio Vera campeón en La Unión", texto: "Sergio Vera Soto ganó el torneo de La Unión con campaña perfecta: <strong>1° lugar y 6 puntos</strong>, según la tabla oficial de Chess-Results. También estuvieron presentes Tomás Gebauer, Maximiliano Gajardo, Renato y Carlos, acompañando una nueva salida competitiva del ajedrez osornino.", imagen: "la-union-campeones.jpg", enlace: "https://s2.chess-results.com/tnr1404022.aspx?lan=1&art=1&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
+        { fecha: "Primer Blitz 2026", titulo: "Eriberto Calderón campeón del primer blitz", texto: "El primer blitz del ciclo dejó como campeón a <strong>Eriberto Calderón</strong>, abriendo la temporada rápida del club con entusiasmo y buena participación.", imagen: "calderon.jpg" },
         { fecha: "24 ago 1924", titulo: "Fundación y primeros pasos", texto: "El Club de Ajedrez Osorno nació oficialmente el <span class='highlight'>24 de agosto de 1924</span>, siendo uno de los más antiguos de Chile. En 2026 celebramos <strong>102 años</strong> de vida institucional, y nos preparamos para un gran IRT en nuestro aniversario." },
         { fecha: "Campeones y maestros", titulo: "Nuestra galería de estrellas", texto: "Grandes figuras han pasado por nuestras filas: <strong>Gustavo Sommer</strong>, <strong>Hugo López</strong>, <strong>Sergio Vera</strong>, <strong>Andrés Carrasco</strong> dejaron su huella con títulos regionales y nacionales." },
         { fecha: "Proyección 2026", titulo: "Un futuro con más torneos IRT", texto: "Este año seremos sede del <strong>IRT 102° Aniversario</strong> (válido para rating FIDE) y continuaremos con el <strong>Circuito Nacional de Clubes</strong>." }
@@ -1678,7 +1985,11 @@
             const div = document.createElement('div');
             div.className = 'blog-card';
             if (idx === 0) div.classList.add('featured-news');
-            div.innerHTML = `<div class="blog-date">${noticia.fecha}</div><div class="blog-title">${noticia.titulo}</div><div class="blog-text">${noticia.texto}</div>`;
+            const imagenHtml = noticia.imagen ? `<div class="blog-feature-image"><img src="${noticia.imagen}" alt="${noticia.titulo}" loading="lazy" onclick="openImageModal('${noticia.imagen}')"></div>` : '';
+            const galeria = Array.isArray(noticia.galeria) ? noticia.galeria.map(foto => typeof foto === 'string' ? foto : (foto.foto || foto.imagen || '')).filter(Boolean) : [];
+            const galeriaHtml = galeria.length ? `<div class="blog-photo-strip">${galeria.map(foto => `<img src="${foto}" alt="${noticia.titulo}" loading="lazy" onclick="openImageModal('${foto}')">`).join('')}</div>` : '';
+            const enlaceHtml = noticia.enlace ? `<a class="blog-action-link" href="${noticia.enlace}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> ${noticia.enlaceTexto || 'Ver más'}</a>` : '';
+            div.innerHTML = `<div class="blog-date">${noticia.fecha}</div><div class="blog-title">${noticia.titulo}</div><div class="blog-text">${noticia.texto}${imagenHtml}${galeriaHtml}${enlaceHtml}</div>`;
             if (noticia.titulo === "Nuestra galería de estrellas") {
                 div.tabIndex = 0;
                 div.setAttribute('role', 'button');
@@ -1693,6 +2004,7 @@
             }
             container.appendChild(div);
         });
+        activarImagenesSueltas(container);
     }
     
     const directiva = [
@@ -1726,7 +2038,7 @@
         { nombre: "Vladimir Kramnik", periodo: "2000-2007", imagen: "108-kramnnik.jpg", desc: "Unificador del título." },
         { nombre: "Viswanathan Anand", periodo: "2007-2013", imagen: "104-annand.jpg", desc: "Rapidez y creatividad." },
         { nombre: "Magnus Carlsen", periodo: "2013-2023", imagen: "102-magnus-carlsen.jpg", desc: "Reinado absoluto." },
-        { nombre: "Ding Liren", periodo: "2023-presente", imagen: "ding-2.jpg", desc: "Primer campeón chino." },
+        { nombre: "Ding Liren", periodo: "2023-2024", imagen: "ding-2.jpg", desc: "Primer campeón chino." },
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón más joven." }
     ];
     
@@ -1871,7 +2183,7 @@
     ];
     
     const torneosEscolares = [
-        { fecha: "30 de mayo de 2026", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Próxima actividad del circuito. Revisa las bases oficiales antes de inscribirte.", destacado: true, bases: "descarga/Bases_Open_Escolar_Osorno_2026%20(1).pdf" },
+        { fecha: "30 de mayo de 2026", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Próxima actividad del circuito. Revisa las bases oficiales antes de inscribirte.", destacado: true, bases: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
         { fecha: "11 de abril de 2026", lugar: "La Unión (Colegio Alemán de La Unión)" },
         { fecha: "16 de mayo de 2026", lugar: "Osorno (Colegio Alemán de Osorno)" },
         { fecha: "13 de junio de 2026", lugar: "Paillaco (Colegio Olegario Morales)" },
@@ -1922,6 +2234,23 @@
             }
         });
     }
+
+    function activarImagenesSueltas(scope = document) {
+        scope.querySelectorAll('#escuelaModal img, .blog-feature-image img, .blog-photo-strip img').forEach(img => {
+            if (img.dataset.imageReady === 'true') return;
+            img.dataset.imageReady = 'true';
+            img.tabIndex = 0;
+            img.setAttribute('role', 'button');
+            img.setAttribute('aria-label', 'Ver imagen ampliada');
+            img.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openImageModal(img.getAttribute('src') || img.src);
+                }
+            });
+        });
+    }
+    activarImagenesSueltas();
     
     function generarGaleria(containerId, items, conFlag = false, sinRankingClass = false) {
         const container = document.getElementById(containerId);
@@ -1933,7 +2262,7 @@
             if (sinRankingClass && item.desc === "Sin ranking") div.classList.add('sin-ranking');
             let nombreHtml = item.nombre;
             if (conFlag && item.flag) nombreHtml = `<span>${item.nombre}</span> <img class="flag-img" src="${item.flag}.png" alt="bandera" onerror="this.style.display='none'">`;
-            const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
+            const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
             let descHtml = item.desc ? `<p>${item.desc}</p>` : '';
             if (item.enlace && item.enlace !== "#") descHtml += `<p><a href="${item.enlace}" target="_blank" style="color:#d4af37; text-decoration:underline; font-weight:500;"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
             let botonEliminar = '';
@@ -1997,7 +2326,7 @@
         campeonesMundiales.forEach(c => {
             const div = document.createElement('div');
             div.className = 'gallery-card';
-            div.innerHTML = `<div class="gallery-img"><img src="${c.imagen}" alt="${c.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${c.nombre} (${c.periodo})</h4><p>${c.desc}</p>`;
+            div.innerHTML = `<div class="gallery-img"><img src="${c.imagen}" alt="${c.nombre}" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${c.nombre} (${c.periodo})</h4><p>${c.desc}</p>`;
             const imgEl = div.querySelector('img');
             if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(c.imagen); });
             activarTarjetaImagen(div, c.imagen);
@@ -2016,12 +2345,15 @@
     ];
     generarGaleria('campeonesGrid', campeonesOsorno);
     
-    const contenedorDirectiva = document.getElementById('directivaNetflixContainer');
-    if (contenedorDirectiva) {
+    let directivaRenderizada = false;
+    function cargarDirectiva() {
+        const contenedorDirectiva = document.getElementById('directivaNetflixContainer');
+        if (!contenedorDirectiva || directivaRenderizada) return;
+        directivaRenderizada = true;
         directiva.forEach(m => {
             const card = document.createElement('div');
             card.className = 'gallery-card';
-            card.innerHTML = `<div class="gallery-img"><img src="${m.imagen}" alt="${m.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${m.nombre}</h4><p>${m.desc}</p>`;
+            card.innerHTML = `<div class="gallery-img"><img src="${m.imagen}" alt="${m.nombre}" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${m.nombre}</h4><p>${m.desc}</p>`;
             const imgEl = card.querySelector('img');
             if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(m.imagen); });
             activarTarjetaImagen(card, m.imagen);
@@ -2029,12 +2361,15 @@
         });
     }
     
-    const contenedorGaleria = document.getElementById('galeriaNetflixContainer');
-    if (contenedorGaleria) {
+    let galeriaImagenesRenderizada = false;
+    function cargarGaleriaImagenes() {
+        const contenedorGaleria = document.getElementById('galeriaNetflixContainer');
+        if (!contenedorGaleria || galeriaImagenesRenderizada) return;
+        galeriaImagenesRenderizada = true;
         galeriaImagenesList.forEach(img => {
             const card = document.createElement('div');
             card.className = 'gallery-card';
-            card.innerHTML = `<div class="gallery-img"><img src="${img.img}" alt="${img.nombre}" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${img.nombre}</h4><p>${img.desc}</p>`;
+            card.innerHTML = `<div class="gallery-img"><img src="${img.img}" alt="${img.nombre}" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${img.nombre}</h4><p>${img.desc}</p>`;
             const imgEl = card.querySelector('img');
             if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(img.img); });
             activarTarjetaImagen(card, img.img);
@@ -2054,7 +2389,8 @@
             div.className = 'torneo-escolar-item';
             if (t.destacado) div.classList.add('destacado');
             const acciones = t.bases ? `<div class="torneo-escolar-acciones"><a href="${t.bases}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a><a href="${t.bases}" class="btn-descargar" download><i class="fas fa-download"></i> Descargar bases</a></div>` : '';
-            div.innerHTML = `<div class="torneo-escolar-fecha">📅 ${t.fecha}</div><div class="torneo-escolar-lugar">📍 ${t.lugar}</div>${t.nota ? `<div class="torneo-escolar-nota">${t.nota}</div>` : ''}${acciones}`;
+            const etiqueta = t.destacado ? 'Próxima fecha' : 'Fecha del circuito';
+            div.innerHTML = `<div class="torneo-escolar-fecha"><small>${etiqueta}</small><span>📅 ${t.fecha}</span></div><div class="torneo-escolar-lugar">📍 ${t.lugar}</div>${t.nota ? `<div class="torneo-escolar-nota">${t.nota}</div>` : ''}${acciones}`;
             contenedorTorneos.appendChild(div);
         });
     }
@@ -2073,7 +2409,7 @@
             div.tabIndex = 0;
             div.setAttribute('role', 'button');
             div.setAttribute('aria-label', `Ver imagen de ${c.caption}`);
-            div.innerHTML = `<img src="${c.img}" alt="${c.caption}" onerror="this.src='${c.fallback || 'https://placehold.co/400x300?text=Imagen'}'"><div class="colaborador-caption">${c.caption}</div>`;
+            div.innerHTML = `<img src="${c.img}" alt="${c.caption}" loading="lazy" decoding="async" onerror="this.src='${c.fallback || 'https://placehold.co/400x300?text=Imagen'}'"><div class="colaborador-caption">${c.caption}</div>`;
             const imgEl = div.querySelector('img');
             const abrirColaborador = () => {
                 if (!imgEl) return;
@@ -2137,19 +2473,21 @@
         });
     });
     
-    let votos = JSON.parse(localStorage.getItem('votosFavorito')) || { Carlsen: 0, Ding: 0 };
+    let votos = JSON.parse(localStorage.getItem('votosFavorito')) || { Carlsen: 0, Gukesh: 0 };
+    if (typeof votos.Gukesh !== 'number') votos.Gukesh = votos.Ding || 0;
+    if (typeof votos.Carlsen !== 'number') votos.Carlsen = 0;
     function actualizarBarras() {
-        const total = votos.Carlsen + votos.Ding;
+        const total = votos.Carlsen + votos.Gukesh;
         const porcCarlsen = total === 0 ? 0 : (votos.Carlsen / total) * 100;
-        const porcDing = total === 0 ? 0 : (votos.Ding / total) * 100;
+        const porcGukesh = total === 0 ? 0 : (votos.Gukesh / total) * 100;
         const barraCarlsen = document.getElementById('barraCarlsen');
-        const barraDing = document.getElementById('barraDing');
+        const barraGukesh = document.getElementById('barraGukesh');
         const porcCarlsenSpan = document.getElementById('porcCarlsen');
-        const porcDingSpan = document.getElementById('porcDing');
+        const porcGukeshSpan = document.getElementById('porcGukesh');
         if (barraCarlsen) barraCarlsen.style.width = porcCarlsen + '%';
-        if (barraDing) barraDing.style.width = porcDing + '%';
+        if (barraGukesh) barraGukesh.style.width = porcGukesh + '%';
         if (porcCarlsenSpan) porcCarlsenSpan.innerText = Math.round(porcCarlsen) + '%';
-        if (porcDingSpan) porcDingSpan.innerText = Math.round(porcDing) + '%';
+        if (porcGukeshSpan) porcGukeshSpan.innerText = Math.round(porcGukesh) + '%';
     }
     actualizarBarras();
     const votarBtn = document.getElementById('votarBtn');
@@ -2159,7 +2497,8 @@
             if (!seleccion) return;
             const valor = seleccion.value;
             if (valor === 'Carlsen') votos.Carlsen++;
-            else if (valor === 'Ding') votos.Ding++;
+            else if (valor === 'Gukesh') votos.Gukesh++;
+            delete votos.Ding;
             localStorage.setItem('votosFavorito', JSON.stringify(votos));
             actualizarBarras();
             alert('¡Gracias por tu voto!');
@@ -2288,6 +2627,8 @@
     setupModal('quickEscuela', 'escuelaModal', 'closeEscuelaModalBtn');
     setupModal('quickRanking', 'rankingModal', 'closeRankingModalBtn');
     setupModal('quickGaleria', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
+    ['directivaLink', 'directivaSuperior'].forEach(id => document.getElementById(id)?.addEventListener('click', cargarDirectiva));
+    ['galeriaImagenesLink', 'quickGaleria'].forEach(id => document.getElementById(id)?.addEventListener('click', cargarGaleriaImagenes));
     setupModal('quickArchivo', 'archivoModal', 'closeArchivoModalBtn');
     
     const campeonesLink = document.getElementById('campeonesMundialesLink');
@@ -2366,3 +2707,4 @@
 </script>
 </body>
 </html>
+
