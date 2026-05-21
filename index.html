@@ -169,6 +169,20 @@
         .torneo-escolar-item.destacado::after { content: "Próxima actividad"; position: absolute; top: 0.8rem; right: 0.8rem; background: #f0d77a; color: #111; padding: 0.18rem 0.55rem; border-radius: 999px; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
         .torneo-escolar-nota { margin-top: 0.55rem; color: #f0d77a; font-size: 0.86rem; font-weight: 700; }
         .torneo-escolar-acciones { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.85rem; }
+        .bases-escolar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            width: fit-content;
+            margin-top: 0.75rem;
+            color: #f0d77a;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .bases-escolar-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
         
         .archivo-evento { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; border: 1px solid #2c2c2c; }
         .archivo-evento .icono-ajedrez { font-size: 4rem; color: #d4af37; width: 100px; text-align: center; }
@@ -1523,6 +1537,8 @@
             color: var(--text);
             text-decoration: none;
             cursor: pointer;
+            font: inherit;
+            text-align: left;
             transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
         }
         .quick-action:hover {
@@ -1824,12 +1840,12 @@
 
         <main class="main-content" id="club">
             <section class="quick-actions" aria-label="Accesos rápidos">
-                <a class="quick-action" id="quickTorneosEscolares"><i class="fas fa-medal"></i><strong>Torneos escolares</strong><span>Circuito Zona Sur y próximas fechas.</span></a>
-                <a class="quick-action" id="quickEscuela"><i class="fas fa-chalkboard-user"></i><strong>Escuela</strong><span>Formación para niños, jóvenes y adultos.</span></a>
-                <a class="quick-action" id="quickRanking"><i class="fas fa-chart-line"></i><strong>Ranking club</strong><span>Jugadores, ELO y fichas oficiales.</span></a>
-                <a class="quick-action" id="quickGaleria"><i class="fas fa-images"></i><strong>Galería</strong><span>Archivo visual de torneos y comunidad.</span></a>
-                <a class="quick-action" id="quickArchivo"><i class="fas fa-archive"></i><strong>Archivo</strong><span>Boletines, documentos y libro de Fredy.</span></a>
-                <a class="quick-action" id="quickTesoreria"><i class="fas fa-money-bill-wave"></i><strong>Tesorería</strong><span>Cuotas, consulta de socio y datos bancarios.</span></a>
+                <button class="quick-action" id="quickTorneosEscolares" type="button"><i class="fas fa-medal"></i><strong>Torneos escolares</strong><span>Circuito Zona Sur y próximas fechas.</span></button>
+                <button class="quick-action" id="quickEscuela" type="button"><i class="fas fa-chalkboard-user"></i><strong>Escuela</strong><span>Formación para niños, jóvenes y adultos.</span></button>
+                <button class="quick-action" id="quickRanking" type="button"><i class="fas fa-chart-line"></i><strong>Ranking club</strong><span>Jugadores, ELO y fichas oficiales.</span></button>
+                <button class="quick-action" id="quickGaleria" type="button"><i class="fas fa-images"></i><strong>Galería</strong><span>Archivo visual de torneos y comunidad.</span></button>
+                <button class="quick-action" id="quickArchivo" type="button"><i class="fas fa-archive"></i><strong>Archivo</strong><span>Boletines, documentos y libro de Fredy.</span></button>
+                <button class="quick-action" id="quickTesoreria" type="button"><i class="fas fa-money-bill-wave"></i><strong>Tesorería</strong><span>Cuotas, consulta de socio y datos bancarios.</span></button>
             </section>
 
             <section class="content-band">
@@ -1838,8 +1854,8 @@
                     <p>Lo más importante para socios, apoderados, jugadores y visitantes.</p>
                 </div>
                 <div class="spotlight-strip">
-                    <div class="spotlight-item"><div class="label">Jugador destacado</div><strong>Julián Keim Hott</strong><span>Campeón de la Liga del Ranco 2.</span></div>
-                    <div class="spotlight-item"><div class="label">Próximo escolar</div><strong>30 de mayo de 2026</strong><span>Open Escolar Osorno con bases disponibles.</span></div>
+                    <div class="spotlight-item"><div class="label">Jugador destacado</div><strong>Julián Keim Hott</strong><span>1° lugar Sub 10 en Liga del Ranco 2.</span></div>
+                    <div class="spotlight-item"><div class="label">Próximo escolar</div><strong>30 de mayo de 2026</strong><span>Open Escolar Osorno con bases disponibles.</span><a class="bases-escolar-link" href="descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a></div>
                     <div class="spotlight-item"><div class="label">Aniversario</div><strong>24 de agosto de 2026</strong><span>102 años de historia institucional.</span></div>
                 </div>
             </section>
@@ -1853,7 +1869,7 @@
             </div>
             <div class="actividades-block content-band">
                 <h3><i class="fas fa-calendar-alt"></i> Próximas actividades</h3>
-                <div class="actividad-item"><div class="actividad-fecha">30 de mayo</div><div class="actividad-texto">Open Escolar Osorno 2026 · Circuito Zona Sur.</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">30 de mayo</div><div class="actividad-texto">Open Escolar Osorno 2026 · Circuito Zona Sur. <a href="descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf" target="_blank" rel="noopener" class="bases-escolar-link">Ver bases</a></div></div>
                 <div class="actividad-item"><div class="actividad-fecha">Próximamente</div><div class="actividad-texto">3° Blitz de invierno · Sede del club.</div></div>
                 <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">102° aniversario del Club de Ajedrez Osorno.</div></div>
             </div>
@@ -1884,7 +1900,7 @@
         <aside class="sidebar-right">
             <div class="online-panel" id="torneosPanel">
                 <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
-                <div class="tournament-block" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="descargas/Bases_Open_Escolar_Osorno_2026.pdf" target="_blank">Open Escolar Osorno 2026</a></div><div style="color:#aaa;">30 de mayo · Circuito Escolar Zona Sur</div></div>
+                <div class="tournament-block" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf" target="_blank" rel="noopener">Open Escolar Osorno 2026</a></div><div style="color:#aaa;">30 de mayo · Circuito Escolar Zona Sur</div><a href="descargas/Bases_Open_Escolar_Osorno_2026.pdf" target="_blank" rel="noopener" class="bases-escolar-link">Enlace alternativo</a></div>
                 <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">Open Semana Osornina</a></div><div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div></div>
                 <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div></div>
             </div>
@@ -1959,7 +1975,7 @@
     ];
     const ligaRancoGaleria = `<div class="blog-photo-strip">${ligaRancoFotos.map(foto => `<img src="${foto}" alt="Liga del Ranco Club de Ajedrez Osorno" loading="lazy" onclick="openImageModal('${foto}')">`).join('')}</div>`;
     const noticiasBase = [
-        { fecha: "Liga del Ranco 2 · 2026", titulo: "Julián campeón y gran actuación osornina", texto: "Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> se coronó campeón, <strong>Renato</strong> alcanzó un gran 3° lugar, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Renato Conejeros</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>.", galeria: ligaRancoFotos, enlace: "https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
+        { fecha: "Liga del Ranco 2 · 2026", titulo: "Julián primero Sub 10 y gran actuación osornina", texto: "Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> logró el <strong>1° lugar Sub 10</strong>, <strong>Renato Conejeros</strong> alcanzó un gran <strong>3° lugar</strong>, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>.", galeria: ligaRancoFotos, enlace: "https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
         { fecha: "3° Blitz de Mayo 2026", titulo: "Miguel Pacheco se queda con el 3° Blitz", texto: "Miguel Pacheco firmó una actuación sólida y se coronó campeón del 3° Blitz de Mayo, confirmando su buen momento competitivo dentro del club.", imagen: "oo.jpg" },
         { fecha: "La Unión 2026", titulo: "Sergio Vera campeón en La Unión", texto: "Sergio Vera Soto ganó el torneo de La Unión con campaña perfecta: <strong>1° lugar y 6 puntos</strong>, según la tabla oficial de Chess-Results. También estuvieron presentes Tomás Gebauer, Maximiliano Gajardo, Renato y Carlos, acompañando una nueva salida competitiva del ajedrez osornino.", imagen: "la-union-campeones.jpg", enlace: "https://s2.chess-results.com/tnr1404022.aspx?lan=1&art=1&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
         { fecha: "Primer Blitz 2026", titulo: "Eriberto Calderón campeón del primer blitz", texto: "El primer blitz del ciclo dejó como campeón a <strong>Eriberto Calderón</strong>, abriendo la temporada rápida del club con entusiasmo y buena participación.", imagen: "calderon.jpg" },
@@ -2148,6 +2164,12 @@
     }
     
     const galeriaImagenesList = [
+        { nombre: "Julián y Renato en Liga del Ranco", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Actuación destacada de la delegación osornina" },
+        { nombre: "Juan Pablo Varas", img: "varas4_10229190993938865_7838399157145470729_n.jpg", desc: "Figura histórica y campeón de Osorno" },
+        { nombre: "Sergio Vera campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Campeón Liga del Ranco en La Unión" },
+        { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Delegación del Club de Ajedrez Osorno" },
+        { nombre: "Miguel Pacheco campeón 3° Blitz", img: "oo.jpg", desc: "Campeón del 3° Blitz de Mayo 2026" },
+        { nombre: "Eriberto Calderón", img: "calderon.jpg", desc: "Campeón del primer blitz" },
         { nombre: "IRT Chess Academy", img: "historicas/irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
         { nombre: "Match Osorno vs Valdivia 2019", img: "historicas/nacional-temuco-2019.jpg", desc: "Encuentro amistoso" },
         { nombre: "Torneo Mayor 2009", img: "historicas/mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
@@ -2183,7 +2205,7 @@
     ];
     
     const torneosEscolares = [
-        { fecha: "30 de mayo de 2026", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Próxima actividad del circuito. Revisa las bases oficiales antes de inscribirte.", destacado: true, bases: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
+        { fecha: "30 de mayo de 2026", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Próxima actividad del circuito. Revisa las bases oficiales antes de inscribirte.", destacado: true, bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
         { fecha: "11 de abril de 2026", lugar: "La Unión (Colegio Alemán de La Unión)" },
         { fecha: "16 de mayo de 2026", lugar: "Osorno (Colegio Alemán de Osorno)" },
         { fecha: "13 de junio de 2026", lugar: "Paillaco (Colegio Olegario Morales)" },
@@ -2341,7 +2363,7 @@
         { nombre: "Jose Troncoso", img: "troncoso-ajedrez-osorno.jpg", desc: "Impulsor del ajedrez educativo." },
         { nombre: "Hugo López", img: "lopez-ajedrez-osorno.jpeg", desc: "Campeón nacional y de Osorno." },
         { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Instructor FIDE." },
-        { nombre: "Juan Pablo Varas", img: "juanpablo-varas.jpg", desc: "Campeón de Osorno 1990." }
+        { nombre: "Juan Pablo Varas", img: "varas4_10229190993938865_7838399157145470729_n.jpg", desc: "Campeón de Osorno 1990 y figura histórica del club." }
     ];
     generarGaleria('campeonesGrid', campeonesOsorno);
     
@@ -2388,7 +2410,7 @@
             const div = document.createElement('div');
             div.className = 'torneo-escolar-item';
             if (t.destacado) div.classList.add('destacado');
-            const acciones = t.bases ? `<div class="torneo-escolar-acciones"><a href="${t.bases}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a><a href="${t.bases}" class="btn-descargar" download><i class="fas fa-download"></i> Descargar bases</a></div>` : '';
+            const acciones = t.bases ? `<div class="torneo-escolar-acciones"><a href="${t.bases}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a><a href="${t.bases}" class="btn-descargar" download><i class="fas fa-download"></i> Descargar bases</a>${t.basesAlt ? `<a href="${t.basesAlt}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-link"></i> Alternativo</a>` : ''}</div>` : '';
             const etiqueta = t.destacado ? 'Próxima fecha' : 'Fecha del circuito';
             div.innerHTML = `<div class="torneo-escolar-fecha"><small>${etiqueta}</small><span>📅 ${t.fecha}</span></div><div class="torneo-escolar-lugar">📍 ${t.lugar}</div>${t.nota ? `<div class="torneo-escolar-nota">${t.nota}</div>` : ''}${acciones}`;
             contenedorTorneos.appendChild(div);
@@ -2681,6 +2703,7 @@
         });
     }
     
+    cargarGaleriaImagenes();
     cargarBlog();
     cargarCuotas();
     ordenarRanking();
@@ -2707,4 +2730,3 @@
 </script>
 </body>
 </html>
-
