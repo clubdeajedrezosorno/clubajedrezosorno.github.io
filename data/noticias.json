@@ -1,0 +1,24 @@
+{
+  "noticias": [
+    {
+      "fecha": "Liga del Ranco 2 · 2026",
+      "titulo": "Julián campeón y gran actuación osornina",
+      "texto": "Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> se coronó campeón, <strong>Renato</strong> alcanzó un gran 3° lugar, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Renato Conejeros</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>. <div class='blog-photo-strip'><img src='97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg')\"><img src='608eed63-6bf8-48e8-8d51-51f841d93e93.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('608eed63-6bf8-48e8-8d51-51f841d93e93.jpg')\"><img src='ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg')\"><img src='058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg')\"><img src='54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg')\"><img src='027f4d38-c576-4a12-b921-8418b001053a.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('027f4d38-c576-4a12-b921-8418b001053a.jpg')\"><img src='3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg' alt='Liga del Ranco Club de Ajedrez Osorno' loading='lazy' onclick=\"openImageModal('3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg')\"></div><a class='blog-action-link' href='https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0' target='_blank' rel='noopener'><i class='fas fa-external-link-alt'></i> Ver tabla oficial en Chess-Results</a>"
+    },
+    {
+      "fecha": "24 ago 1924",
+      "titulo": "Fundación y primeros pasos",
+      "texto": "El Club de Ajedrez Osorno nació oficialmente el <span class='highlight'>24 de agosto de 1924</span>, siendo uno de los más antiguos de Chile. En 2026 celebramos <strong>102 años</strong> de vida institucional, y nos preparamos para un gran IRT en nuestro aniversario."
+    },
+    {
+      "fecha": "Campeones y maestros",
+      "titulo": "Nuestra galería de estrellas",
+      "texto": "Grandes figuras han pasado por nuestras filas: <strong>Gustavo Sommer</strong>, <strong>Hugo López</strong>, <strong>Sergio Vera</strong>, <strong>Andrés Carrasco</strong> dejaron su huella con títulos regionales y nacionales."
+    },
+    {
+      "fecha": "Proyección 2026",
+      "titulo": "Un futuro con más torneos IRT",
+      "texto": "Este año seremos sede del <strong>IRT 102° Aniversario</strong> (válido para rating FIDE) y continuaremos con el <strong>Circuito Nacional de Clubes</strong>."
+    }
+  ]
+}
