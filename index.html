@@ -1832,9 +1832,12 @@
             grid-column: 1 / -1;
         }
         #blogContainer .blog-text {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
+            display: block;
+        }
+        #blogContainer .blog-text strong,
+        #blogContainer .blog-text span,
+        #blogContainer .blog-text em {
+            display: inline;
         }
         #blogContainer .blog-feature-image {
             order: -1;
@@ -1844,6 +1847,22 @@
             aspect-ratio: 16 / 9;
             max-height: none;
             object-fit: cover;
+        }
+        #blogContainer .blog-photo-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.65rem;
+            overflow: visible;
+            padding: 0;
+            margin: 1rem 0 0.4rem;
+        }
+        #blogContainer .blog-photo-strip img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            min-width: 0;
+            flex: initial;
         }
         .blog-card.featured-news {
             border-color: rgba(31,111,88,0.6);
@@ -1870,6 +1889,27 @@
         }
         .gallery-card p a {
             color: #9bd1bf !important;
+        }
+        .names-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.8rem;
+        }
+        .name-card {
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(17,17,15,0.92);
+        }
+        .name-card h4 {
+            color: var(--gold-bright);
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+        .name-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.45;
         }
         .modal-container {
             scrollbar-color: rgba(240,215,122,0.35) rgba(255,255,255,0.06);
@@ -1916,6 +1956,9 @@
             }
             #blogContainer {
                 grid-template-columns: 1fr;
+            }
+            #blogContainer .blog-photo-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
             .content-band {
                 scroll-margin-top: 72px;
@@ -2151,7 +2194,11 @@
             const response = await fetch('data/noticias.json', { cache: 'no-store' });
             if (response.ok) {
                 const data = await response.json();
-                if (Array.isArray(data.noticias) && data.noticias.length) noticias = data.noticias;
+                if (Array.isArray(data.noticias) && data.noticias.length) {
+                    const baseTitles = new Set(noticiasBase.map(n => n.titulo));
+                    const extras = data.noticias.filter(n => n && n.titulo && !baseTitles.has(n.titulo));
+                    noticias = [...noticiasBase, ...extras];
+                }
             }
         } catch (error) {
             noticias = noticiasBase;
@@ -2163,7 +2210,7 @@
             if (idx === 0) div.classList.add('featured-news');
             const imagenHtml = noticia.imagen ? `<div class="blog-feature-image"><img src="${noticia.imagen}" alt="${noticia.titulo}" loading="lazy" onclick="openImageModal('${noticia.imagen}')"></div>` : '';
             const galeria = Array.isArray(noticia.galeria) ? noticia.galeria.map(foto => typeof foto === 'string' ? foto : (foto.foto || foto.imagen || '')).filter(Boolean) : [];
-            const galeriaHtml = galeria.length ? `<div class="blog-photo-strip">${galeria.map(foto => `<img src="${foto}" alt="${noticia.titulo}" loading="lazy" onclick="openImageModal('${foto}')">`).join('')}</div>` : '';
+            const galeriaHtml = galeria.length ? `<div class="blog-photo-strip">${galeria.map(foto => `<img src="${foto}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'" onclick="openImageModal('${foto}')">`).join('')}</div>` : '';
             const enlaceHtml = noticia.enlace ? `<a class="blog-action-link" href="${noticia.enlace}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> ${noticia.enlaceTexto || 'Ver más'}</a>` : '';
             div.innerHTML = `<div class="blog-date">${noticia.fecha}</div><div class="blog-title">${noticia.titulo}</div><div class="blog-text">${noticia.texto}${imagenHtml}${galeriaHtml}${enlaceHtml}</div>`;
             if (noticia.titulo === "Nuestra galería de estrellas") {
@@ -2305,6 +2352,13 @@
     
     // ACTIVIDADES CLUB CORREGIDO
     const actividadesList = [
+        { nombre: "Liga del Ranco 2 - Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián 1° Sub 10 y Renato 3° lugar" },
+        { nombre: "Liga del Ranco 2 - delegación Osorno", img: "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg", desc: "Nueva actuación destacada de jóvenes osorninos" },
+        { nombre: "Liga del Ranco 2 - premiación", img: "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg", desc: "Registro de la jornada escolar" },
+        { nombre: "Liga del Ranco 2 - tablero", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Competencia y formación en la zona sur" },
+        { nombre: "Liga del Ranco 2 - club presente", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del Club de Ajedrez Osorno" },
+        { nombre: "Liga del Ranco 2 - jóvenes talentos", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Nuevas generaciones en competencia" },
+        { nombre: "Liga del Ranco 2 - cierre", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Registro final de la actividad" },
         { nombre: "Miguel Pacheco campeón 3° Blitz", img: "miguelcampeon-32a7-4c49-acf5-6293c1f25b9c.jpg", desc: "Nueva actividad destacada del club" },
         { nombre: "Marcelo segundo lugar 3° Blitz", img: "marcelo-segundo-6b6-8259-507bd7701d83.jpg", desc: "Marcelo logra el segundo puesto" },
         { nombre: "Nelson tercer lugar 3° Blitz", img: "nelson-tercero--8e3c-44be-b14b-a0de8ef2d622.jpg", desc: "Nelson se queda con el tercer lugar" },
@@ -2364,7 +2418,20 @@
         { nombre: "Cena Osorno vs Bariloche 2", img: "historicas/43500627_10215469278941731_6898799358163025920_n.jpg", desc: "Celebración" },
         { nombre: "Match Osorno vs Puerto Montt", img: "historicas/33575997_10216082477477426_1559030616861704192_n.jpg", desc: "Encuentro regional" },
         { nombre: "Visitas Larraín y Vergara", img: "historicas/15-ajedrez osorno-larrain-vergara.jpg", desc: "Grandes maestros invitados" },
-        { nombre: "Viernes de ajedrez", img: "historicas/4gfthgf.jpg", desc: "Sesión semanal" }
+        { nombre: "Viernes de ajedrez", img: "historicas/4gfthgf.jpg", desc: "Sesión semanal" },
+        { nombre: "Torneo padres e hijos", img: "historicas/torneo-padres-e-hijos.jpg", desc: "Actividad familiar del club" },
+        { nombre: "Josefa y Jeremías nacional", img: "historicas/josefa y jeremias nacional - copia.jpg", desc: "Representación juvenil" },
+        { nombre: "Archivo histórico 2021", img: "historicas/20211019_205953.jpg", desc: "Registro histórico del club" },
+        { nombre: "Recuerdo histórico Osorno", img: "historicas/031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Memoria visual del club" },
+        { nombre: "Jornada histórica", img: "historicas/4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Archivo de actividades" },
+        { nombre: "Registro de torneo", img: "historicas/77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas y comunidad" },
+        { nombre: "Encuentro del club", img: "historicas/d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Archivo fotográfico" },
+        { nombre: "Mesa de juego histórica", img: "historicas/e8ed7040-2db8-4bad-80b4-020bee6f1d31.jfif", desc: "Memoria ajedrecística" },
+        { nombre: "Archivo recuperado", img: "historicas/3efa133d-275c-47b6-b731-d389dbb4683d - copia.jpg", desc: "Foto antigua del club" },
+        { nombre: "Osorno y Bariloche", img: "osorno-bariloche-ajedrez-osorno.jpg", desc: "Encuentro internacional de amistad" },
+        { nombre: "Sergio Vera en Bariloche", img: "sergio-vera-bariloche.jpg", desc: "Participación histórica" },
+        { nombre: "Varas vs Eduardo Rojas", img: "vras-eduardo-rojas-club-ajedrez.jpg", desc: "Partida histórica del ajedrez osornino" },
+        { nombre: "Foto histórica Osorno", img: "foto-historica-osorno.jpg", desc: "Archivo del club" }
     ];
     
     const eventosArchivo = [
@@ -2557,15 +2624,23 @@
     }
     
     const campeonesOsorno = [
-        { nombre: "Gustavo Sommer", img: "sommer-ajedrez-osorno.jpg", desc: "Gran Campeón en los años 80." },
-        { nombre: "Allan Elleberg", img: "2-ellemberg.jpg", desc: "Campeón de Osorno 1980." },
-        { nombre: "Germán Bielefeldt", img: "bielefeldt-ajedrez-osorno.jpg", desc: "Campeón en 2 ocasiones." },
-        { nombre: "Jose Troncoso", img: "troncoso-ajedrez-osorno.jpg", desc: "Impulsor del ajedrez educativo." },
-        { nombre: "Hugo López", img: "lopez-ajedrez-osorno.jpeg", desc: "Campeón nacional y de Osorno." },
-        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Instructor FIDE." },
-        { nombre: "Juan Pablo Varas", img: "varas4_10229190993938865_7838399157145470729_n.jpg", desc: "Campeón de Osorno 1990 y figura histórica del club." }
+        { nombre: "Gustavo Sommer", desc: "Gran campeón en los años 80." },
+        { nombre: "Allan Elleberg", desc: "Campeón de Osorno 1980." },
+        { nombre: "Germán Bielefeldt", desc: "Campeón en 2 ocasiones." },
+        { nombre: "José Troncoso", desc: "Impulsor del ajedrez educativo." },
+        { nombre: "Hugo López", desc: "Campeón nacional y de Osorno." },
+        { nombre: "Sergio Vera", desc: "Instructor FIDE y múltiple campeón local." },
+        { nombre: "Juan Pablo Varas", desc: "Campeón de Osorno 1990 y figura histórica del club." },
+        { nombre: "Andrés Carrasco", desc: "Referente competitivo del club." },
+        { nombre: "Juan Sánchez", desc: "Figura destacada de la generación de los 90." }
     ];
-    generarGaleria('campeonesGrid', campeonesOsorno);
+    function cargarCampeonesOsornoNombres() {
+        const container = document.getElementById('campeonesGrid');
+        if (!container) return;
+        container.classList.add('names-list');
+        container.innerHTML = campeonesOsorno.map(c => `<div class="name-card"><h4>${c.nombre}</h4><p>${c.desc}</p></div>`).join('');
+    }
+    cargarCampeonesOsornoNombres();
     
     let directivaRenderizada = false;
     function cargarDirectiva() {
@@ -2591,7 +2666,7 @@
         galeriaImagenesList.forEach(img => {
             const card = document.createElement('div');
             card.className = 'gallery-card';
-            card.innerHTML = `<div class="gallery-img"><img src="${img.img}" alt="${img.nombre}" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'"></div><h4>${img.nombre}</h4><p>${img.desc}</p>`;
+            card.innerHTML = `<div class="gallery-img"><img src="${img.img}" alt="${img.nombre}" loading="lazy" decoding="async" onerror="this.closest('.gallery-card')?.remove()"></div><h4>${img.nombre}</h4><p>${img.desc}</p>`;
             const imgEl = card.querySelector('img');
             if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(img.img); });
             activarTarjetaImagen(card, img.img);
@@ -2930,3 +3005,4 @@
 </script>
 </body>
 </html>
+
