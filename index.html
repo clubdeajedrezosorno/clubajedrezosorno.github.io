@@ -1818,6 +1818,33 @@
         .blog-card {
             overflow: hidden;
         }
+        #blogContainer {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        #blogContainer .blog-card {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        #blogContainer .blog-card.featured-news {
+            grid-column: 1 / -1;
+        }
+        #blogContainer .blog-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        #blogContainer .blog-feature-image {
+            order: -1;
+            margin: 0 0 0.2rem;
+        }
+        #blogContainer .blog-feature-image img {
+            aspect-ratio: 16 / 9;
+            max-height: none;
+            object-fit: cover;
+        }
         .blog-card.featured-news {
             border-color: rgba(31,111,88,0.6);
         }
@@ -1873,6 +1900,23 @@
             }
         }
         @media (max-width: 760px) {
+            .sidebar-left {
+                display: none !important;
+            }
+            .quick-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                overflow: visible;
+                padding-inline: 0;
+                margin-inline: 0;
+            }
+            .quick-action {
+                flex: initial;
+                min-height: 116px;
+            }
+            #blogContainer {
+                grid-template-columns: 1fr;
+            }
             .content-band {
                 scroll-margin-top: 72px;
             }
@@ -1929,7 +1973,7 @@
                 <div class="hero-stat"><strong>2026</strong><span>Torneos, escuela y circuito escolar</span></div>
             </div>
             <div class="hero-buttons">
-                <a href="#blogContainer" class="hero-btn gold">Últimas noticias</a>
+                <a href="#ultimasNoticias" class="hero-btn gold">Últimas noticias</a>
                 <a href="#torneosPanel" class="hero-btn dark">Ver torneos</a>
             </div>
         </div>
@@ -1975,7 +2019,7 @@
                 </div>
             </section>
 
-            <div class="blog-section content-band">
+            <div class="blog-section content-band" id="ultimasNoticias">
                 <div class="band-heading">
                     <h2>Blog del Club</h2>
                     <p>Historia, proyección y memoria institucional del ajedrez osornino.</p>
@@ -2063,7 +2107,7 @@
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
 <div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="julian-osorno.jpeg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
 <div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 850px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Julián Keim Hott</h2><img src="julian-dso-ajedrez.jpg" alt="Julián Keim Hott" loading="lazy" decoding="async" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=Julian+DSO'"><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Jugador destacado · Campeón Liga del Ranco 2</p><p>Julián se coronó campeón de la Liga del Ranco 2, una actuación que lo instala como nuestro destacado principal. Renato también brilló con un gran 3° lugar.</p><a class="btn-compartir" href="https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver resultados oficiales</a></div></div>
-<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
+<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content" style="display:none;"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content active"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
 <div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
 <form id="contactFormModern">
@@ -2091,9 +2135,10 @@
     const ligaRancoGaleria = `<div class="blog-photo-strip">${ligaRancoFotos.map(foto => `<img src="${foto}" alt="Liga del Ranco Club de Ajedrez Osorno" loading="lazy" onclick="openImageModal('${foto}')">`).join('')}</div>`;
     const noticiasBase = [
         { fecha: "Liga del Ranco 2 · 2026", titulo: "Julián primero Sub 10 y gran actuación osornina", texto: "Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> logró el <strong>1° lugar Sub 10</strong>, <strong>Renato Conejeros</strong> alcanzó un gran <strong>3° lugar</strong>, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>.", galeria: ligaRancoFotos, enlace: "https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
-        { fecha: "3° Blitz de Mayo 2026", titulo: "Miguel Pacheco se queda con el 3° Blitz", texto: "Miguel Pacheco firmó una actuación sólida y se coronó campeón del 3° Blitz de Mayo, confirmando su buen momento competitivo dentro del club.", imagen: "oo.jpg" },
-        { fecha: "La Unión 2026", titulo: "Sergio Vera campeón en La Unión", texto: "Sergio Vera Soto ganó el torneo de La Unión con campaña perfecta: <strong>1° lugar y 6 puntos</strong>, según la tabla oficial de Chess-Results. También estuvieron presentes Tomás Gebauer, Maximiliano Gajardo, Renato y Carlos, acompañando una nueva salida competitiva del ajedrez osornino.", imagen: "la-union-campeones.jpg", enlace: "https://s2.chess-results.com/tnr1404022.aspx?lan=1&art=1&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
-        { fecha: "Primer Blitz 2026", titulo: "Eriberto Calderón campeón del primer blitz", texto: "El primer blitz del ciclo dejó como campeón a <strong>Eriberto Calderón</strong>, abriendo la temporada rápida del club con entusiasmo y buena participación.", imagen: "calderon.jpg" },
+        { fecha: "3° Blitz de Mayo 2026", titulo: "Miguel Pacheco se queda con el 3° Blitz", texto: "Miguel Pacheco firmó una actuación sólida y se coronó campeón del 3° Blitz de Mayo, confirmando su buen momento competitivo dentro del club.", imagen: "mighel.pacheco-osorno.jpg", enlace: "https://s3.chess-results.com/tnr1414290.aspx?lan=2&art=1&SNode=S0", enlaceTexto: "Ver 3° Blitz en Chess-Results" },
+        { fecha: "2° Blitz Mensual 2026", titulo: "Sergio Vera campeón del 2° Blitz mensual", texto: "Sergio Vera se quedó con el <strong>2° Blitz Mensual del Club de Ajedrez Osorno</strong>, sumando otro resultado destacado en el calendario interno del club.", imagen: "yo-segundo-blitz.jpg", enlace: "https://s3.chess-results.com/tnr1392491.aspx?lan=2&art=1&SNode=S0", enlaceTexto: "Ver 2° Blitz en Chess-Results" },
+        { fecha: "La Unión 2026", titulo: "Sergio Vera campeón en la Primera Liga del Ranco", texto: "Sergio Vera Soto ganó el torneo de La Unión con campaña perfecta: <strong>1° lugar y 6 puntos</strong>, según la tabla oficial de Chess-Results. También estuvieron presentes Tomás Gebauer, Maximiliano Gajardo, Renato y Carlos, acompañando una nueva salida competitiva del ajedrez osornino.", imagen: "la-union724f975-400e-4a32-a4da-57757f835e35.jpg", enlace: "https://s2.chess-results.com/tnr1404022.aspx?lan=1&SNode=S0", enlaceTexto: "Ver Primera Liga del Ranco" },
+        { fecha: "Primer Blitz 2026", titulo: "Eriberto Calderón campeón del primer blitz", texto: "El primer blitz del ciclo dejó como campeón a <strong>Eriberto Calderón</strong>, abriendo la temporada rápida del club con entusiasmo y buena participación.", imagen: "calderon.jpg", enlace: "https://s1.chess-results.com/tnr1421486.aspx?lan=2&art=4&SNode=S0", enlaceTexto: "Ver Primer Blitz en Chess-Results" },
         { fecha: "24 ago 1924", titulo: "Fundación y primeros pasos", texto: "El Club de Ajedrez Osorno nació oficialmente el <span class='highlight'>24 de agosto de 1924</span>, siendo uno de los más antiguos de Chile. En 2026 celebramos <strong>102 años</strong> de vida institucional, y nos preparamos para un gran IRT en nuestro aniversario." },
         { fecha: "Campeones y maestros", titulo: "Nuestra galería de estrellas", texto: "Grandes figuras han pasado por nuestras filas: <strong>Gustavo Sommer</strong>, <strong>Hugo López</strong>, <strong>Sergio Vera</strong>, <strong>Andrés Carrasco</strong> dejaron su huella con títulos regionales y nacionales." },
         { fecha: "Proyección 2026", titulo: "Un futuro con más torneos IRT", texto: "Este año seremos sede del <strong>IRT 102° Aniversario</strong> (válido para rating FIDE) y continuaremos con el <strong>Circuito Nacional de Clubes</strong>." }
@@ -2260,7 +2305,15 @@
     
     // ACTIVIDADES CLUB CORREGIDO
     const actividadesList = [
-        { nombre: "Campeón Tercer Blitz Mayo - Miguel Pacheco", img: "oo.jpg", desc: "Miguel Pacheco campeón del 3° Blitz 2026" },
+        { nombre: "Miguel Pacheco campeón 3° Blitz", img: "miguelcampeon-32a7-4c49-acf5-6293c1f25b9c.jpg", desc: "Nueva actividad destacada del club" },
+        { nombre: "Marcelo segundo lugar 3° Blitz", img: "marcelo-segundo-6b6-8259-507bd7701d83.jpg", desc: "Marcelo logra el segundo puesto" },
+        { nombre: "Nelson tercer lugar 3° Blitz", img: "nelson-tercero--8e3c-44be-b14b-a0de8ef2d622.jpg", desc: "Nelson se queda con el tercer lugar" },
+        { nombre: "Registro del 3° Blitz", img: "club3erblitz--7b19-437a-9dd9-c96358c69d42.jpg", desc: "Jornada mensual del Club de Ajedrez Osorno" },
+        { nombre: "Sergio Vera campeón Liga del Ranco", img: "vera-la-unione-4a32-a4da-57757f835e35.jpg", desc: "Campeón de la Primera Fecha Liga del Ranco" },
+        { nombre: "Delegación en La Unión", img: "launion3-c156-4ae1-8086-184f8f21799a.jpg", desc: "Participación osornina en la Liga del Ranco" },
+        { nombre: "Ángel destacado", img: "angel-7c-37de-4a01-b0ea-cc09ace9b549.jpg", desc: "Nueva generación del club en competencia" },
+        { nombre: "Liga del Ranco - Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián 1° Sub 10 y Renato 3°" },
+        { nombre: "Campeón Tercer Blitz Mayo - Miguel Pacheco", img: "mighel.pacheco-osorno.jpg", desc: "Miguel Pacheco campeón del 3° Blitz 2026" },
         { nombre: "2° Lugar Tercer Blitz", img: "marcelo.jpg", desc: "Marcelo, segundo puesto en el torneo blitz" },
         { nombre: "Bastian Campeón Sub 14", img: "bastian-club-ajedrez-osorno.jpg", desc: "Bastian logra el título en categoría Sub 14" },
         { nombre: "Carlos Campeón Sub 16", img: "carlos-mama-clun-mm.jpg", desc: "Carlos se corona campeón Sub 16" },
@@ -2280,11 +2333,16 @@
     
     const galeriaImagenesList = [
         { nombre: "Julián y Renato en Liga del Ranco", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Actuación destacada de la delegación osornina" },
-        { nombre: "Juan Pablo Varas", img: "varas4_10229190993938865_7838399157145470729_n.jpg", desc: "Figura histórica y campeón de Osorno" },
         { nombre: "Sergio Vera campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Campeón Liga del Ranco en La Unión" },
         { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Delegación del Club de Ajedrez Osorno" },
-        { nombre: "Miguel Pacheco campeón 3° Blitz", img: "oo.jpg", desc: "Campeón del 3° Blitz de Mayo 2026" },
+        { nombre: "Miguel Pacheco campeón 3° Blitz", img: "mighel.pacheco-osorno.jpg", desc: "Campeón del 3° Blitz de Mayo 2026" },
         { nombre: "Eriberto Calderón", img: "calderon.jpg", desc: "Campeón del primer blitz" },
+        { nombre: "Liga del Ranco - equipo", img: "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg", desc: "Registro de la delegación osornina" },
+        { nombre: "Liga del Ranco - premiación", img: "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg", desc: "Actuación destacada de nuestros jóvenes" },
+        { nombre: "Liga del Ranco - tablero", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Jornada competitiva escolar" },
+        { nombre: "Liga del Ranco - Osorno", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del club" },
+        { nombre: "Liga del Ranco - jóvenes", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Nuevas generaciones del club" },
+        { nombre: "Liga del Ranco - cierre", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Registro del torneo" },
         { nombre: "IRT Chess Academy", img: "historicas/irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
         { nombre: "Match Osorno vs Valdivia 2019", img: "historicas/nacional-temuco-2019.jpg", desc: "Encuentro amistoso" },
         { nombre: "Torneo Mayor 2009", img: "historicas/mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
@@ -2330,12 +2388,39 @@
         { fecha: "14 de noviembre de 2026", lugar: "La Unión (Salón Consistorial Municipalidad de La Unión)" }
     ];
     
+    let modalHistoryArmed = false;
+    function abrirModal(modal) {
+        if (!modal) return;
+        modal.classList.add('active');
+        if (!modalHistoryArmed && window.history && window.history.pushState) {
+            window.history.pushState({ modalOpen: true }, '', window.location.href);
+            modalHistoryArmed = true;
+        }
+    }
+    function cerrarModal(modal) {
+        if (!modal) return;
+        modal.classList.remove('active');
+        if (modalHistoryArmed && window.history && window.history.back) {
+            modalHistoryArmed = false;
+            window.history.back();
+        }
+    }
+    function cerrarModalSinHistorial(modal) {
+        if (!modal) return;
+        modal.classList.remove('active');
+        modalHistoryArmed = false;
+    }
+    window.addEventListener('popstate', () => {
+        const activeModal = document.querySelector('.modal-overlay.active');
+        if (activeModal) cerrarModalSinHistorial(activeModal);
+    });
+
     function openImageModal(imgSrc) {
         const modal = document.getElementById('imagenMaxModal');
         const img = document.getElementById('imagenMaxSrc');
         if (!modal || !img || !imgSrc) return;
         img.src = imgSrc;
-        modal.classList.add('active');
+        abrirModal(modal);
         const btnCompartir = document.getElementById('btnCompartirImagen');
         if (btnCompartir) {
             const newBtn = btnCompartir.cloneNode(true);
@@ -2352,7 +2437,7 @@
                 });
             });
         }
-        modal.onclick = function(e) { if (e.target === modal) modal.classList.remove('active'); };
+        modal.onclick = function(e) { if (e.target === modal) cerrarModal(modal); };
     }
 
     function activarTarjetaImagen(card, imgSrc) {
@@ -2732,18 +2817,18 @@
     const tesoreriaModal = document.getElementById('tesoreriaModal');
     const closeTesoreria = document.getElementById('closeTesoreriaModalBtn');
     const tesoreriaLink = document.getElementById('tesoreriaLink');
-    tesoreriaLink.addEventListener('click', async () => { await cargarCuotas(); renderTesoreriaModal(); tesoreriaModal.classList.add('active'); });
-    closeTesoreria.addEventListener('click', () => tesoreriaModal.classList.remove('active'));
-    tesoreriaModal.addEventListener('click', (e) => { if (e.target === tesoreriaModal) tesoreriaModal.classList.remove('active'); });
+    tesoreriaLink.addEventListener('click', async () => { await cargarCuotas(); renderTesoreriaModal(); abrirModal(tesoreriaModal); });
+    closeTesoreria.addEventListener('click', () => cerrarModal(tesoreriaModal));
+    tesoreriaModal.addEventListener('click', (e) => { if (e.target === tesoreriaModal) cerrarModal(tesoreriaModal); });
     
     function setupModal(triggerId, modalId, closeId) {
         const trigger = document.getElementById(triggerId);
         const modal = document.getElementById(modalId);
         const closeBtn = document.getElementById(closeId);
         if (trigger && modal && closeBtn) {
-            trigger.addEventListener('click', () => modal.classList.add('active'));
-            closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('active'); });
+            trigger.addEventListener('click', () => abrirModal(modal));
+            closeBtn.addEventListener('click', () => cerrarModal(modal));
+            modal.addEventListener('click', (e) => { if (e.target === modal) cerrarModal(modal); });
         }
     }
     setupModal('championsTrigger', 'championsModal', 'closeModalBtn');
@@ -2772,9 +2857,9 @@
     const campeonesModal = document.getElementById('campeonMundialModal');
     const closeCampeonesModal = document.getElementById('closeCampeonMundialBtn');
     if (campeonesLink && campeonesModal && closeCampeonesModal) {
-        campeonesLink.addEventListener('click', () => { cargarCampeonesMundiales(); campeonesModal.classList.add('active'); });
-        closeCampeonesModal.addEventListener('click', () => campeonesModal.classList.remove('active'));
-        campeonesModal.addEventListener('click', (e) => { if (e.target === campeonesModal) campeonesModal.classList.remove('active'); });
+        campeonesLink.addEventListener('click', () => { cargarCampeonesMundiales(); abrirModal(campeonesModal); });
+        closeCampeonesModal.addEventListener('click', () => cerrarModal(campeonesModal));
+        campeonesModal.addEventListener('click', (e) => { if (e.target === campeonesModal) cerrarModal(campeonesModal); });
     }
     
     const btnAgregarRanking = document.getElementById('btnAgregarJugadorRanking');
@@ -2785,15 +2870,15 @@
         quickTesoreria.addEventListener('click', async () => {
             await cargarCuotas();
             renderTesoreriaModal();
-            tesoreriaModal.classList.add('active');
+            abrirModal(tesoreriaModal);
         });
     }
     
     const closeImagenMax = document.getElementById('closeImagenMaxModalBtn');
     const imagenMaxModal = document.getElementById('imagenMaxModal');
     if (closeImagenMax && imagenMaxModal) {
-        closeImagenMax.addEventListener('click', () => imagenMaxModal.classList.remove('active'));
-        imagenMaxModal.addEventListener('click', (e) => { if(e.target === imagenMaxModal) imagenMaxModal.classList.remove('active'); });
+        closeImagenMax.addEventListener('click', () => cerrarModal(imagenMaxModal));
+        imagenMaxModal.addEventListener('click', (e) => { if(e.target === imagenMaxModal) cerrarModal(imagenMaxModal); });
     }
     
     const foroLink = document.getElementById('foroLink');
@@ -2840,7 +2925,7 @@
 
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
-        document.querySelectorAll('.modal-overlay.active').forEach(modal => modal.classList.remove('active'));
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => cerrarModal(modal));
     });
 </script>
 </body>
