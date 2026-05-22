@@ -1778,6 +1778,121 @@
                 justify-content: center;
             }
         }
+
+        /* ==================== PULIDO FINAL: ORDEN, LECTURA Y PERFORMANCE ==================== */
+        .main-content {
+            min-width: 0;
+        }
+        .content-band {
+            scroll-margin-top: 84px;
+        }
+        .blog-section,
+        .actividades-block,
+        .champions-block,
+        .online-panel,
+        .modal-container {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 720px;
+        }
+        .quick-actions {
+            align-items: stretch;
+        }
+        .quick-action {
+            appearance: none;
+            box-shadow: none;
+            font: inherit;
+            text-align: left;
+        }
+        .quick-action:focus-visible,
+        .quick-action:hover {
+            color: var(--text);
+        }
+        .spotlight-strip {
+            align-items: stretch;
+        }
+        .spotlight-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .blog-card {
+            overflow: hidden;
+        }
+        .blog-card.featured-news {
+            border-color: rgba(31,111,88,0.6);
+        }
+        .blog-card.featured-news .blog-title {
+            max-width: 860px;
+        }
+        .blog-feature-image,
+        .blog-photo-strip {
+            clear: both;
+        }
+        .blog-feature-image img,
+        .blog-photo-strip img,
+        .gallery-img img,
+        .colaborador-box img {
+            background: #090909;
+        }
+        .gallery-card {
+            min-width: 0;
+        }
+        .gallery-card h4,
+        .gallery-card p {
+            overflow-wrap: anywhere;
+        }
+        .gallery-card p a {
+            color: #9bd1bf !important;
+        }
+        .modal-container {
+            scrollbar-color: rgba(240,215,122,0.35) rgba(255,255,255,0.06);
+        }
+        .modal-container img {
+            max-height: 72vh;
+            object-fit: contain;
+        }
+        .torneo-escolar-acciones {
+            align-items: center;
+        }
+        .bases-escolar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-top: 0.45rem;
+            color: #9bd1bf;
+            font-weight: 800;
+        }
+        .bases-escolar-link:hover {
+            color: var(--gold-bright);
+        }
+        @media (min-width: 1001px) {
+            .sidebar-right {
+                position: sticky;
+                top: 16px;
+                align-self: start;
+            }
+        }
+        @media (max-width: 760px) {
+            .content-band {
+                scroll-margin-top: 72px;
+            }
+            .blog-section,
+            .actividades-block,
+            .champions-block,
+            .online-panel,
+            .modal-container {
+                contain-intrinsic-size: 1px 560px;
+            }
+            .spotlight-item {
+                min-height: auto;
+            }
+            .gallery-card h4 {
+                font-size: 1rem;
+            }
+            .modal-container img {
+                max-height: 68svh;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1946,7 +2061,7 @@
 <div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
 <div id="actividadesClubModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeActividadesClubModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Actividades club</h2><div class="grid-4cols" id="actividadesGrid"></div></div></div>
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
-<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="nn.jpg" alt="NN" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=NN'"></div><div><img src="escuela3.jpg" alt="Escuela 3" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+3'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
+<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="julian-osorno.jpeg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
 <div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 850px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Julián Keim Hott</h2><img src="julian-dso-ajedrez.jpg" alt="Julián Keim Hott" loading="lazy" decoding="async" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=Julian+DSO'"><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Jugador destacado · Campeón Liga del Ranco 2</p><p>Julián se coronó campeón de la Liga del Ranco 2, una actuación que lo instala como nuestro destacado principal. Renato también brilló con un gran 3° lugar.</p><a class="btn-compartir" href="https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver resultados oficiales</a></div></div>
 <div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="eventos">📜 Eventos históricos</button><button class="tab-btn" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content active"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
