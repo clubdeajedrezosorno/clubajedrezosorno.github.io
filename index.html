@@ -79,6 +79,19 @@
             border-radius: 16px;
             object-fit: cover;
         }
+        .destacado-miniaturas {
+            display: grid;
+            grid-template-columns: repeat(3, 48px);
+            gap: 6px;
+            align-items: center;
+        }
+        .jugador-destacado-header .destacado-miniaturas img {
+            width: 48px;
+            height: 62px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+        }
         .right-rubrics { display: flex; justify-content: flex-end; gap: 1.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
         .right-rubrics span { cursor: pointer; }
         
@@ -2105,7 +2118,7 @@
                 </div>
             </div>
             <div class="jugador-destacado-header" id="miguelHeaderTrigger" aria-label="Campeones Open Escolar 2026">
-                <img class="destacado-collage" src="galeria-torneo-2026/destacados-open-escolar-2026.jpg" alt="Renato, Maximiliano y Bastián destacados" decoding="async" fetchpriority="high" onerror="this.src='https://placehold.co/600x360?text=Destacados+2026'">
+                <img class="destacado-collage" src="galeria-torneo-2026/destacados-open-escolar-2026.jpg" alt="Renato, Maximiliano y Bastián destacados" decoding="async" fetchpriority="high" onerror="this.style.display='none'">
                 <span>Destacados<br><small>Open Escolar 2026</small></span>
             </div>
         </div>
