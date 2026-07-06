@@ -45,6 +45,53 @@
             border: 2px solid #d4af37; 
         }
         .jugador-destacado-header span { font-size: 0.85rem; font-weight: 600; color: #ffea80; line-height: 1.3; }
+        .destacados-header-grid {
+            display: flex;
+            gap: 0.55rem;
+            align-items: stretch;
+        }
+        .destacado-pill {
+            width: 82px;
+            text-align: center;
+        }
+        .jugador-destacado-header .destacado-pill img {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 0.35rem;
+            display: block;
+        }
+        .destacado-pill strong {
+            display: block;
+            color: #fff2c4;
+            font-size: 0.76rem;
+            line-height: 1.05;
+        }
+        .destacado-pill small {
+            display: block;
+            color: #d4af37;
+            font-size: 0.67rem;
+            line-height: 1.1;
+            margin-top: 0.12rem;
+        }
+        .jugador-destacado-header img.destacado-collage {
+            width: 168px;
+            height: 98px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+        .destacado-miniaturas {
+            display: grid;
+            grid-template-columns: repeat(3, 48px);
+            gap: 6px;
+            align-items: center;
+        }
+        .jugador-destacado-header .destacado-miniaturas img {
+            width: 48px;
+            height: 62px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+        }
         .right-rubrics { display: flex; justify-content: flex-end; gap: 1.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
         .right-rubrics span { cursor: pointer; }
         
@@ -256,6 +303,27 @@
         .form-contact button:hover { background: #f3d572; }
         
         .datos-bancarios { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #2c2c2c; }
+        .tesoreria-datos-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 150px;
+            gap: 1rem;
+            align-items: center;
+        }
+        .tesorero-foto {
+            width: 150px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 2px solid rgba(240,215,122,0.62);
+            box-shadow: 0 16px 34px rgba(0,0,0,0.34);
+        }
+        .tesorero-caption {
+            margin-top: 0.45rem;
+            color: #f0d77a;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-align: center;
+        }
         .tesoreria-panel { background: #0a0a0a; border-radius: 20px; padding: 1rem; margin-top: 1rem; }
         .tesoreria-botones { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
         .tesoreria-botones button { background: #d4af37; color: #111; border: none; padding: 0.5rem 1rem; border-radius: 30px; font-weight: bold; cursor: pointer; }
@@ -287,6 +355,14 @@
         }
         @media (max-width: 520px) {
             .escuela-grid { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
+            .tesoreria-datos-grid {
+                grid-template-columns: 1fr;
+            }
+            .tesorero-foto {
+                width: min(180px, 100%);
+                margin: 0 auto;
+                display: block;
+            }
         }
         /* ==================== PULIDO BLOG / CALENDARIO / GALERIAS ==================== */
         .blog-card.featured-news {
@@ -1871,6 +1947,41 @@
             min-width: 0;
             flex: initial;
         }
+        #blogContainer .blog-photo-strip {
+            display: flex;
+            grid-template-columns: none;
+            gap: 0.75rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            padding: 0.15rem 0 0.9rem;
+            margin: 1rem -0.15rem 0.45rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(240,215,122,0.58) rgba(255,255,255,0.08);
+        }
+        #blogContainer .blog-photo-strip::-webkit-scrollbar {
+            height: 8px;
+        }
+        #blogContainer .blog-photo-strip::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.08);
+            border-radius: 999px;
+        }
+        #blogContainer .blog-photo-strip::-webkit-scrollbar-thumb {
+            background: rgba(240,215,122,0.58);
+            border-radius: 999px;
+        }
+        #blogContainer .blog-photo-strip img {
+            flex: 0 0 clamp(185px, 30vw, 285px);
+            width: auto;
+            aspect-ratio: 4 / 3;
+            scroll-snap-align: start;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+        }
+        #blogContainer .blog-photo-strip img:hover {
+            transform: scale(1.035);
+            border-color: rgba(240,215,122,0.72);
+            z-index: 2;
+        }
         .blog-card.featured-news {
             border-color: rgba(31,111,88,0.6);
         }
@@ -2070,9 +2181,9 @@
                     <div class="subtitle"><i class="fas fa-flag-chile"></i> Chile · Fundado en 1924 · 102 años de historia</div>
                 </div>
             </div>
-            <div class="jugador-destacado-header" id="miguelHeaderTrigger">
-                <img src="julian-dso-ajedrez.jpg" alt="Julián destacado" decoding="async" fetchpriority="high" onerror="this.src='https://placehold.co/400x300?text=Julian+DSO'">
-                <span>Julián<br><small>Campeón Liga del Ranco 2</small></span>
+            <div class="jugador-destacado-header" id="miguelHeaderTrigger" aria-label="Destacados junio 2026">
+                <img class="destacado-collage" src="junio/6fc47454-eeca-4028-be92-cc2664af5505.jpg" alt="Destacados junio 2026" decoding="async" fetchpriority="high" onerror="this.style.display='none'">
+                <span>Destacados<br><small>Junio 2026</small></span>
             </div>
         </div>
         <div class="right-rubrics">
@@ -2132,8 +2243,8 @@
                     <p>Lo más importante para socios, apoderados, jugadores y visitantes.</p>
                 </div>
                 <div class="spotlight-strip">
-                    <div class="spotlight-item"><div class="label">Jugador destacado</div><strong>Julián Keim Hott</strong><span>1° lugar Sub 10 en Liga del Ranco 2.</span></div>
-                    <div class="spotlight-item"><div class="label">Próximo escolar</div><strong>30 de mayo de 2026</strong><span>Open Escolar Osorno con bases disponibles.</span><a class="bases-escolar-link" href="descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a></div>
+                    <div class="spotlight-item"><div class="label">Destacados</div><strong>Renato · Maximiliano · Bastián</strong><span>Campeones Sub 10, Sub 12 y Sub 14 del Open Escolar.</span></div>
+                    <div class="spotlight-item"><div class="label">Open Escolar 2026</div><strong>40 jugadores</strong><span>Primera fiesta escolar organizada por el club.</span><a class="bases-escolar-link" href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-trophy"></i> Ver resultados</a></div>
                     <div class="spotlight-item"><div class="label">Aniversario</div><strong>24 de agosto de 2026</strong><span>102 años de historia institucional.</span></div>
                 </div>
             </section>
@@ -2147,8 +2258,8 @@
             </div>
             <div class="actividades-block content-band">
                 <h3><i class="fas fa-calendar-alt"></i> Próximas actividades</h3>
-                <div class="actividad-item"><div class="actividad-fecha">30 de mayo</div><div class="actividad-texto">Open Escolar Osorno 2026 · Circuito Zona Sur. <a href="descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf" target="_blank" rel="noopener" class="bases-escolar-link">Ver bases</a></div></div>
-                <div class="actividad-item"><div class="actividad-fecha">Próximamente</div><div class="actividad-texto">3° Blitz de invierno · Sede del club.</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">30 de mayo</div><div class="actividad-texto">Open Escolar Osorno 2026 · 40 jugadores y nuevos campeones escolares. <a href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener" class="bases-escolar-link">Ver resultados</a></div></div>
+                <div class="actividad-item"><div class="actividad-fecha">Viernes 12 de junio</div><div class="actividad-texto">4° Blitz del Club de Ajedrez Osorno · Sede Matta 809. Pronto más detalles.</div></div>
                 <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">102° aniversario del Club de Ajedrez Osorno.</div></div>
             </div>
             <div class="champions-block content-band" id="championsTrigger">
@@ -2176,7 +2287,8 @@
         <aside class="sidebar-right">
             <div class="online-panel" id="torneosPanel">
                 <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
-                <div class="tournament-block" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf" target="_blank" rel="noopener">Open Escolar Osorno 2026</a></div><div style="color:#aaa;">30 de mayo · Circuito Escolar Zona Sur</div><a href="descargas/Bases_Open_Escolar_Osorno_2026.pdf" target="_blank" rel="noopener" class="bases-escolar-link">Enlace alternativo</a></div>
+                <div class="tournament-block" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="#">4° Blitz del Club 2026</a></div><div style="color:#aaa;">Viernes 12 de junio · Sede Matta 809 · Pronto bases y enlace oficial</div></div>
+                <div class="tournament-block" style="position:relative;"><div class="active-banner">REALIZADO</div><div class="tournament-name"><a href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener">Open Escolar Osorno 2026</a></div><div style="color:#aaa;">30 de mayo · 40 jugadores · Primer Open Escolar del club</div><a href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener" class="bases-escolar-link">Resultados oficiales</a></div>
                 <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">Open Semana Osornina</a></div><div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div></div>
                 <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div></div>
             </div>
@@ -2218,28 +2330,44 @@
 <div id="directivaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeDirectivaModalBtn">&times;</button><h2><i class="fas fa-users"></i> Directiva 2026</h2><div id="directivaNetflixContainer" class="directiva-netflix"></div></div></div>
 <div id="personalidadModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePersonalidadModalBtn">&times;</button><h2><i class="fas fa-gavel"></i> Personalidad Jurídica</h2><p style="color:#ccc;">El Club de Ajedrez Osorno obtuvo su personalidad jurídica mediante Decreto N° 2716-f del Ministerio de Justicia. Nuestro Rol Único Tributario (RUT) es 65.533.360-6.</p></div></div>
 <div id="rankingModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeRankingModalBtn">&times;</button><h2><i class="fas fa-chart-line"></i> Ranking club</h2><div class="grid-4cols" id="rankingGrid"></div><button id="btnAgregarJugadorRanking" class="btn-agregar-jugador">+ Agregar nuevo jugador</button></div></div>
-<div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p></div><div id="tesoreriaContent"></div></div></div>
+<div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><div class="tesoreria-datos-grid"><div><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p></div><div><img class="tesorero-foto" src="nelson2-ajedrez-osorno.jpg" alt="Nelson, tesorero del Club de Ajedrez Osorno" loading="lazy" decoding="async" onerror="this.closest('div').style.display='none'"><div class="tesorero-caption">Tesorero</div></div></div></div><div id="tesoreriaContent"></div></div></div>
 <div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
 <div id="actividadesClubModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeActividadesClubModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Actividades club</h2><div class="grid-4cols" id="actividadesGrid"></div></div></div>
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
-<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="julian-osorno.jpeg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p></div></div>
-<div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 850px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Julián Keim Hott</h2><img src="julian-dso-ajedrez.jpg" alt="Julián Keim Hott" loading="lazy" decoding="async" style="cursor:pointer;" onerror="this.src='https://placehold.co/800x500?text=Julian+DSO'"><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Jugador destacado · Campeón Liga del Ranco 2</p><p>Julián se coronó campeón de la Liga del Ranco 2, una actuación que lo instala como nuestro destacado principal. Renato también brilló con un gran 3° lugar.</p><a class="btn-compartir" href="https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver resultados oficiales</a></div></div>
+<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela+Osorno'"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Clases+Osorno'"></div><div><img src="julian-osorno.jpeg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Escuela'"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=Imagen+4'"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=escuela-club.jpg'"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;" onerror="this.src='https://placehold.co/400x300?text=mateo-juian.jpg'"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p><p style="margin-top:0.75rem; color:#ccc;">Para clases personalizadas, modalidad online y preparación competitiva, visita <strong>Chess Academy Osorno</strong>.</p><a class="btn-compartir" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ir a chessacademyosorno.cl</a></div></div>
+<div id="miguelModal" class="modal-overlay"><div class="modal-container" style="max-width: 950px; text-align: center;"><button class="close-modal" id="closeMiguelModalBtn">&times;</button><h2><i class="fas fa-star"></i> Campeones Open Escolar Osorno 2026</h2><div class="blog-photo-strip" style="margin-top:1rem;"><img src="galeria-torneo-2026/renato.jpg" alt="Renato Conejeros campeón Sub 10" loading="lazy" decoding="async" onclick="openImageModal('galeria-torneo-2026/renato.jpg')"><img src="galeria-torneo-2026/maximiliano-gajardo.jpg" alt="Maximiliano Gajardo campeón Sub 12" loading="lazy" decoding="async" onclick="openImageModal('galeria-torneo-2026/maximiliano-gajardo.jpg')"><img src="galeria-torneo-2026/bastian.jpg" alt="Bastián Obando campeón Sub 14" loading="lazy" decoding="async" onclick="openImageModal('galeria-torneo-2026/bastian.jpg')"></div><p style="margin-top:1rem; color:#f0d77a; font-weight:800;">Renato Conejeros · Maximiliano Gajardo · Bastián Obando</p><p>El Primer Open Escolar del Club de Ajedrez Osorno 2026 reunió a 40 jugadores y confirmó el crecimiento de una generación valiente, estudiosa y competitiva. Renato Conejeros fue campeón Sub 10, Maximiliano Gajardo campeón Sub 12 y Bastián Obando campeón Sub 14, dejando en alto el trabajo formativo del club.</p><p>La jornada convocó representantes del Colegio Alemán de Osorno y La Unión, Colegio Francés, Escuela René Soriano, Liceo Premilitar, Escuela de San Pablo y Crucero, Agrícola de Pichil y Colegio Andalhue. En la clasificación general, el ganador fue Isaac Pinargote.</p><a class="btn-compartir" href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver resultados oficiales</a></div></div>
 <div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content" style="display:none;"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content active"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><div id="galeriaTabs" class="gallery-tabs" aria-label="Filtrar galería"></div><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
 <div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
-<form id="contactFormModern">
-    <input type="text" id="contactNombre" placeholder="Tu nombre" required>
-    <input type="email" id="contactEmail" placeholder="Tu email" required>
-    <textarea id="contactMensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+<form id="contactFormModern" action="https://formsubmit.co/clubdeajedrezosorno@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web del Club de Ajedrez Osorno">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
+    <input type="text" id="contactNombre" name="Nombre" placeholder="Tu nombre" required>
+    <input type="email" id="contactEmail" name="Email" placeholder="Tu email" required>
+    <textarea id="contactMensaje" name="Mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
     <button type="submit">Enviar mensaje</button>
 </form>
-<p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">Se abrirá tu programa de correo con los datos precargados.</p>
+<p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">El mensaje llegará directo al correo del club.</p>
 </div></div>
 <div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn">&times;</button><img id="imagenMaxSrc" style="max-width: 100%; max-height: 80vh; border-radius: 20px;"><br><button id="btnCompartirImagen" class="btn-compartir"><i class="fas fa-share-alt"></i> Compartir imagen</button></div></div>
 <div id="torneosEscolaresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Circuito Escolar Zona Sur 2026</h2><div id="listaTorneosEscolares"></div></div></div>
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
 
 <script>
+    const openEscolarFotos = [
+        "galeria-torneo-2026/pinargote-premilitar.jpg",
+        "galeria-torneo-2026/premilitar.jpg",
+        "galeria-torneo-2026/3b4cc8bc-316f-423c-9e2a-6c6a0f1b6526 (1).jpg",
+        "galeria-torneo-2026/13c81e68-d5c8-48a8-aac8-59e1b0396a29.jpg",
+        "galeria-torneo-2026/14b7e818-84de-4a8e-b0fd-f2b7ce0b7c44.jpg",
+        "galeria-torneo-2026/c2af5ed4-fa16-4a4f-a51b-be8821d49eb9.jpg",
+        "galeria-torneo-2026/renato.jpg",
+        "galeria-torneo-2026/maximiliano-gajardo.jpg",
+        "galeria-torneo-2026/bastian.jpg",
+        "galeria-torneo-2026/renato-y-angelpremiados.jpg"
+    ];
     const ligaRancoFotos = [
         "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg",
         "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg",
@@ -2251,6 +2379,9 @@
     ];
     const ligaRancoGaleria = `<div class="blog-photo-strip">${ligaRancoFotos.map(foto => `<img src="${foto}" alt="Liga del Ranco Club de Ajedrez Osorno" loading="lazy" onclick="openImageModal('${foto}')">`).join('')}</div>`;
     const noticiasBase = [
+        { fecha: "Liga del Ranco 3 - Junio 2026", titulo: "Jorge Castilla campeón en la 3ª Liga del Ranco", texto: "El Club de Ajedrez Osorno destacó en la <strong>3ª versión de la Liga del Ranco</strong>. <strong>Jorge Castilla</strong> fue <strong>campeón</strong>, <strong>Sergio Vera</strong> obtuvo el <strong>segundo lugar</strong>, <strong>Renato Conejeros</strong> fue <strong>campeón Sub 10</strong> y <strong>Eithan Atenas</strong> fue <strong>campeón Sub 8</strong>.", imagen: "junio/6fc47454-eeca-4028-be92-cc2664af5505.jpg", enlace: "https://s3.chess-results.com/tnr1446604.aspx?lan=29&art=1&rd=6&SNode=S0", enlaceTexto: "Ver Liga del Ranco 3 en Chess-Results" },
+        { fecha: "IRT Puerto Montt - Junio 2026", titulo: "Sergio Vera campeón del IRT Puerto Montt", texto: "Gran resultado para el Club de Ajedrez Osorno en el <strong>IRT Puerto Montt</strong>: <strong>Sergio Vera</strong> se coronó <strong>campeón</strong> del torneo. También destacó <strong>Jorge Castilla</strong> como <strong>mejor Sub 1800</strong>.", imagen: "junio/campeon-irt-pmonttd8-b587-84d48984f161.jpg", enlace: "https://s3.chess-results.com/tnr1439522.aspx?lan=1&art=1&rd=5&SNode=S0", enlaceTexto: "Ver IRT Puerto Montt en Chess-Results" },
+        { fecha: "Open Escolar Osorno · 2026", titulo: "Renato, Maximiliano y Bastián brillan en el Primer Open Escolar del Club", texto: "El <strong>Primer Open Escolar del Club de Ajedrez Osorno 2026</strong> reunió a <strong>40 jugadores</strong> y abrió una página luminosa para el ajedrez formativo de la ciudad. En una jornada de respeto, concentración y sana competencia, <strong>Renato Conejeros</strong> se coronó <strong>campeón Sub 10</strong>, <strong>Maximiliano Gajardo</strong> fue <strong>campeón Sub 12</strong> y <strong>Bastián Obando</strong> alcanzó el título <strong>Sub 14</strong>. También participaron representantes del <strong>Colegio Alemán de Osorno</strong> y <strong>La Unión</strong>, <strong>Colegio Francés</strong>, <strong>Escuela René Soriano</strong>, <strong>Liceo Premilitar</strong>, <strong>Escuela de San Pablo y Crucero</strong>, <strong>Agrícola de Pichil</strong> y <strong>Colegio Andalhue</strong>. En la competencia general, el ganador fue <strong>Isaac Pinargote</strong>. Este torneo reafirma al club como una casa abierta para la niñez, la familia y el futuro competitivo del sur de Chile.", galeria: openEscolarFotos, enlace: "https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
         { fecha: "Liga del Ranco 2 · 2026", titulo: "Julián primero Sub 10 y gran actuación osornina", texto: "Nuestros niños dejaron una señal potente en la Liga del Ranco 2: <strong>Julián Keim Hott</strong> logró el <strong>1° lugar Sub 10</strong>, <strong>Renato Conejeros</strong> alcanzó un gran <strong>3° lugar</strong>, y también brillaron <strong>Ángel Ruiz</strong>, <strong>Vicente Zarate</strong>, <strong>Carlos</strong>, <strong>Juan Alonso Dimter</strong> y <strong>Maximiliano Gajardo</strong>.", galeria: ligaRancoFotos, enlace: "https://s3.chess-results.com/tnr1417607.aspx?lan=1&art=1&rd=6&SNode=S0", enlaceTexto: "Ver tabla oficial en Chess-Results" },
         { fecha: "3° Blitz de Mayo 2026", titulo: "Miguel Pacheco se queda con el 3° Blitz", texto: "Miguel Pacheco firmó una actuación sólida y se coronó campeón del 3° Blitz de Mayo, confirmando su buen momento competitivo dentro del club.", imagen: "mighel.pacheco-osorno.jpg", enlace: "https://s3.chess-results.com/tnr1414290.aspx?lan=2&art=1&SNode=S0", enlaceTexto: "Ver 3° Blitz en Chess-Results" },
         { fecha: "2° Blitz Mensual 2026", titulo: "Sergio Vera campeón del 2° Blitz mensual", texto: "Sergio Vera se quedó con el <strong>2° Blitz Mensual del Club de Ajedrez Osorno</strong>, sumando otro resultado destacado en el calendario interno del club.", imagen: "yo-segundo-blitz.jpg", enlace: "https://s3.chess-results.com/tnr1392491.aspx?lan=2&art=1&SNode=S0", enlaceTexto: "Ver 2° Blitz en Chess-Results" },
@@ -2380,7 +2511,11 @@
         { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" }
+        { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Aleli Zamorano", img: "junio/aleli-zamorano8-4fda-918d-c20f807bcd4b.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Boris Zamorano", img: "junio/boris-222e1a8b4d2b.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Daniel Mayo", img: "junio/daniel-mayo-46e6-96ea-11ccdd8d7855.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Adolfo Pereira", img: "junio/7efea9a8-f38f-48d7-ba5f-a9c5edd71c71.jpg", desc: "Sin ranking", enlace: "#" }
     ];
     const nombresExistentes = rankingList.map(j => j.nombre.toLowerCase());
     promesasParaRanking.forEach(p => { if (!nombresExistentes.includes(p.nombre.toLowerCase())) rankingList.push(p); });
@@ -2420,7 +2555,11 @@
         { nombre: "Joaquin", img: "joaquin-ajedrez-club-osorno.jpg", flag: "chile" },
         { nombre: "Eithan Atenas", img: "eithan-club-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Renato Conejeros Moraga", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Rosa Cárdenas", img: "rosa-cardenas-club-ajedrez-osorno.jpg", flag: "chile" }
+        { nombre: "Rosa Cárdenas", img: "rosa-cardenas-club-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Aleli Zamorano", img: "junio/aleli-zamorano8-4fda-918d-c20f807bcd4b.jpg", flag: "chile" },
+        { nombre: "Boris Zamorano", img: "junio/boris-222e1a8b4d2b.jpg", flag: "chile" },
+        { nombre: "Daniel Mayo", img: "junio/daniel-mayo-46e6-96ea-11ccdd8d7855.jpg", flag: "chile" },
+        { nombre: "Adolfo Pereira", img: "junio/7efea9a8-f38f-48d7-ba5f-a9c5edd71c71.jpg", flag: "chile" }
     ];
     for (let i = 1; i <= 5; i++) promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     
@@ -2630,7 +2769,7 @@
             if (item.enlace && item.enlace !== "#") descHtml += `<p><a href="${item.enlace}" target="_blank" style="color:#d4af37; text-decoration:underline; font-weight:500;"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
             let botonEliminar = '';
             if (containerId === 'rankingGrid') {
-                botonEliminar = `<button class="btn-eliminar-jugador" data-index="${idx}" data-nombre="${item.nombre}">🗑️ Eliminar</button>`;
+                botonEliminar = `<button class="btn-eliminar-jugador" data-index="${idx}" data-nombre="${item.nombre}">Eliminar</button>`;
             }
             div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}${botonEliminar}`;
             if (item.img) {
@@ -2646,7 +2785,7 @@
                     e.stopPropagation();
                     const nombre = btn.getAttribute('data-nombre');
                     const pass = prompt("Contraseña de administrador para eliminar:");
-                    if (pass !== "vera123") { alert("Contraseña incorrecta"); return; }
+                    if (pass !== "svera") { alert("Contraseña incorrecta"); return; }
                     const index = rankingList.findIndex(j => j.nombre === nombre);
                     if (index !== -1) {
                         rankingList.splice(index, 1);
@@ -2660,7 +2799,7 @@
     
     function agregarJugadorRanking() {
         const pass = prompt("Contraseña de administrador:");
-        if (pass !== "vera123") { alert("Contraseña incorrecta"); return; }
+        if (pass !== "svera") { alert("Contraseña incorrecta"); return; }
         const nombre = prompt("Nombre del jugador:");
         if (!nombre) return;
         const tieneElo = confirm("¿Tiene ranking ELO?");
@@ -2913,19 +3052,76 @@
         }
     });
     
+    const GOOGLE_SHEETS_CUOTAS_CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTqCMrLkjDCvs8C_jiEV-QFJULpilEirC0FOXeYro9d0qu6Zqhh17GMQ2JU3Npto5YnulJWCW0lMrr3/pub?gid=86767112&single=true&output=csv';
     let datosCuotas = { socios: [] };
     function normalizarRUT(rut) { if (!rut) return ''; return rut.toString().toLowerCase().replace(/[.-]/g, '').replace(/\s/g, ''); }
+    function normalizarClave(texto) {
+        return (texto || '').toString().trim().toLowerCase()
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/\s+/g, ' ');
+    }
+    function parseCSVLine(linea) {
+        const valores = [];
+        let valor = '';
+        let entreComillas = false;
+        for (let i = 0; i < linea.length; i++) {
+            const c = linea[i];
+            const sig = linea[i + 1];
+            if (c === '"' && entreComillas && sig === '"') { valor += '"'; i++; continue; }
+            if (c === '"') { entreComillas = !entreComillas; continue; }
+            if (c === ',' && !entreComillas) { valores.push(valor); valor = ''; continue; }
+            valor += c;
+        }
+        valores.push(valor);
+        return valores.map(v => v.trim());
+    }
+    function numeroCuota(valor) {
+        const limpio = (valor || '').toString().replace(/\$/g, '').replace(/\./g, '').replace(/,/g, '').trim();
+        const numero = parseInt(limpio, 10);
+        return Number.isFinite(numero) ? numero : 0;
+    }
+    function cuotasDesdeCSV(csvTexto) {
+        const lineas = csvTexto.split(/\r?\n/).filter(l => l.trim());
+        const filas = lineas.map(parseCSVLine);
+        const indiceEncabezado = filas.findIndex(f => f.some(c => normalizarClave(c) === 'rut'));
+        if (indiceEncabezado === -1) throw new Error('No se encontro la columna RUT en la hoja de cuotas');
+        const encabezados = filas[indiceEncabezado].map(normalizarClave);
+        const idxNombre = encabezados.indexOf('nombre');
+        const idxApellido = encabezados.indexOf('apellido');
+        const idxRut = encabezados.indexOf('rut');
+        const columnasNoCuota = new Set(['nombre', 'apellido', 'rut', 'fecha ingreso']);
+        const columnasCuota = encabezados
+            .map((nombre, idx) => ({ nombre, idx }))
+            .filter(col => col.idx > idxRut && col.nombre && !columnasNoCuota.has(col.nombre));
+        const socios = filas.slice(indiceEncabezado + 1).map(fila => {
+            const id = (fila[idxRut] || '').trim();
+            if (!id) return null;
+            const nombre = `${fila[idxNombre] || ''} ${fila[idxApellido] || ''}`.trim();
+            const pagado = columnasCuota.reduce((total, col) => total + numeroCuota(fila[col.idx]), 0);
+            const cuotaMensual = 3000;
+            const deuda = Math.max(0, (columnasCuota.length * cuotaMensual) - pagado);
+            return { id, nombre, cuotaMensual, pagado, deuda };
+        }).filter(Boolean);
+        if (!socios.length) throw new Error('La hoja de cuotas no tiene socios validos');
+        return { socios };
+    }
     async function cargarCuotas() {
         try {
-            const response = await fetch('data/cuotas.json');
-            if (!response.ok) throw new Error('No se pudo cargar cuotas.json');
-            const data = await response.json();
-            datosCuotas = data;
+            const response = await fetch(GOOGLE_SHEETS_CUOTAS_CSV, { cache: 'no-store' });
+            if (!response.ok) throw new Error('No se pudo cargar Google Sheets');
+            datosCuotas = cuotasDesdeCSV(await response.text());
             localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
         } catch (error) {
-            const local = localStorage.getItem('cuotasClub');
-            if (local) datosCuotas = JSON.parse(local);
-            else datosCuotas = { socios: [ { id: "11668130-7", nombre: "Sergio Hernan Vera Soto", cuotaMensual: 3000, pagado: 0, deuda: 30000 } ] };
+            try {
+                const response = await fetch('data/cuotas.json', { cache: 'no-store' });
+                if (!response.ok) throw new Error('No se pudo cargar cuotas.json');
+                datosCuotas = await response.json();
+                localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas));
+            } catch (fallbackError) {
+                const local = localStorage.getItem('cuotasClub');
+                if (local) datosCuotas = JSON.parse(local);
+                else datosCuotas = { socios: [ { id: "11668130-7", nombre: "Sergio Hernan Vera Soto", cuotaMensual: 3000, pagado: 0, deuda: 30000 } ] };
+            }
         }
     }
     function guardarCuotasLocal() { localStorage.setItem('cuotasClub', JSON.stringify(datosCuotas)); }
@@ -2934,9 +3130,9 @@
         if (!container) return;
         container.innerHTML = `
             <div class="tesoreria-panel">
-                <div class="tesoreria-botones"><button id="btnSocioConsulta">🔍 Soy socio</button><button id="btnAdminAcceso">🔐 Tesorería</button></div>
+                <div class="tesoreria-botones"><button id="btnSocioConsulta">Soy socio</button><button id="btnAdminAcceso">Tesorería</button></div>
                 <div id="consultaSocio" class="tesoreria-consulta" style="display:none;"><h3>Consultar mi estado</h3><input type="text" id="numSocio" placeholder="Ej: 11668130-7"><button id="btnConsultar">Consultar</button><div id="resultadoConsulta"></div></div>
-                <div id="adminPanel" class="admin-panel"><h3>Panel de administración</h3><div id="tablaSociosAdmin"></div><div class="export-import"><button id="exportarJSON">📤 Exportar JSON</button><label for="importarArchivo">📥 Importar JSON</label><input type="file" id="importarArchivo" accept=".json" style="display:none;"></div></div>
+                <div id="adminPanel" class="admin-panel"><h3>Panel de administración</h3><div id="tablaSociosAdmin"></div><div class="export-import"><button id="exportarJSON">Exportar JSON</button><label for="importarArchivo">Importar JSON</label><input type="file" id="importarArchivo" accept=".json" style="display:none;"></div></div>
             </div>`;
         const btnSocio = document.getElementById('btnSocioConsulta');
         const btnAdmin = document.getElementById('btnAdminAcceso');
@@ -2944,7 +3140,7 @@
         const divAdmin = document.getElementById('adminPanel');
         let adminVisible = false;
         btnSocio.addEventListener('click', () => { divConsulta.style.display = 'block'; divAdmin.style.display = 'none'; adminVisible = false; });
-        btnAdmin.addEventListener('click', () => { const pass = prompt("Contraseña:"); if (pass === "admin123") { divConsulta.style.display = 'none'; divAdmin.style.display = 'block'; adminVisible = true; renderTablaAdmin(); } else alert("Contraseña incorrecta"); });
+        btnAdmin.addEventListener('click', () => { const pass = prompt("Contraseña:"); if (pass === "svera") { divConsulta.style.display = 'none'; divAdmin.style.display = 'block'; adminVisible = true; renderTablaAdmin(); } else alert("Contraseña incorrecta"); });
         const btnConsultar = document.getElementById('btnConsultar');
         const resultadoDiv = document.getElementById('resultadoConsulta');
         btnConsultar.addEventListener('click', () => {
@@ -3068,20 +3264,6 @@
         document.querySelector('.blog-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     
-    const contactForm = document.getElementById('contactFormModern');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nombre = document.getElementById('contactNombre').value;
-            const email = document.getElementById('contactEmail').value;
-            const mensaje = document.getElementById('contactMensaje').value;
-            const asunto = encodeURIComponent(`Contacto desde sitio web - ${nombre}`);
-            const cuerpo = encodeURIComponent(`Nombre: ${nombre}\nCorreo: ${email}\n\nMensaje:\n${mensaje}`);
-            window.location.href = `mailto:clubdeajedrezosorno@gmail.com?subject=${asunto}&body=${cuerpo}`;
-            alert("Se abrirá tu cliente de correo.");
-        });
-    }
-    
     cargarGaleriaImagenes();
     cargarBlog();
     cargarCuotas();
@@ -3109,5 +3291,7 @@
 </script>
 </body>
 </html>
+
+
 
 
