@@ -266,6 +266,11 @@
         
         .tournament-block { background: #0a0a0a; border-radius: 24px; padding: 1.2rem 1.8rem; border: 1px solid #222; margin-bottom: 1rem; transition: 0.2s; position: relative; }
         .tournament-block:hover { border-color: #d4af37; }
+        .tournament-block.featured-event { border-color: rgba(240,215,122,0.8); background: linear-gradient(145deg, rgba(31,111,88,0.26), rgba(111,45,52,0.18)), #111; box-shadow: 0 18px 42px rgba(0,0,0,0.35); }
+        .tournament-block.featured-event .tournament-name a { color: #fff2c4; font-size: 1.05rem; }
+        .tournament-meta { color: #aaa; margin-top: 0.25rem; }
+        .event-video { width: 100%; margin-top: 0.9rem; border-radius: 18px; border: 1px solid rgba(240,215,122,0.28); background: #000; display: block; }
+        .tournament-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.9rem; }
         .tournament-name a { color: #f0e6c5; text-decoration: none; font-weight: 800; }
         .tournament-name a:hover { color: #d4af37; }
         .active-banner { position: absolute; top: -10px; right: 15px; background: #d4af37; color: #111; font-size: 0.7rem; font-weight: bold; padding: 2px 10px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
@@ -2212,18 +2217,18 @@
     <div class="main-grid">
         <aside class="sidebar-left">
             <ul class="main-menu">
-                <li class="active"><a href="#"><i class="fas fa-chess-board"></i> Inicio</a></li>
-                <li><a href="#" id="noticiasLink"><i class="fas fa-newspaper"></i> Noticias / Blog</a></li>
-                <li><a id="torneosEscolaresLink"><i class="fas fa-medal"></i> Torneos Escolares</a></li>
-                <li><a id="actividadesClubLink"><i class="fas fa-calendar-alt"></i> Actividades club</a></li>
-                <li><a id="escuelaLink"><i class="fas fa-chalkboard-user"></i> Escuela</a></li>
-                <li><a id="jovenesPromesasLink"><i class="fas fa-seedling"></i> Jóvenes Promesas</a></li>
-                <li><a id="galeriaImagenesLink"><i class="fas fa-images"></i> Galería de Imágenes</a></li>
-                <li><a id="archivoLink"><i class="fas fa-archive"></i> Histórico y descargas</a></li>
-                <li><a id="foroLink"><i class="fas fa-comments"></i> Foro social</a></li>
-                <li><a id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
-                <li><a id="colaboradoresLink"><i class="fas fa-handshake"></i> Colaboradores</a></li>
-                <li><a id="tesoreriaLink"><i class="fas fa-money-bill-wave"></i> Tesorería</a></li>
+                <li class="active"><a href="#club"><i class="fas fa-chess-board"></i> Inicio</a></li>
+                <li><a href="#ultimasNoticias" id="noticiasLink"><i class="fas fa-newspaper"></i> Noticias / Blog</a></li>
+                <li><a href="#torneos-escolares" id="torneosEscolaresLink"><i class="fas fa-medal"></i> Torneos Escolares</a></li>
+                <li><a href="#actividades-club" id="actividadesClubLink"><i class="fas fa-calendar-alt"></i> Actividades club</a></li>
+                <li><a href="#escuela" id="escuelaLink"><i class="fas fa-chalkboard-user"></i> Escuela</a></li>
+                <li><a href="#jovenes-promesas" id="jovenesPromesasLink"><i class="fas fa-seedling"></i> Jóvenes Promesas</a></li>
+                <li><a href="#galeria" id="galeriaImagenesLink"><i class="fas fa-images"></i> Galería de Imágenes</a></li>
+                <li><a href="#archivo" id="archivoLink"><i class="fas fa-archive"></i> Histórico y descargas</a></li>
+                <li><a href="#foroPanel" id="foroLink"><i class="fas fa-comments"></i> Foro social</a></li>
+                <li><a href="#directiva" id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
+                <li><a href="#colaboradores" id="colaboradoresLink"><i class="fas fa-handshake"></i> Colaboradores</a></li>
+                <li><a href="#tesoreria" id="tesoreriaLink"><i class="fas fa-money-bill-wave"></i> Tesorería</a></li>
             </ul>
         </aside>
 
@@ -2258,8 +2263,8 @@
             </div>
             <div class="actividades-block content-band">
                 <h3><i class="fas fa-calendar-alt"></i> Próximas actividades</h3>
-                <div class="actividad-item"><div class="actividad-fecha">30 de mayo</div><div class="actividad-texto">Open Escolar Osorno 2026 · 40 jugadores y nuevos campeones escolares. <a href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener" class="bases-escolar-link">Ver resultados</a></div></div>
-                <div class="actividad-item"><div class="actividad-fecha">Viernes 12 de junio</div><div class="actividad-texto">4° Blitz del Club de Ajedrez Osorno · Sede Matta 809. Pronto más detalles.</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">31 de julio</div><div class="actividad-texto">5° Blitz del Club 2026 · Sede Matta 809.</div></div>
+                <div class="actividad-item"><div class="actividad-fecha">15 y 16 de agosto</div><div class="actividad-texto"><strong>Gran Torneo I.R.T. 102 años</strong> · Evento aniversario destacado del Club de Ajedrez Osorno.</div></div>
                 <div class="actividad-item"><div class="actividad-fecha">24 de agosto</div><div class="actividad-texto">102° aniversario del Club de Ajedrez Osorno.</div></div>
             </div>
             <div class="champions-block content-band" id="championsTrigger">
@@ -2287,10 +2292,11 @@
         <aside class="sidebar-right">
             <div class="online-panel" id="torneosPanel">
                 <div class="online-header"><i class="fas fa-trophy"></i> Torneos Oficiales</div>
-                <div class="tournament-block" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="#">4° Blitz del Club 2026</a></div><div style="color:#aaa;">Viernes 12 de junio · Sede Matta 809 · Pronto bases y enlace oficial</div></div>
+                <div class="tournament-block" id="blitz-5-2026" style="position:relative;"><div class="active-banner">PRÓXIMO</div><div class="tournament-name"><a href="#blitz-5-2026">5° Blitz del Club 2026</a></div><div class="tournament-meta">31 de julio · Sede Matta 809 · Pronto bases y enlace oficial</div></div>
+                <div class="tournament-block featured-event" id="irt-102-anos"><div class="active-banner">GRAN EVENTO</div><div class="tournament-name"><a href="#irt-102-anos">Gran Torneo I.R.T. 102 años</a></div><div class="tournament-meta">15 y 16 de agosto · Club de Ajedrez Osorno · Válido para rating FIDE</div><video class="event-video" controls preload="metadata" playsinline poster="logoclub.jpg"><source src="galeria-torneo-2026/necesito_una_publicacion_en_vi.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div class="tournament-actions"><button class="btn-compartir" type="button" onclick="compartirUrl('#irt-102-anos', 'Gran Torneo I.R.T. 102 años')"><i class="fas fa-share-alt"></i> Compartir evento</button></div></div>
                 <div class="tournament-block" style="position:relative;"><div class="active-banner">REALIZADO</div><div class="tournament-name"><a href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener">Open Escolar Osorno 2026</a></div><div style="color:#aaa;">30 de mayo · 40 jugadores · Primer Open Escolar del club</div><a href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener" class="bases-escolar-link">Resultados oficiales</a></div>
                 <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2881" target="_blank">Open Semana Osornina</a></div><div style="color:#aaa;">5 rondas · 60+0 · Matta 809</div></div>
-                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank">IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div></div>
+                <div class="tournament-block"><div class="tournament-name"><a href="https://www.federacionchilenadeajedrez.cl/torneo/2885" target="_blank" rel="noopener">IRT 102 Años Club Osorno</a></div><div style="color:#aaa;">6 rondas · 60+30 · Válido rating FIDE</div></div>
             </div>
             <div class="online-panel" id="foroPanel">
                 <div class="online-header"><i class="fas fa-comments"></i> Foro del Club</div>
@@ -2330,7 +2336,7 @@
 <div id="directivaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeDirectivaModalBtn">&times;</button><h2><i class="fas fa-users"></i> Directiva 2026</h2><div id="directivaNetflixContainer" class="directiva-netflix"></div></div></div>
 <div id="personalidadModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePersonalidadModalBtn">&times;</button><h2><i class="fas fa-gavel"></i> Personalidad Jurídica</h2><p style="color:#ccc;">El Club de Ajedrez Osorno obtuvo su personalidad jurídica mediante Decreto N° 2716-f del Ministerio de Justicia. Nuestro Rol Único Tributario (RUT) es 65.533.360-6.</p></div></div>
 <div id="rankingModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeRankingModalBtn">&times;</button><h2><i class="fas fa-chart-line"></i> Ranking club</h2><div class="grid-4cols" id="rankingGrid"></div><button id="btnAgregarJugadorRanking" class="btn-agregar-jugador">+ Agregar nuevo jugador</button></div></div>
-<div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><div class="tesoreria-datos-grid"><div><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p></div><div><img class="tesorero-foto" src="nelson2-ajedrez-osorno.jpg" alt="Nelson, tesorero del Club de Ajedrez Osorno" loading="lazy" decoding="async" onerror="this.closest('div').style.display='none'"><div class="tesorero-caption">Tesorero</div></div></div></div><div id="tesoreriaContent"></div></div></div>
+<div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><div class="tesoreria-datos-grid"><div><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p><button class="btn-compartir" type="button" onclick="compartirUrl('#tesoreria', 'Tesorería Club de Ajedrez Osorno')"><i class="fas fa-share-alt"></i> Compartir tesorería</button></div><div><img class="tesorero-foto" src="nelson2-ajedrez-osorno.jpg" alt="Nelson, tesorero del Club de Ajedrez Osorno" loading="lazy" decoding="async" onerror="this.closest('div').style.display='none'"><div class="tesorero-caption">Tesorero</div></div></div></div><div id="tesoreriaContent"></div></div></div>
 <div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
 <div id="actividadesClubModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeActividadesClubModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Actividades club</h2><div class="grid-4cols" id="actividadesGrid"></div></div></div>
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
@@ -2494,7 +2500,7 @@
         { nombre: "Soraya Espinoza", img: "soraya-espinoza-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/11888" },
         { nombre: "Mario Sepulveda Avello", img: "mario-ajedrez-club-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/10817" },
         { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32096" },
-        { nombre: "Joaquin Kaiser", img: "joaquin-ajedrez-club-osorno.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Joaquin", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Jose Soto", img: "", desc: "Sin ranking", enlace: "#" }
     ];
     rankingList = rankingList.filter((v,i,a)=>a.findIndex(t=>t.nombre===v.nombre)===i);
@@ -2672,32 +2678,60 @@
         { fecha: "14 de noviembre de 2026", lugar: "La Unión (Salón Consistorial Municipalidad de La Unión)" }
     ];
     
-    let modalHistoryArmed = false;
     function abrirModal(modal) {
         if (!modal) return;
         modal.classList.add('active');
-        if (!modalHistoryArmed && window.history && window.history.pushState) {
-            window.history.pushState({ modalOpen: true }, '', window.location.href);
-            modalHistoryArmed = true;
-        }
     }
     function cerrarModal(modal) {
         if (!modal) return;
         modal.classList.remove('active');
-        if (modalHistoryArmed && window.history && window.history.back) {
-            modalHistoryArmed = false;
-            window.history.back();
+        const hash = window.location.hash.toLowerCase();
+        if (hash && hashToModal[hash]) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
         }
     }
     function cerrarModalSinHistorial(modal) {
         if (!modal) return;
         modal.classList.remove('active');
-        modalHistoryArmed = false;
     }
-    window.addEventListener('popstate', () => {
-        const activeModal = document.querySelector('.modal-overlay.active');
-        if (activeModal) cerrarModalSinHistorial(activeModal);
-    });
+    const hashToModal = {
+        '#tesoreria': async () => {
+            await cargarCuotas();
+            renderTesoreriaModal();
+            abrirModal(document.getElementById('tesoreriaModal'));
+        },
+        '#directiva': () => { cargarDirectiva(); abrirModal(document.getElementById('directivaModal')); },
+        '#torneos-escolares': () => abrirModal(document.getElementById('torneosEscolaresModal')),
+        '#actividades-club': () => abrirModal(document.getElementById('actividadesClubModal')),
+        '#escuela': () => abrirModal(document.getElementById('escuelaModal')),
+        '#jovenes-promesas': () => abrirModal(document.getElementById('promesasModal')),
+        '#galeria': () => { cargarGaleriaImagenes(); abrirModal(document.getElementById('galeriaImagenesModal')); },
+        '#archivo': () => abrirModal(document.getElementById('archivoModal')),
+        '#colaboradores': () => abrirModal(document.getElementById('colaboradoresModal'))
+    };
+    async function abrirDesdeHash() {
+        document.querySelectorAll('.modal-overlay.active').forEach(cerrarModalSinHistorial);
+        const abrir = hashToModal[window.location.hash.toLowerCase()];
+        if (abrir) await abrir();
+    }
+    window.addEventListener('hashchange', abrirDesdeHash);
+    window.addEventListener('popstate', abrirDesdeHash);
+
+    async function compartirUrl(hash, titulo) {
+        const url = new URL(hash || '', window.location.href).href;
+        try {
+            if (navigator.share) {
+                await navigator.share({ title: titulo || document.title, url });
+            } else if (navigator.clipboard) {
+                await navigator.clipboard.writeText(url);
+                alert('Enlace copiado para compartir');
+            } else {
+                prompt('Copia este enlace:', url);
+            }
+        } catch (error) {
+            if (navigator.clipboard) await navigator.clipboard.writeText(url);
+        }
+    }
 
     function openImageModal(imgSrc) {
         const modal = document.getElementById('imagenMaxModal');
@@ -3196,7 +3230,11 @@
     const tesoreriaModal = document.getElementById('tesoreriaModal');
     const closeTesoreria = document.getElementById('closeTesoreriaModalBtn');
     const tesoreriaLink = document.getElementById('tesoreriaLink');
-    tesoreriaLink.addEventListener('click', async () => { await cargarCuotas(); renderTesoreriaModal(); abrirModal(tesoreriaModal); });
+    tesoreriaLink.addEventListener('click', async (e) => {
+        e.preventDefault();
+        history.pushState(null, '', '#tesoreria');
+        await abrirDesdeHash();
+    });
     closeTesoreria.addEventListener('click', () => cerrarModal(tesoreriaModal));
     tesoreriaModal.addEventListener('click', (e) => { if (e.target === tesoreriaModal) cerrarModal(tesoreriaModal); });
     
@@ -3205,7 +3243,16 @@
         const modal = document.getElementById(modalId);
         const closeBtn = document.getElementById(closeId);
         if (trigger && modal && closeBtn) {
-            trigger.addEventListener('click', () => abrirModal(modal));
+            trigger.addEventListener('click', async (e) => {
+                const href = trigger.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    history.pushState(null, '', href);
+                    await abrirDesdeHash();
+                    return;
+                }
+                abrirModal(modal);
+            });
             closeBtn.addEventListener('click', () => cerrarModal(modal));
             modal.addEventListener('click', (e) => { if (e.target === modal) cerrarModal(modal); });
         }
@@ -3247,9 +3294,8 @@
     const quickTesoreria = document.getElementById('quickTesoreria');
     if (quickTesoreria) {
         quickTesoreria.addEventListener('click', async () => {
-            await cargarCuotas();
-            renderTesoreriaModal();
-            abrirModal(tesoreriaModal);
+            history.pushState(null, '', '#tesoreria');
+            await abrirDesdeHash();
         });
     }
     
@@ -3261,10 +3307,11 @@
     }
     
     const foroLink = document.getElementById('foroLink');
-    if (foroLink) foroLink.addEventListener('click', () => { document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' }); });
+    if (foroLink) foroLink.addEventListener('click', (e) => { e.preventDefault(); history.pushState(null, '', '#foroPanel'); document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' }); });
     const noticiasLink = document.getElementById('noticiasLink');
     if (noticiasLink) noticiasLink.addEventListener('click', (e) => {
         e.preventDefault();
+        history.pushState(null, '', '#ultimasNoticias');
         document.querySelector('.blog-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
     
@@ -3272,6 +3319,7 @@
     cargarBlog();
     cargarCuotas();
     ordenarRanking();
+    abrirDesdeHash();
 
     // Mejoras de interacción: estado activo, cierre con Escape y scroll bloqueado en modales.
     document.querySelectorAll('.main-menu a').forEach(link => {
