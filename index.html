@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Club de Ajedrez Osorno — 102 años de historia</title>
+    <script>
+        (() => {
+            try {
+                if (sessionStorage.getItem('club102SplashSeen') === '1') {
+                    document.documentElement.classList.add('splash-seen');
+                }
+            } catch (error) {}
+        })();
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Montserrat:wght@300;400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
@@ -11,6 +20,86 @@
         body { background: #000000; font-family: 'Inter', sans-serif; color: #e5e5e5; line-height: 1.45; }
         .site-container { max-width: 1400px; margin: 0 auto; background: #050505; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border-radius: 0 0 24px 24px; animation: fadeIn 0.8s ease-out; overflow-x: hidden; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        html.splash-seen #clubSplash { display: none; }
+        .event-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            background: #050505;
+            opacity: 1;
+            transition: opacity 2s ease;
+            cursor: pointer;
+            isolation: isolate;
+        }
+        .event-splash.is-closing {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .event-splash__picture,
+        .event-splash__image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .event-splash__image {
+            object-fit: cover;
+            object-position: center;
+            transform: scale(1);
+            animation: splashKenBurns 6s ease-out forwards;
+        }
+        .event-splash__shade {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                radial-gradient(circle at 50% 48%, rgba(255,232,168,0.08), transparent 38%),
+                linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.18) 58%, rgba(0,0,0,0.56));
+            pointer-events: none;
+        }
+        .event-splash__hint {
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            bottom: max(1.25rem, env(safe-area-inset-bottom));
+            transform: translateX(-50%);
+            width: min(92vw, 620px);
+            color: #fff3cf;
+            font-family: 'PT Serif', serif;
+            font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+            font-style: italic;
+            text-align: center;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.85);
+            animation: splashHintPulse 1.45s ease-in-out infinite;
+        }
+        .event-splash__hint i {
+            margin-right: 0.45rem;
+            color: #f0d77a;
+            font-size: 0.95em;
+        }
+        @keyframes splashKenBurns {
+            from { transform: scale(1); }
+            to { transform: scale(1.028); }
+        }
+        @keyframes splashHintPulse {
+            0%, 100% { opacity: 0.68; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 767px) {
+            .event-splash__image {
+                object-position: center;
+                animation-duration: 6s;
+            }
+            .event-splash__hint {
+                bottom: max(1rem, env(safe-area-inset-bottom));
+                font-size: 0.98rem;
+            }
+        }
         
         .top-header { 
             background: linear-gradient(135deg, #0a1f2b 0%, #0c2a3b 100%);
@@ -2251,6 +2340,15 @@
     </style>
 </head>
 <body>
+<div id="clubSplash" class="event-splash" role="dialog" aria-label="Bienvenida Gran Torneo de Ajedrez 102 Años" tabindex="0">
+    <picture class="event-splash__picture">
+        <source srcset="splash-mobile.webp" type="image/webp" media="(max-width: 767px)">
+        <source srcset="splash-desktop.webp" type="image/webp">
+        <img class="event-splash__image" src="splash-desktop.webp" alt="Gran Torneo de Ajedrez 102 Años del Club de Ajedrez Osorno" decoding="async" fetchpriority="high">
+    </picture>
+    <div class="event-splash__shade" aria-hidden="true"></div>
+    <p class="event-splash__hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i>Haz clic o toca la pantalla para continuar</p>
+</div>
 <div class="site-container">
     <div class="top-header">
         <div class="header-row">
@@ -2438,6 +2536,47 @@
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
 
 <script>
+    (() => {
+        const splash = document.getElementById('clubSplash');
+        const storageKey = 'club102SplashSeen';
+        if (!splash) return;
+
+        try {
+            if (sessionStorage.getItem(storageKey) === '1') {
+                splash.remove();
+                return;
+            }
+        } catch (error) {}
+
+        let isClosing = false;
+        const closeTimer = window.setTimeout(closeSplash, 4000);
+
+        function markAsSeen() {
+            try { sessionStorage.setItem(storageKey, '1'); } catch (error) {}
+        }
+
+        function removeListeners() {
+            splash.removeEventListener('click', closeSplash);
+            splash.removeEventListener('touchstart', closeSplash);
+            document.removeEventListener('keydown', closeSplash);
+        }
+
+        function closeSplash() {
+            if (isClosing) return;
+            isClosing = true;
+            window.clearTimeout(closeTimer);
+            markAsSeen();
+            removeListeners();
+            splash.classList.add('is-closing');
+            window.setTimeout(() => splash.remove(), 2050);
+        }
+
+        splash.addEventListener('click', closeSplash, { once: true });
+        splash.addEventListener('touchstart', closeSplash, { once: true, passive: true });
+        document.addEventListener('keydown', closeSplash, { once: true });
+        splash.focus({ preventScroll: true });
+    })();
+
     const openEscolarFotos = [
         "galeria-torneo-2026/pinargote-premilitar.jpg",
         "galeria-torneo-2026/premilitar.jpg",
