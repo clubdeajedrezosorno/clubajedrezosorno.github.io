@@ -203,6 +203,82 @@
         .gallery-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: #f0e6c5; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
         .gallery-card p { font-size: 0.85rem; color: #bbb; }
         .flag-img { width: 20px; height: auto; vertical-align: middle; }
+        .ranking-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: -0.5rem 0 1.25rem;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.11), rgba(31,111,88,0.12)), #0b0b0b;
+            color: #d8d8d8;
+            font-size: 0.88rem;
+        }
+        .ranking-info strong { color: #f0d77a; }
+        .ranking-info a { color: #f0d77a; font-weight: 800; text-decoration: none; }
+        .ranking-info a:hover { text-decoration: underline; }
+        .ranking-card .ranking-position {
+            position: absolute;
+            top: 0.8rem;
+            left: 0.8rem;
+            min-width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: #d4af37;
+            color: #111;
+            font-weight: 900;
+            font-size: 0.82rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.32);
+        }
+        .ranking-elos {
+            display: flex;
+            justify-content: center;
+            gap: 0.45rem;
+            margin: 0.65rem 0 0.75rem;
+        }
+        .ranking-elo-chip {
+            min-width: 118px;
+            border: 1px solid rgba(212,175,55,0.22);
+            border-radius: 12px;
+            padding: 0.42rem 0.35rem;
+            background: rgba(255,255,255,0.035);
+        }
+        .ranking-elo-chip span {
+            display: block;
+            color: #aaa;
+            font-size: 0.66rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .ranking-elo-chip strong {
+            display: block;
+            color: #f0e6c5;
+            font-size: 1rem;
+            margin-top: 0.08rem;
+        }
+        .ranking-official-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            min-height: 36px;
+            padding: 0.48rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(212,175,55,0.12);
+            color: #f0d77a;
+            border: 1px solid rgba(212,175,55,0.28);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.78rem;
+        }
+        .ranking-official-link:hover { background: rgba(212,175,55,0.2); }
         .btn-eliminar-jugador { background: #8b0000; color: white; border: none; border-radius: 20px; padding: 0.2rem 0.6rem; font-size: 0.7rem; margin-top: 0.5rem; cursor: pointer; transition: 0.2s; }
         .btn-eliminar-jugador:hover { background: #cc0000; transform: scale(1.05); }
         .gallery-card.sin-ranking { opacity: 0.7; background: #0a0a0a; border-color: #444; }
@@ -2335,7 +2411,7 @@
 <div id="championsModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeModalBtn">&times;</button><h2><i class="fas fa-crown"></i> Galería de Campeones de Osorno</h2><div class="grid-3cols" id="campeonesGrid"></div></div></div>
 <div id="directivaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeDirectivaModalBtn">&times;</button><h2><i class="fas fa-users"></i> Directiva 2026</h2><div id="directivaNetflixContainer" class="directiva-netflix"></div></div></div>
 <div id="personalidadModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePersonalidadModalBtn">&times;</button><h2><i class="fas fa-gavel"></i> Personalidad Jurídica</h2><p style="color:#ccc;">El Club de Ajedrez Osorno obtuvo su personalidad jurídica mediante Decreto N° 2716-f del Ministerio de Justicia. Nuestro Rol Único Tributario (RUT) es 65.533.360-6.</p></div></div>
-<div id="rankingModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeRankingModalBtn">&times;</button><h2><i class="fas fa-chart-line"></i> Ranking club</h2><div class="grid-4cols" id="rankingGrid"></div><button id="btnAgregarJugadorRanking" class="btn-agregar-jugador">+ Agregar nuevo jugador</button></div></div>
+<div id="rankingModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeRankingModalBtn">&times;</button><h2><i class="fas fa-chart-line"></i> Ranking club</h2><div class="ranking-info"><span><strong>Actualizado el 26 de julio de 2026</strong> con la nueva plataforma de la Federación Chilena de Ajedrez.</span><a href="https://www.federacionchilenadeajedrez.cl/ranking_jugadores/" target="_blank" rel="noopener"><i class="fas fa-table-list"></i> Ranking federación</a></div><div class="grid-4cols" id="rankingGrid"></div><button id="btnAgregarJugadorRanking" class="btn-agregar-jugador">+ Agregar nuevo jugador</button></div></div>
 <div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><div class="tesoreria-datos-grid"><div><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p><button class="btn-compartir" type="button" onclick="compartirUrl('#tesoreria', 'Tesorería Club de Ajedrez Osorno')"><i class="fas fa-share-alt"></i> Compartir tesorería</button></div><div><img class="tesorero-foto" src="nelson2-ajedrez-osorno.jpg" alt="Nelson, tesorero del Club de Ajedrez Osorno" loading="lazy" decoding="async" onerror="this.closest('div').style.display='none'"><div class="tesorero-caption">Tesorero</div></div></div></div><div id="tesoreriaContent"></div></div></div>
 <div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
 <div id="actividadesClubModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeActividadesClubModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Actividades club</h2><div class="grid-4cols" id="actividadesGrid"></div></div></div>
@@ -2476,35 +2552,36 @@
         { nombre: "Gukesh Dommaraju", periodo: "2024-presente", imagen: "100gukes.jpg", desc: "Campeón más joven." }
     ];
     
+    const rankingStorageKey = 'rankingClubFederacionFideKaiser20260726';
     let rankingList = [
-        { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "Ranking Internacional 2076", enlace: "https://www.federacionchilenadeajedrez.cl/player/14299" },
-        { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "Ranking Internacional 1966", enlace: "https://www.federacionchilenadeajedrez.cl/player/585" },
-        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "Ranking Internacional 1953", enlace: "https://www.federacionchilenadeajedrez.cl/player/200832" },
-        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "Ranking Internacional 1906", enlace: "https://www.federacionchilenadeajedrez.cl/player/20003" },
-        { nombre: "Alejandro Alvarado", img: "alvarado-ajedrez-osorno.jpg", desc: "Ranking Internacional 1894", enlace: "https://www.federacionchilenadeajedrez.cl/player/18342" },
-        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "Ranking Internacional 1756", enlace: "https://www.federacionchilenadeajedrez.cl/player/272" },
-        { nombre: "Jorge Castilla", img: "castilla-ajedrez-osorno.jpg", desc: "Ranking Internacional 1722", enlace: "https://www.federacionchilenadeajedrez.cl/player/285" },
-        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Ranking Internacional 1671", enlace: "https://www.federacionchilenadeajedrez.cl/player/328" },
-        { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "Ranking Internacional 1582", enlace: "https://www.federacionchilenadeajedrez.cl/player/418" },
-        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "Ranking Internacional 1573", enlace: "https://www.federacionchilenadeajedrez.cl/player/18877" },
-        { nombre: "Connni", img: "connni-ajedez-osorno.jpg", desc: "Ranking Internacional 1550", enlace: "https://www.federacionchilenadeajedrez.cl/player/19911" },
-        { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "Ranking Internacional 1543", enlace: "https://www.federacionchilenadeajedrez.cl/player/684" },
-        { nombre: "Franco", img: "franco-ajedrez-osorno.jpg", desc: "Ranking Internacional 1429", enlace: "https://www.federacionchilenadeajedrez.cl/player/151" },
-        { nombre: "Carlos Quintraman Fernández", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/29146" },
-        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/18874" },
-        { nombre: "Miguel Pacheco", img: "mighel.pacheco-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/16058" },
-        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/5001" },
-        { nombre: "Marcelo Rodríguez", img: "marcelo-ajedrez-club.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32308" },
-        { nombre: "Josefa Clerc Saldivia", img: "josefita-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/313" },
-        { nombre: "Juan Clerc", img: "juan-ajedrez-osorno-club.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/7793" },
-        { nombre: "Soraya Espinoza", img: "soraya-espinoza-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/11888" },
-        { nombre: "Mario Sepulveda Avello", img: "mario-ajedrez-club-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/10817" },
-        { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/player/32096" },
-        { nombre: "Joaquin", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Fredy Wompner", img: "fredy-jugador-club-ajedrez-osorno.jpg", desc: "ELO FIDE 2076", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/14299/" },
+        { nombre: "Sergio Vera", img: "sergio-vera-ajedrez-osorno.jpg", desc: "ELO FIDE 1978", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/20083/" },
+        { nombre: "Agustín Ojeda", img: "agustin-ojeda-club-ajedrez.jpg", desc: "ELO FIDE 1966", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/585/" },
+        { nombre: "Felipe Vera", img: "felipe-ajedrez-osorno.jpg", desc: "ELO FIDE 1908", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/20003/" },
+        { nombre: "Alejandro Alvarado", img: "alvarado-ajedrez-osorno.jpg", desc: "ELO FIDE 1894", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/18342/" },
+        { nombre: "Arturo Cárdenas", img: "arturo-ajedrez-osorno.jpg", desc: "ELO FIDE 1759", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/272/" },
+        { nombre: "Jorge Castilla", img: "castilla-ajedrez-osorno.jpg", desc: "ELO FIDE 1728", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/285/" },
+        { nombre: "Nelson Coronado", img: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "ELO FIDE 1653", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/328/" },
+        { nombre: "Carlos Gálvez Araya", img: "galvezaraya-ajedrez-osorno.jpg", desc: "ELO FIDE 1639", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/18874/" },
+        { nombre: "Carlos Gálvez Giordano", img: "galvez-papa-ajedrez-osorno.jpg", desc: "ELO FIDE 1564", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/18877/" },
+        { nombre: "Constanza Treumun", img: "connni-ajedez-osorno.jpg", desc: "ELO FIDE 1550", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/19911/" },
+        { nombre: "Santiago Rosas", img: "sssanti-osorno.jpg", desc: "ELO FIDE 1545", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/684/" },
+        { nombre: "Tomás Gebauer", img: "tomy-osorno.jpg", desc: "ELO FIDE 1533", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/418/" },
+        { nombre: "Franco Troncoso", img: "franco-ajedrez-osorno.jpg", desc: "ELO FIDE 1429", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/151/" },
+        { nombre: "Miguel Pacheco", img: "mighel.pacheco-osorno.jpg", desc: "ELO FIDE SR", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/16058/" },
+        { nombre: "Carlos Quintramán Fernández", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/29146/" },
+        { nombre: "Matías Andrade", img: "matias-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/5001/" },
+        { nombre: "Marcelo Rodríguez", img: "marcelo-ajedrez-club.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/32308/" },
+        { nombre: "Josefa Clerc Saldivia", img: "josefita-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/313/" },
+        { nombre: "Juan Clerc", img: "juan-ajedrez-osorno-club.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/7793/" },
+        { nombre: "Soraya Espinoza", img: "soraya-espinoza-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/11888/" },
+        { nombre: "Mario Sepulveda Avello", img: "mario-ajedrez-club-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/10817/" },
+        { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/32096/" },
+        { nombre: "Joaquin Kaiser", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Jose Soto", img: "", desc: "Sin ranking", enlace: "#" }
     ];
     rankingList = rankingList.filter((v,i,a)=>a.findIndex(t=>t.nombre===v.nombre)===i);
-    const rankingGuardado = localStorage.getItem('rankingClub');
+    const rankingGuardado = localStorage.getItem(rankingStorageKey);
     if (rankingGuardado) rankingList = JSON.parse(rankingGuardado);
     
     const promesasParaRanking = [
@@ -2519,7 +2596,7 @@
         { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Joaquin", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Joaquin Kaiser", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Aleli Zamorano", img: "junio/aleli-zamorano8-4fda-918d-c20f807bcd4b.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Boris Zamorano", img: "junio/boris-222e1a8b4d2b.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Daniel Mayo", img: "junio/daniel-mayo-46e6-96ea-11ccdd8d7855.jpg", desc: "Sin ranking", enlace: "#" },
@@ -2527,7 +2604,7 @@
     ];
     const nombresExistentes = rankingList.map(j => j.nombre.toLowerCase());
     promesasParaRanking.forEach(p => { if (!nombresExistentes.includes(p.nombre.toLowerCase())) rankingList.push(p); });
-    const joaquinRanking = rankingList.find(j => j.nombre.toLowerCase() === "joaquin" || j.nombre.toLowerCase() === "joaquín");
+    const joaquinRanking = rankingList.find(j => ["joaquin", "joaquín", "joaquin kaiser", "joaquín kaiser"].includes(j.nombre.toLowerCase()));
     if (joaquinRanking) joaquinRanking.img = "joaquin-academia-ajedrez.jpg";
     
     function extraerElo(desc) { const match = desc.match(/\d{3,4}/); return match ? parseInt(match[0]) : 0; }
@@ -2540,7 +2617,7 @@
             if (eloB === 0) return -1;
             return eloB - eloA;
         });
-        localStorage.setItem('rankingClub', JSON.stringify(rankingList));
+        localStorage.setItem(rankingStorageKey, JSON.stringify(rankingList));
         generarGaleria('rankingGrid', rankingList, false, true);
     }
     
@@ -2562,7 +2639,7 @@
         { nombre: "Alonso Renato Conejeros Moraga", img: "alonso-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Juan Alonso Dimter", img: "jjuan-aalonso-club-osorno.jpg", flag: "chile" },
-        { nombre: "Joaquin", img: "joaquin-academia-ajedrez.jpg", flag: "chile" },
+        { nombre: "Joaquin Kaiser", img: "joaquin-academia-ajedrez.jpg", flag: "chile" },
         { nombre: "Eithan Atenas", img: "eithan-club-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Renato Conejeros Moraga", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Rosa Cárdenas", img: "rosa-cardenas-club-ajedrez-osorno.jpg", flag: "chile" },
@@ -2799,17 +2876,25 @@
         items.forEach((item, idx) => {
             const div = document.createElement('div');
             div.className = 'gallery-card';
+            if (containerId === 'rankingGrid') div.classList.add('ranking-card');
             if (sinRankingClass && item.desc === "Sin ranking") div.classList.add('sin-ranking');
             let nombreHtml = item.nombre;
             if (conFlag && item.flag) nombreHtml = `<span>${item.nombre}</span> <img class="flag-img" src="${item.flag}.png" alt="bandera" onerror="this.style.display='none'">`;
             const imgHtml = item.img ? `<img src="${item.img}" alt="${item.nombre}" loading="lazy" decoding="async" onerror="this.parentElement.innerHTML='<i class=\'fas fa-chess-piece\' style=\'font-size:3rem;\'></i>'">` : '<i class="fas fa-chess-piece" style="font-size:3rem;"></i>';
             let descHtml = item.desc ? `<p>${item.desc}</p>` : '';
-            if (item.enlace && item.enlace !== "#") descHtml += `<p><a href="${item.enlace}" target="_blank" style="color:#d4af37; text-decoration:underline; font-weight:500;"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
+            if (containerId === 'rankingGrid') {
+                const fideMatch = item.desc?.match(/FIDE\s+(\d{3,4}|SR)/i);
+                if (fideMatch) {
+                    descHtml = `<div class="ranking-elos"><div class="ranking-elo-chip"><span>FIDE</span><strong>${fideMatch[1]}</strong></div></div>`;
+                }
+            }
+            if (item.enlace && item.enlace !== "#") descHtml += `<p><a class="ranking-official-link" href="${item.enlace}" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ver ficha oficial</a></p>`;
             let botonEliminar = '';
             if (containerId === 'rankingGrid') {
                 botonEliminar = `<button class="btn-eliminar-jugador" data-index="${idx}" data-nombre="${item.nombre}">Eliminar</button>`;
             }
-            div.innerHTML = `<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}${botonEliminar}`;
+            const posicionHtml = containerId === 'rankingGrid' ? `<span class="ranking-position">${idx + 1}</span>` : '';
+            div.innerHTML = `${posicionHtml}<div class="gallery-img">${imgHtml}</div><h4>${nombreHtml}</h4>${descHtml}${botonEliminar}`;
             if (item.img) {
                 const imgEl = div.querySelector('.gallery-img img');
                 if (imgEl) imgEl.addEventListener('click', (e) => { e.stopPropagation(); openImageModal(item.img); });
