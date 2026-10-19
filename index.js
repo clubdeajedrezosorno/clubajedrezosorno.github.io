@@ -2,16 +2,6 @@
         const splash = document.getElementById('clubSplash');
         if (!splash) return;
 
-        try {
-            if (sessionStorage.getItem('clubSplashVistoOct2026') === '1') {
-                splash.remove();
-                return;
-            }
-            sessionStorage.setItem('clubSplashVistoOct2026', '1');
-        } catch (error) {
-            // El splash sigue funcionando aunque el navegador bloquee el almacenamiento de sesión.
-        }
-
         let isClosing = false;
         const closeTimer = window.setTimeout(closeSplash, 4000);
 
