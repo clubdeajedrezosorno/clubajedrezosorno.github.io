@@ -516,31 +516,116 @@
         }
     }
 
+    function obtenerUrlImagen(imgSrc) {
+        try { return new URL(imgSrc, document.baseURI).href; } catch { return ''; }
+    }
+    function mostrarEstadoImagen(mensaje) {
+        const status = document.getElementById('imageActionStatus');
+        if (status) status.textContent = mensaje;
+    }
+    async function copiarTextoSeguro(texto) {
+        if (navigator.clipboard && window.isSecureContext) {
+            try { await navigator.clipboard.writeText(texto); return true; } catch (error) { /* usar alternativa */ }
+        }
+        const campo = document.createElement('textarea');
+        campo.value = texto;
+        campo.setAttribute('readonly', '');
+        campo.style.position = 'fixed';
+        campo.style.opacity = '0';
+        document.body.appendChild(campo);
+        campo.select();
+        let copiado = false;
+        try { copiado = document.execCommand('copy'); } catch (error) { copiado = false; }
+        campo.remove();
+        if (!copiado) window.prompt('Copia este enlace:', texto);
+        return copiado;
+    }
+    function nombreArchivoImagen(url) {
+        try { return decodeURIComponent(new URL(url).pathname.split('/').pop()) || 'imagen-club.png'; }
+        catch { return 'imagen-club.png'; }
+    }
+    async function obtenerArchivoImagen(url) {
+        const respuesta = await fetch(url, { credentials: 'same-origin' });
+        if (!respuesta.ok) throw new Error('No se pudo cargar la imagen.');
+        const blob = await respuesta.blob();
+        return new File([blob], nombreArchivoImagen(url), { type: blob.type || 'image/jpeg' });
+    }
+    async function compartirImagen(url) {
+        try {
+            if (navigator.share && navigator.canShare) {
+                const archivo = await obtenerArchivoImagen(url);
+                if (navigator.canShare({ files: [archivo] })) {
+                    await navigator.share({ files: [archivo], title: 'Club de Ajedrez Osorno' });
+                    mostrarEstadoImagen('Imagen compartida.');
+                    return;
+                }
+            }
+            if (navigator.share) {
+                await navigator.share({ title: 'Club de Ajedrez Osorno', url });
+                mostrarEstadoImagen('Enlace de la imagen compartido.');
+                return;
+            }
+            const copiado = await copiarTextoSeguro(url);
+            mostrarEstadoImagen(copiado ? 'Enlace copiado. En este navegador puedes descargar la imagen para compartirla.' : 'Puedes descargar la imagen con el botón de abajo.');
+        } catch (error) {
+            if (error && error.name === 'AbortError') { mostrarEstadoImagen('Compartición cancelada.'); return; }
+            try {
+                if (navigator.share) {
+                    await navigator.share({ title: 'Club de Ajedrez Osorno', url });
+                    mostrarEstadoImagen('Enlace de la imagen compartido.');
+                    return;
+                }
+                const copiado = await copiarTextoSeguro(url);
+                mostrarEstadoImagen(copiado ? 'No se pudo compartir el archivo; copié el enlace.' : 'No se pudo compartir. Prueba con Descargar.');
+            } catch (fallbackError) {
+                mostrarEstadoImagen('No se pudo compartir. Prueba con Copiar enlace o Descargar.');
+            }
+        }
+    }
+    async function copiarImagenAlPortapapeles(url) {
+        try {
+            if (!navigator.clipboard || !navigator.clipboard.write || !window.ClipboardItem || !window.isSecureContext) {
+                mostrarEstadoImagen('Tu navegador no permite copiar la imagen aquí. Usa Descargar o Copiar enlace.');
+                return;
+            }
+            const respuesta = await fetch(url, { credentials: 'same-origin' });
+            if (!respuesta.ok) throw new Error('No se pudo cargar la imagen.');
+            const original = await respuesta.blob();
+            const bitmap = await createImageBitmap(original);
+            const canvas = document.createElement('canvas');
+            canvas.width = bitmap.width;
+            canvas.height = bitmap.height;
+            canvas.getContext('2d').drawImage(bitmap, 0, 0);
+            bitmap.close();
+            const png = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+            if (!png) throw new Error('No se pudo preparar la imagen.');
+            await navigator.clipboard.write([new ClipboardItem({ 'image/png': png })]);
+            mostrarEstadoImagen('Imagen copiada. Ya puedes pegarla.');
+        } catch (error) {
+            mostrarEstadoImagen('No se pudo copiar la imagen. Prueba con Descargar o Copiar enlace.');
+        }
+    }
     function openImageModal(imgSrc) {
         const modal = document.getElementById('imagenMaxModal');
         const img = document.getElementById('imagenMaxSrc');
-        if (!modal || !img || !imgSrc) return;
-        img.src = imgSrc;
+        const url = obtenerUrlImagen(imgSrc);
+        if (!modal || !img || !url) return;
+        img.src = url;
+        mostrarEstadoImagen('');
+        const download = document.getElementById('btnDescargarImagen');
+        if (download) { download.href = url; download.download = nombreArchivoImagen(url); }
+        const shareButton = document.getElementById('btnCompartirImagen');
+        const copyImageButton = document.getElementById('btnCopiarImagen');
+        const copyButton = document.getElementById('btnCopiarEnlaceImagen');
+        if (shareButton) shareButton.onclick = () => compartirImagen(url);
+        if (copyImageButton) copyImageButton.onclick = () => copiarImagenAlPortapapeles(url);
+        if (copyButton) copyButton.onclick = async () => {
+            const ok = await copiarTextoSeguro(url);
+            mostrarEstadoImagen(ok ? 'Enlace copiado.' : 'No se pudo copiar automáticamente; usa el enlace disponible.');
+        };
         abrirModal(modal);
-        const btnCompartir = document.getElementById('btnCompartirImagen');
-        if (btnCompartir) {
-            const newBtn = btnCompartir.cloneNode(true);
-            btnCompartir.parentNode.replaceChild(newBtn, btnCompartir);
-            newBtn.addEventListener('click', () => {
-                let urlCompleta = imgSrc;
-                if (!urlCompleta.startsWith('http')) {
-                    urlCompleta = window.location.origin + '/' + urlCompleta;
-                }
-                navigator.clipboard.writeText(urlCompleta).then(() => {
-                    alert('✅ Enlace de la imagen copiado:\n' + urlCompleta);
-                }).catch(() => {
-                    alert('❌ No se pudo copiar. Selecciona manualmente:\n' + urlCompleta);
-                });
-            });
-        }
         modal.onclick = function(e) { if (e.target === modal) cerrarModal(modal); };
     }
-
     function activarTarjetaImagen(card, imgSrc) {
         if (!card || !imgSrc) return;
         card.tabIndex = 0;
@@ -1091,10 +1176,26 @@
     abrirDesdeHash();
 
     // Mejoras de interacción: estado activo, cierre con Escape y scroll bloqueado en modales.
+    const sidebarNavigation = document.querySelector('.sidebar-left');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    function setMobileMenuOpen(open) {
+        if (!sidebarNavigation || !mobileMenuToggle) return;
+        sidebarNavigation.classList.toggle('is-open', open);
+        mobileMenuToggle.setAttribute('aria-expanded', String(open));
+        const icon = mobileMenuToggle.querySelector('i');
+        icon?.classList.toggle('fa-bars', !open);
+        icon?.classList.toggle('fa-xmark', open);
+    }
+    mobileMenuToggle?.addEventListener('click', () => setMobileMenuOpen(mobileMenuToggle.getAttribute('aria-expanded') !== 'true'));
+    document.addEventListener('click', event => {
+        if (sidebarNavigation && !sidebarNavigation.contains(event.target)) setMobileMenuOpen(false);
+    });
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') setMobileMenuOpen(false); });
     document.querySelectorAll('.main-menu a').forEach(link => {
         link.addEventListener('click', () => {
             document.querySelectorAll('.main-menu li').forEach(item => item.classList.remove('active'));
             link.closest('li')?.classList.add('active');
+            setMobileMenuOpen(false);
         });
     });
 

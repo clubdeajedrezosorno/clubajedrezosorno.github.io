@@ -2346,6 +2346,23 @@
                 max-height: 68svh;
             }
         }
+            .mobile-menu-toggle { display: none; }
+        .image-actions { display: flex; justify-content: center; gap: 0.55rem; flex-wrap: wrap; margin-top: 0.8rem; }
+        .image-actions button, .image-actions a { min-height: 42px; padding: 0.65rem 0.8rem; border: 1px solid rgba(240,215,122,0.3); border-radius: 10px; color: var(--text); background: rgba(255,255,255,0.06); font: inherit; font-size: 0.82rem; text-decoration: none; cursor: pointer; }
+        .image-action-status { min-height: 1.3em; margin: 0.65rem 0 0; color: var(--gold-bright); font-size: 0.85rem; }
+        @media (max-width: 760px) {
+            .sidebar-left { display: block !important; position: sticky; top: 0; z-index: 30; margin: 0; padding: 0.45rem; border: 0; border-radius: 0 0 14px 14px; background: rgba(8,8,7,0.96); backdrop-filter: blur(14px); }
+            .mobile-menu-toggle { display: flex; width: 100%; min-height: 44px; align-items: center; gap: 0.7rem; border: 1px solid rgba(240,215,122,0.28); border-radius: 12px; padding: 0.65rem 0.85rem; color: var(--text); background: rgba(255,255,255,0.05); font-weight: 750; cursor: pointer; }
+            .mobile-menu-chevron { margin-left: auto; transition: transform 0.2s ease; }
+            .sidebar-left.is-open .mobile-menu-chevron { transform: rotate(180deg); }
+            .sidebar-left .main-menu { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; max-height: min(62vh, 480px); overflow-y: auto; padding: 0.65rem 0.1rem 0.15rem; }
+            .sidebar-left.is-open .main-menu { display: grid; }
+            .sidebar-left .main-menu li { min-width: 0; }
+            .sidebar-left .main-menu a { min-height: 44px; padding: 0.55rem 0.65rem; gap: 0.5rem; white-space: normal; font-size: 0.78rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.035); }
+            .sidebar-left .main-menu li.active a { color: var(--gold-bright); box-shadow: inset 0 -2px 0 var(--gold); }
+            .main-content, .sidebar-right { padding-top: 0.8rem; }
+            .image-actions button, .image-actions a { flex: 1 1 125px; }
+        }
     </style>
 </head>
 <body>
@@ -2396,7 +2413,8 @@
 
     <div class="main-grid">
         <aside class="sidebar-left">
-            <ul class="main-menu">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="mobileMainMenu"><i class="fas fa-bars" aria-hidden="true"></i><span>Secciones del club</span><i class="fas fa-chevron-down mobile-menu-chevron" aria-hidden="true"></i></button>
+            <ul class="main-menu" id="mobileMainMenu">
                 <li class="active"><a href="#club"><i class="fas fa-chess-board"></i> Inicio</a></li>
                 <li><a href="#ultimasNoticias" id="noticiasLink"><i class="fas fa-newspaper"></i> Noticias / Blog</a></li>
                 <li><a href="#torneos-escolares" id="torneosEscolaresLink"><i class="fas fa-medal"></i> Torneos Escolares</a></li>
@@ -2538,7 +2556,7 @@
 </form>
 <p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">El mensaje llegará directo al correo del club.</p>
 </div></div>
-<div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn">&times;</button><img id="imagenMaxSrc" style="max-width: 100%; max-height: 80vh; border-radius: 20px;"><br><button id="btnCompartirImagen" class="btn-compartir"><i class="fas fa-share-alt"></i> Compartir imagen</button></div></div>
+<div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn" aria-label="Cerrar imagen">&times;</button><img id="imagenMaxSrc" alt="Imagen ampliada" style="max-width: 100%; max-height: 70vh; border-radius: 20px;"><div class="image-actions"><button id="btnCompartirImagen" type="button"><i class="fas fa-share-alt" aria-hidden="true"></i> Compartir imagen</button><button id="btnCopiarImagen" type="button"><i class="fas fa-copy" aria-hidden="true"></i> Copiar imagen</button><button id="btnCopiarEnlaceImagen" type="button"><i class="fas fa-link" aria-hidden="true"></i> Copiar enlace</button><a id="btnDescargarImagen" href="#" download><i class="fas fa-download" aria-hidden="true"></i> Descargar</a></div><p id="imageActionStatus" class="image-action-status" role="status" aria-live="polite"></p></div></div>
 <div id="torneosEscolaresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Circuito Escolar Zona Sur 2026</h2><div id="listaTorneosEscolares"></div></div></div>
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
 
