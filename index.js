@@ -1124,7 +1124,6 @@
     setupModal('actividadesClubLink', 'actividadesClubModal', 'closeActividadesClubModalBtn');
     setupModal('jovenesPromesasLink', 'promesasModal', 'closePromesasModalBtn');
     setupModal('escuelaLink', 'escuelaModal', 'closeEscuelaModalBtn');
-    setupModal('miguelHeaderTrigger', 'miguelModal', 'closeMiguelModalBtn');
     setupModal('octubreHeaderTrigger', 'octubreDestacadosModal', 'closeOctubreDestacadosModalBtn');
     setupModal('archivoLink', 'archivoModal', 'closeArchivoModalBtn');
     setupModal('galeriaImagenesLink', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
