@@ -48,6 +48,7 @@
         "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg"
     ];
     const noticiasBase = [
+        { fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. regresa al club y conquista el 7.º Blitz", texto: "♟️ <strong>Una visita muy especial terminó en triunfo.</strong> Después de más de diez años alejado de nuestra sede, <strong>German Bielefeldt V.</strong> volvió al Club de Ajedrez Osorno y se quedó con el campeonato del Séptimo Blitz. La jornada reunió a <strong>22 jugadores</strong>, entre ellos varios de los mejores representantes del club, en una tarde de partidas intensas, reencuentros y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/septimo-blitz/german-campeon-7°blitz.jpg", galeria: [ { imagen: "media/septimo-blitz/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/septimo-blitz/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/septimo-blitz/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/septimo-blitz/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/septimo-blitz/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/septimo-blitz/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/septimo-blitz/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/septimo-blitz/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/septimo-blitz/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/septimo-blitz/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/septimo-blitz/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/septimo-blitz/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/septimo-blitz/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results" },
         { fecha: "IRT 102 años · Resultados oficiales", titulo: "Resultados del IRT 102 años del Club de Ajedrez Osorno", texto: "Ya están disponibles los resultados oficiales del <strong>IRT 102 años</strong>, torneo aniversario del Club de Ajedrez Osorno. Revisa la clasificación final y las partidas en Chess-Results.", enlace: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", enlaceTexto: "Ver resultados oficiales del IRT 102 años" },
         { fecha: "18 de octubre de 2026 · Liga del Ranco", titulo: "Gran actuación del Club de Ajedrez Osorno en San Pablo", texto: "Nuestro club tuvo una gran jornada en San Pablo, en la Liga del Ranco. Felicitamos a <strong>Jorge Castilla, Renato Conejeros, Vicente Zárate, Lucas Pailla, Alelí Zamorano, Boris Zamorano, Nicolás Mundaca, Laura Puñanco, Maximiliano Guajardo y Sergio Vera</strong> por representar a Osorno. Mira el video de la jornada y revisa las fotografías del equipo.", video: "media/liga-ranco-san-pablo-2026.mp4", videoPoster: "media/liga-ranco-san-pablo-equipo.jpg", galeria: ["media/liga-ranco-san-pablo-equipo.jpg", "media/liga-ranco-san-pablo-delegacion.jpg"], enlace: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
         { fecha: "Liga del Ranco 3 - Junio 2026", titulo: "Jorge Castilla campeón en la 3ª Liga del Ranco", texto: "El Club de Ajedrez Osorno destacó en la <strong>3ª versión de la Liga del Ranco</strong>. <strong>Jorge Castilla</strong> fue <strong>campeón</strong>, <strong>Sergio Vera</strong> obtuvo el <strong>segundo lugar</strong>, <strong>Renato Conejeros</strong> fue <strong>campeón Sub 10</strong> y <strong>Eithan Atenas</strong> fue <strong>campeón Sub 8</strong>.", imagen: "junio/6fc47454-eeca-4028-be92-cc2664af5505.jpg", enlace: "https://s3.chess-results.com/tnr1446604.aspx?lan=29&art=1&rd=6&SNode=S0", enlaceTexto: "Ver Liga del Ranco 3 en Chess-Results" },
@@ -189,7 +190,7 @@
             if (Array.isArray(noticia.galeria)) {
                 noticia.galeria.forEach(foto => {
                     const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
-                    agregarImagen(ruta, 'Fotografía de ' + String(noticia.titulo || 'la noticia'), 'blog-photo-strip');
+                    agregarImagen(ruta, (foto && typeof foto === 'object' && foto.caption) || ('Fotografía de ' + String(noticia.titulo || 'la noticia')), 'blog-photo-strip');
                 });
             }
             const enlace = urlBlogSegura(noticia.enlace, true);
@@ -394,6 +395,20 @@
     }
     
     const galeriaImagenesList = [
+        { nombre: "German Bielefeldt V. campeón del 7.º Blitz", img: "media/septimo-blitz/german-campeon-7°blitz.jpg", desc: "Junto a Daphne Van der Baan tras su regreso triunfal al club", album: "7.º Blitz" },
+        { nombre: "Premiados del 7.º Blitz", img: "media/septimo-blitz/premiados-7°blitz.jpg", desc: "Celebración de los jugadores premiados", album: "7.º Blitz" },
+        { nombre: "Sergio Vera, vicecampeón", img: "media/septimo-blitz/sergio-vera-vice-campeon.jpg", desc: "Segundo lugar Open", album: "7.º Blitz" },
+        { nombre: "Nelson Coronado, cuarto lugar Open", img: "media/septimo-blitz/nelson-coronado-4°lugar open.jpg", desc: "Premiación Open", album: "7.º Blitz" },
+        { nombre: "Alelí Zamorano, ganadora Sub 8", img: "media/septimo-blitz/Aleli-Zamorano-ganadoraSub 8.jpg", desc: "Premiación Sub 8", album: "7.º Blitz" },
+        { nombre: "Renato Conejeros, ganador Sub 10", img: "media/septimo-blitz/renato-conejeros-ganador-sub10.jpg", desc: "Premiación Sub 10", album: "7.º Blitz" },
+        { nombre: "Maximiliano Gajardo, mejor Sub 12", img: "media/septimo-blitz/maximiliano-gajardo-mejor-sub12.jpg", desc: "Premiación Sub 12", album: "7.º Blitz" },
+        { nombre: "Bastián Obando, ganador Sub 14", img: "media/septimo-blitz/bastian-ganador-sub14.jpg", desc: "Premiación Sub 14", album: "7.º Blitz" },
+        { nombre: "Lincoyán Vidarte, ganador Sub 16", img: "media/septimo-blitz/Lincoyan-Vidarte-Sub-16.jpg", desc: "Premiación Sub 16", album: "7.º Blitz" },
+        { nombre: "Lucas Pailla, mejor Sub Chess Academy", img: "media/septimo-blitz/lucas-pailla-mejor sub-chessacademy.jpg", desc: "Reconocimiento Chess Academy", album: "7.º Blitz" },
+        { nombre: "Alelí y Lincoyán frente al tablero", img: "media/septimo-blitz/aleli-vs-lincoyan.jpg", desc: "Una partida del torneo", album: "7.º Blitz" },
+        { nombre: "La sala llena para competir", img: "media/septimo-blitz/ful-competencia.jpg", desc: "Los 22 jugadores reunidos", album: "7.º Blitz" },
+        { nombre: "Juegos intensos", img: "media/septimo-blitz/intensos -juegos.jpg", desc: "Concentración en cada partida", album: "7.º Blitz" },
+        { nombre: "Los jóvenes del club", img: "media/septimo-blitz/loschicos-boris-lucas-aleli.jpg", desc: "Compañerismo y ajedrez", album: "7.º Blitz" },
         { nombre: "Julián y Renato en Liga del Ranco", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Actuación destacada de la delegación osornina" },
         { nombre: "Sergio Vera campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Campeón Liga del Ranco en La Unión" },
         { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Delegación del Club de Ajedrez Osorno" },
@@ -829,11 +844,34 @@
         const tabs = document.getElementById('galeriaTabs');
         if (!contenedorGaleria || galeriaImagenesRenderizada) return;
         galeriaImagenesRenderizada = true;
-        const categorias = ['Todas', 'Recientes', 'Históricas', 'Escuela', 'Torneos'];
+        const categorias = ['Álbumes', 'Todas', 'Recientes', 'Históricas', 'Escuela', 'Torneos'];
+        const albumes = [{ nombre: '7.º Blitz del Club de Ajedrez Osorno', portada: 'media/septimo-blitz/german-campeon-7°blitz.jpg', descripcion: '14 fotos · Campeón German Bielefeldt V. y premiación', clave: '7.º Blitz' }];
+        let albumAbierto = '';
         function renderGaleria(categoria = 'Todas') {
             contenedorGaleria.replaceChildren();
+            if (categoria === 'Álbumes' && !albumAbierto) {
+                albumes.forEach(album => {
+                    const card = document.createElement('button');
+                    card.type = 'button';
+                    card.className = 'gallery-card album-card';
+                    const marco = document.createElement('span');
+                    marco.className = 'gallery-img';
+                    const imagen = crearImagenLocal(album.portada, album.nombre);
+                    if (imagen) marco.appendChild(imagen); else marco.appendChild(crearIconoAjedrez());
+                    card.append(marco, crearTexto('h4', album.nombre), crearTexto('p', album.descripcion));
+                    card.addEventListener('click', () => { albumAbierto = album.clave; renderGaleria('Álbumes'); });
+                    contenedorGaleria.appendChild(card);
+                });
+                return;
+            }
+            if (categoria === 'Álbumes' && albumAbierto) {
+                const volver = document.createElement('button');
+                volver.type = 'button'; volver.className = 'gallery-tab album-back'; volver.textContent = '← Volver a los álbumes';
+                volver.addEventListener('click', () => { albumAbierto = ''; renderGaleria('Álbumes'); });
+                contenedorGaleria.appendChild(volver);
+            }
             galeriaImagenesList
-                .filter(item => categoria === 'Todas' || categoriaGaleria(item) === categoria)
+                .filter(item => categoria === 'Álbumes' ? item.album === albumAbierto : (categoria === 'Todas' || categoriaGaleria(item) === categoria))
                 .forEach(img => {
                     const card = document.createElement('div');
                     card.className = 'gallery-card';
@@ -857,6 +895,7 @@
                 btn.className = `gallery-tab${index === 0 ? ' active' : ''}`;
                 btn.textContent = categoria;
                 btn.addEventListener('click', () => {
+                    albumAbierto = '';
                     tabs.querySelectorAll('.gallery-tab').forEach(tab => tab.classList.remove('active'));
                     btn.classList.add('active');
                     renderGaleria(categoria);

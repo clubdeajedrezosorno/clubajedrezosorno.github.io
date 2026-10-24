@@ -2369,17 +2369,19 @@
             max-width: 1160px;
             max-height: 90vh;
             padding: clamp(1.2rem, 3vw, 2.4rem);
-            border-color: rgba(240,215,122,0.2);
-            background: radial-gradient(ellipse at 8% 0%, rgba(31,111,88,0.2), transparent 38%), linear-gradient(180deg, #171816, #0b0c0b 68%);
+            border-color: #b8e2f4;
+            background: radial-gradient(ellipse at 8% 0%, rgba(255,255,255,0.78), transparent 38%), linear-gradient(180deg, #eaf8ff, #d9f0fc 68%);
+            color: #173b52;
         }
         #galeriaImagenesModal .modal-container h2 {
             margin-bottom: 0.45rem;
             font-size: clamp(1.65rem, 3vw, 2.25rem);
+            color: #153b56;
         }
         .gallery-intro {
             margin: 0 0 1.35rem;
             max-width: 650px;
-            color: #b7b9b1;
+            color: #456579;
             font-size: 0.98rem;
             line-height: 1.6;
         }
@@ -2389,15 +2391,16 @@
         }
         #galeriaImagenesModal .gallery-tab {
             padding: 0.48rem 0.95rem;
-            border-color: rgba(255,255,255,0.13);
-            background: rgba(255,255,255,0.045);
+            border-color: #a8d5eb;
+            background: rgba(255,255,255,0.68);
+            color: #17445f;
             transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
         }
         #galeriaImagenesModal .gallery-tab:hover { transform: translateY(-1px); }
         #galeriaImagenesModal .gallery-tab.active {
-            color: #14150f;
-            background: #e4c85f;
-            border-color: #e4c85f;
+            color: #fff;
+            background: #2879a4;
+            border-color: #2879a4;
         }
         #galeriaImagenesModal .galeria-netflix {
             display: grid;
@@ -2410,16 +2413,16 @@
             padding: 0;
             overflow: hidden;
             text-align: left;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid #c1e1ef;
             border-radius: 14px;
-            background: #151614;
+            background: #f8fcff;
             scroll-snap-align: unset;
             transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
         }
         #galeriaImagenesModal .gallery-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(228,200,95,0.65);
-            box-shadow: 0 14px 34px rgba(0,0,0,0.32);
+            border-color: #62a9cd;
+            box-shadow: 0 14px 34px rgba(25,91,126,0.2);
         }
         #galeriaImagenesModal .gallery-img {
             position: relative;
@@ -2427,7 +2430,7 @@
             aspect-ratio: 4 / 3;
             margin: 0;
             border-radius: 0;
-            background: #20221e;
+            background: #d8edf8;
         }
         #galeriaImagenesModal .gallery-img img {
             border-radius: 0 !important;
@@ -2438,16 +2441,27 @@
         #galeriaImagenesModal .gallery-card h4 {
             padding: 0.8rem 0.9rem 0.2rem;
             margin: 0;
-            color: #f1eddf;
+            color: #173b52;
             font-size: 0.98rem;
             line-height: 1.35;
         }
         #galeriaImagenesModal .gallery-card p {
             padding: 0 0.9rem 0.9rem;
             margin: 0;
-            color: #a8aaa2;
+            color: #547184;
             font-size: 0.82rem;
             line-height: 1.45;
+        }
+        #galeriaImagenesModal .album-card {
+            width: 100%;
+            cursor: pointer;
+            font: inherit;
+        }
+        #galeriaImagenesModal .album-card .gallery-img { aspect-ratio: 4 / 3; }
+        #galeriaImagenesModal .album-back {
+            grid-column: 1 / -1;
+            justify-self: start;
+            margin-bottom: 0.25rem;
         }
         @media (min-width: 900px) {
             #galeriaImagenesModal .gallery-card:nth-child(8n + 1) { grid-column: span 2; }
@@ -2663,7 +2677,7 @@
 <div id="torneosEscolaresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTorneosEscolaresModalBtn">&times;</button><h2><i class="fas fa-calendar-alt"></i> Circuito Escolar Zona Sur 2026</h2><div id="listaTorneosEscolares"></div></div></div>
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
 
-<script src="index.js?v=20261023-gallery-fix" defer></script>
+<script src="index.js?v=20261024-septimo-blitz" defer></script>
 </body>
 </html>
 
