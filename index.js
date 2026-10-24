@@ -821,7 +821,7 @@
         const texto = `${item.nombre || ''} ${item.img || ''}`.toLowerCase();
         if (texto.includes('liga del ranco') || texto.includes('pacheco') || texto.includes('calder') || texto.includes('la unión') || texto.includes('la-union') || texto.includes('blitz')) return 'Recientes';
         if (texto.includes('escuela') || texto.includes('josefa') || texto.includes('benjamín') || texto.includes('benjamin') || texto.includes('tomás') || texto.includes('tomas')) return 'Escuela';
-        if ((item.img || '').startsWith('') || texto.includes('bariloche') || texto.includes('histórica') || texto.includes('historica')) return 'Históricas';
+        if (texto.includes('bariloche') || texto.includes('histórica') || texto.includes('historica')) return 'Históricas';
         return 'Torneos';
     }
     function cargarGaleriaImagenes() {
