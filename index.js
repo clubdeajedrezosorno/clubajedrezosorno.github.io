@@ -289,7 +289,6 @@
         { nombre: "Isidora Villarroel", img: "media/isidora-villarroel-academia.png", desc: "Sin ranking", enlace: "#" },
         { nombre: "Bernardita Contreras", img: "media/bernardita-contreras-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Alfredo Suárez del Villar", img: "media/alfredo-suarez-del-villar-2026.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Juan Sánchez Alarcón", img: "media/juan-sanchez-alarcon-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Laura Puñanco", img: "media/laura-puñanco-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", desc: "Sin ranking", enlace: "#" }
@@ -361,10 +360,10 @@
         { nombre: "Aleli Zamorano", img: "junio/aleli-zamorano8-4fda-918d-c20f807bcd4b.jpg", flag: "chile" },
         { nombre: "Boris Zamorano", img: "junio/boris-222e1a8b4d2b.jpg", flag: "chile" },
         { nombre: "Adolfo Pereira", img: "junio/7efea9a8-f38f-48d7-ba5f-a9c5edd71c71.jpg", flag: "chile" },
+        { nombre: "Jorge Castilla", img: "media/castilla-jorge-2026-cademia.png", flag: "chile" },
         { nombre: "Isidora Villarroel", img: "media/isidora-villarroel-academia.png", flag: "chile" },
         { nombre: "Bernardita Contreras", img: "media/bernardita-contreras-2026.jpg", flag: "chile" },
         { nombre: "Alfredo Suárez del Villar", img: "media/alfredo-suarez-del-villar-2026.jpg", flag: "chile" },
-        { nombre: "Juan Sánchez Alarcón", img: "media/juan-sanchez-alarcon-2026.jpg", flag: "chile" },
         { nombre: "Laura Puñanco", img: "media/laura-puñanco-2026.jpg", flag: "chile" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", flag: "chile" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", flag: "chile" }
@@ -417,7 +416,7 @@
         { nombre: "Liga del Ranco - jóvenes", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Nuevas generaciones del club" },
         { nombre: "Liga del Ranco - cierre", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Registro del torneo" },
         { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
-        { nombre: "Match Osorno vs Valdivia 2019", img: "nacional-temuco-2019.jpg", desc: "Encuentro amistoso" },
+        { nombre: "Nacional de Temuco 2019", img: "nacional-temuco-2019.jpg", desc: "Participación del club en el Nacional de Temuco" },
         { nombre: "Torneo Mayor 2009", img: "mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
         { nombre: "Sergio Vera en Trevelyn 2010", img: "trevelyn-ajedrez-ajedrez-osorno.jpg", desc: "Participación destacada" },
         { nombre: "Osorno campeón torneo equipos Valdivia", img: "osorno-club-equipos.jpg", desc: "Equipo campeón" },
@@ -426,7 +425,7 @@
         { nombre: "Sala club 2008", img: "club-sala-ajedrez.jpg", desc: "Nuestra sede" },
         { nombre: "Constanza Treumun y Sarita Álvarez", img: "IMG_20160824_164712 - copia.jpg", desc: "Jóvenes talentos" },
         { nombre: "Matías Andrade Campeón Torneo Invierno 2025", img: "campeon-torneo-de-invierno.jpg", desc: "Campeón absoluto" },
-        { nombre: "Claudio Briones Torneo equipos 2014", img: "briones-ajedrez-osorno.jpg", desc: "Campeones" },
+        { nombre: "Torneo por equipos de Valdivia", img: "briones-ajedrez-osorno.jpg", desc: "Participación del club en el torneo por equipos de Valdivia" },
         { nombre: "Benjamín López", img: "benjamin-lopez-ajedrez-osorno - copia.jpg", desc: "Mirando la partida" },
         { nombre: "Encuentro Osorno-Bariloche", img: "bariloche-osorno-ajedrez-osorno.jpg", desc: "Hermandad ajedrecística" },
         { nombre: "Tomás Gebauer 4° Chile Sub 8", img: "aleman 2018.jpg", desc: "Logro infantil" },
@@ -441,11 +440,11 @@
         { nombre: "Torneo padres e hijos", img: "torneo-padres-e-hijos.jpg", desc: "Actividad familiar del club" },
         { nombre: "Josefa y Jeremías nacional", img: "josefa y jeremias nacional - copia.jpg", desc: "Representación juvenil" },
         { nombre: "Archivo histórico 2021", img: "20211019_205953.jpg", desc: "Registro histórico del club" },
-        { nombre: "Recuerdo histórico Osorno", img: "031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Memoria visual del club" },
-        { nombre: "Jornada histórica", img: "4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Archivo de actividades" },
-        { nombre: "Registro de torneo", img: "77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas y comunidad" },
-        { nombre: "Encuentro del club", img: "d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Archivo fotográfico" },
-        { nombre: "Mesa de juego histórica", img: "e8ed7040-2db8-4bad-80b4-020bee6f1d31.jfif", desc: "Memoria ajedrecística" },
+        { nombre: "Paseo Patrimonial Osorno", img: "031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Registro del encuentro de ajedrez en el paseo patrimonial" },
+        { nombre: "Primer Torneo Paseo Patrimonial Osorno", img: "4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Primera edición del torneo en el paseo patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno · partidas", img: "77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas durante la actividad patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno · participantes", img: "d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Participantes del encuentro en el paseo patrimonial" },
+        { nombre: "Academia en el Nacional de Temuco", img: "e8ed7040-2db8-4bad-80b4-020bee6f1d31.jfif", desc: "Participación de la Academia en el Nacional de Temuco" },
         { nombre: "Archivo recuperado", img: "3efa133d-275c-47b6-b731-d389dbb4683d - copia.jpg", desc: "Foto antigua del club" },
         { nombre: "Osorno y Bariloche", img: "osorno-bariloche-ajedrez-osorno.jpg", desc: "Encuentro internacional de amistad" },
         { nombre: "Delegación de Osorno en Bariloche", img: "bariloche-osorno-ajedrez-osorno.jpg", desc: "Participación histórica" },
@@ -892,10 +891,10 @@
     
     let galeriaImagenesRenderizada = false;
     function categoriaGaleria(item) {
-        const texto = `${item.nombre || ''} ${item.img || ''}`.toLowerCase();
+        const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
         if (texto.includes('benjamin-lopez-ajedrez-osorno')) return 'Históricas';
         if (texto.includes('liga del ranco') || texto.includes('pacheco') || texto.includes('calder') || texto.includes('la unión') || texto.includes('la-union') || texto.includes('blitz')) return 'Recientes';
-        if (texto.includes('escuela') || texto.includes('josefa') || texto.includes('tomás') || texto.includes('tomas')) return 'Escuela';
+        if (texto.includes('escuela') || texto.includes('academia') || texto.includes('josefa') || texto.includes('tomás') || texto.includes('tomas')) return 'Escuela';
         if (texto.includes('bariloche') || texto.includes('histórica') || texto.includes('historica')) return 'Históricas';
         return 'Torneos';
     }
@@ -906,10 +905,11 @@
         galeriaImagenesRenderizada = true;
         const categorias = ['Álbumes', 'Todas', 'Recientes', 'Históricas', 'Escuela', 'Torneos'];
         const albumDe = item => {
-            const texto = `${item.nombre || ''} ${item.img || ''}`.toLowerCase();
+            const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
+            if (texto.includes('bariloche')) return 'Osorno y Bariloche';
             if (texto.includes('ranco')) return 'Liga del Ranco';
             if (texto.includes('blitz') || texto.includes('calder') || texto.includes('pacheco')) return 'Torneos Blitz';
-            if (texto.includes('bariloche') || texto.includes('match') || texto.includes('valdivia') || texto.includes('puerto montt')) return 'Encuentros entre clubes';
+            if (texto.includes('match') || texto.includes('valdivia') || texto.includes('puerto montt')) return 'Encuentros entre clubes';
             if (categoriaGaleria(item) === 'Escuela') return 'Escuela y jóvenes';
             if (categoriaGaleria(item) === 'Históricas') return 'Archivo histórico';
             if (texto.includes('2008') || texto.includes('2009') || texto.includes('2010') || texto.includes('2014') || texto.includes('2017') || texto.includes('2018') || texto.includes('2021')) return 'Archivo histórico';
