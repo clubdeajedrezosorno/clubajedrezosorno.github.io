@@ -544,16 +544,21 @@
     ];
     
     const torneosEscolares = [
-        { fecha: "Miércoles 28 de octubre de 2026", fechaISO: "2026-10-28", lugar: "Copa Pontevedra · torneo open · 60 minutos por jugador" },
-        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", lugar: "Actividad previa a Halloween" },
-        { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", lugar: "La Unión", nota: "Final de la Liga del Ranco." },
-        { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", lugar: "Sudamericano Escolar · Santiago" },
+        { fecha: "Miércoles 28 de octubre de 2026", fechaISO: "2026-10-28", titulo: "Copa Pontevedra", lugar: "Torneo open · 60 minutos por jugador" },
+        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Actividad previa a Halloween" },
+        { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco", lugar: "La Unión" },
+        { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
         { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
+        { fecha: "24 de agosto de 2026", fechaISO: "2026-08-24", titulo: "102.º aniversario del Club de Ajedrez Osorno", enlaces: [{ url: "https://www.instagram.com/club.ajedrez.osorno/", texto: "Ver publicación en Instagram" }] },
+        { fecha: "15 y 16 de agosto de 2026", fechaISO: "2026-08-16", titulo: "Gran Torneo I.R.T. 102 años", lugar: "Club de Ajedrez Osorno · válido para rating FIDE", enlaces: [{ url: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", texto: "Resultados oficiales en Chess-Results" }, { url: "https://www.federacionchilenadeajedrez.cl/torneo/2885", texto: "Ficha oficial FEN" }], video: "galeria-torneo-2026/necesito_una_publicacion_en_vi.mp4" },
         { fecha: "8 de agosto de 2026", fechaISO: "2026-08-08", lugar: "Osorno (Liceo Osorno College)" },
+        { fecha: "31 de julio de 2026", fechaISO: "2026-07-31", titulo: "5.º Blitz del Club", lugar: "Sede Matta 809", enlaces: [{ url: "https://www.federacionchilenadeajedrez.cl/new/torneo/3498/", texto: "Ficha oficial FEN" }] },
         { fecha: "13 de junio de 2026", fechaISO: "2026-06-13", lugar: "Paillaco (Colegio Olegario Morales)" },
-        { fecha: "30 de mayo de 2026", fechaISO: "2026-05-30", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Revisa las bases oficiales del Open Escolar Osorno 2026.", bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
+        { fecha: "30 de mayo de 2026", fechaISO: "2026-05-30", titulo: "Open Escolar Osorno 2026", lugar: "40 jugadores", nota: "Primer Open Escolar del club.", bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf", enlaces: [{ url: "https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0", texto: "Resultados oficiales" }] },
         { fecha: "16 de mayo de 2026", fechaISO: "2026-05-16", lugar: "Osorno (Colegio Alemán de Osorno)" },
-        { fecha: "11 de abril de 2026", fechaISO: "2026-04-11", lugar: "La Unión (Colegio Alemán de La Unión)" }
+        { fecha: "11 de abril de 2026", fechaISO: "2026-04-11", lugar: "La Unión (Colegio Alemán de La Unión)" },
+        { fecha: "23 de octubre de 2026", fechaISO: "2026-10-23", titulo: "7.º Torneo Blitz del Club", lugar: "Matta 809 · ritmo 3+2", enlaces: [{ url: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", texto: "Clasificación en Chess-Results" }], basesId: "bases-blitz-7" },
+        { fecha: "Fecha por confirmar", titulo: "Open Semana Osornina", lugar: "5 rondas · 60+0 · Matta 809", enlaces: [{ url: "https://www.federacionchilenadeajedrez.cl/torneo/2881", texto: "Ficha oficial FEN" }] }
     ];
     
     function abrirModal(modal) {
@@ -578,8 +583,9 @@
             abrirModal(document.getElementById('tesoreriaModal'));
         },
         '#directiva': () => { cargarDirectiva(); abrirModal(document.getElementById('directivaModal')); },
-        '#torneos-escolares': () => abrirModal(document.getElementById('torneosEscolaresModal')),
-        '#actividades-club': () => abrirModal(document.getElementById('actividadesClubModal')),
+        '#calendario2026': () => document.getElementById('calendario2026')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+        '#torneos-escolares': () => document.getElementById('calendario2026')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
+        '#actividades-club': () => document.getElementById('calendario2026')?.scrollIntoView({ behavior: 'smooth', block: 'start' }),
         '#escuela': () => abrirModal(document.getElementById('escuelaModal')),
         '#jovenes-promesas': () => abrirModal(document.getElementById('promesasModal')),
         '#galeria': () => { cargarGaleriaImagenes(); abrirModal(document.getElementById('galeriaImagenesModal')); },
@@ -1123,6 +1129,7 @@
             return new Date(anio, mes - 1, dia);
         };
         torneosEscolares.sort((a, b) => {
+            if (!a.fechaISO || !b.fechaISO) return a.fechaISO ? -1 : (b.fechaISO ? 1 : 0);
             const fechaA = fechaCalendario(a.fechaISO);
             const fechaB = fechaCalendario(b.fechaISO);
             const pasadoA = fechaA < hoyCalendario;
@@ -1130,6 +1137,18 @@
             if (pasadoA !== pasadoB) return pasadoA ? 1 : -1;
             return pasadoA ? fechaB - fechaA : fechaA - fechaB;
         });
+        const cantidadRealizadas = torneosEscolares.filter(t => estadoFechaEvento(t.fechaISO) === 'Realizado').length;
+        const tituloProximas = crearTexto('h4', 'Próximas fechas', 'calendar-group-title');
+        const listaProximas = document.createElement('div');
+        listaProximas.className = 'calendar-group-list';
+        const historial = document.createElement('details');
+        historial.className = 'calendar-history';
+        const tituloHistorial = document.createElement('summary');
+        tituloHistorial.textContent = `Historial · ${cantidadRealizadas} ${cantidadRealizadas === 1 ? 'actividad realizada' : 'actividades realizadas'}`;
+        const listaHistorial = document.createElement('div');
+        listaHistorial.className = 'calendar-group-list calendar-history-list';
+        historial.append(tituloHistorial, listaHistorial);
+        contenedorTorneos.replaceChildren(tituloProximas, listaProximas, historial);
         torneosEscolares.forEach(t => {
             const div = document.createElement('div');
             div.className = 'torneo-escolar-item';
@@ -1141,7 +1160,8 @@
             fecha.className = 'torneo-escolar-fecha';
             fecha.append(crearTexto('small', etiqueta), crearTexto('span', `📅 ${t.fecha}`));
             div.appendChild(fecha);
-            div.appendChild(crearTexto('div', `📍 ${t.lugar}`, 'torneo-escolar-lugar'));
+            if (t.titulo) div.appendChild(crearTexto('div', t.titulo, 'torneo-escolar-lugar'));
+            if (t.lugar) div.appendChild(crearTexto('div', `📍 ${t.lugar}`, t.titulo ? 'torneo-escolar-detalle' : 'torneo-escolar-lugar'));
             if (t.nota) div.appendChild(crearTexto('div', t.nota, 'torneo-escolar-nota'));
             const bases = urlBlogSegura(t.bases, true);
             const basesAlt = urlBlogSegura(t.basesAlt, true);
@@ -1162,7 +1182,38 @@
                 }
                 div.appendChild(acciones);
             }
-            contenedorTorneos.appendChild(div);
+            if (Array.isArray(t.enlaces)) {
+                const enlaces = document.createElement('div');
+                enlaces.className = 'torneo-escolar-acciones';
+                t.enlaces.forEach(item => {
+                    const href = urlBlogSegura(item.url, true);
+                    if (!href) return;
+                    const enlace = crearTexto('a', `↗ ${item.texto}`, 'btn-descargar');
+                    enlace.href = href;
+                    enlace.target = '_blank';
+                    enlace.rel = 'noopener noreferrer';
+                    enlaces.appendChild(enlace);
+                });
+                if (enlaces.childElementCount) div.appendChild(enlaces);
+            }
+            if (t.basesId) {
+                const bases = document.getElementById(t.basesId);
+                if (bases) div.appendChild(bases);
+            }
+            const videoSrc = urlBlogSegura(t.video);
+            if (videoSrc) {
+                const video = document.createElement('video');
+                video.controls = true;
+                video.preload = 'metadata';
+                video.playsInline = true;
+                video.style.cssText = 'display:block;width:100%;max-width:420px;max-height:260px;margin-top:0.75rem;border-radius:14px;background:#000;';
+                const source = document.createElement('source');
+                source.src = videoSrc;
+                source.type = 'video/mp4';
+                video.appendChild(source);
+                div.appendChild(video);
+            }
+            (estado === 'Realizado' ? listaHistorial : listaProximas).appendChild(div);
         });
     }
     
@@ -1378,16 +1429,13 @@
     setupModal('directivaSuperior', 'directivaModal', 'closeDirectivaModalBtn');
     setupModal('personalidadJuridica', 'personalidadModal', 'closePersonalidadModalBtn');
     setupModal('rankingSuperior', 'rankingModal', 'closeRankingModalBtn');
-    setupModal('actividadesClubLink', 'actividadesClubModal', 'closeActividadesClubModalBtn');
     setupModal('jovenesPromesasLink', 'promesasModal', 'closePromesasModalBtn');
     setupModal('escuelaLink', 'escuelaModal', 'closeEscuelaModalBtn');
     setupModal('octubreHeaderTrigger', 'octubreDestacadosModal', 'closeOctubreDestacadosModalBtn');
     setupModal('archivoLink', 'archivoModal', 'closeArchivoModalBtn');
     setupModal('galeriaImagenesLink', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
-    setupModal('torneosEscolaresLink', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
     setupModal('colaboradoresLink', 'colaboradoresModal', 'closeColaboradoresModalBtn');
-    setupModal('quickTorneosEscolares', 'torneosEscolaresModal', 'closeTorneosEscolaresModalBtn');
     setupModal('quickEscuela', 'escuelaModal', 'closeEscuelaModalBtn');
     setupModal('quickRanking', 'rankingModal', 'closeRankingModalBtn');
     setupModal('quickGaleria', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
