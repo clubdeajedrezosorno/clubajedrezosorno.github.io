@@ -366,7 +366,7 @@
         { nombre: "Soraya Espinoza", img: "soraya-espinoza-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/11888/" },
         { nombre: "Mario Sepulveda Avello", img: "mario-ajedrez-club-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/10817/" },
         { nombre: "Vicente Zarate Pradines", img: "vicente22-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "https://www.federacionchilenadeajedrez.cl/new/jugador/32096/" },
-        { nombre: "Joaquin Kaiser", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Joaquín Kaiser", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "José Soto", img: "galeria-torneo-2026/Jose-soto9-ae1f-c3d4fddb8d46.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Isidora Villarroel", img: "media/isidora-villarroel-academia.png", desc: "Sin ranking", enlace: "#" },
         { nombre: "Bernardita Contreras", img: "media/bernardita-contreras-2026.jpg", desc: "Sin ranking", enlace: "#" },
@@ -397,7 +397,7 @@
         { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Renato Conejeros", img: "renato-club-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Joaquin Kaiser", img: "joaquin-academia-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Joaquín Kaiser", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Aleli Zamorano", img: "junio/aleli-zamorano8-4fda-918d-c20f807bcd4b.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Boris Zamorano", img: "junio/boris-222e1a8b4d2b.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Adolfo Pereira", img: "junio/7efea9a8-f38f-48d7-ba5f-a9c5edd71c71.jpg", desc: "Sin ranking", enlace: "#" }
@@ -405,7 +405,10 @@
     const nombresExistentes = rankingList.map(j => j.nombre.toLowerCase());
     promesasParaRanking.forEach(p => { if (!nombresExistentes.includes(p.nombre.toLowerCase())) rankingList.push(p); });
     const joaquinRanking = rankingList.find(j => ["joaquin", "joaquín", "joaquin kaiser", "joaquín kaiser"].includes(j.nombre.toLowerCase()));
-    if (joaquinRanking) joaquinRanking.img = "joaquin-academia-ajedrez.jpg";
+    if (joaquinRanking) {
+        joaquinRanking.nombre = "Joaquín Kaiser";
+        joaquinRanking.img = "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg";
+    }
     
     function extraerElo(desc) { const match = desc.match(/\d{3,4}/); return match ? parseInt(match[0]) : 0; }
     function ordenarRanking() {
@@ -423,20 +426,20 @@
     let promesasFinal = [
         { nombre: "Nicolas Gallardo", img: "nicolas-ajedrez-club-osorno.jpg", flag: "chile" },
         { nombre: "Josefa Clerc", img: "jjosefa.JPG", flag: "chile" },
-        { nombre: "Julián Keim Hott", img: "julian-osorno.jpeg", flag: "chile" },
+        { nombre: "Julián Keim Hott", img: "julian-dso-ajedrez.jpg", flag: "chile" },
         { nombre: "Santiago Rosas Valdes", img: "sssanti-osorno.jpg", flag: "chile" },
         { nombre: "Carlos Quintraman Fernández", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
         { nombre: "Vicente Pradines Zarate", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", flag: "chile" },
-        { nombre: "Mateo", img: "mateo.jpg", flag: "us" },
+        { nombre: "Bastián", img: "bastian-club-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Mateo", img: "mateo-juian-ajedrez-osorno-ajedrez.jpg", flag: "us" },
         { nombre: "Tomas Gebauer Unión", img: "tomy-osorno.jpg", flag: "chile" },
         { nombre: "Agustín Ojeda Arévalo", img: "agustin-club.jpg", flag: "chile" },
         { nombre: "Maximiliano Gajardo", img: "maxi-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Benjamín Alvarez", img: "benjamin-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Alonso Renato Conejeros Moraga", img: "alonso-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Fernando Villegas", img: "fernando-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Joaquin Kaiser", img: "joaquin-academia-ajedrez.jpg", flag: "chile" },
+        { nombre: "Joaquín Kaiser", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", flag: "chile" },
         { nombre: "Renato Conejeros Moraga", img: "renato-club-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Rosa Cárdenas", img: "rosa-cardenas-club-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Aleli Zamorano", img: "junio/aleli-zamorano8-4fda-918d-c20f807bcd4b.jpg", flag: "chile" },
@@ -482,17 +485,17 @@
     ];
     
     const galeriaImagenesList = [
-        { nombre: "Segunda Liga del Ranco · Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián y Renato en la Segunda Liga del Ranco, Colegio Alemán de Osorno" },
-        { nombre: "Primera Liga del Ranco · Sergio Vera", img: "sergio-campeon-launion.jpg", desc: "Campeón en el Colegio Alemán de La Unión" },
-        { nombre: "Primera Liga del Ranco · premiación", img: "la-union-campeones.jpg", desc: "Delegación y premiación en el Colegio Alemán de La Unión" },
+        { nombre: "Segunda Liga del Ranco · Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián y Renato en la Segunda Liga del Ranco, Colegio Alemán de Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
+        { nombre: "Primera Liga del Ranco · Sergio Vera", img: "sergio-campeon-launion.jpg", desc: "Sergio Vera, campeón en el Colegio Alemán de La Unión", album: "Primera Liga del Ranco · Colegio Alemán La Unión" },
+        { nombre: "Primera Liga del Ranco · premiación", img: "la-union-campeones.jpg", desc: "Campeones y premiación de la Primera Liga del Ranco en el Colegio Alemán de La Unión", album: "Primera Liga del Ranco · Colegio Alemán La Unión" },
         { nombre: "Miguel Pacheco campeón 3° Blitz", img: "mighel.pacheco-osorno.jpg", desc: "Campeón del 3° Blitz de Mayo 2026" },
-        { nombre: "Eriberto Calderón", img: "calderon.jpg", desc: "Campeón del primer blitz" },
-        { nombre: "Segunda Liga del Ranco · equipo", img: "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg", desc: "Delegación osornina en el Colegio Alemán de Osorno" },
-        { nombre: "Segunda Liga del Ranco · premiación", img: "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg", desc: "Premiación en el Colegio Alemán de Osorno" },
-        { nombre: "Segunda Liga del Ranco · partidas", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Partidas de la Segunda Liga del Ranco en Osorno" },
-        { nombre: "Segunda Liga del Ranco · delegación", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del club en el Colegio Alemán de Osorno" },
-        { nombre: "Segunda Liga del Ranco · jóvenes", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Jóvenes en la Segunda Liga del Ranco" },
-        { nombre: "Segunda Liga del Ranco · cierre", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Registro final de la jornada en Osorno" },
+        { nombre: "Eriberto Calderón · Primer Blitz 2026", img: "calderon.jpg", desc: "Campeón del Primer Blitz 2026", album: "Primer Blitz 2026" },
+        { nombre: "Segunda Liga del Ranco · equipo", img: "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg", desc: "Delegación osornina en el Colegio Alemán de Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
+        { nombre: "Segunda Liga del Ranco · premiación", img: "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg", desc: "Premiación en el Colegio Alemán de Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
+        { nombre: "Joaquín Kaiser · Segunda Liga del Ranco", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Joaquín Kaiser en la Segunda Liga del Ranco, Colegio Alemán de Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
+        { nombre: "Segunda Liga del Ranco · delegación", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del club en el Colegio Alemán de Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
+        { nombre: "Segunda Liga del Ranco · mamás de la Academia", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Mamás de la Academia durante la Segunda Liga del Ranco en Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
+        { nombre: "Segunda Liga del Ranco · apoderados", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Apoderados en la jornada de la Segunda Liga del Ranco en Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
         { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
         { nombre: "Nacional de Temuco 2019", img: "nacional-temuco-2019.jpg", desc: "Participación del club en el Nacional de Temuco" },
         { nombre: "Torneo Mayor 2009", img: "mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
@@ -509,19 +512,19 @@
         { nombre: "Tomás Gebauer 4° Chile Sub 8", img: "aleman 2018.jpg", desc: "Logro infantil" },
         { nombre: "Osorno vs Bariloche club", img: "ajedrez-osorno-bariloche-club.jpg", desc: "Encuentro de locales" },
         { nombre: "Agustín Ojeda Campeón Hamburgo Alemania", img: "a46a8cb6-8001-426a-a899-96f9d926714d.jpeg", desc: "Título internacional" },
-        { nombre: "Torneo Paseo Patrimonial", img: "429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Evento callejero" },
+        { nombre: "Evento Paseo Patrimonial", img: "429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Registro del Club de Ajedrez Osorno en el Paseo Patrimonial", album: "Evento Paseo Patrimonial" },
         { nombre: "Cena Osorno y Bariloche", img: "43617994_10215469277501695_2334973736567963648_n - copia.jpg", desc: "Confraternidad" },
         { nombre: "Cena Osorno vs Bariloche 2", img: "43500627_10215469278941731_6898799358163025920_n.jpg", desc: "Celebración" },
         { nombre: "Match Osorno vs Puerto Montt", img: "33575997_10216082477477426_1559030616861704192_n.jpg", desc: "Encuentro regional" },
         { nombre: "Visitas Larraín y Vergara", img: "15-ajedrez osorno-larrain-vergara.jpg", desc: "Grandes maestros invitados" },
         { nombre: "Viernes de ajedrez", img: "4gfthgf.jpg", desc: "Sesión semanal" },
-        { nombre: "Torneo padres e hijos", img: "torneo-padres-e-hijos.jpg", desc: "Actividad familiar del club" },
+        { nombre: "Torneo de Padres e Hijos 2025", img: "torneo-padres-e-hijos.jpg", desc: "Actividad familiar del Club de Ajedrez Osorno en 2025", album: "Torneo de Padres e Hijos 2025" },
         { nombre: "Josefa y Jeremías nacional", img: "josefa y jeremias nacional - copia.jpg", desc: "Representación juvenil" },
         { nombre: "Archivo histórico 2021", img: "20211019_205953.jpg", desc: "Registro histórico del club" },
-        { nombre: "Paseo Patrimonial Osorno", img: "031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Registro del encuentro de ajedrez en el paseo patrimonial" },
-        { nombre: "Primer Torneo Paseo Patrimonial Osorno", img: "4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Primera edición del torneo en el paseo patrimonial" },
-        { nombre: "Paseo Patrimonial Osorno · partidas", img: "77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas durante la actividad patrimonial" },
-        { nombre: "Paseo Patrimonial Osorno · participantes", img: "d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Participantes del encuentro en el paseo patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno", img: "031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Registro del encuentro de ajedrez en el paseo patrimonial", album: "Evento Paseo Patrimonial" },
+        { nombre: "Primer Torneo Paseo Patrimonial Osorno", img: "4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Primera edición del torneo en el paseo patrimonial", album: "Evento Paseo Patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno · partidas", img: "77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas durante la actividad patrimonial", album: "Evento Paseo Patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno · participantes", img: "d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Participantes del encuentro en el paseo patrimonial", album: "Evento Paseo Patrimonial" },
         { nombre: "Academia en el Nacional de Temuco", img: "e8ed7040-2db8-4bad-80b4-020bee6f1d31.jfif", desc: "Participación de la Academia en el Nacional de Temuco" },
         { nombre: "Archivo recuperado", img: "3efa133d-275c-47b6-b731-d389dbb4683d - copia.jpg", desc: "Foto antigua del club" },
         { nombre: "Osorno y Bariloche", img: "osorno-bariloche-ajedrez-osorno.jpg", desc: "Encuentro internacional de amistad" },
@@ -778,7 +781,11 @@
         img.decoding = 'async';
         img.addEventListener('error', () => {
             const marco = img.closest('.gallery-img');
-            if (marco) marco.replaceChildren(crearIconoAjedrez());
+            const tarjetaPromesa = marco?.closest('#promesasGrid .gallery-card');
+            if (tarjetaPromesa) {
+                marco.remove();
+                tarjetaPromesa.classList.add('gallery-card--text-only');
+            } else if (marco) marco.replaceChildren(crearIconoAjedrez());
             else img.remove();
         }, { once: true });
         return img;
@@ -984,8 +991,9 @@
         const categorias = ['Álbumes', 'Todas', 'Recientes', 'Históricas', 'Escuela', 'Torneos'];
         const albumDe = item => {
             const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
+            if (texto.includes('patrimonial')) return 'Evento Paseo Patrimonial';
+            if (item.album) return item.album;
             if (texto.includes('bariloche')) return 'Bariloche';
-            if (texto.includes('paseo patrimonial')) return 'Paseo Patrimonial Osorno';
             const fotosSegundaLigaRanco = new Set([
                 '3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg',
                 '97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg',
