@@ -994,7 +994,7 @@
         const tabs = document.getElementById('galeriaTabs');
         if (!contenedorGaleria || galeriaImagenesRenderizada) return;
         galeriaImagenesRenderizada = true;
-        const categorias = ['Álbumes', 'Todas', 'Recientes', 'Históricas', 'Escuela', 'Torneos'];
+        const categorias = ['Álbumes', 'Todas', 'Históricas', 'Escuela', 'Torneos'];
         const albumDe = item => {
             const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
             if (texto.includes('patrimonial')) return 'Evento Paseo Patrimonial';
