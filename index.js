@@ -947,8 +947,8 @@
                 const nombre = categoria.slice('Álbum: '.length);
                 const volver = document.createElement('button');
                 volver.type = 'button';
-                volver.className = 'gallery-tab';
-                volver.textContent = '← Todos los álbumes';
+                volver.className = 'gallery-tab album-back';
+                volver.textContent = '← Volver a la galería';
                 volver.addEventListener('click', () => renderGaleria('Álbumes'));
                 contenedorGaleria.appendChild(volver);
                 (albumes.find(([album]) => album === nombre)?.[1] || []).forEach(img => {
