@@ -52,7 +52,7 @@
         "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg"
     ];
     const noticiasBase = [
-        { fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. gana nuevamente un torneo del club tras más de una década", texto: "♟️ <strong>Después de más de una década, German Bielefeldt V. ganó nuevamente un torneo del Club de Ajedrez Osorno.</strong> Se quedó con el campeonato del Séptimo Blitz, en una jornada que reunió a <strong>22 jugadores</strong> en una tarde de partidas intensas y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/german-campeon-7°blitz.jpg", galeriaId: "galeria-septimo-blitz", galeria: [ { imagen: "media/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results", enlaces: [{ url: "#galeria-septimo-blitz", texto: "Ir a galería de imágenes del 7.º Blitz", icono: "fas fa-images", target: "_self" }] },
+        { fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. gana nuevamente un torneo del club tras más de una década", texto: "♟️ <strong>Después de más de una década, German Bielefeldt V. ganó nuevamente un torneo del Club de Ajedrez Osorno.</strong> Se quedó con el campeonato del Séptimo Blitz, en una jornada que reunió a <strong>22 jugadores</strong> en una tarde de partidas intensas y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/german-campeon-7°blitz.jpg", galeriaId: "galeria-septimo-blitz", galeria: [ { imagen: "media/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results", enlaces: [{ url: "#galeriaImagenesModal", texto: "Ver galería de imágenes del 7.º Blitz", icono: "fas fa-images", target: "_self", album: true }] },
         { fecha: "IRT 102 años · Resultados oficiales", titulo: "Resultados del IRT 102 años del Club de Ajedrez Osorno", texto: "Ya están disponibles los resultados oficiales del <strong>IRT 102 años</strong>, torneo aniversario del Club de Ajedrez Osorno. Revisa la clasificación final y las partidas en Chess-Results.", enlace: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", enlaceTexto: "Ver resultados oficiales del IRT 102 años", enlaces: [{ url: "https://www.instagram.com/p/DcI7-75G4q8/?img_index=17", texto: "Ver fotos del IRT 102 años en Instagram", icono: "fab fa-instagram" }] },
         { fecha: "18 de octubre de 2026 · Liga del Ranco", titulo: "Gran actuación del Club de Ajedrez Osorno en San Pablo", texto: "Nuestro club tuvo una gran jornada en San Pablo, en la Liga del Ranco. Felicitamos a <strong>Jorge Castilla, Renato Conejeros, Vicente Zárate, Lucas Pailla, Alelí Zamorano, Boris Zamorano, Nicolás Mundaca, Laura Puñanco, Maximiliano Guajardo y Sergio Vera</strong> por representar a Osorno. Mira el video de la jornada y revisa las fotografías del equipo.", video: "media/liga-ranco-san-pablo-2026.mp4", videoPoster: "media/liga-ranco-san-pablo-equipo.jpg", galeria: ["media/liga-ranco-san-pablo-equipo.jpg", "media/liga-ranco-san-pablo-delegacion.jpg"], enlace: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
         { fecha: "Liga del Ranco 3 - Junio 2026", titulo: "Jorge Castilla campeón en la 3ª Liga del Ranco", texto: "El Club de Ajedrez Osorno destacó en la <strong>3ª versión de la Liga del Ranco</strong>. <strong>Jorge Castilla</strong> fue <strong>campeón</strong>, <strong>Sergio Vera</strong> obtuvo el <strong>segundo lugar</strong> y <strong>Renato Conejeros</strong> fue <strong>campeón Sub 10</strong>.", imagen: "junio/6fc47454-eeca-4028-be92-cc2664af5505.jpg", enlace: "https://s3.chess-results.com/tnr1446604.aspx?lan=29&art=1&rd=6&SNode=S0", enlaceTexto: "Ver Liga del Ranco 3 en Chess-Results" },
@@ -204,7 +204,7 @@
             if (Array.isArray(noticia.enlaces)) {
                 noticia.enlaces.forEach(enlaceExtra => {
                     const url = urlBlogSegura(enlaceExtra && enlaceExtra.url, true);
-                    if (url) enlacesNoticia.push({ url, texto: String(enlaceExtra.texto || 'Ver más'), icono: enlaceExtra.icono || '', target: enlaceExtra.target || '_blank', scrollTarget: typeof enlaceExtra.url === 'string' && enlaceExtra.url.startsWith('#') ? enlaceExtra.url.slice(1) : '' });
+                    if (url) enlacesNoticia.push({ url, texto: String(enlaceExtra.texto || 'Ver más'), icono: enlaceExtra.icono || '', target: enlaceExtra.target || '_blank', scrollTarget: typeof enlaceExtra.url === 'string' && enlaceExtra.url.startsWith('#') && !enlaceExtra.album ? enlaceExtra.url.slice(1) : '', album: Boolean(enlaceExtra.album) });
                 });
             }
             enlacesNoticia.forEach(enlace => {
@@ -213,6 +213,65 @@
                 link.href = enlace.scrollTarget ? `#${enlace.scrollTarget}` : enlace.url;
                 link.target = enlace.target;
                 link.rel = 'noopener noreferrer';
+                if (enlace.album) {
+                    link.addEventListener('click', event => {
+                        event.preventDefault();
+                        let modalFotos = document.getElementById('galeriaFotosNoticiaModal');
+                        if (!modalFotos) {
+                            modalFotos = document.createElement('div');
+                            modalFotos.id = 'galeriaFotosNoticiaModal';
+                            modalFotos.className = 'modal-overlay';
+                            const marco = document.createElement('div');
+                            marco.className = 'modal-container';
+                            marco.style.maxWidth = '1100px';
+                            const cerrar = document.createElement('button');
+                            cerrar.type = 'button';
+                            cerrar.className = 'close-modal';
+                            cerrar.setAttribute('aria-label', 'Cerrar galería del 7.º Blitz');
+                            cerrar.textContent = '×';
+                            const cerrarGaleria = () => {
+                                cerrarModal(modalFotos);
+                                if (!document.querySelector('.modal-overlay.active')) document.body.classList.remove('modal-open');
+                            };
+                            cerrar.addEventListener('click', cerrarGaleria);
+                            const tituloGaleria = document.createElement('h2');
+                            tituloGaleria.textContent = 'Galería de imágenes del 7.º Blitz';
+                            const grilla = document.createElement('div');
+                            grilla.className = 'galeria-netflix';
+                            grilla.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;';
+                            (noticia.galeria || []).forEach(foto => {
+                                const ruta = typeof foto === 'string' ? foto : (foto && (foto.imagen || foto.foto)) || '';
+                                const src = urlBlogSegura(ruta);
+                                if (!src) return;
+                                const tarjetaFoto = document.createElement('article');
+                                tarjetaFoto.className = 'gallery-card';
+                                const marcoFoto = document.createElement('div');
+                                marcoFoto.className = 'gallery-img';
+                                const imagenFoto = document.createElement('img');
+                                imagenFoto.src = src;
+                                imagenFoto.alt = (foto && foto.caption) || 'Fotografía del 7.º Blitz';
+                                imagenFoto.loading = 'lazy';
+                                imagenFoto.addEventListener('click', () => openImageModal(src));
+                                marcoFoto.appendChild(imagenFoto);
+                                tarjetaFoto.appendChild(marcoFoto);
+                                if (foto && foto.caption) {
+                                    const caption = document.createElement('h4');
+                                    caption.textContent = foto.caption;
+                                    tarjetaFoto.appendChild(caption);
+                                }
+                                grilla.appendChild(tarjetaFoto);
+                            });
+                            marco.append(cerrar, tituloGaleria, grilla);
+                            modalFotos.appendChild(marco);
+                            modalFotos.addEventListener('click', click => {
+                                if (click.target === modalFotos) cerrarGaleria();
+                            });
+                            document.body.appendChild(modalFotos);
+                        }
+                        document.body.classList.add('modal-open');
+                        abrirModal(modalFotos);
+                    });
+                }
                 if (enlace.scrollTarget) {
                     link.addEventListener('click', event => {
                         const destino = document.getElementById(enlace.scrollTarget);
