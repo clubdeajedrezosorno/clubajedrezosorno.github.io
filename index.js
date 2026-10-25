@@ -544,14 +544,16 @@
     ];
     
     const torneosEscolares = [
-        { fecha: "30 de mayo de 2026", fechaISO: "2026-05-30", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Revisa las bases oficiales del Open Escolar Osorno 2026.", bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
-        { fecha: "11 de abril de 2026", fechaISO: "2026-04-11", lugar: "La Unión (Colegio Alemán de La Unión)" },
-        { fecha: "16 de mayo de 2026", fechaISO: "2026-05-16", lugar: "Osorno (Colegio Alemán de Osorno)" },
-        { fecha: "13 de junio de 2026", fechaISO: "2026-06-13", lugar: "Paillaco (Colegio Olegario Morales)" },
-        { fecha: "8 de agosto de 2026", fechaISO: "2026-08-08", lugar: "Osorno (Liceo Osorno College)" },
-        { fecha: "12 de septiembre de 2026", fechaISO: "2026-09-12", lugar: "Río Negro (lugar por confirmar)" },
+        { fecha: "Miércoles 28 de octubre de 2026", fechaISO: "2026-10-28", lugar: "Copa Pontevedra · torneo open · 60 minutos por jugador" },
+        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", lugar: "Actividad previa a Halloween" },
+        { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", lugar: "La Unión", nota: "Final de la Liga del Ranco." },
+        { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", lugar: "Sudamericano Escolar · Santiago" },
         { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
-        { fecha: "21 de noviembre de 2026", fechaISO: "2026-11-21", lugar: "La Unión (Salón Consistorial Municipalidad de La Unión)", nota: "Última fecha de la Liga del Ranco." }
+        { fecha: "8 de agosto de 2026", fechaISO: "2026-08-08", lugar: "Osorno (Liceo Osorno College)" },
+        { fecha: "13 de junio de 2026", fechaISO: "2026-06-13", lugar: "Paillaco (Colegio Olegario Morales)" },
+        { fecha: "30 de mayo de 2026", fechaISO: "2026-05-30", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Revisa las bases oficiales del Open Escolar Osorno 2026.", bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
+        { fecha: "16 de mayo de 2026", fechaISO: "2026-05-16", lugar: "Osorno (Colegio Alemán de Osorno)" },
+        { fecha: "11 de abril de 2026", fechaISO: "2026-04-11", lugar: "La Unión (Colegio Alemán de La Unión)" }
     ];
     
     function abrirModal(modal) {
@@ -1114,6 +1116,20 @@
 
     const contenedorTorneos = document.getElementById('listaTorneosEscolares');
     if (contenedorTorneos) {
+        const hoyCalendario = new Date();
+        hoyCalendario.setHours(0, 0, 0, 0);
+        const fechaCalendario = fechaISO => {
+            const [anio, mes, dia] = fechaISO.split('-').map(Number);
+            return new Date(anio, mes - 1, dia);
+        };
+        torneosEscolares.sort((a, b) => {
+            const fechaA = fechaCalendario(a.fechaISO);
+            const fechaB = fechaCalendario(b.fechaISO);
+            const pasadoA = fechaA < hoyCalendario;
+            const pasadoB = fechaB < hoyCalendario;
+            if (pasadoA !== pasadoB) return pasadoA ? 1 : -1;
+            return pasadoA ? fechaB - fechaA : fechaA - fechaB;
+        });
         torneosEscolares.forEach(t => {
             const div = document.createElement('div');
             div.className = 'torneo-escolar-item';
