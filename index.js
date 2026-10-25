@@ -52,9 +52,9 @@
         "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg"
     ];
     const noticiasBase = [
-        { fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. gana nuevamente un torneo del club tras más de una década", texto: "♟️ <strong>Después de más de una década, German Bielefeldt V. ganó nuevamente un torneo del Club de Ajedrez Osorno.</strong> Se quedó con el campeonato del Séptimo Blitz, en una jornada que reunió a <strong>22 jugadores</strong> en una tarde de partidas intensas y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/german-campeon-7°blitz.jpg", galeriaId: "galeria-septimo-blitz", galeria: [ { imagen: "media/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results", enlaces: [{ url: "#galeriaImagenesModal", texto: "Ver galería de imágenes del 7.º Blitz", icono: "fas fa-images", target: "_self", album: true }] },
-        { fecha: "IRT 102 años · Resultados oficiales", titulo: "Resultados del IRT 102 años del Club de Ajedrez Osorno", texto: "Ya están disponibles los resultados oficiales del <strong>IRT 102 años</strong>, torneo aniversario del Club de Ajedrez Osorno. Revisa la clasificación final y las partidas en Chess-Results.", enlace: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", enlaceTexto: "Ver resultados oficiales del IRT 102 años", enlaces: [{ url: "https://www.instagram.com/p/DcI7-75G4q8/?img_index=17", texto: "Ver fotos del IRT 102 años en Instagram", icono: "fab fa-instagram" }] },
-        { fecha: "18 de octubre de 2026 · Liga del Ranco", titulo: "Gran actuación del Club de Ajedrez Osorno en San Pablo", texto: "Nuestro club tuvo una gran jornada en San Pablo, en la Liga del Ranco. Felicitamos a <strong>Jorge Castilla, Renato Conejeros, Vicente Zárate, Lucas Pailla, Alelí Zamorano, Boris Zamorano, Nicolás Mundaca, Laura Puñanco, Maximiliano Guajardo y Sergio Vera</strong> por representar a Osorno. Mira el video de la jornada y revisa las fotografías del equipo.", video: "media/liga-ranco-san-pablo-2026.mp4", videoPoster: "media/liga-ranco-san-pablo-equipo.jpg", galeria: ["media/liga-ranco-san-pablo-equipo.jpg", "media/liga-ranco-san-pablo-delegacion.jpg"], enlace: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
+        { id: "noticia-septimo-blitz", fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. gana nuevamente un torneo del club tras más de una década", texto: "♟️ <strong>Después de más de una década, German Bielefeldt V. ganó nuevamente un torneo del Club de Ajedrez Osorno.</strong> Se quedó con el campeonato del Séptimo Blitz, en una jornada que reunió a <strong>22 jugadores</strong> en una tarde de partidas intensas y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/german-campeon-7°blitz.jpg", galeriaId: "galeria-septimo-blitz", galeria: [ { imagen: "media/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results", enlaces: [{ url: "#galeriaImagenesModal", texto: "Ver galería de imágenes del 7.º Blitz", icono: "fas fa-images", target: "_self", album: true }] },
+        { id: "noticia-irt-102-resultados", fecha: "IRT 102 años · Resultados oficiales", titulo: "Resultados del IRT 102 años del Club de Ajedrez Osorno", texto: "Ya están disponibles los resultados oficiales del <strong>IRT 102 años</strong>, torneo aniversario del Club de Ajedrez Osorno. Revisa la clasificación final y las partidas en Chess-Results.", enlace: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", enlaceTexto: "Ver resultados oficiales del IRT 102 años", enlaces: [{ url: "https://www.instagram.com/p/DcI7-75G4q8/?img_index=17", texto: "Ver fotos del IRT 102 años en Instagram", icono: "fab fa-instagram" }] },
+        { id: "noticia-liga-ranco-san-pablo", fecha: "18 de octubre de 2026 · Liga del Ranco", titulo: "Gran actuación del Club de Ajedrez Osorno en San Pablo", texto: "Nuestro club tuvo una gran jornada en San Pablo, en la Liga del Ranco. Felicitamos a <strong>Jorge Castilla, Renato Conejeros, Vicente Zárate, Lucas Pailla, Alelí Zamorano, Boris Zamorano, Nicolás Mundaca, Laura Puñanco, Maximiliano Guajardo y Sergio Vera</strong> por representar a Osorno. Mira el video de la jornada y revisa las fotografías del equipo.", video: "media/liga-ranco-san-pablo-2026.mp4", videoPoster: "media/liga-ranco-san-pablo-equipo.jpg", galeria: ["media/liga-ranco-san-pablo-equipo.jpg", "media/liga-ranco-san-pablo-delegacion.jpg"], enlace: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
         { fecha: "Liga del Ranco 3 - Junio 2026", titulo: "Jorge Castilla campeón en la 3ª Liga del Ranco", texto: "El Club de Ajedrez Osorno destacó en la <strong>3ª versión de la Liga del Ranco</strong>. <strong>Jorge Castilla</strong> fue <strong>campeón</strong>, <strong>Sergio Vera</strong> obtuvo el <strong>segundo lugar</strong> y <strong>Renato Conejeros</strong> fue <strong>campeón Sub 10</strong>.", imagen: "junio/6fc47454-eeca-4028-be92-cc2664af5505.jpg", enlace: "https://s3.chess-results.com/tnr1446604.aspx?lan=29&art=1&rd=6&SNode=S0", enlaceTexto: "Ver Liga del Ranco 3 en Chess-Results" },
         { fecha: "IRT Puerto Montt - Junio 2026", titulo: "Sergio Vera campeón del IRT Puerto Montt", texto: "Gran resultado para el Club de Ajedrez Osorno en el <strong>IRT Puerto Montt</strong>: <strong>Sergio Vera</strong> se coronó <strong>campeón</strong> del torneo. También destacó <strong>Jorge Castilla</strong> como <strong>mejor Sub 1800</strong>.", imagen: "junio/campeon-irt-pmonttd8-b587-84d48984f161.jpg", enlace: "https://s3.chess-results.com/tnr1439522.aspx?lan=1&art=1&rd=5&SNode=S0", enlaceTexto: "Ver IRT Puerto Montt en Chess-Results" },
         { fecha: "Open Escolar Osorno · 2026", titulo: "Renato, Maximiliano y Bastián brillan en el Primer Open Escolar del Club", texto: "El <strong>Primer Open Escolar del Club de Ajedrez Osorno 2026</strong> reunió a <strong>40 jugadores</strong> y abrió una página luminosa para el ajedrez formativo de la ciudad. En una jornada de respeto, concentración y sana competencia, <strong>Renato Conejeros</strong> se coronó <strong>campeón Sub 10</strong>, <strong>Maximiliano Gajardo</strong> fue <strong>campeón Sub 12</strong> y <strong>Bastián Obando</strong> alcanzó el título <strong>Sub 14</strong>. También participaron representantes del <strong>Colegio Alemán de Osorno</strong> y <strong>La Unión</strong>, <strong>Colegio Francés</strong>, <strong>Escuela René Soriano</strong>, <strong>Liceo Premilitar</strong>, <strong>Escuela de San Pablo y Crucero</strong>, <strong>Agrícola de Pichil</strong> y <strong>Colegio Andalhue</strong>. En la competencia general, el ganador fue <strong>Isaac Pinargote</strong>. Este torneo reafirma al club como una casa abierta para la niñez, la familia y el futuro competitivo del sur de Chile.", galeria: openEscolarFotos, enlace: "https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
@@ -126,6 +126,7 @@
         noticias.forEach((noticia, idx) => {
             const card = document.createElement('div');
             card.className = 'blog-card';
+            if (typeof noticia.id === 'string' && /^[a-z0-9_-]+$/i.test(noticia.id)) card.id = noticia.id;
             if (idx === 0 && noticia.fecha !== 'Séptimo Blitz · Osorno') card.classList.add('featured-news');
             const fecha = document.createElement('div');
             fecha.className = 'blog-date';
@@ -449,7 +450,6 @@
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", flag: "chile" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", flag: "chile" }
     ];
-    for (let i = 1; i <= 5; i++) promesasFinal.push({ nombre: `Promesa ${promesasFinal.length+1}`, img: `promesa_extra_${i}.jpg`, flag: "chile" });
     
     // ACTIVIDADES CLUB CORREGIDO
     const actividadesList = [
@@ -480,22 +480,19 @@
         { nombre: "Constanza Treumun – Ex Campeona IND", img: "Constanza treumun.jpg", desc: "Constanza, destacada ajedrecista" },
         { nombre: "Panorámica del Torneo Blitz", img: "panoramica-clubajedrez-osorno2°blitz.jpg", desc: "Vista general del evento" }
     ];
-    for (let i = (actividadesList.length + 1); i <= 15; i++) {
-        actividadesList.push({ nombre: `Actividad ${i}`, img: `actividad_${i}.jpg`, desc: "Próximamente imagen" });
-    }
     
     const galeriaImagenesList = [
-        { nombre: "Julián y Renato en Liga del Ranco", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Actuación destacada de la delegación osornina" },
-        { nombre: "Sergio Vera campeón en La Unión", img: "sergio-campeon-launion.jpg", desc: "Campeón Liga del Ranco en La Unión" },
-        { nombre: "Campeones en La Unión", img: "la-union-campeones.jpg", desc: "Delegación del Club de Ajedrez Osorno" },
+        { nombre: "Segunda Liga del Ranco · Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián y Renato en la Segunda Liga del Ranco, Colegio Alemán de Osorno" },
+        { nombre: "Primera Liga del Ranco · Sergio Vera", img: "sergio-campeon-launion.jpg", desc: "Campeón en el Colegio Alemán de La Unión" },
+        { nombre: "Primera Liga del Ranco · premiación", img: "la-union-campeones.jpg", desc: "Delegación y premiación en el Colegio Alemán de La Unión" },
         { nombre: "Miguel Pacheco campeón 3° Blitz", img: "mighel.pacheco-osorno.jpg", desc: "Campeón del 3° Blitz de Mayo 2026" },
         { nombre: "Eriberto Calderón", img: "calderon.jpg", desc: "Campeón del primer blitz" },
-        { nombre: "Liga del Ranco - equipo", img: "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg", desc: "Registro de la delegación osornina" },
-        { nombre: "Liga del Ranco - premiación", img: "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg", desc: "Actuación destacada de nuestros jóvenes" },
-        { nombre: "Liga del Ranco - tablero", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Jornada competitiva escolar" },
-        { nombre: "Liga del Ranco - Osorno", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del club" },
-        { nombre: "Liga del Ranco - jóvenes", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Nuevas generaciones del club" },
-        { nombre: "Liga del Ranco - cierre", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Registro del torneo" },
+        { nombre: "Segunda Liga del Ranco · equipo", img: "97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg", desc: "Delegación osornina en el Colegio Alemán de Osorno" },
+        { nombre: "Segunda Liga del Ranco · premiación", img: "608eed63-6bf8-48e8-8d51-51f841d93e93.jpg", desc: "Premiación en el Colegio Alemán de Osorno" },
+        { nombre: "Segunda Liga del Ranco · partidas", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Partidas de la Segunda Liga del Ranco en Osorno" },
+        { nombre: "Segunda Liga del Ranco · delegación", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del club en el Colegio Alemán de Osorno" },
+        { nombre: "Segunda Liga del Ranco · jóvenes", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Jóvenes en la Segunda Liga del Ranco" },
+        { nombre: "Segunda Liga del Ranco · cierre", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Registro final de la jornada en Osorno" },
         { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
         { nombre: "Nacional de Temuco 2019", img: "nacional-temuco-2019.jpg", desc: "Participación del club en el Nacional de Temuco" },
         { nombre: "Torneo Mayor 2009", img: "mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
@@ -533,15 +530,7 @@
         { nombre: "Foto histórica Osorno", img: "foto-historica-osorno.jpg", desc: "Archivo del club" }
     ];
     
-    const eventosArchivo = [
-        { fecha: "Por definir", titulo: "Histórico 1", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
-        { fecha: "Por definir", titulo: "Histórico 2", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
-        { fecha: "Por definir", titulo: "Histórico 3", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
-        { fecha: "Por definir", titulo: "Histórico 4", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
-        { fecha: "Por definir", titulo: "Histórico 5", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
-        { fecha: "Por definir", titulo: "Histórico 6", descripcion: "Por definir", icono: "fas fa-chess-pawn" },
-        { fecha: "Por definir", titulo: "Histórico 7", descripcion: "Por definir", icono: "fas fa-chess-pawn" }
-    ];
+    const eventosArchivo = [];
     
     const torneosEscolares = [
         { fecha: "Miércoles 28 de octubre de 2026", fechaISO: "2026-10-28", titulo: "Copa Pontevedra", lugar: "Torneo open · 60 minutos por jugador" },
@@ -550,15 +539,15 @@
         { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
         { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
         { fecha: "24 de agosto de 2026", fechaISO: "2026-08-24", titulo: "102.º aniversario del Club de Ajedrez Osorno", enlaces: [{ url: "https://www.instagram.com/club.ajedrez.osorno/", texto: "Ver publicación en Instagram" }] },
-        { fecha: "15 y 16 de agosto de 2026", fechaISO: "2026-08-16", titulo: "Gran Torneo I.R.T. 102 años", lugar: "Club de Ajedrez Osorno · válido para rating FIDE", enlaces: [{ url: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", texto: "Resultados oficiales en Chess-Results" }, { url: "https://www.federacionchilenadeajedrez.cl/torneo/2885", texto: "Ficha oficial FEN" }], video: "galeria-torneo-2026/necesito_una_publicacion_en_vi.mp4" },
+        { fecha: "15 y 16 de agosto de 2026", fechaISO: "2026-08-16", titulo: "Gran Torneo I.R.T. 102 años", lugar: "Club de Ajedrez Osorno · válido para rating FIDE", enlaces: [{ url: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", texto: "Resultados oficiales en Chess-Results" }, { url: "https://www.federacionchilenadeajedrez.cl/torneo/2885", texto: "Ficha oficial FEN" }, { url: "#ultimasNoticias", texto: "Noticia y fotos en el blog", target: "_self" }], video: "galeria-torneo-2026/necesito_una_publicacion_en_vi.mp4" },
         { fecha: "8 de agosto de 2026", fechaISO: "2026-08-08", lugar: "Osorno (Liceo Osorno College)" },
         { fecha: "31 de julio de 2026", fechaISO: "2026-07-31", titulo: "5.º Blitz del Club", lugar: "Sede Matta 809", enlaces: [{ url: "https://www.federacionchilenadeajedrez.cl/new/torneo/3498/", texto: "Ficha oficial FEN" }] },
         { fecha: "13 de junio de 2026", fechaISO: "2026-06-13", lugar: "Paillaco (Colegio Olegario Morales)" },
         { fecha: "30 de mayo de 2026", fechaISO: "2026-05-30", titulo: "Open Escolar Osorno 2026", lugar: "40 jugadores", nota: "Primer Open Escolar del club.", bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf", enlaces: [{ url: "https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0", texto: "Resultados oficiales" }] },
         { fecha: "16 de mayo de 2026", fechaISO: "2026-05-16", lugar: "Osorno (Colegio Alemán de Osorno)" },
         { fecha: "11 de abril de 2026", fechaISO: "2026-04-11", lugar: "La Unión (Colegio Alemán de La Unión)" },
-        { fecha: "23 de octubre de 2026", fechaISO: "2026-10-23", titulo: "7.º Torneo Blitz del Club", lugar: "Matta 809 · ritmo 3+2", enlaces: [{ url: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", texto: "Clasificación en Chess-Results" }], basesId: "bases-blitz-7" },
-        { fecha: "Fecha por confirmar", titulo: "Open Semana Osornina", lugar: "5 rondas · 60+0 · Matta 809", enlaces: [{ url: "https://www.federacionchilenadeajedrez.cl/torneo/2881", texto: "Ficha oficial FEN" }] }
+        { fecha: "23 de octubre de 2026", fechaISO: "2026-10-23", titulo: "7.º Torneo Blitz del Club", lugar: "Matta 809 · ritmo 3+2", enlaces: [{ url: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", texto: "Clasificación en Chess-Results" }, { url: "#ultimasNoticias", texto: "Noticia y galería en el blog", target: "_self" }], basesId: "bases-blitz-7" },
+        { fecha: "18 de octubre de 2026", fechaISO: "2026-10-18", titulo: "Liga del Ranco en San Pablo", lugar: "San Pablo", enlaces: [{ url: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", texto: "Resultados oficiales en Chess-Results" }, { url: "#ultimasNoticias", texto: "Noticia, video y fotos en el blog", target: "_self" }] }
     ];
     
     function abrirModal(modal) {
@@ -997,6 +986,17 @@
             const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
             if (texto.includes('bariloche')) return 'Bariloche';
             if (texto.includes('paseo patrimonial')) return 'Paseo Patrimonial Osorno';
+            const fotosSegundaLigaRanco = new Set([
+                '3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg',
+                '97bf08ff-cfc6-4ac2-87fd-c25c779d0fe1.jpg',
+                '608eed63-6bf8-48e8-8d51-51f841d93e93.jpg',
+                'ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg',
+                '058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg',
+                '54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg',
+                '027f4d38-c576-4a12-b921-8418b001053a.jpg'
+            ]);
+            if (fotosSegundaLigaRanco.has(String(item.img || '').toLowerCase()) || texto.includes('segunda liga del ranco') || texto.includes('liga del ranco 2')) return 'Segunda Liga del Ranco · Colegio Alemán Osorno';
+            if (['sergio-campeon-launion.jpg', 'la-union-campeones.jpg'].includes(String(item.img || '').toLowerCase()) || texto.includes('primera liga del ranco')) return 'Primera Liga del Ranco · Colegio Alemán La Unión';
             if (texto.includes('ranco')) return 'Liga del Ranco';
             if (texto.includes('blitz') || texto.includes('calder') || texto.includes('pacheco')) return 'Torneos Blitz';
             if (texto.includes('match') || texto.includes('valdivia') || texto.includes('puerto montt')) return 'Encuentros entre clubes';
@@ -1093,24 +1093,23 @@
     
     cargarCampeonesMundiales();
     generarGaleria('promesasGrid', promesasFinal, true);
-    generarGaleria('actividadesGrid', actividadesList);
     generarGaleria('rankingGrid', rankingList, false, true);
     
     function estadoFechaEvento(fechaISO) {
-        if (!fechaISO) return 'Fecha por confirmar';
+        if (!fechaISO) return '';
         const [anio, mes, dia] = fechaISO.split('-').map(Number);
         const fechaEvento = new Date(anio, mes - 1, dia);
         const hoy = new Date();
         hoy.setHours(0, 0, 0, 0);
         if (fechaEvento < hoy) return 'Realizado';
         if (fechaEvento.getTime() === hoy.getTime()) return 'Hoy';
-        return 'Próxima fecha';
+        return 'Próximo';
     }
     document.querySelectorAll('.tournament-block[data-event-date]').forEach(torneo => {
         const estado = estadoFechaEvento(torneo.dataset.eventDate);
         const etiqueta = torneo.querySelector('.active-banner');
         if (etiqueta) etiqueta.textContent = estado === 'Hoy' ? 'HOY' : estado.toUpperCase();
-        torneo.classList.toggle('featured-event', estado === 'Próxima fecha' || estado === 'Hoy');
+        torneo.classList.toggle('featured-event', estado === 'Próximo' || estado === 'Hoy');
     });
     document.querySelectorAll('.actividad-item[data-event-date]').forEach(actividad => {
         const etiqueta = document.createElement('span');
@@ -1137,7 +1136,9 @@
             if (pasadoA !== pasadoB) return pasadoA ? 1 : -1;
             return pasadoA ? fechaB - fechaA : fechaA - fechaB;
         });
-        const cantidadRealizadas = torneosEscolares.filter(t => estadoFechaEvento(t.fechaISO) === 'Realizado').length;
+        const fechasFuturas = torneosEscolares.filter(t => t.fechaISO).map(t => fechaCalendario(t.fechaISO)).filter(fecha => fecha >= hoyCalendario).sort((a, b) => a - b);
+        const fechaMasProxima = fechasFuturas[0]?.getTime();
+        const cantidadRealizadas = torneosEscolares.filter(t => t.fechaISO && estadoFechaEvento(t.fechaISO) === 'Realizado').length;
         const tituloProximas = crearTexto('h4', 'Próximas fechas', 'calendar-group-title');
         const listaProximas = document.createElement('div');
         listaProximas.className = 'calendar-group-list';
@@ -1152,13 +1153,15 @@
         torneosEscolares.forEach(t => {
             const div = document.createElement('div');
             div.className = 'torneo-escolar-item';
-            const estado = estadoFechaEvento(t.fechaISO);
-            if (estado === 'Próxima fecha' || estado === 'Hoy') div.classList.add('destacado');
+            const estado = t.fechaISO ? estadoFechaEvento(t.fechaISO) : '';
+            const fechaEvento = t.fechaISO ? fechaCalendario(t.fechaISO) : null;
+            if (fechaEvento && fechaEvento.getTime() === fechaMasProxima) div.classList.add('calendar-next-event');
             const acciones = t.bases ? `<div class="torneo-escolar-acciones"><a href="${t.bases}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a><a href="${t.bases}" class="btn-descargar" download><i class="fas fa-download"></i> Descargar bases</a>${t.basesAlt ? `<a href="${t.basesAlt}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-link"></i> Alternativo</a>` : ''}</div>` : '';
             const etiqueta = estado;
             const fecha = document.createElement('div');
             fecha.className = 'torneo-escolar-fecha';
-            fecha.append(crearTexto('small', etiqueta), crearTexto('span', `📅 ${t.fecha}`));
+            if (etiqueta === 'Realizado' || etiqueta === 'Hoy') fecha.appendChild(crearTexto('small', etiqueta));
+            if (t.fecha) fecha.appendChild(crearTexto('span', `📅 ${t.fecha}`));
             div.appendChild(fecha);
             if (t.titulo) div.appendChild(crearTexto('div', t.titulo, 'torneo-escolar-lugar'));
             if (t.lugar) div.appendChild(crearTexto('div', `📍 ${t.lugar}`, t.titulo ? 'torneo-escolar-detalle' : 'torneo-escolar-lugar'));
@@ -1190,8 +1193,8 @@
                     if (!href) return;
                     const enlace = crearTexto('a', `↗ ${item.texto}`, 'btn-descargar');
                     enlace.href = href;
-                    enlace.target = '_blank';
-                    enlace.rel = 'noopener noreferrer';
+                    enlace.target = item.target || (typeof item.url === 'string' && item.url.startsWith('#') ? '_self' : '_blank');
+                    if (enlace.target === '_blank') enlace.rel = 'noopener noreferrer';
                     enlaces.appendChild(enlace);
                 });
                 if (enlaces.childElementCount) div.appendChild(enlaces);
@@ -1224,8 +1227,7 @@
             { img: "carol-secretaria-club-osorno-ajedrez.jpg", caption: "Carol Moraga - Colaboradora" },
             { img: "galeria-torneo-2026/hector-aviles-colaborador.png", caption: "Héctor Avilés - Colaborador" },
             { img: "oscar-club-ajedrez-osorno.jpg", caption: "Oscar Gebauer - Colaborador destacado" },
-            { img: "mario-ajedrez-club-osorno.jpg", caption: "Mario Sepulveda Avello - Gran socio" },
-            { img: "logoclub.jpg", caption: "Próximamente" }
+            { img: "mario-ajedrez-club-osorno.jpg", caption: "Mario Sepulveda Avello - Gran socio" }
         ];
         colaboradores.forEach(c => {
             const div = document.createElement('div');
@@ -1270,6 +1272,12 @@
         const container = document.getElementById('archivoContent');
         if (!container) return;
         container.replaceChildren();
+        const paginacionDiv = document.getElementById('archivoPaginacion');
+        if (eventosPagina.length === 0) {
+            container.appendChild(crearTexto('p', 'No hay registros históricos adicionales cargados.', 'archivo-vacio'));
+            paginacionDiv?.replaceChildren();
+            return;
+        }
         eventosPagina.forEach(ev => {
             const div = document.createElement('div');
             div.className = 'archivo-evento';
@@ -1298,7 +1306,6 @@
             div.appendChild(info);
             container.appendChild(div);
         });
-        const paginacionDiv = document.getElementById('archivoPaginacion');
         if (paginacionDiv) {
             const totalPaginas = Math.ceil(eventosArchivo.length / eventosPorPagina);
             const anterior = crearTexto('button', '← Anteriores');
@@ -1437,11 +1444,9 @@
     setupModal('contactFormBtn', 'contactoModal', 'closeContactoModalBtn');
     setupModal('colaboradoresLink', 'colaboradoresModal', 'closeColaboradoresModalBtn');
     setupModal('quickEscuela', 'escuelaModal', 'closeEscuelaModalBtn');
-    setupModal('quickRanking', 'rankingModal', 'closeRankingModalBtn');
     setupModal('quickGaleria', 'galeriaImagenesModal', 'closeGaleriaImagenesModalBtn');
     ['directivaLink', 'directivaSuperior'].forEach(id => document.getElementById(id)?.addEventListener('click', cargarDirectiva));
     ['galeriaImagenesLink', 'quickGaleria'].forEach(id => document.getElementById(id)?.addEventListener('click', cargarGaleriaImagenes));
-    setupModal('quickArchivo', 'archivoModal', 'closeArchivoModalBtn');
     
     const campeonesLink = document.getElementById('campeonesMundialesLink');
     const campeonesModal = document.getElementById('campeonMundialModal');
@@ -1450,14 +1455,6 @@
         campeonesLink.addEventListener('click', () => { cargarCampeonesMundiales(); abrirModal(campeonesModal); });
         closeCampeonesModal.addEventListener('click', () => cerrarModal(campeonesModal));
         campeonesModal.addEventListener('click', (e) => { if (e.target === campeonesModal) cerrarModal(campeonesModal); });
-    }
-    
-    const quickTesoreria = document.getElementById('quickTesoreria');
-    if (quickTesoreria) {
-        quickTesoreria.addEventListener('click', async () => {
-            history.pushState(null, '', '#tesoreria');
-            await abrirDesdeHash();
-        });
     }
     
     const closeImagenMax = document.getElementById('closeImagenMaxModalBtn');
