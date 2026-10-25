@@ -906,7 +906,8 @@
         const categorias = ['Álbumes', 'Todas', 'Recientes', 'Históricas', 'Escuela', 'Torneos'];
         const albumDe = item => {
             const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
-            if (texto.includes('bariloche')) return 'Osorno y Bariloche';
+            if (texto.includes('bariloche')) return 'Bariloche';
+            if (texto.includes('paseo patrimonial')) return 'Paseo Patrimonial Osorno';
             if (texto.includes('ranco')) return 'Liga del Ranco';
             if (texto.includes('blitz') || texto.includes('calder') || texto.includes('pacheco')) return 'Torneos Blitz';
             if (texto.includes('match') || texto.includes('valdivia') || texto.includes('puerto montt')) return 'Encuentros entre clubes';
