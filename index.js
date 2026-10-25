@@ -204,15 +204,23 @@
             if (Array.isArray(noticia.enlaces)) {
                 noticia.enlaces.forEach(enlaceExtra => {
                     const url = urlBlogSegura(enlaceExtra && enlaceExtra.url, true);
-                    if (url) enlacesNoticia.push({ url, texto: String(enlaceExtra.texto || 'Ver más'), icono: enlaceExtra.icono || '', target: enlaceExtra.target || '_blank' });
+                    if (url) enlacesNoticia.push({ url, texto: String(enlaceExtra.texto || 'Ver más'), icono: enlaceExtra.icono || '', target: enlaceExtra.target || '_blank', scrollTarget: typeof enlaceExtra.url === 'string' && enlaceExtra.url.startsWith('#') ? enlaceExtra.url.slice(1) : '' });
                 });
             }
             enlacesNoticia.forEach(enlace => {
                 const link = document.createElement('a');
                 link.className = 'blog-action-link';
-                link.href = enlace.url;
+                link.href = enlace.scrollTarget ? `#${enlace.scrollTarget}` : enlace.url;
                 link.target = enlace.target;
                 link.rel = 'noopener noreferrer';
+                if (enlace.scrollTarget) {
+                    link.addEventListener('click', event => {
+                        const destino = document.getElementById(enlace.scrollTarget);
+                        if (!destino) return;
+                        event.preventDefault();
+                        destino.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    });
+                }
                 if (enlace.icono) {
                     const icono = document.createElement('i');
                     icono.className = enlace.icono;
@@ -477,14 +485,14 @@
     ];
     
     const torneosEscolares = [
-        { fecha: "30 de mayo de 2026", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Próxima actividad del circuito. Revisa las bases oficiales antes de inscribirte.", destacado: true, bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
-        { fecha: "11 de abril de 2026", lugar: "La Unión (Colegio Alemán de La Unión)" },
-        { fecha: "16 de mayo de 2026", lugar: "Osorno (Colegio Alemán de Osorno)" },
-        { fecha: "13 de junio de 2026", lugar: "Paillaco (Colegio Olegario Morales)" },
-        { fecha: "8 de agosto de 2026", lugar: "Osorno (Liceo Osorno College)" },
-        { fecha: "12 de septiembre de 2026", lugar: "Río Negro (lugar por confirmar)" },
-        { fecha: "3 de octubre de 2026", lugar: "San Pablo (Gimnasio Municipal)" },
-        { fecha: "14 de noviembre de 2026", lugar: "La Unión (Salón Consistorial Municipalidad de La Unión)" }
+        { fecha: "30 de mayo de 2026", fechaISO: "2026-05-30", lugar: "Osorno - Open Escolar Osorno 2026", nota: "Revisa las bases oficiales del Open Escolar Osorno 2026.", bases: "descarga/Bases_Open_Escolar_Osorno_2026%20%281%29.pdf", basesAlt: "descargas/Bases_Open_Escolar_Osorno_2026.pdf" },
+        { fecha: "11 de abril de 2026", fechaISO: "2026-04-11", lugar: "La Unión (Colegio Alemán de La Unión)" },
+        { fecha: "16 de mayo de 2026", fechaISO: "2026-05-16", lugar: "Osorno (Colegio Alemán de Osorno)" },
+        { fecha: "13 de junio de 2026", fechaISO: "2026-06-13", lugar: "Paillaco (Colegio Olegario Morales)" },
+        { fecha: "8 de agosto de 2026", fechaISO: "2026-08-08", lugar: "Osorno (Liceo Osorno College)" },
+        { fecha: "12 de septiembre de 2026", fechaISO: "2026-09-12", lugar: "Río Negro (lugar por confirmar)" },
+        { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
+        { fecha: "21 de noviembre de 2026", fechaISO: "2026-11-21", lugar: "La Unión (Salón Consistorial Municipalidad de La Unión)", nota: "Última fecha de la Liga del Ranco." }
     ];
     
     function abrirModal(modal) {
@@ -1021,14 +1029,39 @@
     generarGaleria('actividadesGrid', actividadesList);
     generarGaleria('rankingGrid', rankingList, false, true);
     
+    function estadoFechaEvento(fechaISO) {
+        if (!fechaISO) return 'Fecha por confirmar';
+        const [anio, mes, dia] = fechaISO.split('-').map(Number);
+        const fechaEvento = new Date(anio, mes - 1, dia);
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+        if (fechaEvento < hoy) return 'Realizado';
+        if (fechaEvento.getTime() === hoy.getTime()) return 'Hoy';
+        return 'Próxima fecha';
+    }
+    document.querySelectorAll('.tournament-block[data-event-date]').forEach(torneo => {
+        const estado = estadoFechaEvento(torneo.dataset.eventDate);
+        const etiqueta = torneo.querySelector('.active-banner');
+        if (etiqueta) etiqueta.textContent = estado === 'Hoy' ? 'HOY' : estado.toUpperCase();
+        torneo.classList.toggle('featured-event', estado === 'Próxima fecha' || estado === 'Hoy');
+    });
+    document.querySelectorAll('.actividad-item[data-event-date]').forEach(actividad => {
+        const etiqueta = document.createElement('span');
+        etiqueta.className = 'actividad-status';
+        const estado = estadoFechaEvento(actividad.dataset.eventDate);
+        etiqueta.textContent = estado === 'Hoy' ? 'HOY' : estado.toUpperCase();
+        actividad.querySelector('.actividad-fecha')?.append(' ', etiqueta);
+    });
+
     const contenedorTorneos = document.getElementById('listaTorneosEscolares');
     if (contenedorTorneos) {
         torneosEscolares.forEach(t => {
             const div = document.createElement('div');
             div.className = 'torneo-escolar-item';
-            if (t.destacado) div.classList.add('destacado');
+            const estado = estadoFechaEvento(t.fechaISO);
+            if (estado === 'Próxima fecha' || estado === 'Hoy') div.classList.add('destacado');
             const acciones = t.bases ? `<div class="torneo-escolar-acciones"><a href="${t.bases}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Ver bases</a><a href="${t.bases}" class="btn-descargar" download><i class="fas fa-download"></i> Descargar bases</a>${t.basesAlt ? `<a href="${t.basesAlt}" class="btn-descargar" target="_blank" rel="noopener"><i class="fas fa-link"></i> Alternativo</a>` : ''}</div>` : '';
-            const etiqueta = t.destacado ? 'Próxima fecha' : 'Fecha del circuito';
+            const etiqueta = estado;
             const fecha = document.createElement('div');
             fecha.className = 'torneo-escolar-fecha';
             fecha.append(crearTexto('small', etiqueta), crearTexto('span', `📅 ${t.fecha}`));
