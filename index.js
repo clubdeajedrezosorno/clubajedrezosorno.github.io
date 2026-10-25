@@ -1,6 +1,10 @@
 (() => {
         const splash = document.getElementById('clubSplash');
         if (!splash) return;
+        if (window.location.hash) {
+            splash.remove();
+            return;
+        }
 
         let isClosing = false;
         const closeTimer = window.setTimeout(closeSplash, 4000);
@@ -48,6 +52,7 @@
         "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg"
     ];
     const noticiasBase = [
+        { fecha: "Viernes 30 de octubre · Osorno", titulo: "Halloween y Ajedrez en Osorno", texto: "El Club de Ajedrez Osorno y Chess Academy Osorno invitan a una tarde de ajedrez y disfraces. Nos reunimos el <strong>viernes 30 de octubre desde las 17:30 horas</strong> en <strong>Matta 809, Osorno</strong>. El disfraz es opcional.", imagen: "media/halloween-ajedrez-osorno.png" },
         { fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. regresa al club y conquista el 7.º Blitz", texto: "♟️ <strong>Una visita muy especial terminó en triunfo.</strong> Después de más de diez años alejado de nuestra sede, <strong>German Bielefeldt V.</strong> volvió al Club de Ajedrez Osorno y se quedó con el campeonato del Séptimo Blitz. La jornada reunió a <strong>22 jugadores</strong>, entre ellos varios de los mejores representantes del club, en una tarde de partidas intensas, reencuentros y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/septimo-blitz/german-campeon-7°blitz.jpg", galeria: [ { imagen: "media/septimo-blitz/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/septimo-blitz/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/septimo-blitz/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/septimo-blitz/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/septimo-blitz/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/septimo-blitz/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/septimo-blitz/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/septimo-blitz/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/septimo-blitz/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/septimo-blitz/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/septimo-blitz/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/septimo-blitz/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/septimo-blitz/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results" },
         { fecha: "IRT 102 años · Resultados oficiales", titulo: "Resultados del IRT 102 años del Club de Ajedrez Osorno", texto: "Ya están disponibles los resultados oficiales del <strong>IRT 102 años</strong>, torneo aniversario del Club de Ajedrez Osorno. Revisa la clasificación final y las partidas en Chess-Results.", enlace: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", enlaceTexto: "Ver resultados oficiales del IRT 102 años" },
         { fecha: "18 de octubre de 2026 · Liga del Ranco", titulo: "Gran actuación del Club de Ajedrez Osorno en San Pablo", texto: "Nuestro club tuvo una gran jornada en San Pablo, en la Liga del Ranco. Felicitamos a <strong>Jorge Castilla, Renato Conejeros, Vicente Zárate, Lucas Pailla, Alelí Zamorano, Boris Zamorano, Nicolás Mundaca, Laura Puñanco, Maximiliano Guajardo y Sergio Vera</strong> por representar a Osorno. Mira el video de la jornada y revisa las fotografías del equipo.", video: "media/liga-ranco-san-pablo-2026.mp4", videoPoster: "media/liga-ranco-san-pablo-equipo.jpg", galeria: ["media/liga-ranco-san-pablo-equipo.jpg", "media/liga-ranco-san-pablo-delegacion.jpg"], enlace: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
@@ -395,6 +400,7 @@
     }
     
     const galeriaImagenesList = [
+        { nombre: "Halloween y Ajedrez en Osorno", img: "media/halloween-ajedrez-osorno.png", desc: "Afiche de la actividad del viernes 30 de octubre" },
         { nombre: "German Bielefeldt V. campeón del 7.º Blitz", img: "media/septimo-blitz/german-campeon-7°blitz.jpg", desc: "Junto a Daphne Van der Baan tras su regreso triunfal al club", album: "7.º Blitz" },
         { nombre: "Premiados del 7.º Blitz", img: "media/septimo-blitz/premiados-7°blitz.jpg", desc: "Celebración de los jugadores premiados", album: "7.º Blitz" },
         { nombre: "Sergio Vera, vicecampeón", img: "media/septimo-blitz/sergio-vera-vice-campeon.jpg", desc: "Segundo lugar Open", album: "7.º Blitz" },
@@ -684,8 +690,20 @@
         return icono;
     }
     function crearImagenLocal(src, alt) {
-        const url = urlBlogSegura(src);
-        if (!url) return null;
+        // These assets are shipped with the site. Permit file:// when the site
+        // is opened from disk for local preview; urlBlogSegura intentionally
+        // rejects that protocol for untrusted/content-managed URLs.
+        let url = '';
+        try {
+            const candidata = new URL(String(src || ''), document.baseURI);
+            const rutaRelativa = typeof src === 'string' && !/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i.test(src.trim());
+            const mismoOrigen = candidata.origin === location.origin;
+            const vistaLocal = location.protocol === 'file:' && candidata.protocol === 'file:' && rutaRelativa;
+            if (!['http:', 'https:', 'file:'].includes(candidata.protocol) || (!mismoOrigen && !vistaLocal)) return null;
+            url = candidata.href;
+        } catch (error) {
+            return null;
+        }
         const img = document.createElement('img');
         img.src = url;
         img.alt = String(alt || '');
@@ -809,6 +827,57 @@
         });
     }
     cargarCampeonesOsornoNombres();
+
+    let campeonOsornoSeleccionado = 0;
+    function mostrarCampeonOsorno(indice) {
+        const modal = document.getElementById('campeonOsornoDetalleModal');
+        const campeon = campeonesOsorno[indice];
+        if (!modal || !campeon) return;
+        campeonOsornoSeleccionado = indice;
+        document.getElementById('campeonOsornoDetalleNombre').textContent = campeon.nombre;
+        document.getElementById('campeonOsornoDetalleDescripcion').textContent = campeon.desc || '';
+        document.getElementById('campeonOsornoDetallePosicion').textContent = `${indice + 1} de ${campeonesOsorno.length}`;
+        const foto = document.getElementById('campeonOsornoDetalleImagen');
+        if (campeon.img) {
+            const imagenLocal = crearImagenLocal(campeon.img, campeon.nombre);
+            if (imagenLocal) {
+                foto.src = imagenLocal.src;
+                foto.alt = campeon.nombre;
+                foto.hidden = false;
+            } else {
+                foto.removeAttribute('src');
+                foto.hidden = true;
+            }
+        } else {
+            foto.removeAttribute('src');
+            foto.hidden = true;
+        }
+        modal.setAttribute('aria-hidden', 'false');
+        abrirModal(modal);
+    }
+    document.querySelectorAll('[data-campeon-osorno]').forEach(boton => {
+        boton.addEventListener('click', event => {
+            event.stopPropagation();
+            mostrarCampeonOsorno(Number(boton.dataset.campeonOsorno));
+        });
+    });
+    document.getElementById('campeonOsornoAnterior')?.addEventListener('click', () => {
+        mostrarCampeonOsorno((campeonOsornoSeleccionado - 1 + campeonesOsorno.length) % campeonesOsorno.length);
+    });
+    document.getElementById('campeonOsornoSiguiente')?.addEventListener('click', () => {
+        mostrarCampeonOsorno((campeonOsornoSeleccionado + 1) % campeonesOsorno.length);
+    });
+    const campeonOsornoDetalleModal = document.getElementById('campeonOsornoDetalleModal');
+    document.getElementById('closeCampeonOsornoDetalleBtn')?.addEventListener('click', () => {
+        campeonOsornoDetalleModal?.setAttribute('aria-hidden', 'true');
+        cerrarModal(campeonOsornoDetalleModal);
+    });
+    campeonOsornoDetalleModal?.addEventListener('click', event => {
+        if (event.target === campeonOsornoDetalleModal) {
+            campeonOsornoDetalleModal.setAttribute('aria-hidden', 'true');
+            cerrarModal(campeonOsornoDetalleModal);
+        }
+    });
     
     let directivaRenderizada = false;
     function cargarDirectiva() {
@@ -834,8 +903,10 @@
     let galeriaImagenesRenderizada = false;
     function categoriaGaleria(item) {
         const texto = `${item.nombre || ''} ${item.img || ''}`.toLowerCase();
+        if (texto.includes('benjamin-lopez-ajedrez-osorno')) return 'Históricas';
+        if (texto.includes('halloween')) return 'Recientes';
         if (texto.includes('liga del ranco') || texto.includes('pacheco') || texto.includes('calder') || texto.includes('la unión') || texto.includes('la-union') || texto.includes('blitz')) return 'Recientes';
-        if (texto.includes('escuela') || texto.includes('josefa') || texto.includes('benjamín') || texto.includes('benjamin') || texto.includes('tomás') || texto.includes('tomas')) return 'Escuela';
+        if (texto.includes('escuela') || texto.includes('josefa') || texto.includes('tomás') || texto.includes('tomas')) return 'Escuela';
         if (texto.includes('bariloche') || texto.includes('histórica') || texto.includes('historica')) return 'Históricas';
         return 'Torneos';
     }
@@ -1275,5 +1346,8 @@
 
     document.addEventListener('keydown', (event) => {
         if (event.key !== 'Escape') return;
-        document.querySelectorAll('.modal-overlay.active').forEach(modal => cerrarModal(modal));
+        document.querySelectorAll('.modal-overlay.active').forEach(modal => {
+            if (modal.id === 'campeonOsornoDetalleModal') modal.setAttribute('aria-hidden', 'true');
+            cerrarModal(modal);
+        });
     });
