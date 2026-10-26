@@ -820,7 +820,16 @@
             else marco.appendChild(crearIconoAjedrez());
             div.appendChild(marco);
             const titulo = document.createElement('h4');
-            titulo.appendChild(document.createTextNode(String(item.nombre || '')));
+            if (containerId === 'rankingGrid') {
+                const nombreLink = crearTexto('a', item.nombre || '', 'ranking-name-link');
+                const urlFederacion = urlBlogSegura(item.enlace, true) || 'https://www.federacionchilenadeajedrez.cl/ranking_jugadores/';
+                nombreLink.href = urlFederacion;
+                nombreLink.target = '_blank';
+                nombreLink.rel = 'noopener noreferrer';
+                titulo.appendChild(nombreLink);
+            } else {
+                titulo.appendChild(document.createTextNode(String(item.nombre || '')));
+            }
             if (conFlag && typeof item.flag === 'string') {
                 const bandera = crearImagenLocal(item.flag + '.png', 'Bandera');
                 if (bandera) bandera.className = 'flag-img';
@@ -837,16 +846,6 @@
                 elos.appendChild(chip);
                 div.appendChild(elos);
             } else if (item.desc) div.appendChild(crearTexto('p', item.desc));
-            const enlace = urlBlogSegura(item.enlace, true);
-            if (enlace && item.enlace !== '#') {
-                const parrafo = document.createElement('p');
-                const link = crearTexto('a', '♟ Ver ficha oficial', 'ranking-official-link');
-                link.href = enlace;
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                parrafo.appendChild(link);
-                div.appendChild(parrafo);
-            }
             if (imagen) {
                 imagen.addEventListener('click', event => { event.stopPropagation(); openImageModal(imagen.src); });
                 activarTarjetaImagen(div, imagen.src);
@@ -1072,9 +1071,29 @@
                 });
                 return;
             }
+            const albumRanco2 = 'Segunda Liga del Ranco · Colegio Alemán Osorno';
+            let tarjetaRanco2Mostrada = false;
             galeriaImagenesList
                 .filter(item => categoria === 'Todas' || categoriaGaleria(item) === categoria)
                 .forEach(img => {
+                    if (categoria === 'Todas' && albumDe(img) === albumRanco2) {
+                        if (tarjetaRanco2Mostrada) return;
+                        tarjetaRanco2Mostrada = true;
+                        const fotos = albumes.find(([album]) => album === albumRanco2)?.[1] || [];
+                        const folder = document.createElement('button');
+                        folder.type = 'button';
+                        folder.className = 'gallery-card album-card';
+                        folder.setAttribute('aria-label', `Abrir álbum ${albumRanco2}, ${fotos.length} fotos`);
+                        folder.style.cssText = 'text-align:left; padding:0; overflow:hidden; cursor:pointer; color:inherit; font:inherit;';
+                        const cover = document.createElement('div');
+                        cover.className = 'gallery-img';
+                        const coverImage = crearImagenLocal(fotos[0]?.img, albumRanco2);
+                        if (coverImage) cover.appendChild(coverImage); else cover.appendChild(crearIconoAjedrez());
+                        folder.append(cover, crearTexto('h4', albumRanco2), crearTexto('p', `${fotos.length} fotografías`));
+                        folder.addEventListener('click', () => renderGaleria('Álbum: ' + albumRanco2));
+                        contenedorGaleria.appendChild(folder);
+                        return;
+                    }
                     const card = document.createElement('div');
                     card.className = 'gallery-card';
                     const marco = document.createElement('div');
