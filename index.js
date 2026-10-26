@@ -496,23 +496,23 @@
         { nombre: "Segunda Liga del Ranco · delegación", img: "058c2f7a-8239-4d0c-b333-cb580a54d0a4.jpg", desc: "Participación del club en el Colegio Alemán de Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
         { nombre: "Segunda Liga del Ranco · mamás de la Academia", img: "54165ba1-145b-4ffc-ab03-70e4fb100ecb.jpg", desc: "Mamás de la Academia durante la Segunda Liga del Ranco en Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
         { nombre: "Segunda Liga del Ranco · apoderados", img: "027f4d38-c576-4a12-b921-8418b001053a.jpg", desc: "Apoderados en la jornada de la Segunda Liga del Ranco en Osorno", album: "Segunda Liga del Ranco · Colegio Alemán Osorno" },
-        { nombre: "IRT Chess Academy", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Torneo IRT Chess Academy" },
+        { nombre: "IRT Chess Academy 2017 · José “Pepe” Daguer campeón", img: "irt-chess-academy-ajedrez-osorno.jpg", desc: "Osorno, 12 y 13 de agosto de 2017 · IRT sub-2200 · 53 jugadores", album: "IRT Chess Academy 2017", reseña: "AJEDREZ · “PEPE” DAGUER GANÓ UN TORNEO INTERNACIONAL EN CHILE.\n\nEntre el 12 y 13 de agosto de 2017 se disputó en Osorno el IRT sub-2200 chessacademy2017, con 53 participantes. La delegación de Bariloche estuvo integrada por Nazareno Pereyra, Cristian Pulgar, José “Pepe” Daguer y Manuel García.\n\nDaguer obtuvo 5 de 6 puntos y empató el primer lugar con Román Francisco Catalán, de Chess Maipú. El desempate le dio el título y la Copa Vera Academy Chess 2017. Manuel García sumó 4,5 puntos y terminó quinto; Cristian Pulgar logró 4 puntos y Nazareno Pereyra, 3,5.\n\nLa jornada también entregó medallas a las categorías infantiles y juveniles, mejor dama y senior. El Club de Ajedrez Bariloche destacó el desempeño de sus jugadores y agradeció la hospitalidad de la organización osornina." },
         { nombre: "Nacional de Temuco 2019", img: "nacional-temuco-2019.jpg", desc: "Participación del club en el Nacional de Temuco" },
         { nombre: "Torneo Mayor 2009", img: "mayor-2009-osorno-ajedrez.jpg", desc: "Campeonato local" },
         { nombre: "Sergio Vera en Trevelyn 2010", img: "trevelyn-ajedrez-ajedrez-osorno.jpg", desc: "Participación destacada" },
-        { nombre: "Osorno campeón torneo equipos Valdivia", img: "osorno-club-equipos.jpg", desc: "Equipo campeón" },
+        { nombre: "Osorno campeón torneo equipos Valdivia", img: "osorno-club-equipos.jpg", desc: "Equipo campeón", album: "Torneo por equipos · Osorno y Valdivia" },
         { nombre: "Club imagen 2009", img: "pipe.jpg", desc: "Actividad social" },
         { nombre: "Katherine Velásquez en Sudamericano Paraguay", img: "IMG_20171201_170747.jpg", desc: "Representación internacional" },
         { nombre: "Sala club 2008", img: "club-sala-ajedrez.jpg", desc: "Nuestra sede" },
         { nombre: "Constanza Treumun y Sarita Álvarez", img: "IMG_20160824_164712 - copia.jpg", desc: "Jóvenes talentos" },
         { nombre: "Matías Andrade Campeón Torneo Invierno 2025", img: "campeon-torneo-de-invierno.jpg", desc: "Campeón absoluto" },
-        { nombre: "Torneo por equipos de Valdivia", img: "briones-ajedrez-osorno.jpg", desc: "Participación del club en el torneo por equipos de Valdivia" },
+        { nombre: "Torneo por equipos de Valdivia", img: "briones-ajedrez-osorno.jpg", desc: "Participación del club en el torneo por equipos de Valdivia", album: "Torneo por equipos · Osorno y Valdivia" },
         { nombre: "Benjamín López", img: "benjamin-lopez-ajedrez-osorno - copia.jpg", desc: "Mirando la partida" },
         { nombre: "Encuentro Osorno-Bariloche", img: "bariloche-osorno-ajedrez-osorno.jpg", desc: "Hermandad ajedrecística", album: "Bariloche" },
         { nombre: "Tomás Gebauer 4° Chile Sub 8", img: "aleman 2018.jpg", desc: "Logro infantil" },
         { nombre: "Osorno vs Bariloche club", img: "ajedrez-osorno-bariloche-club.jpg", desc: "Encuentro de locales", album: "Bariloche" },
         { nombre: "Agustín Ojeda Campeón Hamburgo Alemania", img: "a46a8cb6-8001-426a-a899-96f9d926714d.jpeg", desc: "Título internacional" },
-        { nombre: "Evento Paseo Patrimonial", img: "429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Registro del Club de Ajedrez Osorno en el Paseo Patrimonial", album: "Evento Paseo Patrimonial" },
+        { nombre: "Evento Paseo Patrimonial", img: "429807938_10229984340928786_7912276516318638005_n - copia.jpg", desc: "Registro del Club de Ajedrez Osorno en el Paseo Patrimonial", album: "Paseo Patrimonial" },
         { nombre: "Cena Osorno y Bariloche", img: "43617994_10215469277501695_2334973736567963648_n - copia.jpg", desc: "Confraternidad", album: "Bariloche" },
         { nombre: "Cena Osorno vs Bariloche 2", img: "43500627_10215469278941731_6898799358163025920_n.jpg", desc: "Celebración", album: "Bariloche" },
         { nombre: "Match Osorno vs Puerto Montt", img: "33575997_10216082477477426_1559030616861704192_n.jpg", desc: "Encuentro regional" },
@@ -521,10 +521,10 @@
         { nombre: "Torneo de Padres e Hijos 2025", img: "torneo-padres-e-hijos.jpg", desc: "Actividad familiar del Club de Ajedrez Osorno en 2025", album: "Torneo de Padres e Hijos 2025" },
         { nombre: "Josefa y Jeremías nacional", img: "josefa y jeremias nacional - copia.jpg", desc: "Representación juvenil" },
         { nombre: "Archivo histórico 2021", img: "20211019_205953.jpg", desc: "Registro histórico del club" },
-        { nombre: "Paseo Patrimonial Osorno", img: "031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Registro del encuentro de ajedrez en el paseo patrimonial", album: "Evento Paseo Patrimonial" },
-        { nombre: "Primer Torneo Paseo Patrimonial Osorno", img: "4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Primera edición del torneo en el paseo patrimonial", album: "Evento Paseo Patrimonial" },
-        { nombre: "Paseo Patrimonial Osorno · partidas", img: "77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas durante la actividad patrimonial", album: "Evento Paseo Patrimonial" },
-        { nombre: "Paseo Patrimonial Osorno · participantes", img: "d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Participantes del encuentro en el paseo patrimonial", album: "Evento Paseo Patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno", img: "031dad56-b92e-4da1-9aae-7b4512ddb04b.jpeg", desc: "Registro del encuentro de ajedrez en el paseo patrimonial", album: "Paseo Patrimonial" },
+        { nombre: "Primer Torneo Paseo Patrimonial Osorno", img: "4062434a-f769-4076-b7d0-45f9ae00112d.jpeg", desc: "Primera edición del torneo en el paseo patrimonial", album: "Paseo Patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno · partidas", img: "77c0da51-3c6a-49c0-874d-0349a7d4fd39.jpeg", desc: "Partidas durante la actividad patrimonial", album: "Paseo Patrimonial" },
+        { nombre: "Paseo Patrimonial Osorno · participantes", img: "d3e8d896-10b1-42c3-89db-444a3d2d0b05.jpeg", desc: "Participantes del encuentro en el paseo patrimonial", album: "Paseo Patrimonial" },
         { nombre: "Academia en el Nacional de Temuco", img: "e8ed7040-2db8-4bad-80b4-020bee6f1d31.jfif", desc: "Participación de la Academia en el Nacional de Temuco" },
         { nombre: "Archivo recuperado", img: "3efa133d-275c-47b6-b731-d389dbb4683d - copia.jpg", desc: "Foto antigua del club" },
         { nombre: "Osorno y Bariloche", img: "osorno-bariloche-ajedrez-osorno.jpg", desc: "Encuentro internacional de amistad", album: "Bariloche" },
@@ -540,7 +540,9 @@
         { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Actividad previa a Halloween" },
         { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco", lugar: "La Unión" },
         { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
+        { fecha: "Sábado 14 de noviembre de 2026", fechaISO: "2026-11-14", titulo: "Circuito Escolar Zona Sur", lugar: "La Unión · Salón Consistorial de la Municipalidad" },
         { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
+        { fecha: "12 de septiembre de 2026", fechaISO: "2026-09-12", titulo: "Circuito Escolar Zona Sur", lugar: "Río Negro · lugar por confirmar" },
         { fecha: "24 de agosto de 2026", fechaISO: "2026-08-24", titulo: "102.º aniversario del Club de Ajedrez Osorno", enlaces: [{ url: "https://www.instagram.com/club.ajedrez.osorno/", texto: "Ver publicación en Instagram" }] },
         { fecha: "15 y 16 de agosto de 2026", fechaISO: "2026-08-16", titulo: "Gran Torneo I.R.T. 102 años", lugar: "Club de Ajedrez Osorno · válido para rating FIDE", enlaces: [{ url: "https://s3.chess-results.com/tnr1476213.aspx?lan=2&art=1&rd=6&fed=CHI&SNode=S0", texto: "Resultados oficiales en Chess-Results" }, { url: "https://www.federacionchilenadeajedrez.cl/torneo/2885", texto: "Ficha oficial FEN" }, { url: "#ultimasNoticias", texto: "Noticia y fotos en el blog", target: "_self" }], video: "galeria-torneo-2026/necesito_una_publicacion_en_vi.mp4" },
         { fecha: "8 de agosto de 2026", fechaISO: "2026-08-08", lugar: "Osorno (Liceo Osorno College)" },
@@ -996,7 +998,7 @@
         const categorias = ['Álbumes', 'Todas', 'Históricas', 'Escuela', 'Torneos'];
         const albumDe = item => {
             const texto = `${item.nombre || ''} ${item.img || ''} ${item.desc || ''}`.toLowerCase();
-            if (texto.includes('patrimonial')) return 'Evento Paseo Patrimonial';
+            if (texto.includes('patrimonial')) return 'Paseo Patrimonial';
             if (texto.includes('bariloche')) return 'Bariloche';
             if (texto.includes('primera liga')) return 'Primera Liga del Ranco · Colegio Alemán La Unión';
             if (texto.includes('segunda liga') || texto.includes('liga del ranco 2')) return 'Segunda Liga del Ranco · Colegio Alemán Osorno';
@@ -1012,6 +1014,8 @@
             ]);
             if (fotosSegundaLigaRanco.has(String(item.img || '').toLowerCase())) return 'Segunda Liga del Ranco · Colegio Alemán Osorno';
             if (['sergio-campeon-launion.jpg', 'la-union-campeones.jpg'].includes(String(item.img || '').toLowerCase()) || texto.includes('primera liga del ranco')) return 'Primera Liga del Ranco · Colegio Alemán La Unión';
+            if (['osorno-club-equipos.jpg', 'briones-ajedrez-osorno.jpg'].includes(String(item.img || '').toLowerCase())) return 'Torneo por equipos · Osorno y Valdivia';
+            if (String(item.img || '').toLowerCase() === 'irt-chess-academy-ajedrez-osorno.jpg') return 'IRT Chess Academy 2017';
             if (texto.includes('ranco')) return 'Liga del Ranco';
             if (texto.includes('blitz') || texto.includes('calder') || texto.includes('pacheco')) return 'Torneos Blitz';
             if (texto.includes('match') || texto.includes('valdivia') || texto.includes('puerto montt')) return 'Encuentros entre clubes';
@@ -1063,6 +1067,17 @@
                     const imagen = crearImagenLocal(img.img, img.nombre);
                     if (imagen) marco.appendChild(imagen); else marco.appendChild(crearIconoAjedrez());
                     card.append(marco, crearTexto('h4', img.nombre), crearTexto('p', img.desc));
+                    if (img.reseña) {
+                        const detalle = document.createElement('details');
+                        detalle.className = 'gallery-story';
+                        const resumen = document.createElement('summary');
+                        resumen.textContent = 'Leer reseña del torneo';
+                        const textoReseña = document.createElement('p');
+                        textoReseña.textContent = img.reseña;
+                        textoReseña.style.whiteSpace = 'pre-line';
+                        detalle.append(resumen, textoReseña);
+                        card.appendChild(detalle);
+                    }
                     if (imagen) {
                         imagen.addEventListener('click', event => { event.stopPropagation(); openImageModal(imagen.src); });
                         activarTarjetaImagen(card, imagen.src);
@@ -1071,26 +1086,32 @@
                 });
                 return;
             }
-            const albumRanco2 = 'Segunda Liga del Ranco · Colegio Alemán Osorno';
-            let tarjetaRanco2Mostrada = false;
+            const albumesAgrupadosEnTodas = new Set([
+                'Segunda Liga del Ranco · Colegio Alemán Osorno',
+                'Primera Liga del Ranco · Colegio Alemán La Unión',
+                'Torneo por equipos · Osorno y Valdivia',
+                'Paseo Patrimonial'
+            ]);
+            const carpetasMostradas = new Set();
             galeriaImagenesList
                 .filter(item => categoria === 'Todas' || categoriaGaleria(item) === categoria)
                 .forEach(img => {
-                    if (categoria === 'Todas' && albumDe(img) === albumRanco2) {
-                        if (tarjetaRanco2Mostrada) return;
-                        tarjetaRanco2Mostrada = true;
-                        const fotos = albumes.find(([album]) => album === albumRanco2)?.[1] || [];
+                    const nombreAlbum = albumDe(img);
+                    if (categoria === 'Todas' && albumesAgrupadosEnTodas.has(nombreAlbum)) {
+                        if (carpetasMostradas.has(nombreAlbum)) return;
+                        carpetasMostradas.add(nombreAlbum);
+                        const fotos = albumes.find(([album]) => album === nombreAlbum)?.[1] || [];
                         const folder = document.createElement('button');
                         folder.type = 'button';
                         folder.className = 'gallery-card album-card';
-                        folder.setAttribute('aria-label', `Abrir álbum ${albumRanco2}, ${fotos.length} fotos`);
+                        folder.setAttribute('aria-label', `Abrir álbum ${nombreAlbum}, ${fotos.length} fotos`);
                         folder.style.cssText = 'text-align:left; padding:0; overflow:hidden; cursor:pointer; color:inherit; font:inherit;';
                         const cover = document.createElement('div');
                         cover.className = 'gallery-img';
-                        const coverImage = crearImagenLocal(fotos[0]?.img, albumRanco2);
+                        const coverImage = crearImagenLocal(fotos[0]?.img, nombreAlbum);
                         if (coverImage) cover.appendChild(coverImage); else cover.appendChild(crearIconoAjedrez());
-                        folder.append(cover, crearTexto('h4', albumRanco2), crearTexto('p', `${fotos.length} fotografías`));
-                        folder.addEventListener('click', () => renderGaleria('Álbum: ' + albumRanco2));
+                        folder.append(cover, crearTexto('h4', nombreAlbum), crearTexto('p', `${fotos.length} fotografías`));
+                        folder.addEventListener('click', () => renderGaleria('Álbum: ' + nombreAlbum));
                         contenedorGaleria.appendChild(folder);
                         return;
                     }
@@ -1101,6 +1122,16 @@
                     const imagen = crearImagenLocal(img.img, img.nombre);
                     if (imagen) marco.appendChild(imagen); else marco.appendChild(crearIconoAjedrez());
                     card.append(marco, crearTexto('h4', img.nombre), crearTexto('p', img.desc));
+                    if (img.reseña) {
+                        const detalle = document.createElement('details');
+                        detalle.className = 'gallery-story';
+                        const resumen = document.createElement('summary');
+                        resumen.textContent = 'Leer reseña del torneo';
+                        const textoReseña = document.createElement('p');
+                        textoReseña.textContent = img.reseña;
+                        detalle.append(resumen, textoReseña);
+                        card.appendChild(detalle);
+                    }
                     if (imagen) {
                         imagen.addEventListener('click', event => { event.stopPropagation(); openImageModal(imagen.src); });
                         activarTarjetaImagen(card, imagen.src);
