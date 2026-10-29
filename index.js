@@ -538,9 +538,12 @@
     const torneosEscolares = [
         { fecha: "Jueves 29 de octubre de 2026", fechaISO: "2026-10-29", titulo: "Copa Pontevedra", lugar: "Torneo open · 60 minutos por jugador" },
         { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Halloween y Ajedrez", lugar: "Club de Ajedrez Osorno · Matta 809", nota: "Desde las 17:30 hrs. Disfraz opcional." },
+        { fecha: "Lunes 2 de noviembre de 2026", fechaISO: "2026-11-02", titulo: "Match de Ajedrez: Liceo Premilitar Héroes de la Concepción vs. Colegio Alemán Osorno", nota: "Encuentro de talleres · 15:00 a 16:30 hrs." },
+        { fecha: "Sábado 7 de noviembre de 2026", fechaISO: "2026-11-07", titulo: "Campeonato Escolar de Ajedrez · Liceo Premilitar Héroes de la Concepción", nota: "Confirmación 9:30 hrs. · 6 rondas suizas · ritmo 10+5 · 40 cupos · Inscripciones: chessacademyosorno1@gmail.com" },
+        { fecha: "Viernes 13 de noviembre de 2026", fechaISO: "2026-11-13", titulo: "8.º Torneo Blitz del Club" },
         { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco", lugar: "La Unión" },
         { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
-        { fecha: "Sábado 14 de noviembre de 2026", fechaISO: "2026-11-14", titulo: "Circuito Escolar Zona Sur", lugar: "La Unión · Salón Consistorial de la Municipalidad" },
+
         { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
         { fecha: "12 de septiembre de 2026", fechaISO: "2026-09-12", titulo: "Circuito Escolar Zona Sur", lugar: "Río Negro · lugar por confirmar" },
         { fecha: "24 de agosto de 2026", fechaISO: "2026-08-24", titulo: "102.º aniversario del Club de Ajedrez Osorno", enlaces: [{ url: "https://www.instagram.com/club.ajedrez.osorno/", texto: "Ver publicación en Instagram" }] },
@@ -1176,6 +1179,12 @@
         const estadoHalloween = estadoFechaEvento(avisoHalloween.dataset.eventDate);
         if (estadoHalloween === 'Realizado') avisoHalloween.hidden = true;
         else document.getElementById('heroHalloweenDate').textContent = estadoHalloween === 'Hoy' ? 'Hoy · viernes 30 de octubre' : 'Este viernes · 30 de octubre';
+    }
+    const avisoBlitz = document.getElementById('heroBlitzNotice');
+    if (avisoBlitz) {
+        const estadoBlitz = estadoFechaEvento(avisoBlitz.dataset.eventDate);
+        if (estadoBlitz === 'Realizado') avisoBlitz.hidden = true;
+        else document.getElementById('heroBlitzDate').textContent = estadoBlitz === 'Hoy' ? 'Hoy · viernes 13 de noviembre' : 'Próximo torneo · viernes 13 de noviembre';
     }
     document.querySelectorAll('.tournament-block[data-event-date]').forEach(torneo => {
         const estado = estadoFechaEvento(torneo.dataset.eventDate);
