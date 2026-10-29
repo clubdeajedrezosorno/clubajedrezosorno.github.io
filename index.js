@@ -536,8 +536,8 @@
     const eventosArchivo = [];
     
     const torneosEscolares = [
-        { fecha: "Miércoles 4 de noviembre de 2026", fechaISO: "2026-11-04", titulo: "Copa Pontevedra · continúa" },
-        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Halloween y Ajedrez", lugar: "Club de Ajedrez Osorno · Matta 809", nota: "Desde las 17:30 hrs. Disfraz opcional." },
+        { fecha: "Miércoles 4 de noviembre de 2026", fechaISO: "2026-11-04", titulo: "Copa Pontevedra · continúa", enlaces: [{ url: "https://s1.chess-results.com/tnr1529649.aspx?lan=2&SNode=S0", texto: "Resultados de Copa Pontevedra" }] },
+        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Halloween y Ajedrez", lugar: "Club de Ajedrez Osorno · Matta 809", nota: "Desde las 17:30 hrs. Disfraz opcional. Solo alumnos y apoderados de la academia; socios desde las 19:00 hrs." },
         { fecha: "Lunes 2 de noviembre de 2026", fechaISO: "2026-11-02", titulo: "Match de Ajedrez: Colegio Alemán Osorno vs. Liceo Premilitar Héroes de la Concepción", nota: "Encuentro de talleres · 15:00 a 16:30 hrs." },
         { fecha: "Sábado 7 de noviembre de 2026", fechaISO: "2026-11-07", titulo: "Campeonato Escolar de Ajedrez · Liceo Premilitar Héroes de la Concepción", nota: "Confirmación 9:30 hrs. · 6 rondas suizas · ritmo 10+5 · 40 cupos · Inscripciones: chessacademyosorno1@gmail.com" },
         { fecha: "Viernes 13 de noviembre de 2026", fechaISO: "2026-11-13", titulo: "8.º Torneo Blitz del Club" },
