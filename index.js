@@ -536,8 +536,8 @@
     const eventosArchivo = [];
     
     const torneosEscolares = [
-        { fecha: "Miércoles 28 de octubre de 2026", fechaISO: "2026-10-28", titulo: "Copa Pontevedra", lugar: "Torneo open · 60 minutos por jugador" },
-        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Actividad previa a Halloween" },
+        { fecha: "Jueves 29 de octubre de 2026", fechaISO: "2026-10-29", titulo: "Copa Pontevedra", lugar: "Torneo open · 60 minutos por jugador" },
+        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Halloween y Ajedrez", lugar: "Club de Ajedrez Osorno · Matta 809", nota: "Desde las 17:30 hrs. Disfraz opcional." },
         { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco", lugar: "La Unión" },
         { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
         { fecha: "Sábado 14 de noviembre de 2026", fechaISO: "2026-11-14", titulo: "Circuito Escolar Zona Sur", lugar: "La Unión · Salón Consistorial de la Municipalidad" },
@@ -1170,6 +1170,12 @@
         if (fechaEvento < hoy) return 'Realizado';
         if (fechaEvento.getTime() === hoy.getTime()) return 'Hoy';
         return 'Próximo';
+    }
+    const avisoHalloween = document.getElementById('heroHalloweenNotice');
+    if (avisoHalloween) {
+        const estadoHalloween = estadoFechaEvento(avisoHalloween.dataset.eventDate);
+        if (estadoHalloween === 'Realizado') avisoHalloween.hidden = true;
+        else document.getElementById('heroHalloweenDate').textContent = estadoHalloween === 'Hoy' ? 'Hoy · viernes 30 de octubre' : 'Este viernes · 30 de octubre';
     }
     document.querySelectorAll('.tournament-block[data-event-date]').forEach(torneo => {
         const estado = estadoFechaEvento(torneo.dataset.eventDate);
