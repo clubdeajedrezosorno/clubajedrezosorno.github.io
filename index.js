@@ -124,10 +124,17 @@
             noticias = noticiasBase;
         }
         container.replaceChildren();
+        const idsNoticias = new Set();
         noticias.forEach((noticia, idx) => {
             const card = document.createElement('div');
             card.className = 'blog-card';
-            if (typeof noticia.id === 'string' && /^[a-z0-9_-]+$/i.test(noticia.id)) card.id = noticia.id;
+            const slugTitulo = String(noticia.titulo || `actividad-${idx + 1}`).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            const idBase = typeof noticia.id === 'string' && /^[a-z0-9_-]+$/i.test(noticia.id) ? noticia.id : `noticia-${slugTitulo || idx + 1}`;
+            let idNoticia = idBase;
+            let sufijoId = 2;
+            while (idsNoticias.has(idNoticia)) idNoticia = `${idBase}-${sufijoId++}`;
+            idsNoticias.add(idNoticia);
+            card.id = idNoticia;
             if (idx === 0 && noticia.fecha !== 'Séptimo Blitz · Osorno') card.classList.add('featured-news');
             const fecha = document.createElement('div');
             fecha.className = 'blog-date';
@@ -290,6 +297,19 @@
                 } else link.textContent = enlace.texto;
                 texto.appendChild(link);
             });
+            const botonCompartir = document.createElement('button');
+            botonCompartir.type = 'button';
+            botonCompartir.className = 'blog-share-button';
+            botonCompartir.setAttribute('aria-label', `Compartir artículo: ${String(noticia.titulo || 'noticia del club')}`);
+            const iconoCompartir = document.createElement('i');
+            iconoCompartir.className = 'fas fa-share-alt';
+            iconoCompartir.setAttribute('aria-hidden', 'true');
+            botonCompartir.append(iconoCompartir, document.createTextNode(' Compartir artículo'));
+            botonCompartir.addEventListener('click', event => {
+                event.stopPropagation();
+                compartirUrl(`#${idNoticia}`, String(noticia.titulo || 'Noticias del club'));
+            });
+            texto.appendChild(botonCompartir);
             if (noticia.titulo === 'Nuestra galería de estrellas') {
                 card.tabIndex = 0;
                 card.setAttribute('role', 'button');
@@ -306,6 +326,8 @@
             }
             container.appendChild(card);
         });
+        const destino = document.getElementById(window.location.hash.slice(1));
+        if (destino && container.contains(destino)) requestAnimationFrame(() => destino.scrollIntoView({ block: 'start' }));
     }
     
     const directiva = [
