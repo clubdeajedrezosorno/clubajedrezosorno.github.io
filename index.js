@@ -1,6 +1,18 @@
 (() => {
         const splash = document.getElementById('clubSplash');
         if (!splash) return;
+        const fechaActividad = splash.dataset.eventDate;
+        if (fechaActividad) {
+            const [anio, mes, dia] = fechaActividad.split('-').map(Number);
+            const fechaEvento = new Date(anio, mes - 1, dia);
+            const hoy = new Date();
+            fechaEvento.setHours(0, 0, 0, 0);
+            hoy.setHours(0, 0, 0, 0);
+            if (fechaEvento < hoy) {
+                splash.remove();
+                return;
+            }
+        }
         if (window.location.hash) {
             splash.remove();
             return;
