@@ -710,13 +710,26 @@
             mostrarEstadoImagen('No se pudo copiar la imagen. Prueba con Descargar o Copiar enlace.');
         }
     }
-    function openImageModal(imgSrc) {
+    let imagenesModal = [];
+    let indiceImagenModal = 0;
+    function mostrarImagenModal(indice) {
         const modal = document.getElementById('imagenMaxModal');
         const img = document.getElementById('imagenMaxSrc');
-        const url = obtenerUrlImagen(imgSrc);
+        if (!imagenesModal.length) return;
+        indiceImagenModal = (indice + imagenesModal.length) % imagenesModal.length;
+        const item = imagenesModal[indiceImagenModal];
+        const url = obtenerUrlImagen(item.src);
         if (!modal || !img || !url) return;
         img.src = url;
+        img.alt = item.alt || 'Imagen ampliada';
         mostrarEstadoImagen('');
+        const contador = document.getElementById('imageModalCounter');
+        const anterior = document.getElementById('imageModalPrevious');
+        const siguiente = document.getElementById('imageModalNext');
+        const hayVarias = imagenesModal.length > 1;
+        if (contador) contador.textContent = hayVarias ? `${indiceImagenModal + 1} / ${imagenesModal.length} · usa las flechas para avanzar` : '';
+        if (anterior) anterior.hidden = !hayVarias;
+        if (siguiente) siguiente.hidden = !hayVarias;
         const download = document.getElementById('btnDescargarImagen');
         if (download) { download.href = url; download.download = nombreArchivoImagen(url); }
         const shareButton = document.getElementById('btnCompartirImagen');
@@ -728,6 +741,21 @@
             const ok = await copiarTextoSeguro(url);
             mostrarEstadoImagen(ok ? 'Enlace copiado.' : 'No se pudo copiar automáticamente; usa el enlace disponible.');
         };
+    }
+    function openImageModal(imgSrc) {
+        const modal = document.getElementById('imagenMaxModal');
+        const url = obtenerUrlImagen(imgSrc);
+        if (!modal || !url) return;
+        const imagenesBlog = [...document.querySelectorAll('.blog-card .blog-feature-image img, .blog-card .blog-photo-strip img')];
+        const imagenActiva = imagenesBlog.find(imagen => obtenerUrlImagen(imagen.currentSrc || imagen.src) === url);
+        const tarjetaArticulo = imagenActiva?.closest('.blog-card');
+        const imagenesArticulo = tarjetaArticulo
+            ? imagenesBlog.filter(imagen => imagen.closest('.blog-card') === tarjetaArticulo).map(imagen => ({ src: imagen.currentSrc || imagen.src, alt: imagen.alt }))
+            : [];
+        const posicion = imagenesArticulo.findIndex(imagen => obtenerUrlImagen(imagen.src) === url);
+        imagenesModal = posicion >= 0 ? imagenesArticulo : [{ src: url, alt: 'Imagen ampliada' }];
+        indiceImagenModal = posicion >= 0 ? posicion : 0;
+        mostrarImagenModal(indiceImagenModal);
         abrirModal(modal);
         modal.onclick = function(e) { if (e.target === modal) cerrarModal(modal); };
     }
@@ -1546,6 +1574,13 @@
         closeImagenMax.addEventListener('click', () => cerrarModal(imagenMaxModal));
         imagenMaxModal.addEventListener('click', (e) => { if(e.target === imagenMaxModal) cerrarModal(imagenMaxModal); });
     }
+    document.getElementById('imageModalPrevious')?.addEventListener('click', () => mostrarImagenModal(indiceImagenModal - 1));
+    document.getElementById('imageModalNext')?.addEventListener('click', () => mostrarImagenModal(indiceImagenModal + 1));
+    document.addEventListener('keydown', event => {
+        if (!imagenMaxModal?.classList.contains('active') || imagenesModal.length < 2) return;
+        if (event.key === 'ArrowLeft') mostrarImagenModal(indiceImagenModal - 1);
+        if (event.key === 'ArrowRight') mostrarImagenModal(indiceImagenModal + 1);
+    });
     
     const foroLink = document.getElementById('foroLink');
     if (foroLink) foroLink.addEventListener('click', (e) => { e.preventDefault(); history.pushState(null, '', '#foroPanel'); document.getElementById('foroPanel').scrollIntoView({ behavior: 'smooth' }); });
