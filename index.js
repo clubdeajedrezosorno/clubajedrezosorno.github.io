@@ -1238,11 +1238,11 @@
         if (fechaEvento.getTime() === hoy.getTime()) return 'Hoy';
         return 'Próximo';
     }
-    const avisoHalloween = document.getElementById('heroHalloweenNotice');
-    if (avisoHalloween) {
-        const estadoHalloween = estadoFechaEvento(avisoHalloween.dataset.eventDate);
-        if (estadoHalloween === 'Realizado') avisoHalloween.hidden = true;
-        else document.getElementById('heroHalloweenDate').textContent = estadoHalloween === 'Hoy' ? 'Hoy · viernes 30 de octubre' : 'Este viernes · 30 de octubre';
+    const avisoPremilitar = document.getElementById('heroPremilitarNotice');
+    if (avisoPremilitar) {
+        const estadoPremilitar = estadoFechaEvento(avisoPremilitar.dataset.eventDate);
+        if (estadoPremilitar === 'Realizado') avisoPremilitar.hidden = true;
+        else document.getElementById('heroPremilitarDate').textContent = estadoPremilitar === 'Hoy' ? 'Hoy · sábado 7 de noviembre' : 'Próximo torneo · sábado 7 de noviembre';
     }
     const avisoBlitz = document.getElementById('heroBlitzNotice');
     if (avisoBlitz) {
