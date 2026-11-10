@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-src https://www.google.com; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+    <meta name="description" content="Sitio oficial del Club de Ajedrez Osorno: torneos, escuela, historia, rankings, noticias y contacto para la comunidad ajedrecistica del sur de Chile.">
+    <meta name="theme-color" content="#0a1f2b">
+    <link rel="canonical" href="https://clubajedrezosorno.cl/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:site_name" content="Club de Ajedrez Osorno">
+    <meta property="og:title" content="Club de Ajedrez Osorno - 102 anos de historia">
+    <meta property="og:description" content="Torneos, escuela, historia, rankings y actividades del Club de Ajedrez Osorno.">
+    <meta property="og:url" content="https://clubajedrezosorno.cl/">
+    <meta property="og:image" content="https://clubajedrezosorno.cl/logoclub.jpg">
+    <meta property="og:image:alt" content="Logo del Club de Ajedrez Osorno">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Club de Ajedrez Osorno - 102 anos de historia">
+    <meta name="twitter:description" content="Torneos, escuela, historia, rankings y actividades del Club de Ajedrez Osorno.">
+    <meta name="twitter:image" content="https://clubajedrezosorno.cl/logoclub.jpg">
+    <title>Club de Ajedrez Osorno — 102 años de historia</title>
+    <link rel="icon" href="logoclub.jpg" type="image/jpeg">
+    <link rel="apple-touch-icon" href="logoclub.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Montserrat:wght@300;400;500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #000000; font-family: 'Inter', sans-serif; color: #e5e5e5; line-height: 1.45; }
+        .site-container { max-width: 1400px; margin: 0 auto; background: #050505; box-shadow: 0 10px 30px rgba(0,0,0,0.8); border-radius: 0 0 24px 24px; animation: fadeIn 0.8s ease-out; overflow-x: hidden; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .event-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            background: #050505;
+            opacity: 1;
+            transition: opacity 2s ease;
+            cursor: pointer;
+            isolation: isolate;
+        }
+        .event-splash.is-closing {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .event-splash__picture,
+        .event-splash__image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .event-splash__image {
+            object-fit: contain;
+            object-position: center;
+            height: calc(100% - 4rem);
+            animation: none;
+        }
+        .event-splash__hint {
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            bottom: max(1.25rem, env(safe-area-inset-bottom));
+            transform: translateX(-50%);
+            width: min(92vw, 620px);
+            color: #fff3cf;
+            font-family: 'PT Serif', serif;
+            font-size: clamp(0.95rem, 2.2vw, 1.25rem);
+            font-style: italic;
+            text-align: center;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.85);
+            animation: splashHintPulse 1.45s ease-in-out infinite;
+        }
+        .event-splash__hint i {
+            margin-right: 0.45rem;
+            color: #f0d77a;
+            font-size: 0.95em;
+        }
+        @keyframes splashHintPulse {
+            0%, 100% { opacity: 0.68; }
+            50% { opacity: 1; }
+        }
+        @media (max-width: 767px) {
+            .event-splash__image {
+                object-position: center;
+                animation: none;
+            }
+            .event-splash__hint {
+                bottom: max(1rem, env(safe-area-inset-bottom));
+                font-size: 0.98rem;
+            }
+        }
+        
+        .top-header { 
+            background: linear-gradient(135deg, #0a1f2b 0%, #0c2a3b 100%);
+            padding: 1rem 1.5rem; 
+            border-bottom: 4px solid #d4af37; 
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .header-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .logo-title { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .logo-title img { max-height: 60px; width: auto; }
+        .logo-title .logo-fallback { display: none; font-size: 2rem; color: #d4af37; }
+        .title-area h1 { font-family: 'PT Serif', serif; font-size: 1.6rem; font-weight: 700; color: #f9e7c2; margin-bottom: 0.2rem; }
+        .title-area .subtitle { font-size: 0.75rem; color: #cbdbe6; }
+        .jugador-destacado-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0,0,0,0.5);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .jugador-destacado-header:hover { transform: scale(1.02); background: rgba(0,0,0,0.7); }
+        .jugador-destacado-header img { 
+            width: 120px; 
+            height: 120px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 2px solid #d4af37; 
+        }
+        .jugador-destacado-header span { font-size: 0.85rem; font-weight: 600; color: #ffea80; line-height: 1.3; }
+        .destacados-header-grid {
+            display: flex;
+            gap: 0.55rem;
+            align-items: stretch;
+        }
+        .destacado-pill {
+            width: 82px;
+            text-align: center;
+        }
+        .jugador-destacado-header .destacado-pill img {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 0.35rem;
+            display: block;
+        }
+        .destacado-pill strong {
+            display: block;
+            color: #fff2c4;
+            font-size: 0.76rem;
+            line-height: 1.05;
+        }
+        .destacado-pill small {
+            display: block;
+            color: #d4af37;
+            font-size: 0.67rem;
+            line-height: 1.1;
+            margin-top: 0.12rem;
+        }
+        .jugador-destacado-header img.destacado-collage {
+            width: 168px;
+            height: 98px;
+            border-radius: 16px;
+            object-fit: cover;
+        }
+        .destacado-miniaturas {
+            display: grid;
+            grid-template-columns: repeat(3, 48px);
+            gap: 6px;
+            align-items: center;
+        }
+        .jugador-destacado-header .destacado-miniaturas img {
+            width: 48px;
+            height: 62px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid #d4af37;
+        }
+        .right-rubrics { display: flex; justify-content: flex-end; gap: 1.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
+        .right-rubrics span { cursor: pointer; }
+        
+        .main-grid { display: grid; grid-template-columns: 260px 1fr 300px; gap: 2rem; padding: 2rem 2rem 2.5rem 2rem; animation: fadeIn 0.8s ease-out 0.2s both; }
+        
+        .sidebar-left { background: #0a0a0a; border-radius: 20px; padding: 0.2rem 0; border: 1px solid #222; position: sticky; top: 20px; align-self: start; }
+        .main-menu { list-style: none; }
+        .main-menu li { border-bottom: 1px solid #222; }
+        .main-menu a { display: flex; align-items: center; gap: 12px; padding: 0.8rem 0.8rem 0.8rem 0; font-weight: 500; color: #ccc; text-decoration: none; transition: 0.2s; font-size: 0.95rem; cursor: pointer; }
+        .main-menu a i { width: 1.6rem; color: #d4af37; font-size: 1.1rem; }
+        .main-menu a:hover { color: #d4af37; padding-left: 6px; }
+        .main-menu li.active a { color: #d4af37; border-right: 3px solid #d4af37; background: linear-gradient(90deg, rgba(212,175,55,0.1), transparent); }
+        
+        .blog-section { margin-bottom: 2rem; }
+        .section-title { font-family: 'PT Serif', serif; font-size: 1.7rem; font-weight: 700; border-left: 5px solid #d4af37; padding-left: 1rem; margin-bottom: 1.2rem; color: #f0e6c5; }
+        .blog-card { background: #0a0a0a; border-radius: 24px; padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #222; transition: all 0.25s ease; animation: fadeInUp 0.5s ease-out both; }
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .blog-card:hover { transform: translateY(-4px); border-color: #d4af37; }
+        .blog-card.featured-news { border-color: rgba(240,215,122,0.55); background: linear-gradient(140deg, rgba(31,111,88,0.18), rgba(111,45,52,0.16)), #11110f; }
+        .blog-date { font-size: 0.75rem; color: #d4af37; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600; }
+        .blog-title { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: #f0e6c5; }
+        .blog-text { color: #bbbbbb; line-height: 1.5; }
+        .blog-photo-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(92px, 1fr)); gap: 0.65rem; margin: 1rem 0; scroll-margin-top: 88px; }
+        .blog-photo-strip img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 14px; border: 1px solid rgba(240,215,122,0.22); cursor: pointer; }
+        .blog-feature-image { margin: 1rem 0; overflow: hidden; border-radius: 18px; border: 1px solid rgba(240,215,122,0.22); background: #080807; }
+        .blog-feature-image img { width: 100%; max-height: 340px; object-fit: cover; display: block; cursor: pointer; }
+        .blog-action-link { display: inline-flex; align-items: center; gap: 0.45rem; margin-top: 0.35rem; color: #f0d77a; font-weight: 800; text-decoration: none; }
+        #noticia-premilitar-2026-resultados .blog-results-heading { display: block; margin-top: 1rem; color: #f0d77a; font-size: 1rem; }
+        #noticia-premilitar-2026-resultados .blog-results-list { display: grid; gap: 0.45rem; margin: 0.35rem 0 0.8rem; padding-left: 1.35rem; color: #f0d77a; }
+        #noticia-premilitar-2026-resultados .blog-results-list li { padding-left: 0.15rem; }
+        #noticia-premilitar-2026-resultados .blog-results-list .blog-action-link { display: inline-flex; margin: 0; }
+        .blog-action-link:hover { color: #ffffff; text-decoration: underline; }
+        .blog-share-button { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0.8rem 0.55rem 0 0; padding: 0.55rem 0.85rem; border: 1px solid rgba(240,215,122,0.38); border-radius: 999px; color: #f0d77a; background: rgba(212,175,55,0.08); font: inherit; font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+        .blog-share-button:hover { color: #111; background: #d4af37; border-color: #d4af37; }
+        .blog-share-button:focus-visible { outline: 2px solid #f0d77a; outline-offset: 3px; }
+        .blog-video { width: 100%; display: block; margin: 1rem 0; border: 1px solid rgba(240,215,122,0.28); border-radius: 18px; background: #000; }
+        .highlight { background: #1a1a1a; color: #d4af37; padding: 0.2rem 0.4rem; border-radius: 8px; font-weight: 500; }
+        
+        .actividades-block { background: linear-gradient(145deg, #111, #0c0c0c); border-radius: 28px; padding: 1.5rem; margin: 1.5rem 0 2rem 0; border: 1px solid #2a2a2a; animation: fadeInUp 0.5s ease-out 0.4s both; }
+        .actividades-block h3 { font-size: 1.4rem; font-family: 'PT Serif', serif; color: #d4af37; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+        .actividad-item { padding: 0.8rem 0; border-bottom: 1px solid #2a2a2a; display: flex; gap: 1rem; align-items: baseline; }
+        .actividad-fecha { font-weight: 700; color: #d4af37; min-width: 90px; }
+        .actividad-status { display: inline-block; margin-left: 0.4rem; padding: 0.12rem 0.45rem; border: 1px solid rgba(240,215,122,0.35); border-radius: 999px; color: #f0d77a; font-size: 0.66rem; font-weight: 900; white-space: nowrap; }
+        .actividad-texto { color: #ccc; }
+        
+        .champions-block { background: linear-gradient(145deg, #111, #0c0c0c); border-radius: 28px; padding: 1.5rem 1.8rem; border: 1px solid #2a2a2a; cursor: pointer; transition: all 0.25s ease; margin-bottom: 2rem; animation: fadeInUp 0.5s ease-out 0.5s both; }
+        .champions-block:hover { transform: translateY(-3px); border-color: #d4af37; }
+        .champions-name { font-weight: 800; font-size: 1.6rem; color: #f0e6c5; }
+        .champions-name i { color: #d4af37; margin-right: 8px; }
+        .click-hint { font-size: 0.8rem; background: #1a1a1a; padding: 0.3rem 1rem; border-radius: 40px; font-weight: 500; color: #ccc; }
+        .champions-desc { margin-top: 1rem; color: #bbbbbb; border-left: 3px solid #d4af37; padding-left: 1rem; }
+        
+        .directiva-netflix { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+        .directiva-netflix .gallery-card { flex: 0 0 180px; scroll-snap-align: start; }
+        @media (min-width: 768px) { .directiva-netflix { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); overflow-x: visible; } }
+        
+        .galeria-netflix { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+        .galeria-netflix .gallery-card { flex: 0 0 200px; scroll-snap-align: start; }
+        @media (min-width: 768px) { .galeria-netflix { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); overflow-x: visible; } }
+        
+        .campeones-netflix { display: flex; overflow-x: auto; gap: 1rem; padding-bottom: 1rem; scroll-snap-type: x mandatory; }
+        .campeones-netflix .gallery-card { flex: 0 0 200px; scroll-snap-align: start; }
+        @media (min-width: 768px) { .campeones-netflix { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); overflow-x: visible; } }
+        
+        .colaboradores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .colaborador-box {
+            background: #111;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: 0.2s;
+            cursor: pointer;
+            border: 1px solid #2c2c2c;
+        }
+        .colaborador-box:hover { transform: translateY(-4px); border-color: #d4af37; }
+        .colaborador-box:focus-visible { outline: 2px solid #f0d77a; outline-offset: 3px; }
+        .colaborador-box img { width: 100%; height: 160px; object-fit: cover; }
+        .colaborador-box .colaborador-caption { padding: 0.8rem; text-align: center; font-weight: 600; color: #d4af37; background: #0a0a0a; }
+        
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center; visibility: hidden; opacity: 0; transition: 0.2s; }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+        #imagenMaxModal { z-index: 2500; }
+        .modal-container { background: #0f0f0f; max-width: 1000px; width: 90%; max-height: 85vh; border-radius: 32px; overflow-y: auto; padding: 2rem; position: relative; border: 1px solid #3a3a3a; }
+        .modal-container h2 { font-family: 'PT Serif', serif; font-size: 1.8rem; border-left: 5px solid #d4af37; padding-left: 1rem; margin-bottom: 1.5rem; color: #f0e6c5; }
+        .close-modal { position: absolute; top: 1rem; right: 1.5rem; font-size: 2rem; cursor: pointer; background: none; border: none; color: #ccc; transition: 0.2s; }
+        .close-modal:hover { color: #d4af37; }
+        .modal-container img { max-width: 100%; height: auto; border-radius: 20px; cursor: pointer; }
+        
+        .btn-compartir {
+            background: #d4af37;
+            color: #111;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-compartir:hover { background: #f3d572; transform: scale(1.02); }
+        
+        .grid-3cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .grid-4cols { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1.5rem; }
+        .gallery-card { background: #111; border-radius: 24px; padding: 1rem; border: 1px solid #2c2c2c; transition: 0.2s; text-align: center; cursor: pointer; position: relative; }
+        .gallery-card:hover { border-color: #d4af37; transform: translateY(-3px); }
+        .gallery-img { width: 100%; height: 180px; background: #1a1a1a; border-radius: 20px; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 0.8rem; }
+        .gallery-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; cursor: pointer; }
+        .gallery-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: #f0e6c5; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+        .ranking-name-link { color: inherit; text-decoration: none; }
+        .ranking-name-link:hover, .ranking-name-link:focus-visible { color: #f0d77a; text-decoration: underline; }
+        .gallery-card p { font-size: 0.85rem; color: #bbb; }
+        #promesasGrid .gallery-card--text-only { min-height: 5rem; display: flex; flex-direction: column; justify-content: center; }
+        .flag-img { width: 20px; height: auto; vertical-align: middle; }
+        .ranking-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: -0.5rem 0 1.25rem;
+            padding: 0.85rem 1rem;
+            border: 1px solid rgba(212,175,55,0.25);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.11), rgba(31,111,88,0.12)), #0b0b0b;
+            color: #d8d8d8;
+            font-size: 0.88rem;
+        }
+        .ranking-info strong { color: #f0d77a; }
+        .ranking-info a { color: #f0d77a; font-weight: 800; text-decoration: none; }
+        .ranking-info a:hover { text-decoration: underline; }
+        .ranking-card .ranking-position {
+            position: absolute;
+            top: 0.8rem;
+            left: 0.8rem;
+            min-width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: #d4af37;
+            color: #111;
+            font-weight: 900;
+            font-size: 0.82rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.32);
+        }
+        .ranking-elos {
+            display: flex;
+            justify-content: center;
+            gap: 0.45rem;
+            margin: 0.65rem 0 0.75rem;
+        }
+        .ranking-elo-chip {
+            min-width: 118px;
+            border: 1px solid rgba(212,175,55,0.22);
+            border-radius: 12px;
+            padding: 0.42rem 0.35rem;
+            background: rgba(255,255,255,0.035);
+        }
+        .ranking-elo-chip span {
+            display: block;
+            color: #aaa;
+            font-size: 0.66rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .ranking-elo-chip strong {
+            display: block;
+            color: #f0e6c5;
+            font-size: 1rem;
+            margin-top: 0.08rem;
+        }
+        .ranking-official-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            min-height: 36px;
+            padding: 0.48rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(212,175,55,0.12);
+            color: #f0d77a;
+            border: 1px solid rgba(212,175,55,0.28);
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 0.78rem;
+        }
+        .ranking-official-link:hover { background: rgba(212,175,55,0.2); }
+        .btn-eliminar-jugador { background: #8b0000; color: white; border: none; border-radius: 20px; padding: 0.2rem 0.6rem; font-size: 0.7rem; margin-top: 0.5rem; cursor: pointer; transition: 0.2s; }
+        .btn-eliminar-jugador:hover { background: #cc0000; transform: scale(1.05); }
+        .gallery-card.sin-ranking { opacity: 0.7; background: #0a0a0a; border-color: #444; }
+        .gallery-card.sin-ranking:hover { opacity: 1; background: #111; }
+        
+        .torneo-escolar-item { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; border-left: 4px solid #d4af37; transition: 0.2s; }
+        .torneo-escolar-item:hover { background: #1a1a1a; transform: translateX(5px); }
+        .calendar-group-title { margin: 0.25rem 0 0.1rem; color: #f0d77a; font-family: 'PT Serif', serif; font-size: 1.15rem; }
+        .calendar-group-list { display: grid; gap: 0.8rem; }
+        .calendar-group-list .torneo-escolar-item { margin: 0; }
+        .calendar-history { margin-top: 0.8rem; border: 1px solid rgba(212,175,55,0.3); border-radius: 16px; background: rgba(17,17,15,0.7); overflow: hidden; }
+        .calendar-history summary { padding: 0.95rem 1rem; color: #f0d77a; font-weight: 800; cursor: pointer; list-style: none; }
+        .calendar-history summary::-webkit-details-marker { display: none; }
+        .calendar-history summary::after { content: '+'; float: right; font-size: 1.2rem; line-height: 1; }
+        .calendar-history[open] summary::after { content: '−'; }
+        .calendar-history-list { padding: 0 0.85rem 0.85rem; }
+        .torneo-escolar-fecha { font-weight: 800; color: #d4af37; font-size: 1.1rem; }
+        .torneo-escolar-lugar { color: #ccc; margin-top: 0.3rem; }
+        .torneo-escolar-detalle { color: #ccc; margin-top: 0.2rem; font-size: 0.9rem; }
+        .torneo-escolar-item.calendar-next-event { border: 2px solid #f0d77a; border-left-width: 8px; background: linear-gradient(135deg, rgba(212,175,55,0.3), rgba(31,111,88,0.2)), #111; box-shadow: 0 0 0 3px rgba(240,215,122,0.12), 0 14px 34px rgba(212,175,55,0.16); }
+        .torneo-escolar-item.calendar-next-event .torneo-escolar-fecha { color: #f0d77a; font-size: 1.35rem; }
+        .torneo-escolar-item.calendar-next-event .torneo-escolar-lugar { font-size: 1.25rem; }
+        .torneo-escolar-nota { margin-top: 0.55rem; color: #f0d77a; font-size: 0.86rem; font-weight: 700; }
+        .torneo-escolar-acciones { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-top: 0.85rem; }
+        .bases-escolar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            width: fit-content;
+            margin-top: 0.75rem;
+            min-height: 42px;
+            padding: 0.62rem 0.9rem;
+            border: 1px solid rgba(240,215,122,0.28);
+            border-radius: 999px;
+            background: rgba(31,111,88,0.22);
+            color: #f0d77a;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .bases-escolar-link:hover {
+            color: #ffffff;
+            border-color: rgba(240,215,122,0.55);
+            background: rgba(31,111,88,0.36);
+            text-decoration: none;
+        }
+        
+        .archivo-evento { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; display: flex; gap: 1rem; align-items: center; border: 1px solid #2c2c2c; }
+        .archivo-evento .icono-ajedrez { font-size: 4rem; color: #d4af37; width: 100px; text-align: center; }
+        .archivo-evento img { width: 100px; height: 100px; object-fit: cover; border-radius: 16px; background: #1a1a1a; cursor: pointer; }
+        .archivo-info { flex: 1; }
+        .archivo-info h4 { font-size: 1.2rem; color: #d4af37; margin-bottom: 0.3rem; }
+        .archivo-info p { font-size: 0.85rem; color: #ccc; margin-bottom: 0.2rem; }
+        .archivo-fecha { font-size: 0.7rem; color: #888; }
+        .paginacion { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+        .paginacion button { background: #222; color: #d4af37; border: none; padding: 0.5rem 1rem; border-radius: 30px; cursor: pointer; transition: 0.2s; }
+        .paginacion button:hover { background: #d4af37; color: #111; }
+        
+        .tab-container { display: flex; gap: 1rem; border-bottom: 1px solid #2c2c2c; margin-bottom: 1.5rem; }
+        .tab-btn { background: none; border: none; color: #ccc; font-size: 1.1rem; font-weight: 600; padding: 0.5rem 1rem; cursor: pointer; transition: 0.2s; }
+        .tab-btn.active { color: #d4af37; border-bottom: 2px solid #d4af37; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        
+        .descarga-item { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; border: 1px solid #2c2c2c; transition: 0.2s; }
+        .descarga-item:hover { border-color: #d4af37; }
+        .descarga-item i { font-size: 2rem; color: #d4af37; }
+        .descarga-info { flex: 1; }
+        .descarga-info h4 { font-size: 1.1rem; color: #f0e6c5; }
+        .descarga-info p { font-size: 0.8rem; color: #aaa; }
+        .btn-descargar { background: #d4af37; color: #111; padding: 0.4rem 1rem; border-radius: 30px; text-decoration: none; font-weight: bold; transition: 0.2s; }
+        .btn-descargar:hover { background: #f3d572; }
+        
+        .tournament-block { background: #0a0a0a; border-radius: 24px; padding: 1.2rem 1.8rem; border: 1px solid #222; margin-bottom: 1rem; transition: 0.2s; position: relative; }
+        .tournament-block:hover { border-color: #d4af37; }
+        .tournament-block.featured-event { border-color: rgba(240,215,122,0.8); background: linear-gradient(145deg, rgba(31,111,88,0.26), rgba(111,45,52,0.18)), #111; box-shadow: 0 18px 42px rgba(0,0,0,0.35); }
+        .tournament-block.featured-event .tournament-name a { color: #fff2c4; font-size: 1.05rem; }
+        .tournament-meta { color: #aaa; margin-top: 0.25rem; }
+        .event-video { width: min(100%, 420px); max-height: 236px; aspect-ratio: 16 / 9; object-fit: contain; margin: 0.9rem auto 0; border-radius: 18px; border: 1px solid rgba(240,215,122,0.28); background: #000; display: block; }
+        .tournament-actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.9rem; }
+        .tournament-name a { color: #f0e6c5; text-decoration: none; font-weight: 800; }
+        .tournament-name a:hover { color: #d4af37; }
+        .active-banner { position: absolute; top: -10px; right: 15px; background: #d4af37; color: #111; font-size: 0.7rem; font-weight: bold; padding: 2px 10px; border-radius: 20px; letter-spacing: 0.5px; box-shadow: 0 0 5px rgba(0,0,0,0.5); }
+        .sidebar-right { display: flex; flex-direction: column; gap: 2rem; }
+        .online-panel { background: #0a0a0a; border-radius: 24px; padding: 1.2rem; border: 1px solid #222; }
+        .online-header { font-weight: 800; font-size: 1.2rem; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 4px; margin-bottom: 1rem; color: #f0e6c5; }
+        
+        .encuesta { margin-top: 1rem; background: #111; padding: 1rem; border-radius: 20px; }
+        .encuesta p { margin-bottom: 0.5rem; font-weight: 500; }
+        .encuesta label { margin-right: 1rem; cursor: pointer; }
+        .encuesta button { background: #d4af37; border: none; padding: 0.3rem 1rem; border-radius: 30px; margin-top: 0.5rem; cursor: pointer; font-weight: bold; color: #111; }
+        .barra-container { margin-top: 1rem; }
+        .barra-item { margin-bottom: 0.5rem; }
+        .barra-label { display: inline-block; width: 100px; }
+        .barra-fondo { display: inline-block; width: 150px; background: #2c2c2c; height: 12px; border-radius: 6px; overflow: hidden; vertical-align: middle; margin-left: 0.5rem; }
+        .barra-porcentaje { height: 100%; background: #d4af37; width: 0%; transition: width 0.3s; }
+        .porcentaje-texto { margin-left: 0.5rem; font-size: 0.8rem; }
+        
+        .mapa-container { margin: 1rem 0; border-radius: 20px; overflow: hidden; border: 1px solid #2c2c2c; }
+        .mapa-container iframe { width: 100%; height: 250px; border: 0; }
+        
+        footer { background: #030303; text-align: center; padding: 1.5rem; font-size: 0.8rem; color: #aaa; border-top: 1px solid #222; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+        .footer-links a { color: #d4af37; text-decoration: none; transition: 0.2s; display: inline-flex; align-items: center; gap: 6px; }
+        .footer-links a:hover { color: #f3d572; text-decoration: underline; }
+        
+        .float-contact-right { position: fixed; bottom: 2rem; right: 2rem; background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: 0.2s; z-index: 999; text-decoration: none; animation: fadeInUp 0.5s ease-out 0.2s both; }
+        .float-contact-left { position: fixed; bottom: 2rem; left: 2rem; background: #d4af37; color: #111; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.5); transition: 0.2s; z-index: 999; cursor: pointer; animation: fadeInUp 0.5s ease-out 0.2s both; }
+        .float-contact-left:hover { transform: scale(1.1); background: #f3d572; }
+        .float-contact-right:hover { transform: scale(1.1); background: #128C7E; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .form-contact input, .form-contact textarea { width: 100%; background: #1a1a1a; border: 1px solid #333; border-radius: 12px; padding: 0.8rem; margin-bottom: 1rem; color: #fff; font-family: inherit; }
+        .form-contact button { background: #d4af37; color: #111; border: none; padding: 0.8rem; border-radius: 40px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.2s; }
+        .form-contact button:hover { background: #f3d572; }
+        
+        .datos-bancarios { background: #111; border-radius: 20px; padding: 1rem; margin-bottom: 1.5rem; border: 1px solid #2c2c2c; }
+        .tesoreria-datos-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 150px;
+            gap: 1rem;
+            align-items: center;
+        }
+        .tesorero-foto {
+            width: 150px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 2px solid rgba(240,215,122,0.62);
+            box-shadow: 0 16px 34px rgba(0,0,0,0.34);
+        }
+        .tesorero-caption {
+            margin-top: 0.45rem;
+            color: #f0d77a;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-align: center;
+        }
+        .tesoreria-panel { background: #0a0a0a; border-radius: 20px; padding: 1rem; margin-top: 1rem; }
+        .tesoreria-botones { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .tesoreria-botones button { background: #d4af37; color: #111; border: none; padding: 0.5rem 1rem; border-radius: 30px; font-weight: bold; cursor: pointer; }
+        .tesoreria-consulta { background: #111; padding: 1rem; border-radius: 20px; margin-top: 1rem; }
+        .tesoreria-consulta input { background: #1a1a1a; border: 1px solid #333; padding: 0.5rem; border-radius: 20px; color: white; width: 200px; margin-right: 0.5rem; }
+        .admin-panel { background: #111; padding: 1rem; border-radius: 20px; margin-top: 1rem; display: none; }
+        .admin-panel table { width: 100%; border-collapse: collapse; color: #ccc; font-size: 0.8rem; }
+        .admin-panel th, .admin-panel td { border: 1px solid #333; padding: 0.5rem; text-align: left; }
+        .admin-panel input { background: #1a1a1a; border: 1px solid #444; color: white; padding: 0.2rem; width: 80px; }
+        .admin-panel button { background: #d4af37; border: none; padding: 0.3rem 0.6rem; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 0.5rem; }
+        .export-import { margin-top: 1rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-agregar-jugador { background: #d4af37; color: #111; border: none; padding: 0.5rem 1rem; border-radius: 30px; font-weight: bold; cursor: pointer; margin-top: 1rem; width: 100%; transition: 0.2s; }
+        .btn-agregar-jugador:hover { background: #f3d572; }
+        .escuela-grid img { aspect-ratio: 4 / 3; object-fit: cover; }
+        
+        @media (max-width: 1000px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .header-row { flex-direction: column; text-align: center; }
+            .logo-title { justify-content: center; }
+            .jugador-destacado-header { margin-top: 0.5rem; justify-content: center; }
+            .right-rubrics { justify-content: center; }
+            .sidebar-left { position: static; margin-bottom: 1rem; }
+            .directiva-netflix .gallery-card { flex: 0 0 160px; }
+            .galeria-netflix .gallery-card { flex: 0 0 170px; }
+            .campeones-netflix .gallery-card { flex: 0 0 170px; }
+            .colaboradores-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .jugador-destacado-header img { width: 80px; height: 80px; }
+            .escuela-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 520px) {
+            .escuela-grid { grid-template-columns: 1fr !important; gap: 0.9rem !important; }
+            .tesoreria-datos-grid {
+                grid-template-columns: 1fr;
+            }
+            .tesorero-foto {
+                width: min(180px, 100%);
+                margin: 0 auto;
+                display: block;
+            }
+        }
+        /* ==================== PULIDO BLOG / CALENDARIO / GALERIAS ==================== */
+        .blog-card.featured-news {
+            padding: clamp(1.15rem, 3vw, 2rem);
+            border-radius: 18px;
+            border-color: rgba(240, 215, 122, 0.52);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+        }
+        .blog-card.featured-news .blog-date {
+            display: inline-flex;
+            width: fit-content;
+            padding: 0.28rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(31, 111, 88, 0.24);
+            color: #f0d77a;
+            border: 1px solid rgba(240, 215, 122, 0.2);
+        }
+        .blog-card.featured-news .blog-title {
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            line-height: 1.08;
+            max-width: 760px;
+        }
+        .blog-card.featured-news .blog-text {
+            font-size: 1rem;
+            color: #d7d0c0;
+        }
+        .blog-card.featured-news .blog-photo-strip {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0.2rem 0 0.85rem;
+            margin-top: 1.2rem;
+        }
+        .blog-card.featured-news .blog-photo-strip img {
+            flex: 0 0 clamp(170px, 38vw, 260px);
+            aspect-ratio: 4 / 3;
+            border-radius: 16px;
+            scroll-snap-align: start;
+        }
+        .blog-feature-image img,
+        .blog-photo-strip img,
+        .gallery-card,
+        .colaborador-box,
+        .escuela-grid img {
+            transition: transform 0.22s ease, border-color 0.22s ease, filter 0.22s ease;
+        }
+        .blog-feature-image img:hover,
+        .blog-photo-strip img:hover,
+        .escuela-grid img:hover {
+            transform: scale(1.015);
+            filter: brightness(1.06);
+        }
+        #listaTorneosEscolares {
+            display: grid;
+            gap: 0.95rem;
+        }
+        .torneo-escolar-item {
+            display: grid;
+            grid-template-columns: minmax(110px, 0.34fr) 1fr;
+            gap: 0.35rem 1rem;
+            align-items: start;
+            border-radius: 16px;
+        }
+        .torneo-escolar-fecha {
+            grid-row: span 3;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            line-height: 1.15;
+        }
+        .torneo-escolar-fecha small {
+            color: #b9b2a3;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .torneo-escolar-lugar {
+            font-size: 1rem;
+            color: #f3efe4;
+            font-weight: 800;
+        }
+        .gallery-card:focus-visible,
+        .colaborador-box:focus-visible,
+        .blog-photo-strip img:focus-visible,
+        .blog-feature-image img:focus-visible,
+        .escuela-grid img:focus-visible {
+            outline: 2px solid #f0d77a;
+            outline-offset: 3px;
+        }
+        #imagenMaxModal .modal-container {
+            background: rgba(5, 5, 5, 0.92);
+            border-color: rgba(240, 215, 122, 0.26);
+        }
+        .image-modal-viewer { display: flex; align-items: center; justify-content: center; gap: clamp(0.35rem, 2vw, 1.25rem); }
+        .image-modal-nav { flex: 0 0 auto; width: 48px; height: 48px; border: 1px solid rgba(240,215,122,0.42); border-radius: 50%; color: #f0d77a; background: rgba(25,25,23,0.92); font-size: 2rem; line-height: 1; cursor: pointer; }
+        .image-modal-nav:hover { background: #d4af37; color: #111; }
+        .image-modal-nav[hidden] { display: none; }
+        #imageModalCounter { min-height: 1.25rem; margin: 0.45rem 0 0.75rem; color: #d4af37; font-size: 0.85rem; font-weight: 700; }
+        #imagenMaxSrc {
+            max-width: min(76vw, 1100px);
+            object-fit: contain;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+        }
+        @media (max-width: 640px) {
+            #imagenMaxSrc { max-width: calc(100vw - 150px); max-height: 64vh !important; }
+            .image-modal-nav { width: 38px; height: 38px; font-size: 1.65rem; }
+            .blog-card.featured-news .blog-photo-strip img {
+                flex-basis: 78vw;
+            }
+            .torneo-escolar-item {
+                grid-template-columns: 1fr;
+            }
+            .torneo-escolar-fecha {
+                grid-row: auto;
+            }
+            .torneo-escolar-acciones .btn-descargar {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+        /* ==================== REFRESH VISUAL 2026 ==================== */
+        :root {
+            --bg: #050505;
+            --panel: #11110f;
+            --panel-2: #191813;
+            --line: rgba(232, 211, 154, 0.18);
+            --line-strong: rgba(212, 175, 55, 0.58);
+            --text: #f3efe4;
+            --muted: #b9b2a3;
+            --soft: #d9ccb1;
+            --gold: #d4af37;
+            --gold-bright: #f0d77a;
+            --green: #1f6f58;
+            --wine: #6f2d34;
+            --shadow: 0 18px 50px rgba(0, 0, 0, 0.42);
+            --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.28);
+            --radius: 8px;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(135deg, rgba(31, 111, 88, 0.22), transparent 34%),
+                linear-gradient(315deg, rgba(111, 45, 52, 0.18), transparent 36%),
+                #050505;
+            color: var(--text);
+            letter-spacing: 0;
+            text-rendering: optimizeLegibility;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent 72%);
+        }
+        .site-container {
+            max-width: 1440px;
+            background: rgba(5, 5, 5, 0.92);
+            border-inline: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: 0 28px 80px rgba(0,0,0,0.58);
+        }
+
+        .top-header {
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(31,111,88,0.92), rgba(18,18,16,0.96) 50%, rgba(111,45,52,0.82)),
+                #10100f;
+            padding: 1rem clamp(1rem, 3vw, 2rem) 1.15rem;
+            border-bottom: 1px solid var(--line-strong);
+            border-radius: 0;
+            box-shadow: var(--shadow-soft);
+        }
+        .top-header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background:
+                linear-gradient(45deg, rgba(255,255,255,0.045) 25%, transparent 25% 50%, rgba(255,255,255,0.045) 50% 75%, transparent 75%);
+            background-size: 34px 34px;
+            opacity: 0.12;
+        }
+        .header-row,
+        .right-rubrics {
+            position: relative;
+            z-index: 1;
+        }
+        .logo-title {
+            gap: 1rem;
+        }
+        .logo-title img {
+            max-height: 78px;
+            border-radius: 50%;
+            border: 1px solid rgba(240, 215, 122, 0.42);
+            background: rgba(5, 5, 5, 0.42);
+            box-shadow: inset 0 0 0 6px rgba(255,255,255,0.04), 0 16px 34px rgba(0,0,0,0.3);
+        }
+        .logo-title .logo-fallback {
+            padding: 0.5rem 0.7rem;
+            border: 1px solid var(--line-strong);
+            border-radius: 50%;
+            background: rgba(0,0,0,0.28);
+        }
+        .title-area h1 {
+            font-size: clamp(1.55rem, 4vw, 3.35rem);
+            line-height: 1;
+            color: #fff5d4;
+            letter-spacing: 0;
+            text-shadow: 0 18px 34px rgba(0,0,0,0.48);
+        }
+        .title-area .subtitle {
+            margin-top: 0.5rem;
+            color: rgba(255,255,255,0.78);
+            font-size: 0.88rem;
+            font-weight: 500;
+        }
+        .jugador-destacado-header {
+            border-radius: var(--radius);
+            background: rgba(0,0,0,0.24);
+            border: 1px solid rgba(255,255,255,0.14);
+            box-shadow: var(--shadow-soft);
+        }
+        .jugador-destacado-header:hover {
+            transform: translateY(-2px);
+            border-color: var(--line-strong);
+            background: rgba(212,175,55,0.1);
+        }
+        .jugador-destacado-header img {
+            width: 92px;
+            height: 92px;
+            border-color: var(--gold-bright);
+        }
+        .jugador-destacado-header span {
+            color: #fff2c4;
+        }
+        .right-rubrics {
+            gap: 0.55rem;
+            align-items: center;
+        }
+        .right-rubrics span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 36px;
+            padding: 0.45rem 0.72rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+            background: rgba(0,0,0,0.2);
+            color: var(--soft);
+            transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+        .right-rubrics span:hover {
+            color: #fff5cf;
+            border-color: var(--line-strong);
+            background: rgba(212,175,55,0.1);
+        }
+
+        .main-grid {
+            grid-template-columns: minmax(210px, 250px) minmax(0, 1fr) minmax(260px, 310px);
+            gap: clamp(1rem, 2vw, 1.6rem);
+            padding: clamp(1rem, 3vw, 2rem);
+        }
+        .sidebar-left,
+        .online-panel,
+        .blog-card,
+        .actividades-block,
+        .champions-block,
+        .gallery-card,
+        .archivo-evento,
+        .torneo-escolar-item,
+        .descarga-item,
+        .colaborador-box,
+        .encuesta,
+        .datos-bancarios,
+        .tesoreria-panel,
+        .tesoreria-consulta,
+        .admin-panel,
+        .mapa-container {
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, rgba(23,22,19,0.96), rgba(12,12,11,0.96));
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow-soft);
+        }
+        .sidebar-left {
+            top: 16px;
+            padding: 0.55rem;
+        }
+        .main-menu li { border-bottom: 0; }
+        .main-menu a {
+            min-height: 42px;
+            padding: 0.65rem 0.75rem;
+            border-radius: 6px;
+            color: var(--soft);
+            line-height: 1.2;
+        }
+        .main-menu a i {
+            color: var(--gold);
+            opacity: 0.95;
+        }
+        .main-menu a:hover {
+            padding-left: 0.95rem;
+            background: rgba(212,175,55,0.1);
+            color: #fff5cf;
+        }
+        .main-menu li.active a {
+            border-right: 0;
+            background: linear-gradient(90deg, rgba(212,175,55,0.22), rgba(31,111,88,0.12));
+            box-shadow: inset 3px 0 0 var(--gold);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: clamp(1.45rem, 2.5vw, 2rem);
+            border-left: 0;
+            padding-left: 0;
+            color: #fff2c9;
+        }
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: linear-gradient(90deg, var(--line-strong), transparent);
+        }
+        .blog-card,
+        .actividades-block,
+        .champions-block,
+        .online-panel {
+            padding: clamp(1rem, 2.2vw, 1.45rem);
+        }
+        .blog-card,
+        .champions-block,
+        .gallery-card,
+        .tournament-block,
+        .colaborador-box,
+        .torneo-escolar-item,
+        .descarga-item {
+            transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+        }
+        .blog-card:hover,
+        .champions-block:hover,
+        .gallery-card:hover,
+        .tournament-block:hover,
+        .colaborador-box:hover,
+        .torneo-escolar-item:hover,
+        .descarga-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--line-strong);
+            box-shadow: 0 18px 42px rgba(0,0,0,0.38);
+        }
+        .blog-date {
+            color: var(--gold-bright);
+            letter-spacing: 0.04em;
+        }
+        .blog-title,
+        .champions-name,
+        .online-header,
+        .gallery-card h4,
+        .descarga-info h4 {
+            color: #fff4d2;
+        }
+        .blog-title {
+            font-family: 'PT Serif', serif;
+            font-size: clamp(1.25rem, 2vw, 1.65rem);
+        }
+        .blog-text,
+        .champions-desc,
+        .actividad-texto,
+        .gallery-card p,
+        .archivo-info p,
+        .descarga-info p {
+            color: var(--muted);
+        }
+        .highlight {
+            color: #16120a;
+            background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+            border-radius: 5px;
+        }
+        .actividad-item {
+            align-items: flex-start;
+            border-bottom-color: rgba(255,255,255,0.08);
+        }
+        .actividad-fecha {
+            min-width: 112px;
+            color: var(--gold-bright);
+        }
+        .champions-name {
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+        }
+        .click-hint {
+            border-radius: var(--radius);
+            background: rgba(31,111,88,0.18);
+            border: 1px solid rgba(31,111,88,0.38);
+            color: #dcefe8;
+        }
+        .champions-desc {
+            border-left-color: var(--green);
+            line-height: 1.62;
+        }
+        .online-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 0;
+        }
+        .online-header::after {
+            content: "";
+            width: 42px;
+            height: 2px;
+            background: var(--gold);
+        }
+        .tournament-block {
+            border-radius: var(--radius);
+            background: rgba(0,0,0,0.18);
+            border-color: rgba(255,255,255,0.1);
+            padding: 1rem;
+        }
+        .active-banner {
+            border-radius: 6px;
+            background: var(--gold-bright);
+        }
+        .encuesta label {
+            display: block;
+            margin: 0.35rem 0;
+            color: var(--soft);
+        }
+        .encuesta button,
+        .paginacion button,
+        .btn-descargar,
+        .btn-agregar-jugador,
+        .tesoreria-botones button,
+        .admin-panel button,
+        .form-contact button,
+        .btn-compartir {
+            min-height: 34px;
+            border-radius: var(--radius);
+            background: var(--gold);
+        }
+        .barra-fondo {
+            width: min(150px, 44vw);
+            background: rgba(255,255,255,0.12);
+        }
+        .barra-porcentaje {
+            background: linear-gradient(90deg, var(--green), var(--gold));
+        }
+
+        .modal-overlay {
+            background-color: rgba(0,0,0,0.72);
+            backdrop-filter: blur(14px);
+        }
+        .modal-container {
+            border-radius: var(--radius);
+            background: linear-gradient(180deg, #171613, #0b0b0a);
+            border: 1px solid var(--line-strong);
+            box-shadow: 0 30px 90px rgba(0,0,0,0.65);
+        }
+        .modal-container h2 {
+            border-left: 0;
+            padding-left: 0;
+            color: #fff3cb;
+        }
+        .modal-container h2::after {
+            content: "";
+            display: block;
+            width: 72px;
+            height: 2px;
+            margin-top: 0.65rem;
+            background: var(--gold);
+        }
+        .close-modal {
+            width: 42px;
+            height: 42px;
+            display: inline-grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+        }
+        .close-modal:hover {
+            color: #111;
+            background: var(--gold-bright);
+        }
+        .grid-3cols,
+        .grid-4cols,
+        .colaboradores-grid {
+            gap: 1rem;
+        }
+        .gallery-card {
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .gallery-img {
+            height: 190px;
+            border-radius: 6px;
+            background: #090909;
+        }
+        .gallery-img img,
+        .modal-container img,
+        .archivo-evento img,
+        .colaborador-box img,
+        .mapa-container,
+        .mapa-container iframe {
+            border-radius: 6px !important;
+        }
+        .gallery-card h4 {
+            justify-content: flex-start;
+            line-height: 1.25;
+        }
+        .archivo-evento .icono-ajedrez,
+        .descarga-item i {
+            color: var(--gold);
+        }
+        footer {
+            background: #080807;
+            border-top-color: var(--line);
+            color: var(--muted);
+        }
+        .footer-links a {
+            color: #e6c85d;
+        }
+        .float-contact-right,
+        .float-contact-left {
+            box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+        }
+        body.modal-open {
+            overflow: hidden;
+        }
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 2px solid var(--gold-bright);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+        @media (max-width: 1000px) {
+            .main-grid { grid-template-columns: 1fr; }
+            .header-row { flex-direction: column; text-align: center; }
+            .logo-title { justify-content: center; }
+            .right-rubrics { justify-content: center; }
+            .sidebar-left { position: static; }
+            .main-menu {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.25rem;
+            }
+            .jugador-destacado-header img { width: 76px; height: 76px; }
+            .archivo-evento { flex-direction: column; text-align: center; }
+            .actividad-item {
+                display: grid;
+                gap: 0.25rem;
+            }
+        }
+        @media (max-width: 620px) {
+            .top-header { padding-inline: 0.85rem; }
+            .main-grid { padding: 0.85rem; }
+            .main-menu { grid-template-columns: 1fr; }
+            .blog-card,
+            .actividades-block,
+            .champions-block,
+            .online-panel,
+            .modal-container {
+                padding: 1rem;
+            }
+            .champions-header { gap: 0.75rem; }
+            .modal-container {
+                width: calc(100% - 1rem);
+                max-height: 88vh;
+            }
+            .footer-links {
+                gap: 0.8rem;
+                flex-direction: column;
+            }
+            .float-contact-right {
+                right: 1rem;
+                bottom: 1rem;
+            }
+            .float-contact-left {
+                left: 1rem;
+                bottom: 1rem;
+            }
+        }
+
+        /* ==================== CAPA PREMIUM REFERENCIA ==================== */
+        .top-header {
+            min-height: min(760px, 88vh);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 2rem;
+            background:
+                linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.86)),
+                linear-gradient(110deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.32) 54%, rgba(0,0,0,0.86) 100%),
+                url('2°blit-gran-asistencia.jpg') center/cover no-repeat;
+        }
+        .header-row {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: var(--radius);
+            background: rgba(0,0,0,0.42);
+            backdrop-filter: blur(14px);
+        }
+        .logo-title {
+            flex-wrap: nowrap;
+        }
+        .title-area h1 {
+            font-family: 'Cinzel', 'PT Serif', serif;
+            font-size: clamp(1.15rem, 2vw, 1.55rem);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .title-area .subtitle {
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .right-rubrics {
+            width: min(1180px, 100%);
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .premium-hero-copy {
+            position: relative;
+            z-index: 1;
+            width: min(1000px, 100%);
+            margin: auto auto 0;
+            padding: clamp(2rem, 5vw, 4rem) 1rem;
+            text-align: center;
+        }
+        .hero-kicker {
+            color: var(--gold-bright);
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+        .premium-hero-copy h2 {
+            font-family: 'Cinzel', 'PT Serif', serif;
+            font-size: clamp(3rem, 9vw, 6.8rem);
+            line-height: 0.95;
+            letter-spacing: 0.04em;
+            color: var(--gold);
+            text-shadow: 0 18px 50px rgba(0,0,0,0.75);
+        }
+        .premium-hero-copy .hero-subtitle {
+            margin-top: 1.4rem;
+            color: rgba(255,255,255,0.88);
+            font-family: 'Montserrat', 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+        .premium-hero-copy .hero-description {
+            width: min(680px, 100%);
+            margin: 1.3rem auto 0;
+            color: rgba(255,255,255,0.72);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .hero-event-notice {
+            display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.85rem;
+            width: min(760px, 100%); margin: 1.1rem auto 0; padding: 1rem 1.15rem; text-align: left;
+            border: 1px solid rgba(255,170,75,0.72); border-left: 6px solid #ff8a22; border-radius: 18px;
+            background: linear-gradient(125deg, rgba(80,28,81,0.96), rgba(27,23,39,0.97));
+            box-shadow: 0 14px 38px rgba(0,0,0,0.28), 0 0 26px rgba(255,138,34,0.12);
+        }
+        .hero-event-date { color: #ffd07a; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase; }
+        .hero-event-title { display: block; margin-top: 0.15rem; color: #fff; font-family: 'PT Serif', serif; font-size: 1.2rem; font-weight: 800; }
+        .hero-event-details { margin-top: 0.2rem; color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; }
+        .hero-event-link { display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0.7rem 0.95rem; border-radius: 999px; background: #ffad45; color: #23130a; font-weight: 900; text-decoration: none; white-space: nowrap; }
+        .hero-event-link:hover { filter: brightness(1.08); transform: translateY(-1px); }
+        @media (max-width: 620px) { .hero-event-notice { grid-template-columns: 1fr; gap: 0.55rem; } .hero-event-link { justify-self: start; } }
+        .hazte-socio-cta {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
+            min-height: 44px; margin: 0.65rem 0 0.25rem; padding: 0.7rem 1.1rem;
+            border: 1px solid rgba(240,215,122,0.7); border-radius: 999px;
+            background: linear-gradient(135deg, #f0d77a, #d4af37); color: #17140b;
+            font-weight: 900; text-decoration: none; box-shadow: 0 8px 24px rgba(212,175,55,0.2);
+        }
+        .hazte-socio-cta:hover { transform: translateY(-1px); filter: brightness(1.06); }
+        .hazte-socio-menu a { color: #f0d77a !important; font-weight: 900; }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.75rem;
+            width: min(760px, 100%);
+            margin: 1.65rem auto 0;
+        }
+        .hero-stat {
+            min-height: 78px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.2rem;
+            padding: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: var(--radius);
+            background: rgba(0,0,0,0.34);
+            backdrop-filter: blur(10px);
+        }
+        .hero-stat strong {
+            color: var(--gold-bright);
+            font-family: 'Cinzel', 'PT Serif', serif;
+            font-size: 1.15rem;
+            line-height: 1;
+        }
+        .hero-stat span {
+            color: rgba(255,255,255,0.76);
+            font-size: 0.78rem;
+            line-height: 1.3;
+        }
+        .hero-btn {
+            min-width: 180px;
+            padding: 0.9rem 1.35rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+        }
+        .hero-btn.gold {
+            background: var(--gold);
+            color: #0a0802;
+        }
+        .hero-btn.dark {
+            border: 1px solid var(--gold);
+            color: var(--gold-bright);
+            background: rgba(0,0,0,0.28);
+        }
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold-bright);
+        }
+        .main-grid {
+            padding-top: clamp(1.5rem, 4vw, 3rem);
+        }
+        .main-content {
+            scroll-margin-top: 24px;
+        }
+        @media (max-width: 760px) {
+            .top-header {
+                min-height: 760px;
+            }
+            .header-row {
+                justify-content: center;
+            }
+            .logo-title {
+                flex-direction: column;
+                text-align: center;
+            }
+            .premium-hero-copy h2 {
+                font-size: clamp(2.35rem, 13vw, 4.1rem);
+            }
+            .premium-hero-copy .hero-subtitle {
+                letter-spacing: 0.12em;
+            }
+            .hero-btn {
+                width: min(100%, 280px);
+            }
+        }
+
+        /* ==================== MOBILE FIRST POLISH ==================== */
+        @media (max-width: 760px) {
+            body {
+                background:
+                    linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.92)),
+                    #050505;
+            }
+            .site-container {
+                width: 100%;
+                border-inline: 0;
+                border-radius: 0;
+            }
+            .top-header {
+                min-height: 100svh;
+                padding: 0.75rem 0.75rem 1.2rem;
+                gap: 0.9rem;
+                background-position: center top;
+            }
+            .header-row {
+                padding: 0.65rem;
+                gap: 0.75rem;
+                align-items: center;
+            }
+            .logo-title {
+                width: 100%;
+                gap: 0.6rem;
+            }
+            .logo-title img {
+                max-height: 58px;
+            }
+            .title-area h1 {
+                font-size: 1.08rem;
+                line-height: 1.18;
+                letter-spacing: 0.06em;
+            }
+            .title-area .subtitle {
+                font-size: 0.66rem;
+                letter-spacing: 0.04em;
+            }
+            .jugador-destacado-header {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 0.75rem;
+                padding: 0.55rem 0.65rem;
+            }
+            .jugador-destacado-header img {
+                width: 56px;
+                height: 56px;
+                flex: 0 0 auto;
+            }
+            .jugador-destacado-header span {
+                text-align: left;
+                font-size: 0.78rem;
+            }
+            .right-rubrics {
+                width: calc(100% + 1.5rem);
+                margin-inline: -0.75rem;
+                padding: 0.15rem 0.75rem 0.45rem;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .right-rubrics::-webkit-scrollbar,
+            .main-menu::-webkit-scrollbar {
+                display: none;
+            }
+            .right-rubrics span {
+                flex: 0 0 auto;
+                min-height: 34px;
+                white-space: nowrap;
+                font-size: 0.78rem;
+                scroll-snap-align: start;
+            }
+            .premium-hero-copy {
+                padding: 1.5rem 0.45rem 1rem;
+                margin: auto 0 0;
+            }
+            .hero-kicker {
+                font-size: 0.68rem;
+                letter-spacing: 0.2em;
+                margin-bottom: 0.85rem;
+            }
+            .premium-hero-copy h2 {
+                font-size: clamp(2.2rem, 14vw, 4rem);
+                line-height: 1;
+                letter-spacing: 0.02em;
+            }
+            .premium-hero-copy .hero-subtitle {
+                margin-top: 1rem;
+                font-size: 0.82rem;
+                letter-spacing: 0.1em;
+            }
+            .premium-hero-copy .hero-description {
+                margin-top: 0.9rem;
+                font-size: 0.92rem;
+                line-height: 1.65;
+            }
+            .hero-buttons {
+                gap: 0.7rem;
+                margin-top: 1.35rem;
+            }
+            .hero-stats {
+                grid-template-columns: 1fr;
+                margin-top: 1rem;
+            }
+            .hero-stat {
+                min-height: 58px;
+                padding: 0.65rem 0.8rem;
+            }
+            .hero-btn {
+                min-height: 46px;
+                padding: 0.78rem 1rem;
+                font-size: 0.74rem;
+            }
+
+            .main-grid {
+                display: block;
+                padding: 0;
+            }
+            .sidebar-left {
+                position: sticky;
+                top: 0;
+                z-index: 20;
+                margin: 0;
+                padding: 0.65rem 0;
+                border-radius: 0;
+                border-inline: 0;
+                background: rgba(8,8,7,0.9);
+                backdrop-filter: blur(14px);
+            }
+            .main-menu {
+                display: flex;
+                gap: 0.45rem;
+                overflow-x: auto;
+                padding: 0 0.75rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+            .main-menu li {
+                flex: 0 0 auto;
+                scroll-snap-align: start;
+            }
+            .main-menu a {
+                min-height: 38px;
+                padding: 0.55rem 0.72rem;
+                gap: 0.45rem;
+                white-space: nowrap;
+                font-size: 0.78rem;
+                border: 1px solid rgba(255,255,255,0.1);
+                background: rgba(255,255,255,0.035);
+            }
+            .main-menu a i {
+                width: auto;
+                font-size: 0.95rem;
+            }
+            .main-menu li.active a {
+                box-shadow: inset 0 -2px 0 var(--gold);
+            }
+            .main-content,
+            .sidebar-right {
+                padding: 1rem 0.85rem 0;
+            }
+            .section-title {
+                font-size: 1.42rem;
+                margin-bottom: 0.9rem;
+            }
+            .blog-card,
+            .actividades-block,
+            .champions-block,
+            .online-panel {
+                margin-bottom: 1rem;
+                padding: 1rem;
+            }
+            .blog-title {
+                font-size: 1.28rem;
+            }
+            .blog-text,
+            .champions-desc,
+            .actividad-texto {
+                font-size: 0.93rem;
+                line-height: 1.65;
+            }
+            .actividad-fecha {
+                min-width: 0;
+                font-size: 0.84rem;
+            }
+            .champions-header {
+                display: grid !important;
+                grid-template-columns: 1fr;
+            }
+            .click-hint {
+                width: fit-content;
+                font-size: 0.72rem;
+            }
+            .sidebar-right {
+                gap: 1rem;
+                padding-bottom: 5.5rem;
+            }
+            .tournament-block {
+                padding: 0.85rem;
+            }
+            .mapa-container iframe {
+                height: 210px;
+            }
+
+            .modal-overlay {
+                align-items: flex-end;
+                padding: 0;
+            }
+            .modal-container {
+                width: 100%;
+                max-height: 92svh;
+                border-radius: 14px 14px 0 0;
+                padding: 1rem;
+                border-inline: 0;
+                border-bottom: 0;
+            }
+            .modal-container h2 {
+                max-width: calc(100% - 48px);
+                font-size: 1.35rem;
+                line-height: 1.2;
+            }
+            .close-modal {
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 38px;
+                height: 38px;
+                font-size: 1.55rem;
+            }
+            .grid-3cols,
+            .grid-4cols,
+            .colaboradores-grid {
+                grid-template-columns: 1fr;
+            }
+            .directiva-netflix,
+            .galeria-netflix,
+            .campeones-netflix {
+                gap: 0.8rem;
+            }
+            .directiva-netflix .gallery-card,
+            .galeria-netflix .gallery-card,
+            .campeones-netflix .gallery-card {
+                flex-basis: 74vw;
+            }
+            .gallery-img {
+                height: 220px;
+            }
+            .descarga-item,
+            .archivo-evento {
+                display: grid;
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+            .btn-descargar {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0.35rem 0 0 !important;
+                width: 100%;
+            }
+            .tab-container {
+                gap: 0.35rem;
+                overflow-x: auto;
+            }
+            .tab-btn {
+                white-space: nowrap;
+                font-size: 0.9rem;
+            }
+            .form-contact input,
+            .form-contact textarea,
+            #contactFormModern input,
+            #contactFormModern textarea {
+                font-size: 16px;
+            }
+            .footer-links {
+                align-items: center;
+            }
+            .float-contact-right,
+            .float-contact-left {
+                width: 52px;
+                height: 52px;
+                bottom: 0.85rem;
+                font-size: 1.55rem;
+            }
+            .float-contact-right {
+                right: 0.85rem;
+            }
+            .float-contact-left {
+                left: 0.85rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .premium-hero-copy h2 {
+                font-size: 2.05rem;
+            }
+            .hero-btn {
+                width: 100%;
+            }
+            .gallery-img {
+                height: 190px;
+            }
+        }
+
+        /* ==================== PALETA SOBRIA ==================== */
+        body {
+            background:
+                linear-gradient(135deg, rgba(31,111,88,0.16), transparent 32%),
+                linear-gradient(315deg, rgba(111,45,52,0.12), transparent 36%),
+                var(--bg);
+        }
+        .top-header {
+            background:
+                linear-gradient(rgba(0,0,0,0.62), rgba(0,0,0,0.88)),
+                linear-gradient(115deg, rgba(0,0,0,0.94) 0%, rgba(31,111,88,0.25) 48%, rgba(111,45,52,0.34) 100%),
+                url('2°blit-gran-asistencia.jpg') center/cover no-repeat;
+        }
+        .premium-hero-copy h2 {
+            color: var(--text);
+        }
+        .premium-hero-copy h2::after {
+            content: "";
+            display: block;
+            width: min(180px, 42vw);
+            height: 2px;
+            margin: 1rem auto 0;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .hero-kicker,
+        .premium-hero-copy .hero-subtitle,
+        .blog-date,
+        .actividad-fecha,
+        .torneo-escolar-fecha,
+        .torneo-escolar-nota {
+            color: var(--gold-bright);
+        }
+        .right-rubrics span,
+        .main-menu a,
+        .click-hint,
+        .tab-btn,
+        .hero-btn.dark {
+            border-color: rgba(255,255,255,0.12);
+            background: rgba(255,255,255,0.035);
+        }
+        .right-rubrics span:hover,
+        .main-menu a:hover,
+        .hero-btn.dark:hover {
+            background: rgba(31,111,88,0.18);
+            border-color: rgba(31,111,88,0.55);
+            color: var(--text);
+        }
+        .hero-btn.gold,
+        .encuesta button,
+        .paginacion button:hover,
+        .btn-descargar,
+        .btn-agregar-jugador,
+        .tesoreria-botones button,
+        .admin-panel button,
+        .form-contact button,
+        #contactFormModern button,
+        .btn-compartir {
+            background: var(--green);
+            color: #f4fff9;
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: none;
+        }
+        .hero-btn.gold:hover,
+        .encuesta button:hover,
+        .btn-descargar:hover,
+        .btn-agregar-jugador:hover,
+        .tesoreria-botones button:hover,
+        .admin-panel button:hover,
+        .form-contact button:hover,
+        #contactFormModern button:hover,
+        .btn-compartir:hover {
+            background: #2a8067;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+        .hero-btn.dark {
+            color: var(--soft);
+        }
+        .hero-btn.yellow {
+            background: #f0d77a;
+            color: #111;
+            border: 1px solid #ffe9a3;
+            box-shadow: 0 10px 24px rgba(240, 215, 122, 0.24);
+        }
+        .hero-btn.yellow:hover {
+            background: #ffe9a3;
+            color: #000;
+            border-color: #fff4c8;
+            transform: translateY(-2px);
+        }
+        .main-menu li.active a {
+            background: linear-gradient(90deg, rgba(31,111,88,0.28), rgba(111,45,52,0.12));
+            box-shadow: inset 3px 0 0 var(--green);
+            color: var(--text);
+        }
+        .main-menu a i,
+        .online-header::after,
+        .modal-container h2::after {
+            color: var(--green);
+            background: var(--green);
+        }
+        .blog-card:hover,
+        .champions-block:hover,
+        .gallery-card:hover,
+        .tournament-block:hover,
+        .colaborador-box:hover,
+        .torneo-escolar-item:hover,
+        .descarga-item:hover {
+            border-color: rgba(31,111,88,0.65);
+        }
+        .section-title::after {
+            background: linear-gradient(90deg, rgba(31,111,88,0.72), transparent);
+        }
+        .highlight {
+            background: rgba(31,111,88,0.22);
+            color: #dff5ed;
+            border: 1px solid rgba(31,111,88,0.34);
+        }
+        .champions-name i,
+        .archivo-evento .icono-ajedrez,
+        .descarga-item i {
+            color: var(--gold);
+        }
+        .champions-desc {
+            border-left-color: var(--green);
+        }
+        .active-banner {
+            background: var(--wine);
+            color: #fff6f7;
+        }
+        .barra-porcentaje {
+            background: linear-gradient(90deg, var(--green), var(--wine));
+        }
+        .colaborador-box .colaborador-caption {
+            color: var(--soft);
+            background: rgba(0,0,0,0.35);
+        }
+        .footer-links a {
+            color: #9bd1bf;
+        }
+        .footer-links a:hover {
+            color: var(--gold-bright);
+        }
+        .float-contact-left {
+            background: var(--wine);
+            color: #fff;
+        }
+        .float-contact-left:hover {
+            background: #8a3a43;
+        }
+        .float-contact-right {
+            background: var(--green);
+        }
+        .float-contact-right:hover {
+            background: #2a8067;
+        }
+
+        /* ==================== ESTRUCTURA INSTITUCIONAL ==================== */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+        .quick-action {
+            min-height: 104px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.65rem;
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015)),
+                rgba(17,17,15,0.9);
+            color: var(--text);
+            text-decoration: none;
+            cursor: pointer;
+            font: inherit;
+            text-align: left;
+            transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+        }
+        .quick-action:hover {
+            transform: translateY(-3px);
+            border-color: rgba(31,111,88,0.65);
+            background:
+                linear-gradient(135deg, rgba(31,111,88,0.18), rgba(111,45,52,0.08)),
+                rgba(17,17,15,0.95);
+        }
+        .quick-action i {
+            color: var(--gold-bright);
+            font-size: 1.2rem;
+        }
+        .quick-action strong {
+            display: block;
+            font-size: 0.95rem;
+        }
+        .quick-action span {
+            color: var(--muted);
+            font-size: 0.78rem;
+            line-height: 1.35;
+        }
+        .content-band {
+            margin-bottom: 1.35rem;
+        }
+        .band-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 0.9rem;
+        }
+        .band-heading h2 {
+            font-family: 'Cinzel', 'PT Serif', serif;
+            color: var(--text);
+            font-size: clamp(1.45rem, 2.4vw, 2rem);
+            letter-spacing: 0.02em;
+        }
+        .band-heading p {
+            max-width: 360px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        .spotlight-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.85rem;
+            margin-bottom: 1.25rem;
+        }
+        .spotlight-item {
+            min-height: 110px;
+            padding: 1rem;
+            border-radius: var(--radius);
+            border: 1px solid var(--line);
+            background: rgba(17,17,15,0.88);
+        }
+        .spotlight-item .label {
+            color: var(--gold-bright);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.45rem;
+        }
+        .spotlight-item strong {
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .spotlight-item span {
+            color: var(--muted);
+            font-size: 0.86rem;
+            line-height: 1.45;
+        }
+        .side-note {
+            padding: 1rem;
+            border: 1px solid rgba(111,45,52,0.35);
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(111,45,52,0.16), rgba(31,111,88,0.08));
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+        @media (max-width: 760px) {
+            .quick-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                overflow: visible;
+                padding-inline: 0;
+                margin-inline: 0;
+            }
+            .quick-action {
+                min-height: 112px;
+            }
+            .band-heading {
+                display: block;
+            }
+            .band-heading p {
+                margin-top: 0.4rem;
+                text-align: left;
+            }
+            .spotlight-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* ==================== CAPA FINAL OTRO NIVEL ==================== */
+        .blog-card.featured-news {
+            padding: clamp(1.15rem, 3vw, 2rem);
+            border-radius: 18px;
+            border-color: rgba(240, 215, 122, 0.52);
+            background:
+                linear-gradient(140deg, rgba(31,111,88,0.24), rgba(111,45,52,0.16)),
+                #11110f;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.32);
+        }
+        .blog-card.featured-news .blog-date {
+            display: inline-flex;
+            width: fit-content;
+            padding: 0.28rem 0.75rem;
+            border-radius: 999px;
+            background: rgba(31, 111, 88, 0.24);
+            color: #f0d77a;
+            border: 1px solid rgba(240, 215, 122, 0.2);
+        }
+        .blog-card.featured-news .blog-title {
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            line-height: 1.08;
+            max-width: 760px;
+        }
+        .blog-card.featured-news .blog-text {
+            font-size: 1rem;
+            color: #d7d0c0;
+        }
+        .blog-card.featured-news .blog-photo-strip {
+            display: flex;
+            grid-template-columns: none;
+            gap: 0.75rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0.2rem 0 0.85rem;
+            margin-top: 1.2rem;
+        }
+        .blog-card.featured-news .blog-photo-strip img {
+            flex: 0 0 clamp(170px, 38vw, 260px);
+            aspect-ratio: 4 / 3;
+            border-radius: 16px;
+            scroll-snap-align: start;
+        }
+        #listaTorneosEscolares {
+            display: grid;
+            gap: 0.95rem;
+        }
+        .torneo-escolar-item {
+            display: grid;
+            grid-template-columns: minmax(110px, 0.34fr) 1fr;
+            gap: 0.35rem 1rem;
+            align-items: start;
+            border-radius: 16px;
+        }
+        .torneo-escolar-fecha {
+            grid-row: span 3;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            line-height: 1.15;
+        }
+        .torneo-escolar-fecha small {
+            color: #b9b2a3;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .torneo-escolar-lugar {
+            font-size: 1rem;
+            color: #f3efe4;
+            font-weight: 800;
+        }
+        .blog-feature-image img,
+        .blog-photo-strip img,
+        .gallery-card,
+        .colaborador-box,
+        .escuela-grid img {
+            transition: transform 0.22s ease, border-color 0.22s ease, filter 0.22s ease;
+        }
+        .blog-feature-image img:hover,
+        .blog-photo-strip img:hover,
+        .escuela-grid img:hover {
+            transform: scale(1.015);
+            filter: brightness(1.06);
+        }
+        .gallery-card:focus-visible,
+        .colaborador-box:focus-visible,
+        .blog-photo-strip img:focus-visible,
+        .blog-feature-image img:focus-visible,
+        .escuela-grid img:focus-visible {
+            outline: 2px solid #f0d77a;
+            outline-offset: 3px;
+        }
+        #imagenMaxModal .modal-container {
+            background: rgba(5, 5, 5, 0.92);
+            border-color: rgba(240, 215, 122, 0.26);
+            border-radius: 18px;
+        }
+        #imagenMaxSrc {
+            object-fit: contain;
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.55);
+        }
+        @media (max-width: 640px) {
+            .blog-card.featured-news .blog-photo-strip img {
+                flex-basis: 78vw;
+            }
+            .torneo-escolar-item {
+                grid-template-columns: 1fr;
+            }
+            .torneo-escolar-fecha {
+                grid-row: auto;
+            }
+            .torneo-escolar-acciones .btn-descargar {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ==================== PULIDO FINAL: ORDEN, LECTURA Y PERFORMANCE ==================== */
+        .main-content {
+            min-width: 0;
+        }
+        .content-band {
+            scroll-margin-top: 84px;
+        }
+        .blog-section,
+        .actividades-block,
+        .champions-block,
+        .online-panel,
+        .modal-container {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 720px;
+        }
+        .quick-actions {
+            align-items: stretch;
+        }
+        .quick-action {
+            appearance: none;
+            box-shadow: none;
+            font: inherit;
+            text-align: left;
+        }
+        .quick-action:focus-visible,
+        .quick-action:hover {
+            color: var(--text);
+        }
+        .spotlight-strip {
+            align-items: stretch;
+        }
+        .spotlight-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        .blog-card {
+            overflow: hidden;
+        }
+        #blogContainer {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+        #blogContainer .blog-card {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        #blogContainer .blog-card.featured-news {
+            grid-column: 1 / -1;
+        }
+        #blogContainer .blog-text {
+            display: block;
+        }
+        #blogContainer .blog-text strong,
+        #blogContainer .blog-text span,
+        #blogContainer .blog-text em {
+            display: inline;
+        }
+        #blogContainer .blog-feature-image {
+            order: -1;
+            margin: 0 0 0.2rem;
+        }
+        #blogContainer .blog-feature-image img {
+            aspect-ratio: 16 / 9;
+            max-height: none;
+            object-fit: cover;
+        }
+        #blogContainer .blog-photo-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.65rem;
+            overflow: visible;
+            padding: 0;
+            margin: 1rem 0 0.4rem;
+        }
+        #blogContainer .blog-photo-strip img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            min-width: 0;
+            flex: initial;
+        }
+        #blogContainer .blog-photo-strip {
+            display: flex;
+            grid-template-columns: none;
+            gap: 0.75rem;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            padding: 0.15rem 0 0.9rem;
+            margin: 1rem -0.15rem 0.45rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(240,215,122,0.58) rgba(255,255,255,0.08);
+        }
+        #blogContainer .blog-photo-strip::-webkit-scrollbar {
+            height: 8px;
+        }
+        #blogContainer .blog-photo-strip::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.08);
+            border-radius: 999px;
+        }
+        #blogContainer .blog-photo-strip::-webkit-scrollbar-thumb {
+            background: rgba(240,215,122,0.58);
+            border-radius: 999px;
+        }
+        #blogContainer .blog-photo-strip img {
+            flex: 0 0 clamp(185px, 30vw, 285px);
+            width: auto;
+            aspect-ratio: 4 / 3;
+            scroll-snap-align: start;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.28);
+        }
+        #blogContainer .blog-photo-strip img:hover {
+            transform: scale(1.035);
+            border-color: rgba(240,215,122,0.72);
+            z-index: 2;
+        }
+        .blog-card.featured-news {
+            border-color: rgba(31,111,88,0.6);
+        }
+        .blog-card.featured-news .blog-title {
+            max-width: 860px;
+        }
+        .blog-feature-image,
+        .blog-photo-strip {
+            clear: both;
+        }
+        .blog-feature-image img,
+        .blog-photo-strip img,
+        .gallery-img img,
+        .colaborador-box img {
+            background: #090909;
+        }
+        .gallery-card {
+            min-width: 0;
+        }
+        .gallery-card h4,
+        .gallery-card p {
+            overflow-wrap: anywhere;
+        }
+        .gallery-card p a {
+            color: #9bd1bf !important;
+        }
+        .names-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.8rem;
+        }
+        .champion-line {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-top: 1rem;
+        }
+        .champion-line button {
+            display: inline-flex;
+            align-items: center;
+            min-height: 34px;
+            padding: 0.38rem 0.72rem;
+            border: 1px solid rgba(240,215,122,0.2);
+            border-radius: 999px;
+            background: rgba(31,111,88,0.14);
+            color: #f3efe4;
+            font-weight: 800;
+            font-size: 0.88rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+        }
+        .champion-line button:hover,
+        .champion-line button:focus-visible { background: rgba(31,111,88,0.34); border-color: var(--gold); transform: translateY(-1px); }
+        .champion-detail-image { display: block; width: 100%; max-height: 62vh; object-fit: contain; margin: 0.9rem auto; border-radius: 16px; background: #111; }
+        .champion-detail-nav { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; }
+        .champion-detail-nav button { min-height: 42px; padding: 0.6rem 0.9rem; border: 1px solid var(--line); border-radius: 12px; background: #143b32; color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+        .champion-detail-nav button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+        .name-card {
+            padding: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(17,17,15,0.92);
+        }
+        .name-card h4 {
+            color: var(--gold-bright);
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+        .name-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+        .modal-container {
+            scrollbar-color: rgba(240,215,122,0.35) rgba(255,255,255,0.06);
+        }
+        .gallery-tabs {
+            display: flex;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+            margin: 0 0 1rem;
+        }
+        .gallery-tab {
+            min-height: 38px;
+            padding: 0.5rem 0.85rem;
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 999px;
+            background: rgba(255,255,255,0.035);
+            color: var(--soft);
+            font: inherit;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .gallery-tab.active,
+        .gallery-tab:hover {
+            background: rgba(31,111,88,0.42);
+            border-color: rgba(31,111,88,0.75);
+            color: #ffffff;
+        }
+        .modal-container img {
+            max-height: 72vh;
+            object-fit: contain;
+        }
+        .torneo-escolar-acciones {
+            align-items: center;
+        }
+        .bases-escolar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            margin-top: 0.45rem;
+            min-height: 42px;
+            padding: 0.62rem 0.9rem;
+            border: 1px solid rgba(155,209,191,0.38);
+            border-radius: 999px;
+            background: rgba(31,111,88,0.3);
+            color: #dff5ed;
+            font-weight: 900;
+            text-decoration: none;
+        }
+        .bases-escolar-link:hover {
+            color: var(--gold-bright);
+            border-color: rgba(240,215,122,0.55);
+        }
+        @media (min-width: 1001px) {
+            .sidebar-right {
+                position: sticky;
+                top: 16px;
+                align-self: start;
+            }
+        }
+        @media (max-width: 760px) {
+            .sidebar-left {
+                display: none !important;
+            }
+            .top-header {
+                min-height: 82svh;
+            }
+            .premium-hero-copy {
+                padding-top: 0.9rem;
+                padding-bottom: 0.7rem;
+            }
+            .hero-stats {
+                display: none;
+            }
+            .hero-buttons {
+                margin-top: 1rem;
+            }
+            .quick-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                overflow: visible;
+                padding-inline: 0;
+                margin-inline: 0;
+            }
+            .quick-action {
+                flex: initial;
+                min-height: 116px;
+                border-color: rgba(240,215,122,0.24);
+                background:
+                    linear-gradient(145deg, rgba(31,111,88,0.88), rgba(14,16,14,0.96));
+                box-shadow: 0 12px 26px rgba(0,0,0,0.28);
+            }
+            .quick-action i {
+                font-size: 1.35rem;
+                color: var(--gold-bright);
+            }
+            #blogContainer {
+                grid-template-columns: 1fr;
+            }
+            #blogContainer .blog-photo-strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .content-band {
+                scroll-margin-top: 72px;
+            }
+            .blog-section,
+            .actividades-block,
+            .champions-block,
+            .online-panel,
+            .modal-container {
+                contain-intrinsic-size: 1px 560px;
+            }
+            .spotlight-item {
+                min-height: auto;
+            }
+            .gallery-card h4 {
+                font-size: 1rem;
+            }
+            .modal-container img {
+                max-height: 68svh;
+            }
+        }
+            .mobile-menu-toggle { display: none; }
+        .image-actions { display: flex; justify-content: center; gap: 0.55rem; flex-wrap: wrap; margin-top: 0.8rem; }
+        .image-actions button, .image-actions a { min-height: 42px; padding: 0.65rem 0.8rem; border: 1px solid rgba(240,215,122,0.3); border-radius: 10px; color: var(--text); background: rgba(255,255,255,0.06); font: inherit; font-size: 0.82rem; text-decoration: none; cursor: pointer; }
+        .image-action-status { min-height: 1.3em; margin: 0.65rem 0 0; color: var(--gold-bright); font-size: 0.85rem; }
+        @media (max-width: 760px) {
+            .sidebar-left { display: block !important; position: sticky; top: 0; z-index: 30; margin: 0; padding: 0.45rem; border: 0; border-radius: 0 0 14px 14px; background: rgba(8,8,7,0.96); backdrop-filter: blur(14px); }
+            .mobile-menu-toggle { display: flex; width: 100%; min-height: 44px; align-items: center; gap: 0.7rem; border: 1px solid rgba(240,215,122,0.28); border-radius: 12px; padding: 0.65rem 0.85rem; color: var(--text); background: rgba(255,255,255,0.05); font-weight: 750; cursor: pointer; }
+            .mobile-menu-chevron { margin-left: auto; transition: transform 0.2s ease; }
+            .sidebar-left.is-open .mobile-menu-chevron { transform: rotate(180deg); }
+            .sidebar-left .main-menu { display: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; max-height: min(62vh, 480px); overflow-y: auto; padding: 0.65rem 0.1rem 0.15rem; }
+            .sidebar-left.is-open .main-menu { display: grid; }
+            .sidebar-left .main-menu li { min-width: 0; }
+            .sidebar-left .main-menu a { min-height: 44px; padding: 0.55rem 0.65rem; gap: 0.5rem; white-space: normal; font-size: 0.78rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.035); }
+            .sidebar-left .main-menu li.active a { color: var(--gold-bright); box-shadow: inset 0 -2px 0 var(--gold); }
+            .main-content, .sidebar-right { padding-top: 0.8rem; }
+            .image-actions button, .image-actions a { flex: 1 1 125px; }
+        }
+        /* Galería de club: fotos grandes, composición editorial y categorías claras. */
+        #galeriaImagenesModal .modal-container {
+            width: min(1160px, 94vw);
+            max-width: 1160px;
+            max-height: 90vh;
+            padding: clamp(1.2rem, 3vw, 2.4rem);
+            border-color: #b8e2f4;
+            background: radial-gradient(ellipse at 8% 0%, rgba(255,255,255,0.78), transparent 38%), linear-gradient(180deg, #eaf8ff, #d9f0fc 68%);
+            color: #173b52;
+        }
+        #galeriaImagenesModal .modal-container h2 {
+            margin-bottom: 0.45rem;
+            font-size: clamp(1.65rem, 3vw, 2.25rem);
+            color: #153b56;
+        }
+        .gallery-intro {
+            margin: 0 0 1.35rem;
+            max-width: 650px;
+            color: #456579;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+        #galeriaImagenesModal .gallery-tabs {
+            gap: 0.55rem;
+            margin-bottom: 1.25rem;
+        }
+        #galeriaImagenesModal .gallery-navigation {
+            display: flex;
+            justify-content: flex-end;
+            margin: 0 0 0.75rem;
+        }
+        #galeriaImagenesModal .gallery-home-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            text-decoration: none;
+        }
+        #galeriaImagenesModal .gallery-tab {
+            padding: 0.48rem 0.95rem;
+            border-color: #a8d5eb;
+            background: rgba(255,255,255,0.68);
+            color: #17445f;
+            transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+        }
+        #galeriaImagenesModal .gallery-tab:hover { transform: translateY(-1px); }
+        #galeriaImagenesModal .gallery-tab.active {
+            color: #fff;
+            background: #2879a4;
+            border-color: #2879a4;
+        }
+        #galeriaImagenesModal .galeria-netflix {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: clamp(0.7rem, 1.5vw, 1.15rem);
+            overflow: visible;
+        }
+        #galeriaImagenesModal .gallery-card {
+            min-width: 0;
+            padding: 0;
+            overflow: hidden;
+            text-align: left;
+            border: 1px solid #c1e1ef;
+            border-radius: 14px;
+            background: #f8fcff;
+            scroll-snap-align: unset;
+            transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+        }
+        #galeriaImagenesModal .gallery-card:hover {
+            transform: translateY(-4px);
+            border-color: #62a9cd;
+            box-shadow: 0 14px 34px rgba(25,91,126,0.2);
+        }
+        #galeriaImagenesModal .gallery-img {
+            position: relative;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            margin: 0;
+            border-radius: 0;
+            background: #d8edf8;
+        }
+        #galeriaImagenesModal .gallery-img img {
+            border-radius: 0 !important;
+            object-fit: cover;
+            transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+        }
+        #galeriaImagenesModal .gallery-card:hover .gallery-img img { transform: scale(1.045); }
+        #galeriaImagenesModal .gallery-card h4 {
+            padding: 0.8rem 0.9rem 0.2rem;
+            margin: 0;
+            color: #173b52;
+            font-size: 0.98rem;
+            line-height: 1.35;
+        }
+        #galeriaImagenesModal .gallery-card p {
+            padding: 0 0.9rem 0.9rem;
+            margin: 0;
+            color: #547184;
+            font-size: 0.82rem;
+            line-height: 1.45;
+        }
+        #galeriaImagenesModal .gallery-story { margin: 0.35rem 0.9rem 1rem; text-align: left; color: #547184; font-size: 0.78rem; }
+        #galeriaImagenesModal .gallery-story summary { color: #8a6c16; cursor: pointer; font-weight: 700; }
+        #galeriaImagenesModal .gallery-story p { padding: 0.55rem 0 0; color: #547184; line-height: 1.55; white-space: pre-line; }
+        #galeriaImagenesModal .album-card {
+            width: 100%;
+            cursor: pointer;
+            font: inherit;
+        }
+        #galeriaImagenesModal .album-card .gallery-img { aspect-ratio: 4 / 3; }
+        #galeriaImagenesModal .album-back {
+            grid-column: 1 / -1;
+            justify-self: start;
+            margin-bottom: 0.25rem;
+        }
+        @media (min-width: 900px) {
+            #galeriaImagenesModal .gallery-card:nth-child(8n + 1) { grid-column: span 2; }
+            #galeriaImagenesModal .gallery-card:nth-child(8n + 1) .gallery-img { aspect-ratio: 16 / 8.5; }
+        }
+        @media (max-width: 700px) {
+            #galeriaImagenesModal .modal-container { width: 100%; max-height: 94svh; padding: 1rem; }
+            #galeriaImagenesModal .galeria-netflix { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem; }
+            #galeriaImagenesModal .gallery-img { aspect-ratio: 1 / 1; }
+            #galeriaImagenesModal .gallery-card h4 { padding: 0.65rem 0.65rem 0.18rem; font-size: 0.86rem; }
+            #galeriaImagenesModal .gallery-card p { padding: 0 0.65rem 0.7rem; font-size: 0.75rem; }
+        }
+        @media (max-width: 380px) {
+            #galeriaImagenesModal .galeria-netflix { grid-template-columns: 1fr; }
+            #galeriaImagenesModal .gallery-img { aspect-ratio: 4 / 3; }
+        }
+    </style>
+</head>
+<body>
+<div id="clubSplash" class="event-splash" data-event-date="2026-11-13" role="dialog" aria-modal="true" aria-label="Invitación al 8.º Torneo Blitz del Club de Ajedrez Osorno" tabindex="0">
+    <picture class="event-splash__picture">
+        <img class="event-splash__image" src="media/afiche-ocatvo-blitz.png" alt="Afiche del 8.º Torneo Blitz del Club de Ajedrez Osorno, viernes 13 de noviembre a las 19:15 horas en Matta 809" decoding="async" fetchpriority="high">
+    </picture>
+    <p class="event-splash__hint"><i class="fas fa-hand-pointer" aria-hidden="true"></i>Haz clic o toca la pantalla para continuar</p>
+</div>
+<div class="site-container">
+    <div class="top-header">
+        <div class="header-row">
+            <div class="logo-title">
+                <img id="clubLogo" src="logoclub.jpg" alt="Logo Club" decoding="async">
+                <span class="logo-fallback">♞ CAO</span>
+                <div class="title-area">
+                    <h1>Club de Ajedrez Osorno</h1>
+                    <div class="subtitle"><i class="fas fa-flag-chile"></i> Chile · Fundado en 1924 · 102 años de historia</div>
+                </div>
+            </div>
+            <div class="jugador-destacado-header" id="octubreHeaderTrigger" aria-label="Jugadores destacados octubre 2026">
+                <img class="destacado-collage" src="destacados-octubre-2026.jpg" alt="Jugadores destacados octubre 2026 del Club de Ajedrez Osorno" decoding="async">
+                <span>Destacados<br><small>Octubre 2026</small></span>
+            </div>
+        </div>
+        <div class="right-rubrics">
+            <span id="directivaSuperior" style="cursor:pointer;">Directiva</span>
+            <span id="personalidadJuridica" style="cursor:pointer;">Personalidad Jurídica</span>
+            <span id="rankingSuperior" style="cursor:pointer;">Ranking club</span>
+            <span id="campeonesMundialesLink" style="cursor:pointer;">Campeones del Mundo</span>
+        </div>
+        <div class="premium-hero-copy">
+            <div class="hero-kicker">Club fundado en 1924</div>
+            <h2>Club de Ajedrez Osorno</h2>
+            <p class="hero-subtitle">Piensa · Calcula · Conquista</p>
+            <p class="hero-description">Comunidad ajedrecística del sur de Chile dedicada a torneos, formación, historia deportiva y crecimiento estratégico.</p>
+            <div class="hero-stats" aria-label="Resumen institucional">
+                <div class="hero-stat"><strong>102 años</strong><span>Historia deportiva en Osorno</span></div>
+                <div class="hero-stat"><strong>Matta 809</strong><span>Sede para socios y comunidad</span></div>
+                <div class="hero-stat"><strong>2026</strong><span>Torneos, escuela y circuito escolar</span></div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#ultimasNoticias" class="hero-btn gold">Últimas noticias</a>
+                <a href="#calendario2026" class="hero-btn yellow">Ver torneos</a>
+            </div>
+            <section class="hero-event-notice" id="heroPremilitarNotice" data-event-date="2026-11-07" aria-label="Campeonato Escolar de Ajedrez del Liceo Premilitar">
+                <div class="hero-event-date" id="heroPremilitarDate">Próximo torneo · sábado 7 de noviembre</div>
+                <div><strong class="hero-event-title">Campeonato Escolar · Liceo Premilitar</strong><div class="hero-event-details">Confirmación 9:30 hrs. · 6 rondas suizas · ritmo 10+5 · 40 cupos · Inscripciones: chessacademyosorno1@gmail.com</div></div>
+                <a class="hero-event-link" href="descargas/Bases_Torneo_Escolar_Liceo_Premilitar_2026.pdf" target="_blank" rel="noopener">Ver bases <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </section>
+            <section class="hero-event-notice" id="heroBlitzNotice" data-event-date="2026-11-13" aria-label="Promoción del 8.º Torneo Blitz del Club">
+                <div class="hero-event-date" id="heroBlitzDate">Próximo torneo · viernes 13 de noviembre</div>
+                <div><strong class="hero-event-title">8.º Torneo Blitz del Club</strong></div>
+                <a class="hero-event-link" href="#calendario2026">Ver calendario <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            </section>
+            <a class="hazte-socio-cta" href="https://docs.google.com/forms/d/1DtM_Ibiyy4gK1OVyMrrdh4nZbeAGRnhkqmBedB_k29o/viewform" target="_blank" rel="noopener"><i class="fas fa-user-plus" aria-hidden="true"></i> Hazte socio</a>
+        </div>
+    </div>
+
+    <div class="main-grid">
+        <aside class="sidebar-left">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="mobileMainMenu"><i class="fas fa-bars" aria-hidden="true"></i><span>Secciones del club</span><i class="fas fa-chevron-down mobile-menu-chevron" aria-hidden="true"></i></button>
+            <ul class="main-menu" id="mobileMainMenu">
+                <li class="active"><a href="#club"><i class="fas fa-chess-board"></i> Inicio</a></li>
+                <li><a href="#ultimasNoticias" id="noticiasLink"><i class="fas fa-newspaper"></i> Noticias / Blog</a></li>
+                <li><a href="#calendario2026" id="torneosEscolaresLink"><i class="fas fa-calendar-alt"></i> Calendario y actividades</a></li>
+                <li><a href="#escuela" id="escuelaLink"><i class="fas fa-chalkboard-user"></i> Escuela</a></li>
+                <li><a href="#jovenes-promesas" id="jovenesPromesasLink"><i class="fas fa-seedling"></i> Jóvenes Promesas</a></li>
+                <li><a href="#galeria" id="galeriaImagenesLink"><i class="fas fa-images"></i> Galería de Imágenes</a></li>
+                <li><a href="#archivo" id="archivoLink"><i class="fas fa-archive"></i> Histórico y descargas</a></li>
+                <li><a href="#foroPanel" id="foroLink"><i class="fas fa-comments"></i> Foro social</a></li>
+                <li><a href="#directiva" id="directivaLink"><i class="fas fa-users"></i> Directiva</a></li>
+                <li><a href="#colaboradores" id="colaboradoresLink"><i class="fas fa-handshake"></i> Colaboradores</a></li>
+                <li><a href="#tesoreria" id="tesoreriaLink"><i class="fas fa-money-bill-wave"></i> Tesorería</a></li>
+                <li class="hazte-socio-menu"><a href="https://docs.google.com/forms/d/1DtM_Ibiyy4gK1OVyMrrdh4nZbeAGRnhkqmBedB_k29o/viewform" target="_blank" rel="noopener"><i class="fas fa-user-plus" aria-hidden="true"></i> Hazte socio</a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content" id="club">
+            <section class="quick-actions" aria-label="Accesos rápidos">
+                <a class="quick-action" id="quickBlog" href="#ultimasNoticias"><i class="fas fa-newspaper" aria-hidden="true"></i><strong>Blog</strong><span>Noticias, resultados y fotos del club.</span></a>
+                <a class="quick-action" id="quickTorneosEscolares" href="#calendario2026"><i class="fas fa-calendar-alt" aria-hidden="true"></i><strong>Calendario</strong><span>Fechas próximas y actividades realizadas.</span></a>
+                <button class="quick-action" id="quickGaleria" type="button"><i class="fas fa-images" aria-hidden="true"></i><strong>Galería</strong><span>Álbumes de torneos y encuentros.</span></button>
+                <button class="quick-action" id="quickEscuela" type="button"><i class="fas fa-chalkboard-user"></i><strong>Escuela</strong><span>Formación para niños, jóvenes y adultos.</span></button>
+            </section>
+
+            <section class="content-band">
+                <div class="band-heading">
+                    <h2>Actualidad del club</h2>
+                    <p>Lo más importante para socios, apoderados, jugadores y visitantes.</p>
+                </div>
+                <div class="spotlight-strip">
+                    <div class="spotlight-item"><div class="label">Destacados</div><strong>Renato · Maximiliano · Bastián</strong><span>Campeones Sub 10, Sub 12 y Sub 14 del Open Escolar.</span></div>
+                    <div class="spotlight-item"><div class="label">Open Escolar 2026</div><strong>40 jugadores</strong><span>Primera fiesta escolar organizada por el club.</span><a class="bases-escolar-link" href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-trophy"></i> Ver resultados</a></div>
+                    <div class="spotlight-item"><div class="label">Aniversario</div><strong>24 de agosto de 2026</strong><span>102 años de historia institucional.</span><a class="bases-escolar-link" href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram del club</a></div>
+                </div>
+            </section>
+
+            <div class="blog-section content-band" id="ultimasNoticias">
+                <div class="band-heading">
+                    <h2>Blog del Club</h2>
+                    <p>Historia, proyección y memoria institucional del ajedrez osornino.</p>
+                </div>
+                <div id="blogContainer"></div>
+            </div>
+            <section class="actividades-block content-band" id="calendario2026"><h3><i class="fas fa-calendar-alt"></i> Calendario de torneos y actividades 2026</h3><p class="calendar-intro">Las próximas fechas aparecen primero; las actividades realizadas quedan al final. Los enlaces oficiales se mantienen junto a cada evento.</p><div id="listaTorneosEscolares"></div><details id="bases-blitz-7" class="bases-blitz"><summary><strong>Bases y registro del 7.º Torneo Blitz 3+2 · realizado</strong></summary><div class="bases-blitz-contenido"><p>El 7.º Torneo Blitz se disputó el viernes 23 de octubre de 2026 en Matta 809. Consulta la clasificación final en Chess-Results.</p><h4>1. Organización</h4><p>El torneo fue organizado por el Club de Ajedrez Osorno.</p><h4>2. Fecha y lugar</h4><ul><li><strong>Fecha:</strong> viernes 23 de octubre de 2026.</li><li><strong>Lugar:</strong> Sede del Club de Ajedrez Osorno, Matta 809, Osorno.</li><li><strong>Confirmación de participantes:</strong> 19:00 horas.</li><li><strong>Inicio de la primera ronda:</strong> 19:15 horas.</li></ul><h4>3. Ritmo de juego</h4><p>Cada jugador dispondrá de 3 minutos más 2 segundos de incremento por jugada (3+2).</p><h4>4. Sistema de competencia</h4><ul><li>Sistema suizo a 6 rondas.</li><li>Los emparejamientos se realizarán mediante el sistema correspondiente al torneo.</li><li>Se aplicarán las Leyes del Ajedrez de la FIDE para la modalidad blitz.</li></ul><h4>5. Valor de inscripción</h4><ul><li>Adultos: $2.000.</li><li>Escolares: $1.000.</li></ul><p>La inscripción fue presencial y se recibieron participantes hasta 15 minutos antes del inicio.</p><h4>6. Desempates</h4><p>En caso de igualdad de puntos, se aplicarán los siguientes criterios:</p><ol><li>Resultado particular.</li><li>Buchholz Cut-1.</li><li>Buchholz total.</li><li>Performance Rating.</li></ol><h4>7. Premiación</h4><p>Se premió al primer lugar de cada categoría y a los cinco primeros lugares de la tabla general. La premiación se realizó al término del torneo.</p><h4>8. Disposiciones generales</h4><p>El comité organizador se reserva el derecho de resolver cualquier situación no contemplada en estas bases, procurando el correcto desarrollo de la competencia.</p><p><strong>Club de Ajedrez Osorno</strong><br><em>Tradición, formación y comunidad.</em><br>Agradecemos a todas las personas que participaron en esta jornada de ajedrez blitz.</p></div></details></section>
+            <div class="champions-block content-band" id="championsTrigger">
+                <div class="champions-header" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <div class="champions-name"><i class="fas fa-crown"></i> Los más destacados de Osorno</div>
+                    <div class="click-hint"><i class="fas fa-images"></i> Toca un nombre para ver a cada campeón</div>
+                </div>
+                <div class="champions-desc">
+                    <p><strong>Un siglo de nombres propios en el tablero osornino.</strong> Esta línea resume referentes que han marcado distintas etapas del club; el detalle queda en la galería histórica.</p>
+                    <div class="champion-line" aria-label="Campeones y referentes de Osorno">
+                        <button type="button" data-campeon-osorno="0">Gustavo Sommer</button>
+                        <button type="button" data-campeon-osorno="1">Allan Elleberg</button>
+                        <button type="button" data-campeon-osorno="2">Germán Bielefeldt</button>
+                        <button type="button" data-campeon-osorno="3">José Troncoso</button>
+                        <button type="button" data-campeon-osorno="4">Hugo López</button>
+                        <button type="button" data-campeon-osorno="5">Sergio Vera</button>
+                        <button type="button" data-campeon-osorno="6">Juan Pablo Varas</button>
+                        <button type="button" data-campeon-osorno="7">Andrés Carrasco</button>
+                        <button type="button" data-campeon-osorno="8">Juan Sánchez Alarcón</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="online-panel" id="foroPanel">
+                <div class="online-header"><i class="fas fa-comments"></i> Foro del Club</div>
+                <div class="encuesta">
+                    <p>¿Quién es tu favorito?</p>
+                    <label><input type="radio" name="favorito" value="Carlsen"> Magnus Carlsen</label>
+                    <label><input type="radio" name="favorito" value="Gukesh"> Gukesh</label>
+                    <div><button id="votarBtn">Votar</button></div>
+                    <div class="barra-container">
+                        <div class="barra-item"><span class="barra-label">Carlsen</span><span class="barra-fondo"><span id="barraCarlsen" class="barra-porcentaje"></span></span><span id="porcCarlsen" class="porcentaje-texto">0%</span></div>
+                        <div class="barra-item"><span class="barra-label">Gukesh</span><span class="barra-fondo"><span id="barraGukesh" class="barra-porcentaje"></span></span><span id="porcGukesh" class="porcentaje-texto">0%</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3041.989812134735!2d-73.14168968460772!3d-40.57567697934592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9616a7c3e57f0995%3A0x4c3e5b2e5b2e5b2e!2sMatta%20809%2C%20Osorno%2C%20Chile!5e0!3m2!1ses!2scl!4v1617223456789!5m2!1ses!2scl" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://maps.google.com/?q=Matta+809+Osorno" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> Matta 809, Osorno</a>
+            <a href="mailto:clubdeajedrezosorno@gmail.com"><i class="fas fa-envelope"></i> clubdeajedrezosorno@gmail.com</a>
+            <a href="tel:+56642123456"><i class="fas fa-phone-alt"></i> +56 64 2 123456</a>
+        </div>
+        <div><i class="fas fa-chess-knight"></i> Club de Ajedrez Osorno — 102 años de tradición. Fundado el 24 de agosto de 1924.</div>
+    </footer>
+</div>
+
+<a href="https://wa.me/56981772160?text=Hola%20Club%20de%20Ajedrez%20Osorno" class="float-contact-right" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+<div class="float-contact-left" id="contactFormBtn"><i class="fas fa-envelope"></i></div>
+
+<!-- MODALES -->
+<div id="championsModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeModalBtn">&times;</button><h2><i class="fas fa-crown"></i> Galería de Campeones de Osorno</h2><div class="grid-3cols" id="campeonesGrid"></div></div></div>
+<div id="campeonOsornoDetalleModal" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true"><div class="modal-container" style="max-width:900px;"><button class="close-modal" id="closeCampeonOsornoDetalleBtn" aria-label="Cerrar">&times;</button><h2 id="campeonOsornoDetalleNombre"></h2><img id="campeonOsornoDetalleImagen" class="champion-detail-image" alt=""><p id="campeonOsornoDetalleDescripcion"></p><div class="champion-detail-nav"><button type="button" id="campeonOsornoAnterior">← Anterior</button><span id="campeonOsornoDetallePosicion" aria-live="polite"></span><button type="button" id="campeonOsornoSiguiente">Siguiente →</button></div></div></div>
+<div id="directivaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeDirectivaModalBtn">&times;</button><h2><i class="fas fa-users"></i> Directiva 2026</h2><div id="directivaNetflixContainer" class="directiva-netflix"></div></div></div>
+<div id="personalidadModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePersonalidadModalBtn">&times;</button><h2><i class="fas fa-gavel"></i> Personalidad Jurídica</h2><p style="color:#ccc;">El Club de Ajedrez Osorno obtuvo su personalidad jurídica mediante Decreto N° 2716-f del Ministerio de Justicia. Nuestro Rol Único Tributario (RUT) es 65.533.360-6.</p></div></div>
+<div id="rankingModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeRankingModalBtn">&times;</button><h2><i class="fas fa-chart-line"></i> Ranking club</h2><div class="ranking-info"><span><strong>Valores ELO del club con corte al 26 de julio de 2026; no corresponden a una actualización al día.</strong> Para consultar los valores vigentes, revisa el ranking de la Federación Chilena de Ajedrez.</span><a href="https://www.federacionchilenadeajedrez.cl/ranking_jugadores/" target="_blank" rel="noopener"><i class="fas fa-table-list"></i> Ranking federación</a></div><div class="grid-4cols" id="rankingGrid"></div></div></div>
+<div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><div class="tesoreria-datos-grid"><div><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p><button class="btn-compartir" type="button" data-share-url="#tesoreria" data-share-title="Tesorería Club de Ajedrez Osorno"><i class="fas fa-share-alt"></i> Compartir tesorería</button></div><div><img class="tesorero-foto" src="nelson2-ajedrez-osorno.jpg" alt="Nelson, tesorero del Club de Ajedrez Osorno" loading="lazy" decoding="async"><div class="tesorero-caption">Tesorero</div></div></div></div><div id="tesoreriaContent"></div></div></div>
+<div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
+<div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
+<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="julian-dso-ajedrez.jpg" alt="Julián, alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p><p style="margin-top:0.75rem; color:#ccc;">Para clases personalizadas, modalidad online y preparación competitiva, visita <strong>Chess Academy Osorno</strong>.</p><a class="btn-compartir" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ir a chessacademyosorno.cl</a></div></div>
+<div id="octubreDestacadosModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeOctubreDestacadosModalBtn">&times;</button><h2><i class="fas fa-star"></i> Jugadores destacados de octubre</h2><img src="destacados-octubre-2026.jpg" alt="Integrantes del Club de Ajedrez Osorno en la Liga del Ranco, octubre de 2026" loading="lazy" decoding="async" style="width:100%; max-height:72vh; object-fit:contain; border-radius:16px; margin-top:1rem;"><p style="margin-top:1rem; color:#ccc;">Representantes del Club de Ajedrez Osorno en la Liga del Ranco, octubre de 2026.</p></div></div>
+<div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content" style="display:none;"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content active"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
+<div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn" aria-label="Cerrar galería">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><p class="gallery-intro">Torneos, encuentros y momentos que cuentan la historia del Club de Ajedrez Osorno.</p><div class="gallery-navigation"><a class="gallery-tab gallery-home-link" href="#club"><i class="fas fa-house" aria-hidden="true"></i> Volver al inicio</a></div><div id="galeriaTabs" class="gallery-tabs" aria-label="Filtrar galería"></div><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
+<div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
+<form id="contactFormModern" action="https://formsubmit.co/clubdeajedrezosorno@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde la web del Club de Ajedrez Osorno">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none">
+    <input type="text" id="contactNombre" name="Nombre" placeholder="Tu nombre" required>
+    <input type="email" id="contactEmail" name="Email" placeholder="Tu email" required>
+    <textarea id="contactMensaje" name="Mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+    <button type="submit">Enviar mensaje</button>
+</form>
+<p style="font-size:0.8rem; margin-top:1rem; color:#aaa;">El mensaje llegará directo al correo del club.</p>
+</div></div>
+<div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn" aria-label="Cerrar imagen">&times;</button><div class="image-modal-viewer"><button class="image-modal-nav" id="imageModalPrevious" type="button" aria-label="Foto anterior" hidden>‹</button><img id="imagenMaxSrc" alt="Imagen ampliada" style="max-height: 70vh; border-radius: 20px;"><button class="image-modal-nav" id="imageModalNext" type="button" aria-label="Foto siguiente" hidden>›</button></div><div id="imageModalCounter" aria-live="polite"></div><div class="image-actions"><button id="btnCompartirImagen" type="button"><i class="fas fa-share-alt" aria-hidden="true"></i> Compartir imagen</button><button id="btnCopiarImagen" type="button"><i class="fas fa-copy" aria-hidden="true"></i> Copiar imagen</button><button id="btnCopiarEnlaceImagen" type="button"><i class="fas fa-link" aria-hidden="true"></i> Copiar enlace</button><a id="btnDescargarImagen" href="#" download><i class="fas fa-download" aria-hidden="true"></i> Descargar</a></div><p id="imageActionStatus" class="image-action-status" role="status" aria-live="polite"></p></div></div>
+<div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
+
+<script src="index.js?v=20261110-blitz-results-flyer" defer></script>
+</body>
+</html>
+
+
+
+
