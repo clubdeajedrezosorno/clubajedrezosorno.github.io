@@ -1,9 +1,3 @@
-CLUB DE AJEDREZ OSORNO — CÓDIGO ACTUALIZADO
-
-NOTA: El sitio usa dos archivos separados. Copia cada sección en su archivo correspondiente.
-
-========== INICIO: index.html ==========
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -2708,7 +2702,7 @@ NOTA: El sitio usa dos archivos separados. Copia cada sección en su archivo cor
 <div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn" aria-label="Cerrar imagen">&times;</button><div class="image-modal-viewer"><button class="image-modal-nav" id="imageModalPrevious" type="button" aria-label="Foto anterior" hidden>‹</button><img id="imagenMaxSrc" alt="Imagen ampliada" style="max-height: 70vh; border-radius: 20px;"><button class="image-modal-nav" id="imageModalNext" type="button" aria-label="Foto siguiente" hidden>›</button></div><div id="imageModalCounter" aria-live="polite"></div><div class="image-actions"><button id="btnCompartirImagen" type="button"><i class="fas fa-share-alt" aria-hidden="true"></i> Compartir imagen</button><button id="btnCopiarImagen" type="button"><i class="fas fa-copy" aria-hidden="true"></i> Copiar imagen</button><button id="btnCopiarEnlaceImagen" type="button"><i class="fas fa-link" aria-hidden="true"></i> Copiar enlace</button><a id="btnDescargarImagen" href="#" download><i class="fas fa-download" aria-hidden="true"></i> Descargar</a></div><p id="imageActionStatus" class="image-action-status" role="status" aria-live="polite"></p></div></div>
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
 
-<script src="index.js?v=20261110-fix-media-paths" defer></script>
+<script src="index.js?v=20261110-final-media-paths" defer></script>
 </body>
 </html>
 
@@ -2717,10 +2711,7 @@ NOTA: El sitio usa dos archivos separados. Copia cada sección en su archivo cor
 
 
 
-========== FIN: index.html ==========
-
 ========== INICIO: index.js ==========
-
 (() => {
         const splash = document.getElementById('clubSplash');
         if (!splash) return;
@@ -3308,7 +3299,6 @@ NOTA: El sitio usa dos archivos separados. Copia cada sección en su archivo cor
     
     const torneosEscolares = [
         { fecha: "Miércoles 4 de noviembre de 2026", fechaISO: "2026-11-04", titulo: "Copa Pontevedra · continúa", enlaces: [{ url: "https://s1.chess-results.com/tnr1529649.aspx?lan=2&SNode=S0", texto: "Resultados de Copa Pontevedra" }] },
-        { fecha: "Viernes 30 de octubre de 2026", fechaISO: "2026-10-30", titulo: "Halloween y Ajedrez", lugar: "Club de Ajedrez Osorno · Matta 809", nota: "Desde las 17:30 hrs. Disfraz opcional. Solo alumnos y apoderados de la academia; socios desde las 19:00 hrs." },
         { fecha: "Lunes 2 de noviembre de 2026", fechaISO: "2026-11-02", titulo: "Match de Ajedrez: Colegio Alemán Osorno vs. Liceo Premilitar Héroes de la Concepción", nota: "Encuentro de talleres · 15:00 a 16:30 hrs." },
         { fecha: "Sábado 7 de noviembre de 2026", fechaISO: "2026-11-07", titulo: "Campeonato Escolar de Ajedrez · Liceo Premilitar Héroes de la Concepción", nota: "Confirmación 9:30 hrs. · 6 rondas suizas · ritmo 10+5 · 40 cupos · Inscripciones: chessacademyosorno1@gmail.com", bases: "descargas/Bases_Torneo_Escolar_Liceo_Premilitar_2026.pdf" },
         { fecha: "Viernes 13 de noviembre de 2026", fechaISO: "2026-11-13", titulo: "8.º Torneo Blitz del Club" },
