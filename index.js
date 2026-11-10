@@ -220,6 +220,8 @@
                     agregarImagen(ruta, (foto && typeof foto === 'object' && foto.caption) || ('Fotografía de ' + String(noticia.titulo || 'la noticia')), 'blog-photo-strip');
                 });
             }
+            const listaResultados = noticia.id === "noticia-premilitar-2026-resultados" ? document.createElement("ul") : null;
+            if (listaResultados) listaResultados.className = "blog-results-list";
             const enlacesNoticia = [];
             const enlacePrincipal = urlBlogSegura(noticia.enlace, true);
             if (enlacePrincipal) enlacesNoticia.push({ url: enlacePrincipal, texto: '♟ ' + String(noticia.enlaceTexto || 'Ver más'), target: '_blank' });
@@ -308,8 +310,18 @@
                     icono.setAttribute('aria-hidden', 'true');
                     link.append(icono, document.createTextNode(' ' + enlace.texto.trim()));
                 } else link.textContent = enlace.texto;
-                texto.appendChild(link);
+                if (listaResultados) {
+                    const itemResultado = document.createElement("li");
+                    itemResultado.appendChild(link);
+                    listaResultados.appendChild(itemResultado);
+                } else texto.appendChild(link);
             });
+            if (listaResultados && listaResultados.children.length) {
+                const tituloResultados = document.createElement("strong");
+                tituloResultados.className = "blog-results-heading";
+                tituloResultados.textContent = "Resultados oficiales";
+                texto.append(tituloResultados, listaResultados);
+            }
             const botonCompartir = document.createElement('button');
             botonCompartir.type = 'button';
             botonCompartir.className = 'blog-share-button';
