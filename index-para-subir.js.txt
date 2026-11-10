@@ -1250,12 +1250,6 @@
         if (fechaEvento.getTime() === hoy.getTime()) return 'Hoy';
         return 'Próximo';
     }
-    const avisoPremilitar = document.getElementById('heroPremilitarNotice');
-    if (avisoPremilitar) {
-        const estadoPremilitar = estadoFechaEvento(avisoPremilitar.dataset.eventDate);
-        if (estadoPremilitar === 'Realizado') avisoPremilitar.hidden = true;
-        else document.getElementById('heroPremilitarDate').textContent = estadoPremilitar === 'Hoy' ? 'Hoy · sábado 7 de noviembre' : 'Próximo torneo · sábado 7 de noviembre';
-    }
     const avisoBlitz = document.getElementById('heroBlitzNotice');
     if (avisoBlitz) {
         const estadoBlitz = estadoFechaEvento(avisoBlitz.dataset.eventDate);
