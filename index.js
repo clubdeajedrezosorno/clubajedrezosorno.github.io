@@ -64,7 +64,7 @@
         "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg"
     ];
     const noticiasBase = [
-        { id: "noticia-octavo-blitz", fecha: "Sábado 14 de noviembre de 2026 · Osorno", titulo: "8.º Torneo Blitz del Club de Ajedrez Osorno", texto: "El sábado 14 de noviembre celebramos una nueva edición de nuestro torneo blitz. Gracias a todas las personas que participaron y dieron vida a esta jornada de ajedrez, competencia y comunidad. Revisa la clasificación oficial en Chess-Results y revive el torneo en esta galería.", imagen: "media/octavo-blitz-01.jpg", galeriaId: "galeria-octavo-blitz", galeria: ["media/octavo-blitz-02.jpg", "media/octavo-blitz-03.jpg", "media/octavo-blitz-04.jpg", "media/octavo-blitz-05.jpg", "media/octavo-blitz-06.jpg", "media/octavo-blitz-07.jpg", "media/octavo-blitz-08.jpg", "media/octavo-blitz-09.jpg", "media/octavo-blitz-10.jpg", "media/octavo-blitz-11.jpg", "media/octavo-blitz-12.jpg", "media/octavo-blitz-13.jpg", "media/octavo-blitz-14.jpg", "media/octavo-blitz-15.jpg", "media/octavo-blitz-16.jpg", "media/octavo-blitz-17.jpg", "media/octavo-blitz-18.jpg", "media/octavo-blitz-19.jpg", "media/octavo-blitz-20.jpg", "media/octavo-blitz-21.jpg", "media/octavo-blitz-22.jpg", "media/octavo-blitz-23.jpg", "media/octavo-blitz-24.jpg", "media/octavo-blitz-25.jpg", "media/octavo-blitz-26.jpg", "media/octavo-blitz-27.jpg", "media/octavo-blitz-28.jpg", "media/octavo-blitz-29.jpg", "media/octavo-blitz-30.jpg", "media/octavo-blitz-31.jpg", "media/octavo-blitz-32.jpg", "media/octavo-blitz-33.jpg", "media/octavo-blitz-34.jpg", "media/octavo-blitz-35.jpg", "media/octavo-blitz-36.jpg", "media/octavo-blitz-37.jpg", "media/octavo-blitz-38.jpg", "media/octavo-blitz-39.jpg"], enlace: "https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0", enlaceTexto: "Ver clasificación y resultados oficiales en Chess-Results" },
+        { id: "noticia-octavo-blitz", fecha: "Viernes 13 de noviembre de 2026 · Osorno", titulo: "8.º Torneo Blitz del Club de Ajedrez Osorno", texto: "El viernes 13 de noviembre celebramos una nueva edición de nuestro torneo blitz. Gracias a todas las personas que participaron y dieron vida a esta jornada de ajedrez, competencia y comunidad. Revisa la clasificación oficial en Chess-Results y revive el torneo en esta galería.", imagen: "media/octavo-blitz-01.jpg", galeriaId: "galeria-octavo-blitz", galeria: ["media/octavo-blitz-02.jpg", "media/octavo-blitz-03.jpg", "media/octavo-blitz-04.jpg", "media/octavo-blitz-05.jpg", "media/octavo-blitz-06.jpg", "media/octavo-blitz-07.jpg", "media/octavo-blitz-08.jpg", "media/octavo-blitz-09.jpg", "media/octavo-blitz-10.jpg", "media/octavo-blitz-11.jpg", "media/octavo-blitz-12.jpg", "media/octavo-blitz-13.jpg", "media/octavo-blitz-14.jpg", "media/octavo-blitz-15.jpg", "media/octavo-blitz-16.jpg", "media/octavo-blitz-17.jpg", "media/octavo-blitz-18.jpg", "media/octavo-blitz-19.jpg", "media/octavo-blitz-20.jpg", "media/octavo-blitz-21.jpg", "media/octavo-blitz-22.jpg", "media/octavo-blitz-23.jpg", "media/octavo-blitz-24.jpg", "media/octavo-blitz-25.jpg", "media/octavo-blitz-26.jpg", "media/octavo-blitz-27.jpg", "media/octavo-blitz-28.jpg", "media/octavo-blitz-29.jpg", "media/octavo-blitz-30.jpg", "media/octavo-blitz-31.jpg", "media/octavo-blitz-32.jpg", "media/octavo-blitz-33.jpg", "media/octavo-blitz-34.jpg", "media/octavo-blitz-35.jpg", "media/octavo-blitz-36.jpg", "media/octavo-blitz-37.jpg", "media/octavo-blitz-38.jpg", "media/octavo-blitz-39.jpg"], enlace: "https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0", enlaceTexto: "Ver clasificación y resultados oficiales en Chess-Results" },
         { id: "noticia-premilitar-2026-resultados", fecha: "Sábado 7 de noviembre de 2026 · Liceo Premilitar", titulo: "¡Gran actuación de la Academia del Club de Ajedrez Osorno!", texto: "El sábado 7 de noviembre, nuestros alumnos participaron en el torneo escolar realizado en el Liceo Premilitar y volvieron con grandes resultados. <strong>Bastián Obando</strong> fue campeón Sub 14; <strong>Martina Puñanco</strong>, campeona Sub 12; <strong>Laura Puñanco</strong> obtuvo el segundo lugar Sub 14; <strong>Nicolás Mundaca</strong> se coronó campeón Sub 8; <strong>Lucas Pailla</strong> ganó la categoría Sub 10; y <strong>Maximiliano Gajardo</strong> logró el segundo lugar Sub 12. También felicitamos a <strong>Renato Conejeros</strong> por su destacada participación. ¡Nos llena de orgullo el esfuerzo y crecimiento de toda la academia! ♟️🏆", imagen: "media/df54b960-3e93-4197-9adc-1790581f91ab.jpg", galeriaId: "galeria-premilitar-2026", galeria: [{ imagen: "media/nicolas-mundaca-campeon-sub8.jpg", caption: "Nicolás Mundaca, campeón Sub 8" }, { imagen: "media/lucas-pailla-campeon.jpg", caption: "Lucas Pailla, campeón Sub 10 (al centro)" }, { imagen: "media/primer-bastian-segunda-martina.jpg", caption: "Bastián Obando, campeón Sub 14, y Laura Puñanco, segundo lugar Sub 14" }, { imagen: "media/maxi-cam-pre.jpg", caption: "Martina Puñanco, campeona Sub 12, y Maximiliano Gajardo, segundo lugar Sub 12" }, { imagen: "media/sala-dejuego-liceo-premilitar.jpg", caption: "Sala de juego del Liceo Premilitar" }, { imagen: "media/arbitrosenpremiliar.jpg", caption: "Equipo arbitral del torneo" }], enlace: "https://s2.chess-results.com/tnr1537820.aspx?lan=2&SNode=S0", enlaceTexto: "Ver torneo y resultados", enlaces: [{ url: "https://s2.chess-results.com/tnr1537819.aspx?lan=2&art=1&SNode=S0", texto: "Ver clasificación por categorías" }] },
         { id: "noticia-septimo-blitz", fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. gana nuevamente un torneo del club tras más de una década", texto: "♟️ <strong>Después de más de una década, German Bielefeldt V. ganó nuevamente un torneo del Club de Ajedrez Osorno.</strong> Se quedó con el campeonato del Séptimo Blitz, en una jornada que reunió a <strong>22 jugadores</strong> en una tarde de partidas intensas y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/german-campeon-7°blitz.jpg", galeriaId: "galeria-septimo-blitz", galeria: [ { imagen: "media/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results", enlaces: [{ url: "#galeriaImagenesModal", texto: "Ver galería de imágenes del 7.º Blitz", icono: "fas fa-images", target: "_self", album: true }] },
         { id: "noticia-liga-ranco-san-pablo", fecha: "18 de octubre de 2026 · Liga del Ranco", titulo: "Gran actuación del Club de Ajedrez Osorno en San Pablo", texto: "Nuestro club tuvo una gran jornada en San Pablo, en la Liga del Ranco. Felicitamos a <strong>Jorge Castilla, Renato Conejeros, Vicente Zárate, Lucas Pailla, Alelí Zamorano, Boris Zamorano, Nicolás Mundaca, Laura Puñanco, Maximiliano Guajardo y Sergio Vera</strong> por representar a Osorno. Mira el video de la jornada y revisa las fotografías del equipo.", video: "media/liga-ranco-san-pablo-2026.mp4", videoPoster: "media/liga-ranco-san-pablo-equipo.jpg", galeria: ["media/liga-ranco-san-pablo-equipo.jpg", "media/liga-ranco-san-pablo-delegacion.jpg"], enlace: "https://s3.chess-results.com/tnr1522031.aspx?lan=2&SNode=S0", enlaceTexto: "Ver resultados oficiales en Chess-Results" },
@@ -419,7 +419,10 @@
         { nombre: "Isidora Villarroel", img: "media/isidora-villarroel-academia.png", desc: "Sin ranking", enlace: "#" },
         { nombre: "Bernardita Contreras", img: "media/bernardita-contreras-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Alfredo Suárez del Villar", img: "media/alfredo-suarez-del-villar-2026.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Laura Puñanco", img: "media/laura-puñanco-2026.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Laura Puñanco", img: "media/laura-punanco.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Mateo Martínez", img: "media/mateo-martinez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Tomás Novakovic", img: "media/tomas-novakovic.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Martina Puñanco", img: "media/martina-punanco.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", desc: "Sin ranking", enlace: "#" },
         { nombre: "Verónica Ruiz", img: "media/c36dab46-7570-48bd-81f9-de43ea146481.jpg", desc: "Sin ranking", enlace: "#" }
@@ -440,7 +443,7 @@
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Mateo", img: "mateo.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Mateo Martínez", img: "media/mateo-martinez.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Maxi", img: "media/a8009847-33b8-4043-8cc9-5ac683ae6cc9.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Alonso", img: "alonso-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
@@ -481,7 +484,9 @@
         { nombre: "Vicente Pradines Zarate", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Ángel Ruiz", img: "angel-ruiz-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Bastián", img: "bastian-club-ajedrez-osorno.jpg", flag: "chile" },
-        { nombre: "Mateo", img: "mateo-juian-ajedrez-osorno-ajedrez.jpg", flag: "us" },
+        { nombre: "Mateo Martínez", img: "media/mateo-martinez.jpg", flag: "chile" },
+        { nombre: "Tomás Novakovic", img: "media/tomas-novakovic.jpg", flag: "chile" },
+        { nombre: "Martina Puñanco", img: "media/martina-punanco.jpg", flag: "chile" },
         { nombre: "Tomas Gebauer Unión", img: "tomy-osorno.jpg", flag: "chile" },
         { nombre: "Agustín Ojeda Arévalo", img: "agustin-club.jpg", flag: "chile" },
         { nombre: "Maximiliano Gajardo", img: "media/a8009847-33b8-4043-8cc9-5ac683ae6cc9.jpg", flag: "chile" },
@@ -498,7 +503,7 @@
         { nombre: "Isidora Villarroel", img: "media/isidora-villarroel-academia.png", flag: "chile" },
         { nombre: "Bernardita Contreras", img: "media/bernardita-contreras-2026.jpg", flag: "chile" },
         { nombre: "Alfredo Suárez del Villar", img: "media/alfredo-suarez-del-villar-2026.jpg", flag: "chile" },
-        { nombre: "Laura Puñanco", img: "media/laura-puñanco-2026.jpg", flag: "chile" },
+        { nombre: "Laura Puñanco", img: "media/laura-punanco.jpg", flag: "chile" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", flag: "chile" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", flag: "chile" }
     ];
@@ -588,7 +593,8 @@
         { fecha: "Miércoles 4 de noviembre de 2026", fechaISO: "2026-11-04", titulo: "Copa Pontevedra", enlaces: [{ url: "https://s1.chess-results.com/tnr1529649.aspx?lan=2&SNode=S0", texto: "Resultados de Copa Pontevedra" }] },
         { fecha: "Lunes 2 de noviembre de 2026", fechaISO: "2026-11-02", titulo: "Match de Ajedrez: Colegio Alemán Osorno vs. Liceo Premilitar Héroes de la Concepción", nota: "Encuentro de talleres · 15:00 a 16:30 hrs." },
         { fecha: "Sábado 7 de noviembre de 2026", fechaISO: "2026-11-07", titulo: "Campeonato Escolar de Ajedrez · Liceo Premilitar Héroes de la Concepción", nota: "Confirmación 9:30 hrs. · 6 rondas suizas · ritmo 10+5 · 40 cupos · Inscripciones: chessacademyosorno1@gmail.com", bases: "descargas/Bases_Torneo_Escolar_Liceo_Premilitar_2026.pdf" },
-        { fecha: "Sábado 14 de noviembre de 2026", fechaISO: "2026-11-14", titulo: "8.º Torneo Blitz del Club", enlaces: [{ url: "https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0", texto: "Clasificación y resultados oficiales en Chess-Results" }, { url: "#noticia-octavo-blitz", texto: "Noticia y galería de fotos", target: "_self" }] },
+        { fecha: "Viernes 13 de noviembre de 2026", fechaISO: "2026-11-13", titulo: "8.º Torneo Blitz del Club · realizado", enlaces: [{ url: "https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0", texto: "Clasificación y resultados oficiales en Chess-Results" }, { url: "#noticia-octavo-blitz", texto: "Noticia y galería de fotos", target: "_self" }] },
+        { fecha: "Viernes 11 de diciembre de 2026", fechaISO: "2026-12-11", titulo: "9.º Torneo Blitz · Gran Último Blitz 2026", lugar: "Club de Ajedrez Osorno", nota: "Ritmo 3+2 · Bases y premios próximamente", imagen: "media/blitz-9-afiche-2026.png" },
         { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco", lugar: "La Unión" },
         { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
 
@@ -1261,7 +1267,7 @@
     if (avisoBlitz) {
         const estadoBlitz = estadoFechaEvento(avisoBlitz.dataset.eventDate);
         if (estadoBlitz === 'Realizado') avisoBlitz.hidden = true;
-        else document.getElementById('heroBlitzDate').textContent = estadoBlitz === 'Hoy' ? 'Hoy · sábado 14 de noviembre' : 'Próximo torneo · sábado 14 de noviembre';
+        else document.getElementById('heroBlitzDate').textContent = estadoBlitz === 'Hoy' ? 'Hoy · viernes 11 de diciembre' : 'Próximo torneo · viernes 11 de diciembre';
     }
     document.querySelectorAll('.tournament-block[data-event-date]').forEach(torneo => {
         const estado = estadoFechaEvento(torneo.dataset.eventDate);
@@ -1324,6 +1330,16 @@
             if (t.titulo) div.appendChild(crearTexto('div', t.titulo, 'torneo-escolar-lugar'));
             if (t.lugar) div.appendChild(crearTexto('div', `📍 ${t.lugar}`, t.titulo ? 'torneo-escolar-detalle' : 'torneo-escolar-lugar'));
             if (t.nota) div.appendChild(crearTexto('div', t.nota, 'torneo-escolar-nota'));
+            const posterSrc = urlBlogSegura(t.imagen);
+            if (posterSrc) {
+                const poster = document.createElement('img');
+                poster.className = 'calendar-event-poster';
+                poster.src = posterSrc;
+                poster.alt = `Afiche: ${t.titulo || 'actividad del club'}`;
+                poster.loading = 'lazy';
+                poster.decoding = 'async';
+                div.appendChild(poster);
+            }
             const bases = urlBlogSegura(t.bases, true);
             const basesAlt = urlBlogSegura(t.basesAlt, true);
             if (bases || basesAlt) {
