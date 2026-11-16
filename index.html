@@ -2345,6 +2345,12 @@
                 font-size: 1.35rem;
                 color: var(--gold-bright);
             }
+            #quickTesoreria {
+                grid-column: 1 / -1;
+                min-height: 88px;
+                border-color: rgba(240,215,122,0.48);
+                background: linear-gradient(110deg, rgba(212,175,55,0.2), rgba(31,111,88,0.46));
+            }
             #blogContainer {
                 grid-template-columns: 1fr;
             }
@@ -2593,6 +2599,7 @@
 
         <main class="main-content" id="club">
             <section class="quick-actions" aria-label="Accesos rápidos">
+                <a class="quick-action" id="quickTesoreria" href="#tesoreria"><i class="fas fa-money-bill-wave" aria-hidden="true"></i><strong>Tesorería</strong><span>Cuotas de socios, datos bancarios y consultas.</span></a>
                 <a class="quick-action" id="quickBlog" href="#ultimasNoticias"><i class="fas fa-newspaper" aria-hidden="true"></i><strong>Blog</strong><span>Noticias, resultados y fotos del club.</span></a>
                 <a class="quick-action" id="quickTorneosEscolares" href="#calendario2026"><i class="fas fa-calendar-alt" aria-hidden="true"></i><strong>Calendario</strong><span>Fechas próximas y actividades realizadas.</span></a>
                 <button class="quick-action" id="quickGaleria" type="button"><i class="fas fa-images" aria-hidden="true"></i><strong>Galería</strong><span>Álbumes de torneos y encuentros.</span></button>
