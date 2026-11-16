@@ -178,7 +178,18 @@
                         openImageModal(src);
                     }
                 });
-                imagen.addEventListener('error', () => imagen.closest('.blog-feature-image, .blog-photo-strip')?.remove(), { once: true });
+                imagen.addEventListener('error', () => {
+                    const contenedorImagen = imagen.closest('.blog-feature-image, .blog-photo-strip');
+                    if (contenedorImagen?.classList.contains('blog-photo-strip')) {
+                        imagen.remove();
+                        if (!contenedorImagen.querySelector('img')) {
+                            contenedorImagen.previousElementSibling?.classList.contains('blitz-gallery-title') && contenedorImagen.previousElementSibling.remove();
+                            contenedorImagen.remove();
+                        }
+                    } else {
+                        contenedorImagen?.remove();
+                    }
+                }, { once: true });
                 if (clase === 'blog-feature-image') {
                     const wrapper = document.createElement('div');
                     wrapper.className = clase;
@@ -362,7 +373,6 @@
     }
     
     const directiva = [
-        { nombre: "Presidenta", imagen: "claudia-fernandez-club-ajedrez-osorno.jpg", desc: "Claudia Fernández" },
         { nombre: "Vicepresidente", imagen: "connni-ajedez-osorno.jpg", desc: "Constanza Treumun" },
         { nombre: "Secretaria", imagen: "carol-secretaria-club-osorno-ajedrez.jpg", desc: "Carol Moraga" },
         { nombre: "Tesorero", imagen: "nelson-club-ajedrez-osorno-anticucho.jpg", desc: "Nelson Coronado" },
@@ -423,7 +433,6 @@
         { nombre: "Joaquín Kaiser", img: "ad6341f4-11d5-4986-8466-15e2cd3beff3.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "José Soto", img: "galeria-torneo-2026/Jose-soto9-ae1f-c3d4fddb8d46.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Isidora Villarroel", img: "media/isidora-villarroel-academia.png", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Bernardita Contreras", img: "media/bernardita-contreras-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Alfredo Suárez del Villar", img: "media/alfredo-suarez-del-villar-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Laura Puñanco", img: "media/laura-punanco.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Mateo Martínez", img: "media/mateo-martinez.jpg", desc: "Sin ranking", enlace: "#" },
@@ -1068,8 +1077,8 @@
             card.className = 'gallery-card';
             const marco = document.createElement('div');
             marco.className = 'gallery-img';
-            const imagen = crearImagenLocal(m.imagen, m.nombre);
-            if (imagen) marco.appendChild(imagen); else marco.appendChild(crearIconoAjedrez());
+            const imagen = m.sinFoto ? null : crearImagenLocal(m.imagen, m.nombre);
+            if (imagen) marco.appendChild(imagen); else if (!m.sinFoto) marco.appendChild(crearIconoAjedrez());
             card.append(marco, crearTexto('h4', m.nombre), crearTexto('p', m.desc));
             if (imagen) {
                 imagen.addEventListener('click', event => { event.stopPropagation(); openImageModal(imagen.src); });
