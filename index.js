@@ -273,13 +273,92 @@
                     'sergio-45511.jpeg': 'Sergio',
                     'sergio-segundo lugar.jpeg': 'Sergio'
                 };
-                noticia.galeria.forEach(foto => {
-                    const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
-                    const nombreArchivo = ruta.split('/').pop();
-                    const pieFoto = (foto && typeof foto === 'object' && foto.caption) || (noticia.id === 'noticia-octavo-blitz' ? nombresJugadoresBlitz[nombreArchivo] || '' : '');
-                    const altFoto = pieFoto || ('Fotografía de ' + String(noticia.titulo || 'la noticia'));
-                    agregarImagen(ruta, altFoto, 'blog-photo-strip', pieFoto);
-                });
+                if (noticia.id === 'noticia-octavo-blitz') {
+                    const portada = { ruta: 'media/octavo-blitz-portada.png', caption: 'Participantes y premiados del 8.º Blitz', alt: 'Foto grupal de participantes y premiados del 8.º Torneo Blitz' };
+                    const fotos = noticia.galeria.map(foto => {
+                        const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
+                        const nombreArchivo = ruta.split('/').pop();
+                        return {
+                            ruta,
+                            caption: (foto && typeof foto === 'object' && foto.caption) || nombresJugadoresBlitz[nombreArchivo] || '',
+                            alt: nombresJugadoresBlitz[nombreArchivo] || 'Fotografía del 8.º Torneo Blitz'
+                        };
+                    }).filter(foto => urlBlogSegura(foto.ruta));
+                    for (let i = fotos.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [fotos[i], fotos[j]] = [fotos[j], fotos[i]];
+                    }
+                    const slides = [portada, ...fotos];
+                    const galleryTitle = document.createElement('h3');
+                    galleryTitle.className = 'blitz-gallery-title';
+                    galleryTitle.textContent = `Galería del 8.º Blitz · ${slides.length} fotografías`;
+                    texto.appendChild(galleryTitle);
+
+                    const carrusel = document.createElement('div');
+                    carrusel.className = 'blitz-carousel';
+                    if (noticia.galeriaId) carrusel.id = noticia.galeriaId;
+                    const marco = document.createElement('div');
+                    marco.className = 'blitz-carousel-frame';
+                    const anterior = document.createElement('button');
+                    anterior.type = 'button';
+                    anterior.className = 'blitz-carousel-arrow blitz-carousel-prev';
+                    anterior.setAttribute('aria-label', 'Ver fotografía anterior');
+                    anterior.textContent = '‹';
+                    const imagen = document.createElement('img');
+                    imagen.className = 'blitz-carousel-image';
+                    imagen.loading = 'eager';
+                    imagen.decoding = 'async';
+                    imagen.tabIndex = 0;
+                    imagen.setAttribute('role', 'button');
+                    const siguiente = document.createElement('button');
+                    siguiente.type = 'button';
+                    siguiente.className = 'blitz-carousel-arrow blitz-carousel-next';
+                    siguiente.setAttribute('aria-label', 'Ver fotografía siguiente');
+                    siguiente.textContent = '›';
+                    marco.append(anterior, imagen, siguiente);
+                    const pie = document.createElement('div');
+                    pie.className = 'blitz-carousel-caption';
+                    const caption = document.createElement('figcaption');
+                    const contador = document.createElement('span');
+                    contador.className = 'blitz-carousel-count';
+                    contador.setAttribute('aria-live', 'polite');
+                    pie.append(caption, contador);
+                    carrusel.append(marco, pie);
+                    texto.appendChild(carrusel);
+
+                    let indice = 0;
+                    const mostrarSlide = nuevoIndice => {
+                        indice = (nuevoIndice + slides.length) % slides.length;
+                        const slide = slides[indice];
+                        imagen.src = urlBlogSegura(slide.ruta);
+                        imagen.alt = slide.alt;
+                        imagen.setAttribute('aria-label', `Ver imagen ampliada: ${slide.alt}`);
+                        caption.textContent = slide.caption;
+                        caption.hidden = !slide.caption;
+                        contador.textContent = `${indice + 1} / ${slides.length}`;
+                    };
+                    anterior.addEventListener('click', () => mostrarSlide(indice - 1));
+                    siguiente.addEventListener('click', () => mostrarSlide(indice + 1));
+                    imagen.addEventListener('click', () => openImageModal(imagen.src));
+                    imagen.addEventListener('keydown', event => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            openImageModal(imagen.src);
+                        }
+                    });
+                    carrusel.addEventListener('keydown', event => {
+                        if (event.key === 'ArrowLeft') { event.preventDefault(); mostrarSlide(indice - 1); }
+                        if (event.key === 'ArrowRight') { event.preventDefault(); mostrarSlide(indice + 1); }
+                    });
+                    mostrarSlide(0);
+                } else {
+                    noticia.galeria.forEach(foto => {
+                        const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
+                        const pieFoto = (foto && typeof foto === 'object' && foto.caption) || '';
+                        const altFoto = pieFoto || ('Fotografía de ' + String(noticia.titulo || 'la noticia'));
+                        agregarImagen(ruta, altFoto, 'blog-photo-strip', pieFoto);
+                    });
+                }
             }
             const listaResultados = noticia.id === "noticia-premilitar-2026-resultados" ? document.createElement("ul") : null;
             if (listaResultados) listaResultados.className = "blog-results-list";
