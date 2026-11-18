@@ -160,7 +160,7 @@
             texto.appendChild(crearTextoBlogSeguro(noticia.texto));
             card.append(fecha, titulo, texto);
 
-            const agregarImagen = (ruta, alt, clase) => {
+            const agregarImagen = (ruta, alt, clase, pieFoto = '') => {
                 const src = urlBlogSegura(ruta);
                 if (!src) return;
                 const imagen = document.createElement('img');
@@ -181,7 +181,7 @@
                 imagen.addEventListener('error', () => {
                     const contenedorImagen = imagen.closest('.blog-feature-image, .blog-photo-strip');
                     if (contenedorImagen?.classList.contains('blog-photo-strip')) {
-                        imagen.remove();
+                        (imagen.closest('.blitz-photo-card') || imagen).remove();
                         if (!contenedorImagen.querySelector('img')) {
                             contenedorImagen.previousElementSibling?.classList.contains('blitz-gallery-title') && contenedorImagen.previousElementSibling.remove();
                             contenedorImagen.remove();
@@ -209,7 +209,19 @@
                         if (noticia.galeriaId) strip.id = noticia.galeriaId;
                         texto.appendChild(strip);
                     }
-                    strip.appendChild(imagen);
+                    if (noticia.id === 'noticia-octavo-blitz') {
+                        const ficha = document.createElement('figure');
+                        ficha.className = 'blitz-photo-card';
+                        ficha.appendChild(imagen);
+                        if (pieFoto) {
+                            const pie = document.createElement('figcaption');
+                            pie.textContent = pieFoto;
+                            ficha.appendChild(pie);
+                        }
+                        strip.appendChild(ficha);
+                    } else {
+                        strip.appendChild(imagen);
+                    }
                 }
             };
 
@@ -232,9 +244,41 @@
                 texto.appendChild(video);
             }
             if (Array.isArray(noticia.galeria)) {
+                const nombresJugadoresBlitz = {
+                    'bastian-222.jpeg': 'Bastián',
+                    'bastian-mejor-sub14.jpeg': 'Bastián',
+                    'Bejamin-jugador-destacado.jpeg': 'Benjamín',
+                    'benjamin-acuña554.jpeg': 'Benjamín Acuña',
+                    'bielefeltd-tercero-lugar.jpeg': 'Germán Bielefeldt',
+                    'camilo-felix-444.jpeg': 'Camilo Félix',
+                    'carlos -quintraman.jpeg': 'Carlos Quintramán',
+                    'carlos-quintraman.jpeg': 'Carlos Quintramán',
+                    'eriberto-calderon-4454.jpeg': 'Eriberto Calderón',
+                    'german-455.jpeg': 'Germán',
+                    'laura-puña-455.jpeg': 'Laura Puñanco',
+                    'leo-1145.jpeg': 'Leo',
+                    'leonardo-primer-lugar.jpeg': 'Leonardo',
+                    'Lincoyan-vidarte-565.jpeg': 'Lincoyán Vidarte',
+                    'lucas-pailla-554.jpeg': 'Lucas Pailla',
+                    'marcelo-3232.jpeg': 'Marcelo',
+                    'marcelo-rodrigiuez-quinto-lugar.jpeg': 'Marcelo Rodríguez',
+                    'martina-puñanco-99.jpeg': 'Martina Puñanco',
+                    'martina-puñanco-mejor-sub12.jpeg': 'Martina Puñanco',
+                    'Misael-Toledo.jpeg': 'Misael Toledo',
+                    'misael-toledo-4554.jpeg': 'Misael Toledo',
+                    'nelson-22.jpeg': 'Nelson',
+                    'nelson-mejor-club.jpeg': 'Nelson',
+                    'renato-conejero-4454.jpeg': 'Renato Conejeros',
+                    'renato-mejor-sub-10.jpeg': 'Renato Conejeros',
+                    'sergio-45511.jpeg': 'Sergio',
+                    'sergio-segundo lugar.jpeg': 'Sergio'
+                };
                 noticia.galeria.forEach(foto => {
                     const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
-                    agregarImagen(ruta, (foto && typeof foto === 'object' && foto.caption) || ('Fotografía de ' + String(noticia.titulo || 'la noticia')), 'blog-photo-strip');
+                    const nombreArchivo = ruta.split('/').pop();
+                    const pieFoto = (foto && typeof foto === 'object' && foto.caption) || (noticia.id === 'noticia-octavo-blitz' ? nombresJugadoresBlitz[nombreArchivo] || '' : '');
+                    const altFoto = pieFoto || ('Fotografía de ' + String(noticia.titulo || 'la noticia'));
+                    agregarImagen(ruta, altFoto, 'blog-photo-strip', pieFoto);
                 });
             }
             const listaResultados = noticia.id === "noticia-premilitar-2026-resultados" ? document.createElement("ul") : null;
