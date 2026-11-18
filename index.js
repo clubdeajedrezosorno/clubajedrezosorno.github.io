@@ -249,10 +249,7 @@
                         const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
                         return { ruta, alt: 'Fotografía del 8.º Torneo Blitz' };
                     }).filter(foto => urlBlogSegura(foto.ruta));
-                    for (let i = fotos.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [fotos[i], fotos[j]] = [fotos[j], fotos[i]];
-                    }
+                    // Respeta el orden editorial definido en la lista del artículo.
                     const slides = fotos;
                     const galleryTitle = document.createElement('h3');
                     galleryTitle.className = 'blitz-gallery-title';
@@ -298,7 +295,10 @@
                     };
                     anterior.addEventListener('click', () => mostrarSlide(indice - 1));
                     siguiente.addEventListener('click', () => mostrarSlide(indice + 1));
-                    imagen.addEventListener('click', () => openImageModal(imagen.src));
+                    imagen.addEventListener('click', () => openImageModal(imagen.src, slides.map(foto => ({
+                        src: urlBlogSegura(foto.ruta),
+                        alt: foto.alt
+                    }))));
                     imagen.addEventListener('keydown', event => {
                         if (event.key === 'Enter' || event.key === ' ') {
                             event.preventDefault();
@@ -892,10 +892,18 @@
             mostrarEstadoImagen(ok ? 'Enlace copiado.' : 'No se pudo copiar automáticamente; usa el enlace disponible.');
         };
     }
-    function openImageModal(imgSrc) {
+    function openImageModal(imgSrc, galeriaImagenes = null) {
         const modal = document.getElementById('imagenMaxModal');
         const url = obtenerUrlImagen(imgSrc);
         if (!modal || !url) return;
+        if (Array.isArray(galeriaImagenes) && galeriaImagenes.length) {
+            imagenesModal = galeriaImagenes;
+            indiceImagenModal = Math.max(0, imagenesModal.findIndex(imagen => obtenerUrlImagen(imagen.src) === url));
+            mostrarImagenModal(indiceImagenModal);
+            abrirModal(modal);
+            modal.onclick = function(e) { if (e.target === modal) cerrarModal(modal); };
+            return;
+        }
         const imagenesBlog = [...document.querySelectorAll('.blog-card .blog-feature-image img, .blog-card .blog-photo-strip img')];
         const imagenActiva = imagenesBlog.find(imagen => obtenerUrlImagen(imagen.currentSrc || imagen.src) === url);
         const tarjetaArticulo = imagenActiva?.closest('.blog-card');
