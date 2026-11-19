@@ -523,7 +523,8 @@
         { nombre: "Martina Puñanco", img: "media/martina-puñanco-1221ulo.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Verónica Ruiz", img: "media/c36dab46-7570-48bd-81f9-de43ea146481.jpg", desc: "Sin ranking", enlace: "#" }
+        { nombre: "Verónica Ruiz", img: "media/c36dab46-7570-48bd-81f9-de43ea146481.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Adrián Mellado", img: "media/adrian-mellado37c4e2.png", desc: "Sin ranking", enlace: "#" }
     ];
     rankingList = rankingList.filter((v,i,a)=>a.findIndex(t=>t.nombre===v.nombre)===i);
     const joseSotoRanking = rankingList.find(j => ["jose soto", "josé soto"].includes(j.nombre.toLowerCase()));
@@ -540,7 +541,7 @@
         { nombre: "Julián", img: "julian-osorno.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Bastián Obando", img: "media/bastian-obando-club.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Mateo Martínez", img: "media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Maxi", img: "media/a8009847-33b8-4043-8cc9-5ac683ae6cc9.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
@@ -581,7 +582,7 @@
         { nombre: "Carlos Quintraman Fernández", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
         { nombre: "Vicente Pradines Zarate", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", flag: "chile" },
-        { nombre: "Bastián", img: "bastian-club-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Bastián Obando", img: "media/bastian-obando-club.jpg", flag: "chile" },
         { nombre: "Mateo Martínez", img: "media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg", flag: "chile" },
         { nombre: "Tomás Novakovic", img: "media/tomas-novak.jpg", flag: "chile" },
         { nombre: "Martina Puñanco", img: "media/martina-puñanco-1221ulo.jpg", flag: "chile" },
@@ -623,7 +624,7 @@
         { nombre: "Liga del Ranco - Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián 1° Sub 10 y Renato 3°" },
         { nombre: "Campeón Tercer Blitz Mayo - Miguel Pacheco", img: "mighel.pacheco-osorno.jpg", desc: "Miguel Pacheco campeón del 3° Blitz 2026" },
         { nombre: "2° Lugar Tercer Blitz", img: "marcelo.jpg", desc: "Marcelo, segundo puesto en el torneo blitz" },
-        { nombre: "Bastian Campeón Sub 14", img: "bastian-club-ajedrez-osorno.jpg", desc: "Bastian logra el título en categoría Sub 14" },
+        { nombre: "Bastián Obando, campeón Sub 14", img: "media/bastian-obando-club.jpg", desc: "Bastián logra el título en categoría Sub 14" },
         { nombre: "Carlos Campeón Sub 16", img: "carlos-mama-clun-mm.jpg", desc: "Carlos se corona campeón Sub 16" },
         { nombre: "Rosa Cárdenas - Destacada del Blitz de Mayo", img: "rosaan-ajedrez-osorno.jpg", desc: "Rosa tuvo una actuación sobresaliente en el torneo" },
         { nombre: "Nelson - Tercer Lugar Tercer Blitz", img: "07780cb8-bf30-4605-a0a1-5a7313cb5990.jpg", desc: "Nelson se adjudica el tercer puesto" },
