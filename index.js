@@ -523,6 +523,7 @@
         { nombre: "Martina Puñanco", img: "media/martina-puñanco-1221ulo.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Verónica Ruiz", img: "media/c36dab46-7570-48bd-81f9-de43ea146481.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Adrián Mellado", img: "media/adrian-mellado37c4e2.png", desc: "Sin ranking", enlace: "#" }
     ];
@@ -540,7 +541,6 @@
     const promesasParaRanking = [
         { nombre: "Julián", img: "julian-osorno.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Bastián Obando", img: "media/bastian-obando-club.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Mateo Martínez", img: "media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Maxi", img: "media/a8009847-33b8-4043-8cc9-5ac683ae6cc9.jpg", desc: "Sin ranking", enlace: "#" },
