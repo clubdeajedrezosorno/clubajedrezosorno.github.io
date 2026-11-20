@@ -1255,15 +1255,22 @@
         .hero-event-link { display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0.7rem 0.95rem; border-radius: 999px; background: #ffad45; color: #23130a; font-weight: 900; text-decoration: none; white-space: nowrap; }
         .hero-event-link:hover { filter: brightness(1.08); transform: translateY(-1px); }
         @media (max-width: 620px) { .hero-event-notice { grid-template-columns: 1fr; gap: 0.55rem; } .hero-event-link { justify-self: start; } }
-        .hero-community-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.65rem; margin-top: 0.65rem; }
-        .hero-community-links .hazte-socio-cta { margin: 0; }
+        .hero-community-links { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0.7rem; width: min(840px, 100%); margin: 0.75rem auto 0.25rem; }
+        .hero-community-links .hazte-socio-cta { grid-column: 2; grid-row: 1; justify-self: center; margin: 0; min-height: 54px; padding: 0.85rem 1.55rem; font-size: 1.02rem; box-shadow: 0 10px 30px rgba(212,175,55,0.34); }
         .hero-community-link {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-            min-height: 44px; padding: 0.7rem 1.1rem; border: 1px solid rgba(240,215,122,0.48);
-            border-radius: 999px; background: rgba(5,16,22,0.72); color: #f9e7c2;
-            font-weight: 800; text-decoration: none; transition: transform 0.2s ease, background 0.2s ease;
+            min-height: 46px; padding: 0.7rem 1.05rem; border-radius: 999px;
+            font-weight: 850; text-decoration: none; transition: transform 0.2s ease, filter 0.2s ease;
         }
-        .hero-community-link:hover { transform: translateY(-1px); background: rgba(212,175,55,0.18); }
+        .hero-community-link:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .hero-community-link.instagram-cta { grid-column: 1; grid-row: 1; justify-self: end; color: #fff; border: 1px solid rgba(255,255,255,0.28); background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 52%, #cc2366 74%, #bc1888 100%); box-shadow: 0 8px 22px rgba(220,39,67,0.24); }
+        .hero-community-link.academy-cta { grid-column: 3; grid-row: 1; justify-self: start; color: #123b23; border: 1px solid #8fd7a0; background: #baf0c5; box-shadow: 0 8px 22px rgba(97,196,121,0.2); }
+        @media (max-width: 620px) {
+            .hero-community-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+            .hero-community-links .hazte-socio-cta { grid-column: 1 / -1; grid-row: 1; }
+            .hero-community-link.instagram-cta { grid-column: 1; grid-row: 2; justify-self: stretch; padding-inline: 0.35rem; font-size: 0.8rem; }
+            .hero-community-link.academy-cta { grid-column: 2; grid-row: 2; justify-self: stretch; padding-inline: 0.35rem; font-size: 0.8rem; }
+        }
         .hazte-socio-cta {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
             min-height: 44px; margin: 0.65rem 0 0.25rem; padding: 0.7rem 1.1rem;
@@ -2634,7 +2641,7 @@
                 <div><strong class="hero-event-title">9.º Torneo Blitz · Gran Último Blitz</strong></div>
                 <a class="hero-event-link" href="#calendario2026">Ver calendario <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </section>
-            <div class="hero-community-links"><a class="hazte-socio-cta" href="https://docs.google.com/forms/d/1DtM_Ibiyy4gK1OVyMrrdh4nZbeAGRnhkqmBedB_k29o/viewform" target="_blank" rel="noopener"><i class="fas fa-user-plus" aria-hidden="true"></i> Hazte socio</a><a class="hero-community-link" href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram del club</a><a class="hero-community-link" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener"><i class="fas fa-chess-knight" aria-hidden="true"></i> Chess Academy</a></div>
+            <div class="hero-community-links"><a class="hazte-socio-cta" href="https://docs.google.com/forms/d/1DtM_Ibiyy4gK1OVyMrrdh4nZbeAGRnhkqmBedB_k29o/viewform" target="_blank" rel="noopener"><i class="fas fa-user-plus" aria-hidden="true"></i> Hazte socio</a><a class="hero-community-link instagram-cta" href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram del club</a><a class="hero-community-link academy-cta" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener"><i class="fas fa-chess-knight" aria-hidden="true"></i> Chess Academy</a></div>
         </div>
     </div>
 
