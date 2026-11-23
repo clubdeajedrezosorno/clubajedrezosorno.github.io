@@ -434,19 +434,34 @@
                     const src = ruta ? urlBlogSegura(encodeURI(ruta)) : '';
                     return src ? { src, alt: 'Liga del Ranco, fotografía ' + (i + 1) } : null;
                 }).filter(Boolean);
+                const galeriaWrap = document.createElement('div');
+                galeriaWrap.className = 'blog-ranco-gallery-wrap';
+                galeriaWrap.style.cssText = 'position:relative;margin:1rem 0';
                 const galeria = document.createElement('div');
                 galeria.className = 'blog-photo-strip blog-ranco-gallery';
                 if (noticia.galeriaId) galeria.id = noticia.galeriaId;
-                galeria.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin:1rem 0';
+                galeria.setAttribute('aria-label', 'Galería de fotografías de la Liga del Ranco');
+                galeria.style.cssText = 'display:flex;flex-wrap:nowrap;gap:.75rem;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:.25rem .1rem .7rem;scrollbar-width:thin';
                 fotos.forEach(foto => {
                     const imagen = document.createElement('img');
                     imagen.src = foto.src; imagen.alt = foto.alt; imagen.loading = 'lazy'; imagen.decoding = 'async'; imagen.tabIndex = 0; imagen.setAttribute('role', 'button');
-                    imagen.style.cssText = 'width:100%;min-width:0;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in';
+                    imagen.style.cssText = 'display:block;flex:0 0 clamp(145px,22vw,230px);width:clamp(145px,22vw,230px);height:clamp(110px,16.5vw,172px);object-fit:cover;border-radius:12px;cursor:zoom-in;scroll-snap-align:start';
                     imagen.addEventListener('click', () => openImageModal(foto.src, fotos));
                     imagen.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImageModal(foto.src, fotos); } });
                     galeria.appendChild(imagen);
                 });
-                if (galeria.children.length) texto.appendChild(galeria);
+                const crearFlecha = (direccion, etiqueta) => {
+                    const boton = document.createElement('button');
+                    boton.type = 'button';
+                    boton.className = 'blog-ranco-gallery-arrow blog-ranco-gallery-arrow-' + direccion;
+                    boton.setAttribute('aria-label', etiqueta);
+                    boton.textContent = direccion === 'prev' ? '‹' : '›';
+                    boton.style.cssText = 'position:absolute;z-index:1;top:50%;' + (direccion === 'prev' ? 'left:.35rem;' : 'right:.35rem;') + 'transform:translateY(-50%);width:2.5rem;height:2.5rem;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(15,15,15,.82);color:#fff;font-size:2rem;line-height:1;cursor:pointer;display:grid;place-items:center';
+                    boton.addEventListener('click', () => galeria.scrollBy({ left: (direccion === 'prev' ? -1 : 1) * Math.max(220, galeria.clientWidth * .78), behavior: 'smooth' }));
+                    return boton;
+                };
+                galeriaWrap.append(crearFlecha('prev', 'Ver fotografías anteriores'), galeria, crearFlecha('next', 'Ver fotografías siguientes'));
+                if (galeria.children.length) texto.appendChild(galeriaWrap);
             }
             const botonCompartir = document.createElement('button');
             botonCompartir.type = 'button';
