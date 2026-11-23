@@ -232,7 +232,7 @@
                 }
             };
 
-            if (noticia.imagen) agregarImagen(noticia.imagen, String(noticia.titulo || ''), 'blog-feature-image');
+            if (noticia.imagen && noticia.id !== 'noticia-liga-ranco-final-2026') agregarImagen(noticia.imagen, String(noticia.titulo || ''), 'blog-feature-image');
             const videoSrc = urlBlogSegura(noticia.video);
             if (videoSrc) {
                 const video = document.createElement('video');
@@ -250,7 +250,7 @@
                 video.appendChild(document.createTextNode('Tu navegador no puede reproducir este video.'));
                 texto.appendChild(video);
             }
-            if (Array.isArray(noticia.galeria)) {
+            if (Array.isArray(noticia.galeria) && noticia.id !== 'noticia-liga-ranco-final-2026') {
                 if (noticia.id === 'noticia-octavo-blitz') {
                     const fotos = noticia.galeria.map(foto => {
                         const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
@@ -427,6 +427,26 @@
                 tituloResultados.className = "blog-results-heading";
                 tituloResultados.textContent = "Resultados oficiales";
                 texto.append(tituloResultados, listaResultados);
+            }
+            if (noticia.id === 'noticia-liga-ranco-final-2026' && Array.isArray(noticia.galeria)) {
+                const fotos = noticia.galeria.map((foto, i) => {
+                    const ruta = typeof foto === 'string' ? foto : (foto && (foto.imagen || foto.foto)) || '';
+                    const src = ruta ? urlBlogSegura(encodeURI(ruta)) : '';
+                    return src ? { src, alt: 'Liga del Ranco, fotografía ' + (i + 1) } : null;
+                }).filter(Boolean);
+                const galeria = document.createElement('div');
+                galeria.className = 'blog-photo-strip blog-ranco-gallery';
+                if (noticia.galeriaId) galeria.id = noticia.galeriaId;
+                galeria.style.cssText = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin:1rem 0';
+                fotos.forEach(foto => {
+                    const imagen = document.createElement('img');
+                    imagen.src = foto.src; imagen.alt = foto.alt; imagen.loading = 'lazy'; imagen.decoding = 'async'; imagen.tabIndex = 0; imagen.setAttribute('role', 'button');
+                    imagen.style.cssText = 'width:100%;min-width:0;aspect-ratio:4/3;object-fit:cover;cursor:zoom-in';
+                    imagen.addEventListener('click', () => openImageModal(foto.src, fotos));
+                    imagen.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImageModal(foto.src, fotos); } });
+                    galeria.appendChild(imagen);
+                });
+                if (galeria.children.length) texto.appendChild(galeria);
             }
             const botonCompartir = document.createElement('button');
             botonCompartir.type = 'button';
