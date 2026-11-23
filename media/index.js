@@ -64,6 +64,9 @@
         "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg"
     ];
     const noticiasBase = [
+        { id: "noticia-copa-pontevedra-2026", fecha: "Jueves 19 de noviembre de 2026 · Copa Pontevedra", titulo: "Copa Pontevedra sigue en juego: hoy se disputó la cuarta ronda", texto: "La Copa Pontevedra sigue en juego. La cuarta ronda ya se disputó. El torneo se juega cada miércoles a las 19:15 horas y continúa hasta el miércoles 2 de diciembre. Revisa el avance y las posiciones oficiales.", enlace: "https://s1.chess-results.com/tnr1529649.aspx?lan=2&SNode=S0", enlaceTexto: "Seguir resultados de Copa Pontevedra" },
+        { id: "noticia-liga-ranco-final-2026", fecha: "Sábado 21 de noviembre de 2026 · Liga del Ranco", titulo: "Sergio Vera y Renato Conejero, campeones de la Liga del Ranco", texto: "Tras siete fechas de competencia, la Liga del Ranco 2026 llegó a su cierre con una destacada actuación del Club de Ajedrez Osorno. <strong>Sergio Vera</strong> se consagró campeón de la categoría Open y <strong>Renato Conejero</strong> obtuvo el primer lugar Sub 10. En Open, <strong>Jorge Castilla</strong> alcanzó el vicecampeonato. También sobresalieron <strong>Lucas Pailla, Laura Puñanco, Martina Puñanco, Nicolás Mundaca</strong> y <strong>Misael Toledo</strong>, quienes representaron al club a lo largo de esta exigente temporada. Felicitamos a nuestros jugadores por su esfuerzo, constancia y compañerismo en cada fecha, y agradecemos a sus familias y a la organización de la Liga del Ranco por hacer posible este espacio de encuentro y crecimiento ajedrecístico.", imagen: "media/liga ranco 7/2c740dbd-fa1c-43c0-ae67-3b77240f46e4.png", galeriaId: "galeria-liga-ranco-final-2026", galeria: ["media/2c740dbd-fa1c-43c0-ae67-3b77240f46e4.png", "media/ef9dd773-97aa-4291-8c1c-0c13c44445a9.jpg", "media/0c51993d-c421-4a97-825b-477a1e0297f1.jpg", "media/0f525db9-4227-4e6c-bb3d-97488c181efe.jpg", "media/6ad1ceeb-ca22-4742-8849-a97d08b57a56.jpg", "media/27dc479c-925c-41a4-931b-daca8d814de4.jpg", "media/77fe0765-05b6-4dc3-9283-182280f65fbb.jpg", "media/78c01887-16ce-4c39-bbba-42f063e1aef4.jpg", "media/146e6b02-9294-4253-a7ae-6774d65d030d.jpg", "media/aa37ef3f-20ad-4b63-aeff-8f57a4d292f0.jpg", "media/b52c1bb3-0b62-4f42-a31a-675185d5165d.jpg", "media/c1cfe33c-f042-456c-8e29-0b4e66a639da.jpg", "media/c43eb071-eb15-46f7-b8dd-ec448ec3211d.jpg", "media/dbb43af4-0ea9-4300-ac30-e1a7ba5b3e92.jpg", "media/dd99ac9f-c185-43f5-8986-f433a392b868.jpg", "media/eefab01a-fb0a-4674-b1b4-91004839bdc4.jpg", "media/f9f33fb3-4c4a-4c82-a3b1-6f2030f8d625.jpg", "media/fa9f93e6-e63c-42be-90cd-efe31fb9ac2e.jpg"], enlace: "https://s3.chess-results.com/tnr1547942.aspx?lan=2&art=1&fed=CHI&SNode=S0", enlaceTexto: "Clasificación Open en Chess-Results", enlaces: [{ url: "https://s3.chess-results.com/tnr1547936.aspx?lan=2&art=1&SNode=S0", texto: "Clasificación Sub 10" }, { url: "https://s2.chess-results.com/tnr1547934.aspx?lan=2&art=1&SNode=S0", texto: "Clasificación Sub 8" }] },
+        { id: "noticia-campeones-carlo-condell-2026", fecha: "Sábado 14 de noviembre de 2026 · Escuela Carlo Condell, Osorno", titulo: "¡Cuatro campeones escolares que llenan de orgullo al ajedrez osornino!", texto: "El pasado sábado 14 de noviembre, la Escuela Carlo Condell fue escenario de una nueva jornada de ajedrez escolar, donde jóvenes talentos demostraron concentración, compromiso y entusiasmo frente al tablero. El Club de Ajedrez Osorno y Chess Academy Osorno felicitan especialmente a nuestros representantes por sus excelentes resultados: <strong>Nicolás Mundaca</strong>, campeón de la categoría <strong>Sub 8</strong>; <strong>Lucas Pailla</strong>, campeón <strong>Sub 10</strong>; <strong>Martina Puñanco</strong>, campeona <strong>Sub 12</strong>; y <strong>Laura Puñanco</strong>, campeona <strong>Sub 14</strong>. Estos logros son fruto del trabajo constante, la práctica y las ganas de superarse en cada partida. También destacamos el esfuerzo de todos los niños y niñas que participaron, así como el apoyo de sus familias y de quienes hacen posible estos espacios de encuentro y aprendizaje. ¡Felicitaciones a Nicolás, Lucas, Martina y Laura por representar con orgullo al ajedrez de Osorno! ♟️🏆", galeriaId: "galeria-campeones-carlo-condell-2026", galeria: [{ imagen: "media/Imagen de ChatGPT 18 nov 2026, 11_30_37 p.m.png", caption: "Nicolás Mundaca, campeón Sub 8" }, { imagen: "media/37a89608-6a98-435b-8a9b-ac2385dcd43e.png", caption: "Martina Puñanco, campeona Sub 12; Laura Puñanco, campeona Sub 14; y Lucas Pailla, campeón Sub 10" }] },
         { id: "noticia-octavo-blitz", fecha: "Viernes 13 de noviembre de 2026 · Osorno", titulo: "8.º Torneo Blitz del Club de Ajedrez Osorno", texto: "El viernes 13 de noviembre celebramos una nueva edición de nuestro torneo blitz. Gracias a todas las personas que participaron y dieron vida a esta jornada de ajedrez, competencia y comunidad. Revisa la clasificación oficial en Chess-Results y revive el torneo en esta galería.", galeriaId: "galeria-octavo-blitz", galeria: ["media/bastian-222.jpeg", "media/bastian-mejor-sub14.jpeg", "media/Bejamin-jugador-destacado.jpeg", "media/benjamin-acuña554.jpeg", "media/bielefeltd-tercero-lugar.jpeg", "media/camilo-felix-444.jpeg", "media/carlos -quintraman.jpeg", "media/carlos-quintraman.jpeg", "media/eriberto-calderon-4454.jpeg", "media/esperando-torneo.jpeg", "media/german-455.jpeg", "media/juean-cler-fff.jpeg", "media/laura-puña-455.jpeg", "media/leo-1145.jpeg", "media/leonardo-primer-lugar.jpeg", "media/Lincoyan-vidarte-565.jpeg", "media/lucas-pailla-554.jpeg", "media/marcelo-3232.jpeg", "media/marcelo-rodrigiuez-quinto-lugar.jpeg", "media/martina-puñanco-99.jpeg", "media/martina-puñanco-mejor-sub12.jpeg", "media/Misael-Toledo.jpeg", "media/misael-toledo-4554.jpeg", "media/Montiel-554.jpeg", "media/nelson-22.jpeg", "media/nelson-mejor-club.jpeg", "media/publico-club.jpeg", "media/renato-conejero-4454.jpeg", "media/renato-mejor-sub-10.jpeg", "media/sergio-45511.jpeg", "media/sergio-segundo lugar.jpeg", "media/socio-nuevo.jpeg", "media/socio-nuevo-2.jpeg", "media/vista-3-general.jpeg", "media/vista-general-2.jpeg", "media/vista-general-club.jpeg", "media/WhatsApp Image 2026-11-14 at 9.48.09 AM (1).jpeg"], enlace: "https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0", enlaceTexto: "Ver clasificación y resultados oficiales en Chess-Results" },
         { id: "noticia-premilitar-2026-resultados", fecha: "Sábado 7 de noviembre de 2026 · Liceo Premilitar", titulo: "¡Gran actuación de la Academia del Club de Ajedrez Osorno!", texto: "El sábado 7 de noviembre, nuestros alumnos participaron en el torneo escolar realizado en el Liceo Premilitar y volvieron con grandes resultados. <strong>Bastián Obando</strong> fue campeón Sub 14; <strong>Martina Puñanco</strong>, campeona Sub 12; <strong>Laura Puñanco</strong> obtuvo el segundo lugar Sub 14; <strong>Nicolás Mundaca</strong> se coronó campeón Sub 8; <strong>Lucas Pailla</strong> ganó la categoría Sub 10; y <strong>Maximiliano Gajardo</strong> logró el segundo lugar Sub 12. También felicitamos a <strong>Renato Conejeros</strong> por su destacada participación. ¡Nos llena de orgullo el esfuerzo y crecimiento de toda la academia! ♟️🏆", imagen: "media/df54b960-3e93-4197-9adc-1790581f91ab.jpg", galeriaId: "galeria-premilitar-2026", galeria: [{ imagen: "media/nicolas-mundaca-campeon-sub8.jpg", caption: "Nicolás Mundaca, campeón Sub 8" }, { imagen: "media/lucas-pailla-campeon.jpg", caption: "Lucas Pailla, campeón Sub 10 (al centro)" }, { imagen: "media/primer-bastian-segunda-martina.jpg", caption: "Bastián Obando, campeón Sub 14, y Laura Puñanco, segundo lugar Sub 14" }, { imagen: "media/maxi-cam-pre.jpg", caption: "Martina Puñanco, campeona Sub 12, y Maximiliano Gajardo, segundo lugar Sub 12" }, { imagen: "media/sala-dejuego-liceo-premilitar.jpg", caption: "Sala de juego del Liceo Premilitar" }, { imagen: "media/arbitrosenpremiliar.jpg", caption: "Equipo arbitral del torneo" }], enlace: "https://s2.chess-results.com/tnr1537820.aspx?lan=2&SNode=S0", enlaceTexto: "Ver torneo y resultados", enlaces: [{ url: "https://s2.chess-results.com/tnr1537819.aspx?lan=2&art=1&SNode=S0", texto: "Ver clasificación por categorías" }] },
         { id: "noticia-septimo-blitz", fecha: "Séptimo Blitz · Osorno", titulo: "German Bielefeldt V. gana nuevamente un torneo del club tras más de una década", texto: "♟️ <strong>Después de más de una década, German Bielefeldt V. ganó nuevamente un torneo del Club de Ajedrez Osorno.</strong> Se quedó con el campeonato del Séptimo Blitz, en una jornada que reunió a <strong>22 jugadores</strong> en una tarde de partidas intensas y celebración. <br><br>Felicitamos al campeón y a todos quienes dieron vida al torneo. También celebramos a los premiados por categoría: <strong>Alelí Zamorano</strong> (Sub 8), <strong>Renato Conejeros</strong> (Sub 10), <strong>Maximiliano Gajardo</strong> (Sub 12), <strong>Bastián Obando</strong> (Sub 14), <strong>Lincoyán Vidarte</strong> (Sub 16) y <strong>Lucas Pailla</strong>, mejor jugador Sub Chess Academy. En la clasificación Open, <strong>Sergio Vera</strong> obtuvo el vicecampeonato y <strong>Nelson Coronado</strong> alcanzó el cuarto lugar. ¡Gracias a todas las familias y participantes por compartir esta gran jornada! ✨", imagen: "media/german-campeon-7°blitz.jpg", galeriaId: "galeria-septimo-blitz", galeria: [ { imagen: "media/premiados-7°blitz.jpg", caption: "Los premiados del 7.º Blitz" }, { imagen: "media/sergio-vera-vice-campeon.jpg", caption: "Sergio Vera, vicecampeón Open" }, { imagen: "media/nelson-coronado-4°lugar open.jpg", caption: "Nelson Coronado, cuarto lugar Open" }, { imagen: "media/Aleli-Zamorano-ganadoraSub 8.jpg", caption: "Alelí Zamorano, ganadora Sub 8" }, { imagen: "media/renato-conejeros-ganador-sub10.jpg", caption: "Renato Conejeros, ganador Sub 10" }, { imagen: "media/maximiliano-gajardo-mejor-sub12.jpg", caption: "Maximiliano Gajardo, mejor Sub 12" }, { imagen: "media/bastian-ganador-sub14.jpg", caption: "Bastián Obando, ganador Sub 14" }, { imagen: "media/Lincoyan-Vidarte-Sub-16.jpg", caption: "Lincoyán Vidarte, ganador Sub 16" }, { imagen: "media/lucas-pailla-mejor sub-chessacademy.jpg", caption: "Lucas Pailla, mejor Sub Chess Academy" }, { imagen: "media/aleli-vs-lincoyan.jpg", caption: "Alelí y Lincoyán durante una partida" }, { imagen: "media/ful-competencia.jpg", caption: "La sala, llena de ajedrez y concentración" }, { imagen: "media/intensos -juegos.jpg", caption: "Partidas intensas del torneo" }, { imagen: "media/loschicos-boris-lucas-aleli.jpg", caption: "Los jóvenes del club compartiendo la jornada" } ], enlace: "https://s2.chess-results.com/tnr1525636.aspx?lan=2&art=1&rd=6&SNode=S0", enlaceTexto: "Ver clasificación y resultados en Chess-Results", enlaces: [{ url: "#galeriaImagenesModal", texto: "Ver galería de imágenes del 7.º Blitz", icono: "fas fa-images", target: "_self", album: true }] },
@@ -85,6 +88,10 @@
         if (typeof valor !== 'string' || !valor.trim()) return '';
         try {
             const url = new URL(valor, document.baseURI);
+            if (url.protocol === 'file:' && location.protocol === 'file:' && !/^[a-z][a-z\d+.-]*:/i.test(valor) && !valor.startsWith('//') && (!permitirExterno || valor.startsWith('#'))) {
+                const raizSitio = new URL('.', document.baseURI);
+                return url.href.startsWith(raizSitio.href) ? url.href : '';
+            }
             if (!['http:', 'https:'].includes(url.protocol)) return '';
             if (!permitirExterno && url.origin !== location.origin) return '';
             return url.href;
@@ -225,7 +232,7 @@
                 }
             };
 
-            if (noticia.imagen) agregarImagen(noticia.imagen, String(noticia.titulo || ''), 'blog-feature-image');
+            if (noticia.imagen && noticia.id !== 'noticia-liga-ranco-final-2026') agregarImagen(noticia.imagen, String(noticia.titulo || ''), 'blog-feature-image');
             const videoSrc = urlBlogSegura(noticia.video);
             if (videoSrc) {
                 const video = document.createElement('video');
@@ -243,43 +250,81 @@
                 video.appendChild(document.createTextNode('Tu navegador no puede reproducir este video.'));
                 texto.appendChild(video);
             }
-            if (Array.isArray(noticia.galeria)) {
-                const nombresJugadoresBlitz = {
-                    'bastian-222.jpeg': 'Bastián',
-                    'bastian-mejor-sub14.jpeg': 'Bastián',
-                    'Bejamin-jugador-destacado.jpeg': 'Benjamín',
-                    'benjamin-acuña554.jpeg': 'Benjamín Acuña',
-                    'bielefeltd-tercero-lugar.jpeg': 'Germán Bielefeldt',
-                    'camilo-felix-444.jpeg': 'Camilo Félix',
-                    'carlos -quintraman.jpeg': 'Carlos Quintramán',
-                    'carlos-quintraman.jpeg': 'Carlos Quintramán',
-                    'eriberto-calderon-4454.jpeg': 'Eriberto Calderón',
-                    'german-455.jpeg': 'Germán',
-                    'laura-puña-455.jpeg': 'Laura Puñanco',
-                    'leo-1145.jpeg': 'Leo',
-                    'leonardo-primer-lugar.jpeg': 'Leonardo',
-                    'Lincoyan-vidarte-565.jpeg': 'Lincoyán Vidarte',
-                    'lucas-pailla-554.jpeg': 'Lucas Pailla',
-                    'marcelo-3232.jpeg': 'Marcelo',
-                    'marcelo-rodrigiuez-quinto-lugar.jpeg': 'Marcelo Rodríguez',
-                    'martina-puñanco-99.jpeg': 'Martina Puñanco',
-                    'martina-puñanco-mejor-sub12.jpeg': 'Martina Puñanco',
-                    'Misael-Toledo.jpeg': 'Misael Toledo',
-                    'misael-toledo-4554.jpeg': 'Misael Toledo',
-                    'nelson-22.jpeg': 'Nelson',
-                    'nelson-mejor-club.jpeg': 'Nelson',
-                    'renato-conejero-4454.jpeg': 'Renato Conejeros',
-                    'renato-mejor-sub-10.jpeg': 'Renato Conejeros',
-                    'sergio-45511.jpeg': 'Sergio',
-                    'sergio-segundo lugar.jpeg': 'Sergio'
-                };
-                noticia.galeria.forEach(foto => {
-                    const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
-                    const nombreArchivo = ruta.split('/').pop();
-                    const pieFoto = (foto && typeof foto === 'object' && foto.caption) || (noticia.id === 'noticia-octavo-blitz' ? nombresJugadoresBlitz[nombreArchivo] || '' : '');
-                    const altFoto = pieFoto || ('Fotografía de ' + String(noticia.titulo || 'la noticia'));
-                    agregarImagen(ruta, altFoto, 'blog-photo-strip', pieFoto);
-                });
+            if (Array.isArray(noticia.galeria) && noticia.id !== 'noticia-liga-ranco-final-2026') {
+                if (noticia.id === 'noticia-octavo-blitz') {
+                    const fotos = noticia.galeria.map(foto => {
+                        const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
+                        return { ruta, alt: 'Fotografía del 8.º Torneo Blitz' };
+                    }).filter(foto => urlBlogSegura(foto.ruta));
+                    // Respeta el orden editorial definido en la lista del artículo.
+                    const slides = fotos;
+                    const galleryTitle = document.createElement('h3');
+                    galleryTitle.className = 'blitz-gallery-title';
+                    galleryTitle.textContent = `Galería del 8.º Blitz · ${slides.length} fotografías`;
+                    texto.appendChild(galleryTitle);
+
+                    const carrusel = document.createElement('div');
+                    carrusel.className = 'blitz-carousel';
+                    if (noticia.galeriaId) carrusel.id = noticia.galeriaId;
+                    const marco = document.createElement('div');
+                    marco.className = 'blitz-carousel-frame';
+                    const anterior = document.createElement('button');
+                    anterior.type = 'button';
+                    anterior.className = 'blitz-carousel-arrow blitz-carousel-prev';
+                    anterior.setAttribute('aria-label', 'Ver fotografía anterior');
+                    anterior.textContent = '‹';
+                    const imagen = document.createElement('img');
+                    imagen.className = 'blitz-carousel-image';
+                    imagen.loading = 'eager';
+                    imagen.decoding = 'async';
+                    imagen.tabIndex = 0;
+                    imagen.setAttribute('role', 'button');
+                    const siguiente = document.createElement('button');
+                    siguiente.type = 'button';
+                    siguiente.className = 'blitz-carousel-arrow blitz-carousel-next';
+                    siguiente.setAttribute('aria-label', 'Ver fotografía siguiente');
+                    siguiente.textContent = '›';
+                    marco.append(anterior, imagen, siguiente);
+                    const contador = document.createElement('span');
+                    contador.className = 'blitz-carousel-count';
+                    contador.setAttribute('aria-live', 'polite');
+                    carrusel.append(marco, contador);
+                    texto.appendChild(carrusel);
+
+                    let indice = 0;
+                    const mostrarSlide = nuevoIndice => {
+                        indice = (nuevoIndice + slides.length) % slides.length;
+                        const slide = slides[indice];
+                        imagen.src = urlBlogSegura(slide.ruta);
+                        imagen.alt = slide.alt;
+                        imagen.setAttribute('aria-label', `Ver imagen ampliada: ${slide.alt}`);
+                        contador.textContent = `${indice + 1} / ${slides.length}`;
+                    };
+                    anterior.addEventListener('click', () => mostrarSlide(indice - 1));
+                    siguiente.addEventListener('click', () => mostrarSlide(indice + 1));
+                    imagen.addEventListener('click', () => openImageModal(imagen.src, slides.map(foto => ({
+                        src: urlBlogSegura(foto.ruta),
+                        alt: foto.alt
+                    }))));
+                    imagen.addEventListener('keydown', event => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            openImageModal(imagen.src);
+                        }
+                    });
+                    carrusel.addEventListener('keydown', event => {
+                        if (event.key === 'ArrowLeft') { event.preventDefault(); mostrarSlide(indice - 1); }
+                        if (event.key === 'ArrowRight') { event.preventDefault(); mostrarSlide(indice + 1); }
+                    });
+                    mostrarSlide(0);
+                } else {
+                    noticia.galeria.forEach(foto => {
+                        const ruta = typeof foto === 'string' ? foto : (foto && (foto.foto || foto.imagen)) || '';
+                        const pieFoto = (foto && typeof foto === 'object' && foto.caption) || '';
+                        const altFoto = pieFoto || ('Fotografía de ' + String(noticia.titulo || 'la noticia'));
+                        agregarImagen(ruta, altFoto, 'blog-photo-strip', pieFoto);
+                    });
+                }
             }
             const listaResultados = noticia.id === "noticia-premilitar-2026-resultados" ? document.createElement("ul") : null;
             if (listaResultados) listaResultados.className = "blog-results-list";
@@ -383,6 +428,41 @@
                 tituloResultados.textContent = "Resultados oficiales";
                 texto.append(tituloResultados, listaResultados);
             }
+            if (noticia.id === 'noticia-liga-ranco-final-2026' && Array.isArray(noticia.galeria)) {
+                const fotos = noticia.galeria.map((foto, i) => {
+                    const ruta = typeof foto === 'string' ? foto : (foto && (foto.imagen || foto.foto)) || '';
+                    const src = ruta ? urlBlogSegura(encodeURI(ruta)) : '';
+                    return src ? { src, alt: 'Liga del Ranco, fotografía ' + (i + 1) } : null;
+                }).filter(Boolean);
+                const galeriaWrap = document.createElement('div');
+                galeriaWrap.className = 'blog-ranco-gallery-wrap';
+                galeriaWrap.style.cssText = 'position:relative;margin:1rem 0';
+                const galeria = document.createElement('div');
+                galeria.className = 'blog-photo-strip blog-ranco-gallery';
+                if (noticia.galeriaId) galeria.id = noticia.galeriaId;
+                galeria.setAttribute('aria-label', 'Galería de fotografías de la Liga del Ranco');
+                galeria.style.cssText = 'display:flex;flex-wrap:nowrap;gap:.75rem;overflow-x:auto;overflow-y:hidden;scroll-behavior:smooth;scroll-snap-type:x mandatory;padding:.25rem .1rem .7rem;scrollbar-width:thin';
+                fotos.forEach(foto => {
+                    const imagen = document.createElement('img');
+                    imagen.src = foto.src; imagen.alt = foto.alt; imagen.loading = 'lazy'; imagen.decoding = 'async'; imagen.tabIndex = 0; imagen.setAttribute('role', 'button');
+                    imagen.style.cssText = 'display:block;flex:0 0 clamp(145px,22vw,230px);width:clamp(145px,22vw,230px);height:clamp(110px,16.5vw,172px);object-fit:cover;border-radius:12px;cursor:zoom-in;scroll-snap-align:start';
+                    imagen.addEventListener('click', () => openImageModal(foto.src, fotos));
+                    imagen.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openImageModal(foto.src, fotos); } });
+                    galeria.appendChild(imagen);
+                });
+                const crearFlecha = (direccion, etiqueta) => {
+                    const boton = document.createElement('button');
+                    boton.type = 'button';
+                    boton.className = 'blog-ranco-gallery-arrow blog-ranco-gallery-arrow-' + direccion;
+                    boton.setAttribute('aria-label', etiqueta);
+                    boton.textContent = direccion === 'prev' ? '‹' : '›';
+                    boton.style.cssText = 'position:absolute;z-index:1;top:50%;' + (direccion === 'prev' ? 'left:.35rem;' : 'right:.35rem;') + 'transform:translateY(-50%);width:2.5rem;height:2.5rem;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(15,15,15,.82);color:#fff;font-size:2rem;line-height:1;cursor:pointer;display:grid;place-items:center';
+                    boton.addEventListener('click', () => galeria.scrollBy({ left: (direccion === 'prev' ? -1 : 1) * Math.max(220, galeria.clientWidth * .78), behavior: 'smooth' }));
+                    return boton;
+                };
+                galeriaWrap.append(crearFlecha('prev', 'Ver fotografías anteriores'), galeria, crearFlecha('next', 'Ver fotografías siguientes'));
+                if (galeria.children.length) texto.appendChild(galeriaWrap);
+            }
             const botonCompartir = document.createElement('button');
             botonCompartir.type = 'button';
             botonCompartir.className = 'blog-share-button';
@@ -484,7 +564,9 @@
         { nombre: "Martina Puñanco", img: "media/martina-puñanco-1221ulo.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Nicolás Mundaca", img: "media/nicolas-mundaca-2026.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Lucas Pailla", img: "media/lucas-pailla.png", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Verónica Ruiz", img: "media/c36dab46-7570-48bd-81f9-de43ea146481.jpg", desc: "Sin ranking", enlace: "#" }
+        { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Verónica Ruiz", img: "media/c36dab46-7570-48bd-81f9-de43ea146481.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Adrián Mellado", img: "media/adrian-mellado37c4e2.png", desc: "Sin ranking", enlace: "#" }
     ];
     rankingList = rankingList.filter((v,i,a)=>a.findIndex(t=>t.nombre===v.nombre)===i);
     const joseSotoRanking = rankingList.find(j => ["jose soto", "josé soto"].includes(j.nombre.toLowerCase()));
@@ -500,8 +582,7 @@
     const promesasParaRanking = [
         { nombre: "Julián", img: "julian-osorno.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Carlos", img: "carlos-club-ajedrez-osorno-calbuco.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", desc: "Sin ranking", enlace: "#" },
-        { nombre: "Bastián", img: "bastian-osorno-ajedrez.jpg", desc: "Sin ranking", enlace: "#" },
+        { nombre: "Bastián Obando", img: "media/bastian-obando-club.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Mateo Martínez", img: "media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Maxi", img: "media/a8009847-33b8-4043-8cc9-5ac683ae6cc9.jpg", desc: "Sin ranking", enlace: "#" },
         { nombre: "Benjamín", img: "benjamin-ajedrez-osorno.jpg", desc: "Sin ranking", enlace: "#" },
@@ -542,7 +623,7 @@
         { nombre: "Carlos Quintraman Fernández", img: "carlos-club-ajedrez-osorno-calbuco.jpg", flag: "chile" },
         { nombre: "Vicente Pradines Zarate", img: "vicente22-ajedrez-osorno.jpg", flag: "chile" },
         { nombre: "Ángel Ruiz", img: "media/angel-ruizlo.jpg", flag: "chile" },
-        { nombre: "Bastián", img: "bastian-club-ajedrez-osorno.jpg", flag: "chile" },
+        { nombre: "Bastián Obando", img: "media/bastian-obando-club.jpg", flag: "chile" },
         { nombre: "Mateo Martínez", img: "media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg", flag: "chile" },
         { nombre: "Tomás Novakovic", img: "media/tomas-novak.jpg", flag: "chile" },
         { nombre: "Martina Puñanco", img: "media/martina-puñanco-1221ulo.jpg", flag: "chile" },
@@ -584,7 +665,7 @@
         { nombre: "Liga del Ranco - Julián y Renato", img: "3ecd1c39-e414-4d4c-9ca0-d972e3400801.jpg", desc: "Julián 1° Sub 10 y Renato 3°" },
         { nombre: "Campeón Tercer Blitz Mayo - Miguel Pacheco", img: "mighel.pacheco-osorno.jpg", desc: "Miguel Pacheco campeón del 3° Blitz 2026" },
         { nombre: "2° Lugar Tercer Blitz", img: "marcelo.jpg", desc: "Marcelo, segundo puesto en el torneo blitz" },
-        { nombre: "Bastian Campeón Sub 14", img: "bastian-club-ajedrez-osorno.jpg", desc: "Bastian logra el título en categoría Sub 14" },
+        { nombre: "Bastián Obando, campeón Sub 14", img: "media/bastian-obando-club.jpg", desc: "Bastián logra el título en categoría Sub 14" },
         { nombre: "Carlos Campeón Sub 16", img: "carlos-mama-clun-mm.jpg", desc: "Carlos se corona campeón Sub 16" },
         { nombre: "Rosa Cárdenas - Destacada del Blitz de Mayo", img: "rosaan-ajedrez-osorno.jpg", desc: "Rosa tuvo una actuación sobresaliente en el torneo" },
         { nombre: "Nelson - Tercer Lugar Tercer Blitz", img: "07780cb8-bf30-4605-a0a1-5a7313cb5990.jpg", desc: "Nelson se adjudica el tercer puesto" },
@@ -648,12 +729,12 @@
     const eventosArchivo = [];
     
     const torneosEscolares = [
-        { fecha: "Miércoles 4 de noviembre de 2026", fechaISO: "2026-11-04", titulo: "Copa Pontevedra", enlaces: [{ url: "https://s1.chess-results.com/tnr1529649.aspx?lan=2&SNode=S0", texto: "Resultados de Copa Pontevedra" }] },
+        { fecha: "Miércoles 25 de noviembre de 2026", fechaISO: "2026-11-25", titulo: "Copa Pontevedra · próxima jornada", nota: "Rondas cada miércoles a las 19:15 horas; la próxima fecha es el 25 de noviembre y el torneo concluye el 2 de diciembre.", enlaces: [{ url: "https://s1.chess-results.com/tnr1529649.aspx?lan=2&SNode=S0", texto: "Ver resultados oficiales" }, { url: "#noticia-copa-pontevedra-2026", texto: "Leer en el blog", target: "_self" }] },
         { fecha: "Lunes 2 de noviembre de 2026", fechaISO: "2026-11-02", titulo: "Match de Ajedrez: Colegio Alemán Osorno vs. Liceo Premilitar Héroes de la Concepción", nota: "Encuentro de talleres · 15:00 a 16:30 hrs." },
         { fecha: "Sábado 7 de noviembre de 2026", fechaISO: "2026-11-07", titulo: "Campeonato Escolar de Ajedrez · Liceo Premilitar Héroes de la Concepción", nota: "Confirmación 9:30 hrs. · 6 rondas suizas · ritmo 10+5 · 40 cupos · Inscripciones: chessacademyosorno1@gmail.com", bases: "descargas/Bases_Torneo_Escolar_Liceo_Premilitar_2026.pdf" },
         { fecha: "Viernes 13 de noviembre de 2026", fechaISO: "2026-11-13", titulo: "8.º Torneo Blitz del Club · realizado", enlaces: [{ url: "https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0", texto: "Clasificación y resultados oficiales en Chess-Results" }, { url: "#noticia-octavo-blitz", texto: "Noticia y galería de fotos", target: "_self" }] },
         { fecha: "Viernes 11 de diciembre de 2026", fechaISO: "2026-12-11", titulo: "9.º Torneo Blitz · Gran Último Blitz 2026", lugar: "Club de Ajedrez Osorno", nota: "Ritmo 3+2 · Bases y premios próximamente", imagen: "media/8f713ac0-43b1-4c34-b56b-04046aa9c8ae.png" },
-        { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco", lugar: "La Unión" },
+        { fecha: "Sábado 21 de noviembre de 2026", fechaISO: "2026-11-21", titulo: "Final de la Liga del Ranco · realizada", lugar: "La Unión", enlaces: [{ url: "#noticia-liga-ranco-final-2026", texto: "Noticia y galería", target: "_self" }, { url: "https://s3.chess-results.com/tnr1547942.aspx?lan=2&art=1&fed=CHI&SNode=S0", texto: "Clasificación Open" }, { url: "https://s3.chess-results.com/tnr1547936.aspx?lan=2&art=1&SNode=S0", texto: "Clasificación Sub 10" }, { url: "https://s2.chess-results.com/tnr1547934.aspx?lan=2&art=1&SNode=S0", texto: "Clasificación Sub 8" }] },
         { fecha: "Miércoles 9 de diciembre de 2026", fechaISO: "2026-12-09", titulo: "Sudamericano Escolar", lugar: "Santiago" },
 
         { fecha: "3 de octubre de 2026", fechaISO: "2026-10-03", lugar: "San Pablo (Gimnasio Municipal)" },
@@ -854,10 +935,18 @@
             mostrarEstadoImagen(ok ? 'Enlace copiado.' : 'No se pudo copiar automáticamente; usa el enlace disponible.');
         };
     }
-    function openImageModal(imgSrc) {
+    function openImageModal(imgSrc, galeriaImagenes = null) {
         const modal = document.getElementById('imagenMaxModal');
         const url = obtenerUrlImagen(imgSrc);
         if (!modal || !url) return;
+        if (Array.isArray(galeriaImagenes) && galeriaImagenes.length) {
+            imagenesModal = galeriaImagenes;
+            indiceImagenModal = Math.max(0, imagenesModal.findIndex(imagen => obtenerUrlImagen(imagen.src) === url));
+            mostrarImagenModal(indiceImagenModal);
+            abrirModal(modal);
+            modal.onclick = function(e) { if (e.target === modal) cerrarModal(modal); };
+            return;
+        }
         const imagenesBlog = [...document.querySelectorAll('.blog-card .blog-feature-image img, .blog-card .blog-photo-strip img')];
         const imagenActiva = imagenesBlog.find(imagen => obtenerUrlImagen(imagen.currentSrc || imagen.src) === url);
         const tarjetaArticulo = imagenActiva?.closest('.blog-card');

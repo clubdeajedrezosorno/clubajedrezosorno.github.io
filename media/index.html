@@ -1255,6 +1255,22 @@
         .hero-event-link { display: inline-flex; justify-content: center; align-items: center; gap: 0.4rem; padding: 0.7rem 0.95rem; border-radius: 999px; background: #ffad45; color: #23130a; font-weight: 900; text-decoration: none; white-space: nowrap; }
         .hero-event-link:hover { filter: brightness(1.08); transform: translateY(-1px); }
         @media (max-width: 620px) { .hero-event-notice { grid-template-columns: 1fr; gap: 0.55rem; } .hero-event-link { justify-self: start; } }
+        .hero-community-links { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0.7rem; width: min(840px, 100%); margin: 0.75rem auto 0.25rem; }
+        .hero-community-links .hazte-socio-cta { grid-column: 2; grid-row: 1; justify-self: center; margin: 0; min-height: 54px; padding: 0.85rem 1.55rem; font-size: 1.02rem; box-shadow: 0 10px 30px rgba(212,175,55,0.34); }
+        .hero-community-link {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            min-height: 46px; padding: 0.7rem 1.05rem; border-radius: 999px;
+            font-weight: 850; text-decoration: none; transition: transform 0.2s ease, filter 0.2s ease;
+        }
+        .hero-community-link:hover { transform: translateY(-2px); filter: brightness(1.08); }
+        .hero-community-link.instagram-cta { grid-column: 1; grid-row: 1; justify-self: end; color: #fff; border: 1px solid rgba(255,255,255,0.28); background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 52%, #cc2366 74%, #bc1888 100%); box-shadow: 0 8px 22px rgba(220,39,67,0.24); }
+        .hero-community-link.academy-cta { grid-column: 3; grid-row: 1; justify-self: start; color: #172006; border: 1px solid #8fa51d; background: #a9c42d; box-shadow: 0 8px 22px rgba(169,196,45,0.28); }
+        @media (max-width: 620px) {
+            .hero-community-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; }
+            .hero-community-links .hazte-socio-cta { grid-column: 1 / -1; grid-row: 1; }
+            .hero-community-link.instagram-cta { grid-column: 1; grid-row: 2; justify-self: stretch; padding-inline: 0.35rem; font-size: 0.8rem; }
+            .hero-community-link.academy-cta { grid-column: 2; grid-row: 2; justify-self: stretch; padding-inline: 0.35rem; font-size: 0.8rem; }
+        }
         .hazte-socio-cta {
             display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem;
             min-height: 44px; margin: 0.65rem 0 0.25rem; padding: 0.7rem 1.1rem;
@@ -2523,18 +2539,58 @@
             #galeriaImagenesModal .galeria-netflix { grid-template-columns: 1fr; }
             #galeriaImagenesModal .gallery-img { aspect-ratio: 4 / 3; }
         }
-        .blitz-gallery-title { grid-column: 1 / -1; margin: 1.4rem 0 0.35rem; color: #f0d77a; font-size: 1.1rem; }
-        .blog-card.featured-news .blog-photo-strip.blitz-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 0.75rem; overflow: visible; scroll-snap-type: none; padding: 0.25rem 0; }
-        .blog-card.featured-news .blog-photo-strip.blitz-photo-grid img { width: 100%; min-width: 0; flex: initial; aspect-ratio: 4 / 3; object-fit: cover; scroll-snap-align: none; }
-        .blitz-photo-card { min-width: 0; margin: 0; }
-        .blitz-photo-card figcaption { margin-top: 0.35rem; color: #f0e6c5; font-size: 0.9rem; line-height: 1.3; text-align: center; }
-        #blogContainer .blog-card.featured-news .blog-photo-strip.blitz-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: 0.75rem; overflow: visible; scroll-snap-type: none; }
-        #blogContainer .blog-card.featured-news .blog-photo-strip.blitz-photo-grid .blitz-photo-card { width: 100%; min-width: 0; }
-        #blogContainer .blog-card.featured-news .blog-photo-strip.blitz-photo-grid .blitz-photo-card img { display: block; width: 100%; min-width: 0; flex: none; aspect-ratio: 4 / 3; }
-        #blogContainer .blog-card.featured-news .blog-photo-strip.blitz-photo-grid .blitz-photo-card figcaption { overflow-wrap: anywhere; }
-        @media (max-width: 620px) { .blog-card.featured-news .blog-photo-strip.blitz-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; } }
-        @media (max-width: 620px) { #blogContainer .blog-card.featured-news .blog-photo-strip.blitz-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.55rem; } }
-    </style>
+        .blitz-gallery-title { margin: 1.25rem 0 0.6rem; color: #f0d77a; font-size: 1.1rem; }
+        #blogContainer .blog-card.featured-news .blitz-carousel { width: 100%; margin: 0.5rem 0 0.4rem; }
+        .blitz-carousel-frame {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            max-width: 100%;
+            height: auto;
+            min-height: 0;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 1px solid rgba(240,215,122,0.24);
+            border-radius: 18px;
+            background: #080807;
+        }
+        .blitz-carousel-frame .blitz-carousel-image {
+            display: block;
+            width: auto !important;
+            height: auto !important;
+            max-width: 100%;
+            max-height: min(62vh, 560px);
+            object-fit: contain !important;
+            cursor: zoom-in;
+        }
+        .blitz-carousel-arrow {
+            position: absolute;
+            z-index: 2;
+            top: 50%;
+            width: 46px;
+            height: 64px;
+            transform: translateY(-50%);
+            border: 1px solid rgba(240,215,122,0.48);
+            border-radius: 12px;
+            background: rgba(8,8,7,0.78);
+            color: #f0d77a;
+            font-size: 2.5rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .blitz-carousel-arrow:hover { background: rgba(31,111,88,0.92); }
+        .blitz-carousel-prev { left: 0.75rem; }
+        .blitz-carousel-next { right: 0.75rem; }
+        .blitz-carousel-count { display: block; margin-top: 0.35rem; color: #d7d0c0; font-size: 0.82rem; text-align: right; font-variant-numeric: tabular-nums; }
+        @media (max-width: 640px) {
+            .blitz-carousel-frame { border-radius: 14px; }
+            .blitz-carousel-frame .blitz-carousel-image { max-height: 58vh; }
+            .blitz-carousel-arrow { width: 40px; height: 54px; font-size: 2.1rem; }
+            .blitz-carousel-prev { left: 0.45rem; }
+            .blitz-carousel-next { right: 0.45rem; }
+        }    </style>
 </head>
 <body>
 <div id="clubSplash" class="event-splash" data-event-date="2026-12-11" role="dialog" aria-modal="true" aria-label="Afiche del 9.º Torneo Blitz del Club de Ajedrez Osorno" tabindex="0">
@@ -2555,7 +2611,7 @@
                 </div>
             </div>
             <div class="jugador-destacado-header" id="octubreHeaderTrigger" aria-label="Jugadores destacados octubre 2026">
-                <img class="destacado-collage" src="destacados-octubre-2026.jpg" alt="Jugadores destacados octubre 2026 del Club de Ajedrez Osorno" decoding="async">
+                <img class="destacado-collage" src="destacados-octubre-2026.jpg?v=20261123-sergio-renato" alt="Jugadores destacados octubre 2026 del Club de Ajedrez Osorno" decoding="async">
                 <span>Destacados<br><small>Octubre 2026</small></span>
             </div>
         </div>
@@ -2585,7 +2641,7 @@
                 <div><strong class="hero-event-title">9.º Torneo Blitz · Gran Último Blitz</strong></div>
                 <a class="hero-event-link" href="#calendario2026">Ver calendario <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
             </section>
-            <a class="hazte-socio-cta" href="https://docs.google.com/forms/d/1DtM_Ibiyy4gK1OVyMrrdh4nZbeAGRnhkqmBedB_k29o/viewform" target="_blank" rel="noopener"><i class="fas fa-user-plus" aria-hidden="true"></i> Hazte socio</a>
+            <div class="hero-community-links"><a class="hazte-socio-cta" href="https://docs.google.com/forms/d/1DtM_Ibiyy4gK1OVyMrrdh4nZbeAGRnhkqmBedB_k29o/viewform" target="_blank" rel="noopener"><i class="fas fa-user-plus" aria-hidden="true"></i> Hazte socio</a><a class="hero-community-link instagram-cta" href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> Instagram del club</a><a class="hero-community-link academy-cta" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener">Academia Club</a></div>
         </div>
     </div>
 
@@ -2623,9 +2679,9 @@
                     <p>Lo más importante para socios, apoderados, jugadores y visitantes.</p>
                 </div>
                 <div class="spotlight-strip">
-                    <div class="spotlight-item"><div class="label">Destacados</div><strong>Renato · Maximiliano · Bastián</strong><span>Campeones Sub 10, Sub 12 y Sub 14 del Open Escolar.</span></div>
-                    <div class="spotlight-item"><div class="label">Open Escolar 2026</div><strong>40 jugadores</strong><span>Primera fiesta escolar organizada por el club.</span><a class="bases-escolar-link" href="https://s1.chess-results.com/tnr1425141.aspx?lan=2&art=1&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-trophy"></i> Ver resultados</a></div>
-                    <div class="spotlight-item"><div class="label">Aniversario</div><strong>24 de agosto de 2026</strong><span>102 años de historia institucional.</span><a class="bases-escolar-link" href="https://www.instagram.com/club.ajedrez.osorno/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram del club</a></div>
+                    <div class="spotlight-item"><div class="label">Copa Pontevedra · En juego</div><strong>Cada miércoles · 19:15</strong><span>La 4.ª ronda ya se disputó. El torneo continúa hasta el 2 de diciembre.</span><a class="bases-escolar-link" href="#noticia-copa-pontevedra-2026"><i class="fas fa-newspaper"></i> Leer en el blog</a></div>
+                    <div class="spotlight-item"><div class="label">Campeones escolares</div><strong>Nicolás · Lucas · Martina · Laura</strong><span>Campeones Sub 8, Sub 10, Sub 12 y Sub 14 en la Escuela Carlo Condell.</span><a class="bases-escolar-link" href="#noticia-campeones-carlo-condell-2026"><i class="fas fa-newspaper"></i> Ver noticia</a></div>
+                    <div class="spotlight-item"><div class="label">8.º Blitz · 13 de noviembre</div><strong>Jornada realizada en Osorno</strong><span>Consulta los resultados oficiales y revive el torneo en una galería de 37 fotos.</span><a class="bases-escolar-link" href="https://s3.chess-results.com/tnr1538869.aspx?lan=1&SNode=S0" target="_blank" rel="noopener"><i class="fas fa-trophy"></i> Resultados</a><a class="bases-escolar-link" href="#noticia-octavo-blitz"><i class="fas fa-images"></i> Galería</a></div>
                 </div>
             </section>
 
@@ -2702,8 +2758,8 @@
 <div id="tesoreriaModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeTesoreriaModalBtn">&times;</button><h2><i class="fas fa-money-bill-wave"></i> Tesorería - Cuotas socios</h2><div class="datos-bancarios"><div class="tesoreria-datos-grid"><div><p><strong>Banco:</strong> Scotiabank</p><p><strong>Nombre:</strong> CLUB DEPORTIVO AJEDREZ OSORNO</p><p><strong>Cuenta Corriente Nº:</strong> 989752898</p><p><strong>RUT:</strong> 65.533.360-6</p><p><strong>Correo:</strong> clubdeajedrezosorno@gmail.com</p><p><strong>Tesorero:</strong> Nelson</p><button class="btn-compartir" type="button" data-share-url="#tesoreria" data-share-title="Tesorería Club de Ajedrez Osorno"><i class="fas fa-share-alt"></i> Compartir tesorería</button></div><div><img class="tesorero-foto" src="nelson2-ajedrez-osorno.jpg" alt="Nelson, tesorero del Club de Ajedrez Osorno" loading="lazy" decoding="async"><div class="tesorero-caption">Tesorero</div></div></div></div><div id="tesoreriaContent"></div></div></div>
 <div id="campeonMundialModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeCampeonMundialBtn">&times;</button><h2><i class="fas fa-globe"></i> Campeones del Mundo</h2><div id="campeonesMundialesContainer" class="campeones-netflix"></div></div></div>
 <div id="promesasModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closePromesasModalBtn">&times;</button><h2><i class="fas fa-seedling"></i> Jóvenes Promesas</h2><div class="grid-4cols" id="promesasGrid"></div></div></div>
-<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="julian-dso-ajedrez.jpg" alt="Julián, alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg" alt="Mateo Martínez, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/tomas-novak.jpg" alt="Tomás Novakovic, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/laura-puñanco.jpg" alt="Laura Puñanco, alumna de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/martina-puñanco-1221ulo.jpg" alt="Martina Puñanco, alumna de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/castilla-jorge-2026-cademia.png" alt="Jorge Castilla, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p><p style="margin-top:0.75rem; color:#ccc;">Para clases personalizadas, modalidad online y preparación competitiva, visita <strong>Chess Academy Osorno</strong>.</p><a class="btn-compartir" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ir a chessacademyosorno.cl</a></div></div>
-<div id="octubreDestacadosModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeOctubreDestacadosModalBtn">&times;</button><h2><i class="fas fa-star"></i> Jugadores destacados de octubre</h2><img src="destacados-octubre-2026.jpg" alt="Integrantes del Club de Ajedrez Osorno en la Liga del Ranco, octubre de 2026" loading="lazy" decoding="async" style="width:100%; max-height:72vh; object-fit:contain; border-radius:16px; margin-top:1rem;"><p style="margin-top:1rem; color:#ccc;">Representantes del Club de Ajedrez Osorno en la Liga del Ranco, octubre de 2026.</p></div></div>
+<div id="escuelaModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeEscuelaModalBtn">&times;</button><h2><i class="fas fa-chalkboard-user"></i> Escuela de Ajedrez</h2><div class="escuela-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;"><div><img src="e893cc04-a801-40e8-9235-9884035d9508.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="9696bc0d-dded-4141-a143-115150ebb480.jpg" alt="Escuela de Ajedrez Osorno" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="yo-clases-osorno.jpg" alt="Clases" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="julian-dso-ajedrez.jpg" alt="Julián, alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="renato-club-ajedrez-osorno.jpg" alt="Alumno de la escuela" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="vero y mateo.jpg" alt="Escuela 4" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="escuela-club.jpg" alt="Escuela Club" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="mateo-juian-ajedrez-osorno-ajedrez.jpg" alt="Mateo Julián" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/mateo-martinez2026-11-15 at 9.46.51 PM.jpeg" alt="Mateo Martínez, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/tomas-novak.jpg" alt="Tomás Novakovic, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/laura-puñanco.jpg" alt="Laura Puñanco, alumna de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/martina-puñanco-1221ulo.jpg" alt="Martina Puñanco, alumna de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/castilla-jorge-2026-cademia.png" alt="Jorge Castilla, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/angel-ruizlo.jpg" alt="Ángel Ruiz, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div><div><img src="media/bastian-obando-club.jpg" alt="Bastián Obando, alumno de la Escuela de Ajedrez" loading="lazy" decoding="async" style="width:100%; border-radius:20px; cursor:pointer;"></div></div><p style="margin-top:1rem;">Formación para niños y adultos. Clases teóricas y prácticas con monitores calificados.</p><p style="margin-top:0.75rem; color:#ccc;">Para clases personalizadas, modalidad online y preparación competitiva, visita <strong>Chess Academy Osorno</strong>.</p><a class="btn-compartir" href="https://chessacademyosorno.cl/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Ir a chessacademyosorno.cl</a></div></div>
+<div id="octubreDestacadosModal" class="modal-overlay"><div class="modal-container" style="max-width: 1100px; text-align: center;"><button class="close-modal" id="closeOctubreDestacadosModalBtn">&times;</button><h2><i class="fas fa-star"></i> Jugadores destacados de octubre</h2><img src="destacados-octubre-2026.jpg?v=20261123-sergio-renato" alt="Integrantes del Club de Ajedrez Osorno en la Liga del Ranco, octubre de 2026" loading="lazy" decoding="async" style="width:100%; max-height:72vh; object-fit:contain; border-radius:16px; margin-top:1rem;"><p style="margin-top:1rem; color:#ccc;">Representantes del Club de Ajedrez Osorno en la Liga del Ranco, octubre de 2026.</p></div></div>
 <div id="archivoModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeArchivoModalBtn">&times;</button><h2><i class="fas fa-archive"></i> Histórico y descargas</h2><div class="tab-container"><button class="tab-btn active" data-tab="descargas">📥 Descargas</button></div><div id="tabEventos" class="tab-content" style="display:none;"><div id="archivoContent"></div><div class="paginacion" id="archivoPaginacion"></div></div><div id="tabDescargas" class="tab-content active"><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1990</h4><p>Campeón: Juan Pablo Varas - Partidas completas</p></div><a href="descargas/boletin_1990.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1990.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Boletín Torneo Mayor 1992</h4><p>Campeón: Sergio Vera - 45 partidas</p></div><a href="descargas/boletin_1992.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/boletin_1992.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Ver en pantalla</a></div><div class="descarga-item"><i class="fas fa-file-pdf"></i><div class="descarga-info"><h4>Nuevas armas de batalla – Fredy Wompner</h4><p>Libro/aporte estratégico del socio Fredy Wompner</p></div><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" download>📥 Descargar PDF</a><a href="descargas/nuevas-armas-de.pdf" class="btn-descargar" target="_blank" rel="noopener" style="margin-left: 0.5rem;">👁️ Abrir libro</a></div></div></div></div>
 <div id="galeriaImagenesModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeGaleriaImagenesModalBtn" aria-label="Cerrar galería">&times;</button><h2><i class="fas fa-images"></i> Galería de Imágenes</h2><p class="gallery-intro">Torneos, encuentros y momentos que cuentan la historia del Club de Ajedrez Osorno.</p><div class="gallery-navigation"><a class="gallery-tab gallery-home-link" href="#club"><i class="fas fa-house" aria-hidden="true"></i> Volver al inicio</a></div><div id="galeriaTabs" class="gallery-tabs" aria-label="Filtrar galería"></div><div id="galeriaNetflixContainer" class="galeria-netflix"></div></div></div>
 <div id="contactoModal" class="modal-overlay"><div class="modal-container" style="max-width: 600px;"><button class="close-modal" id="closeContactoModalBtn">&times;</button><h2><i class="fas fa-envelope"></i> Contacto</h2>
@@ -2722,7 +2778,7 @@
 <div id="imagenMaxModal" class="modal-overlay"><div class="modal-container" style="max-width: 90vw; max-height: 90vh; text-align: center; padding: 1rem;"><button class="close-modal" id="closeImagenMaxModalBtn" aria-label="Cerrar imagen">&times;</button><div class="image-modal-viewer"><button class="image-modal-nav" id="imageModalPrevious" type="button" aria-label="Foto anterior" hidden>‹</button><img id="imagenMaxSrc" alt="Imagen ampliada" style="max-height: 70vh; border-radius: 20px;"><button class="image-modal-nav" id="imageModalNext" type="button" aria-label="Foto siguiente" hidden>›</button></div><div id="imageModalCounter" aria-live="polite"></div><div id="imageModalCaption" hidden aria-live="polite"></div><div class="image-actions"><button id="btnCompartirImagen" type="button"><i class="fas fa-share-alt" aria-hidden="true"></i> Compartir imagen</button><button id="btnCopiarImagen" type="button"><i class="fas fa-copy" aria-hidden="true"></i> Copiar imagen</button><button id="btnCopiarEnlaceImagen" type="button"><i class="fas fa-link" aria-hidden="true"></i> Copiar enlace</button><a id="btnDescargarImagen" href="#" download><i class="fas fa-download" aria-hidden="true"></i> Descargar</a></div><p id="imageActionStatus" class="image-action-status" role="status" aria-live="polite"></p></div></div>
 <div id="colaboradoresModal" class="modal-overlay"><div class="modal-container"><button class="close-modal" id="closeColaboradoresModalBtn">&times;</button><h2><i class="fas fa-handshake"></i> Colaboradores del Club</h2><div id="colaboradoresContainer" class="colaboradores-grid"></div><p style="margin-top:1.5rem; text-align:center; color:#ccc;">¡Gracias a todos los que apoyan nuestro club!</p></div></div>
 
-<script src="index.js?v=20261117-angel-ruiz" defer></script>
+<script src="index.js?v=20261122-liga-ranco-gallery-v3" defer></script>
 </body>
 </html>
 
